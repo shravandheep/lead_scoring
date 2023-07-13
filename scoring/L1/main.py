@@ -49,8 +49,7 @@ def process(data, model):
 
 
     result_dict = {
-        "LeadId": 'Testing_lead_l2_model',
-        "score" : 1.0
+        "L1_model_score": 1.0
     }
         
     return result_dict

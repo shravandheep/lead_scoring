@@ -28,7 +28,7 @@ def initialize_node(node_config, **kwargs):
 
 def process(data):
     """
-    Process data from parent nodes. Parent node for Border is Background
+    Process data from parent nodes. Parent nodes for Consolidation Node are L1 and L2 nodes
 
     Parameters :
     ----------
@@ -41,11 +41,13 @@ def process(data):
     """
 
     parsed_data, packet_id, _ = check_and_unpack_data(data)
-    args_dict = create_arguments_dict(parsed_data, ['input'])
+    args_dict = create_arguments_dict(parsed_data, ['input', 'L1_model_score', 'L2_model_score'])
+    
+    # HACK 
+    final_score = args_dict['L1_model_score']
 
     result_dict = {
-        "LeadId": 'lead_consolidation',
-        "score" : 0.5
+        'Lead_score' : final_score
     }
         
     return result_dict
