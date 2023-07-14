@@ -26,7 +26,8 @@ class Split(Plugin):
     def __init__(self,kwargs):
         self._status = True
         self._error =None
-        self._char = kwargs['char']
+        self._char = kwargs['char'] 
+        self._day = kwargs["day"]
     
     def get_status(self):
         return self._status
@@ -35,8 +36,8 @@ class Split(Plugin):
         return self._error
 
     def apply(self,x):
-        split_data = x.str.split(self._char) 
-        return split_data 
+        split_data = str(x).split(self._char) 
+        return split_data[self._day]
      
 
 
@@ -165,6 +166,7 @@ class Substitute(Plugin):
                 config_path = os.path.join(_FILE_PATH, 'configs')
                 subst_path = os.path.join(config_path, self._from)
                 self._data = json.load(open(subst_path))
+                
                 assert type(self._from)==str,"'from' must be a list of strings: %s "%self._from
                 
             else:

@@ -38,79 +38,96 @@ def initialize_model(wts_path):
 
 def transform_features(data, config_path):
     
-    feature_translator = Translator(config_path) ##data config path
+    feature_translator = Translator(config_path) 
     features = feature_translator.translate(data)
     
     return features
                            
     
-def encoding(features, node_dict):
+def encoding(features, encoders_dict):
     
-    label_encoder = node_dict['label_encoder']
-    scaler = node_dict['scaler']
+    label_encoder = encoders_dict['label_encoder']
+    scaler = encoders_dict['scaler']
 
     if not isinstance(features, pd.DataFrame):
         X = pd.DataFrame.from_dict(features, orient='index').T
     else:
         X = features
 
-    print('LE :', label_encoder.keys())
     for col in X.columns:
         if label_encoder.get(col):
             X[col] = label_encoder[col].transform(X[col])
 
-    X['class_url'] = 0
-    X['Lead_Medium__c'] = 0
-    
-#     X = scaler.transform(X)
+    ## TODO: Fix the scaler 
+    # X = scaler.transform(X)
     return X
     
 
-def inference(model_dict, data):
+def inference(node_dict, data):
                            
-    model_config = model_dict['inference_cfg']    
-    config_dict = model_dict['config_dict']
+    model_config = node_dict['inference_cfg']    
+    config_dict = node_dict['config_dict']
     
-    filters = transform_features(data, config_dict['feature_config']) #include new data config 
-                           
-                           
+    
+    filters_t = transform_features(data, config_dict['feature_config']) #include new data config 
+    
     for key, value in model_config.items():
+        
         filters = value.get("filters", {})
-
-        if all(filter_name in filters and \
-               filters[filter_name] in filter_values for filter_name, filter_values in filters.items()):
-
-            # TODO : Write the new star data logic either to query or to check cache
-            # Nuestar logic
-            neu_match = "not_matched"     
-    
-
-            select_model = value["neustar_filter"][neu_match]["select_model"]
+        
+        if all(filter_name in filters_t and filters_t[filter_name] in filter_values for filter_name, filter_values in filters.items()):
+            #nuestar logic
+            #neu_match = "not_matched"
+            neu_match = "matched"
+            
+            
+            selected_model = value["neustar_filter"][neu_match]["select_model"]
             data_config = value["neustar_filter"][neu_match]["data_source"]
             considered_features = value["neustar_filter"][neu_match]["considered_features"]
+            selected_label_encoder = value["neustar_filter"][neu_match]["model_params"]['preprocessing_steps'][0]
+            selected_scaler = value["neustar_filter"][neu_match]["model_params"]['preprocessing_steps'][1]
             break
     
-    
+    # Feature selection
     if config_dict.get(data_config):
         data = transform_features(data, config_dict[data_config])
     else:
         raise Exception("No config was found. Please check")
-    
-    data.pop('CreatedDate')
-    
-    
+
     data = pd.DataFrame.from_dict(data, orient='index').T
     data = data[considered_features]
     
-    data = encoding(data, model_dict)
     
-    if model_dict['model_dict'].get(select_model):
-        model = model_dict['model_dict'][select_model]
+    # Encoding 
+    label_encoder_dict = node_dict['label_encoders']
+    scaler_dict = node_dict['scalers']
+    
+
+    if label_encoder_dict.get(selected_label_encoder):
+        label_encoder = label_encoder_dict[selected_label_encoder]
+    else:
+        raise Exception("No Encoder matching found")
+        
+    if scaler_dict.get(selected_scaler):
+        scaler = scaler_dict[selected_scaler]
+    else:
+        raise Exception("No Scaler matching found")
+        
+    encoders_dict = {
+        'label_encoder' : label_encoder,
+        'scaler' : scaler
+    }
+    
+    data = encoding(data, encoders_dict)
+    
+    # Model selection
+    if node_dict['model_dict'].get(selected_model):
+        model = node_dict['model_dict'][selected_model]
     else:
         raise Exception("No model key was found. Please check")
 
-    prediction = model.predict_proba([data.values])[0]
-    score = prediction[1]
+    prediction = model.predict_proba(data)
+    score = prediction[0][1]
     
     return score
 

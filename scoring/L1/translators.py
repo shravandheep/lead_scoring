@@ -51,7 +51,6 @@ class Translator(object):
                     self._translators[key]['alias'].append(key)
                     self._translators[key]['function'].append(func)
                     
-                    
         ## HACK : This is a singleton class but we're removing this constraint for a specific usecase
         ## This should be handled differently in the future
         # Translator.__instance = self
@@ -74,11 +73,17 @@ class Translator(object):
                     functions = self._translators[key]['function']
                     
                     for (y, func) in zip(new_fields, functions):
-                        
-                        if y not in new_data.keys():
-                            new_data[y] = self.run_translators(value, func)
-                    
+                            
+                        if new_data.get(y):
+                            value = new_data[y]
+                            
+                        new_data[y] = self.run_translators(value, func)   
+
                 except Exception as ex:
-                    print(traceback.format_exc())
+                    pass
+            else:
+                pass
             
         return new_data
+    
+    
