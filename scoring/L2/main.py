@@ -45,11 +45,10 @@ def process(data, model):
     """
 
     parsed_data, packet_id, _ = check_and_unpack_data(data)
-    args_dict = create_arguments_dict(parsed_data, ['input'])
+    args_dict = create_arguments_dict(parsed_data, ['data'])
 
     result_dict = {
-        "LeadId": 'Testing_lead_l2_model',
-        "score" : 1.0
+        'L2_model_score' : 1.0
     }
         
     return result_dict
