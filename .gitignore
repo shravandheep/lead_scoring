@@ -1,2 +1,9 @@
 .ipynb_checkpoints/
 __pycache__/
+*.egg-info
+
+
+# weights and configs
+weights/
+configs/
+encoders/

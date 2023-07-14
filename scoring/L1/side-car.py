@@ -14,10 +14,10 @@ log = setup_logger(NODE_L1, logging.INFO)
 node = App('L1 scoring')
 
 # get config
-config = get_config()
+# config = get_config()
 
 # model init
-model = initialize_node(config)
+node_dict = initialize_node({})
 log.info("initialize_node done")
 log.info("ENV_TYPE is : {}".format(_ENV_TYPE))
 
@@ -37,7 +37,7 @@ def process(payload):
     -------
         res_dic : dict of result
     """
-    result_dict = main_process(payload, model)
+    result_dict = main_process(payload, node_dict)
     return result_dict
 
 
