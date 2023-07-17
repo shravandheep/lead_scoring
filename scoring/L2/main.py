@@ -7,7 +7,7 @@ from auxiliary.util.global_constants import NODE_L2
 from auxiliary.util.global_constants import WTS_PATH
 from auxiliary.util.common_utils import setup_logger, check_and_unpack_data, create_arguments_dict
 
-from scoring.L2.L2_model import initialize_model, inference
+from scoring.L2.L2_model import initialize_model
 
 logger = setup_logger(NODE_L2, logging.INFO)
 local_flag = True if os.getenv('local') else False
