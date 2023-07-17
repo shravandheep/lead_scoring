@@ -1,0 +1,321 @@
+{
+    "Lead_Medium__c": [
+        {
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "fb",
+                    "lg",
+                    "social",
+                    "youtube",
+                    "facebook",
+                    "social04",
+                    "social06"
+                ],
+                "to": "social"
+            }
+        },
+        {
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "search",
+                    "search,display",
+                    "search,search",
+                    "[\"cpc\",\"search\"]",
+                    "search10",
+                    "googlesearch",
+                    "organic"
+                ],
+                "to": "search"
+            }
+        },
+        {
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "cpc",
+                    "native03",
+                    "publisher_1",
+                    "publisher_5",
+                    "native02",
+                    "display01",
+                    "12",
+                    "email04hl",
+                    "1aa73",
+                    "email01",
+                    "native01",
+                    "publisher_15",
+                    "native07",
+                    "native06",
+                    "native08",
+                    "native10",
+                    "native09",
+                    "d2c9b78e-2b45-463c-943d-eac590b4efa2",
+                    "yahoo",
+                    "outbrain",
+                    "111678",
+                    "1401",
+                    "6330",
+                    "3468",
+                    "111677",
+                    "3421",
+                    "1984",
+                    "apollo",
+                    "5600",
+                    "3450",
+                    "3393",
+                    "3449",
+                    "3425",
+                    "5590",
+                    "5530",
+                    "8557",
+                    "1aa1d",
+                    "504",
+                    "1aa0c",
+                    "1ma00",
+                    "1aa16",
+                    "1aa82",
+                    "1aa1p",
+                    "1aa97",
+                    "1aa15",
+                    "1aa0b",
+                    "1aa0h",
+                    "901",
+                    "1ab11",
+                    "1aa12",
+                    "1aa81",
+                    "1aa0d",
+                    "1ab07",
+                    "1aa88",
+                    "301",
+                    "308",
+                    "email02",
+                    "email03hl",
+                    "email10hl",
+                    "emailmt05",
+                    "emailmt04",
+                    "partner",
+                    "internal",
+                    "1he02",
+                    "1aa14"
+                ],
+                "to": "others"
+            }
+        }
+    ],
+    "Original_Lead_Ad_Source__c": [
+        {
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "aol",
+                    "startpage",
+                    "shopperapproved",
+                    "info",
+                    "onlinebuyexpert",
+                    "gopher",
+                    "neeva",
+                    "ecosia",
+                    "loky",
+                    "kiplinger",
+                    "dogpile",
+                    "www-forbes-com",
+                    "us",
+                    "pch",
+                    "youtube",
+                    "app-mobile-solutions",
+                    "cnbc",
+                    "gmx",
+                    "direct",
+                    "chooseinsuranceonlinecom",
+                    "goodrx",
+                    "xfinity",
+                    "wow",
+                    "myhughesnet",
+                    "becovi",
+                    "querysprout",
+                    "law",
+                    "suu",
+                    "virginiaaba",
+                    "politifact",
+                    "android-app:",
+                    "m",
+                    "swisscows",
+                    "bbb",
+                    "www2",
+                    "savingrocks",
+                    "portal",
+                    "dnserrorassist",
+                    "financialhealth",
+                    "dailyprosper",
+                    "see-it",
+                    "greatisenough",
+                    "qwant",
+                    "brave",
+                    "quora",
+                    "health",
+                    "uk",
+                    "apollo",
+                    "engine",
+                    "grannynannies",
+                    "thebestseniorsnow",
+                    "buydirect",
+                    "surffast",
+                    "yandex",
+                    "city-data",
+                    "desideriosoldi",
+                    "retiringandhappy",
+                    "carefreedental",
+                    "centurylink",
+                    "mapquest",
+                    "websearches",
+                    "familybenefitsupport",
+                    "angelflightwest",
+                    "cignaknowledge",
+                    "grandoakspalmcity",
+                    "caring",
+                    "directhit",
+                    "informationvine",
+                    "frontier",
+                    "seniorsknowyouroptionstoday",
+                    "when",
+                    "senior",
+                    "stories",
+                    "lm",
+                    "medimadeforus",
+                    "results",
+                    "hearingaidknow",
+                    "dlive",
+                    "wral",
+                    "inboxdollars",
+                    "centrahealth",
+                    "www-medicarefaq-com",
+                    "searchencrypt",
+                    "frontpage",
+                    "answers",
+                    "oceanhero",
+                    "earthlink",
+                    "statics",
+                    "boomershub",
+                    "americanweeklyhome",
+                    "kadaza",
+                    "www-wral-com",
+                    "presearch",
+                    "windstream",
+                    "reddit",
+                    "email",
+                    "reuters",
+                    "healthpilot",
+                    "mail",
+                    "samaritanministries",
+                    "ighome",
+                    "tiktok",
+                    "get-24",
+                    "awaplans",
+                    "c",
+                    "siliconinvestor",
+                    "themountaineer",
+                    "e",
+                    "csearch",
+                    "ask",
+                    "refrynce",
+                    "top10answers",
+                    "trajectormedical",
+                    "keep",
+                    "etour",
+                    "s",
+                    "kol",
+                    "wowway",
+                    "unitedmedicareadvisors",
+                    "www4",
+                    "ca",
+                    "news",
+                    "blog",
+                    "healthadvocate"
+                ],
+                "to": "others"
+            }
+        },
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*bing.+"
+                ],
+                "to": "bing"
+            }
+        },
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*google.+"
+                ],
+                "to": "google"
+            }
+        }
+    ],
+    "LeadSource": [
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*MedicareFAQ\b"
+                ],
+                "to": "MedicareFAQ"
+            },
+            "alias": "Source"
+        },
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*Partner\b"
+                ],
+                "to": "Partner"
+            },
+            "alias": "Source"
+        },
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*Medicare\b"
+                ],
+                "to": "Facebook"
+            },
+            "alias": "Source"
+        },
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*Facebook\b"
+                ],
+                "to": "Facebook"
+            },
+            "alias": "Source"
+        },
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*Email\b"
+                ],
+                "to": "Email"
+            },
+            "alias": "Source"
+        },
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*ApplyForMedicare"
+                ],
+                "to": "ApplyForMedicare"
+            },
+            "alias": "Source"
+        }
+    ]
+}

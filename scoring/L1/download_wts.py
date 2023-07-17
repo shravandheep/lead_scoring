@@ -4,15 +4,10 @@ import os
 # Internal imports
 from auxiliary.util.global_constants import _CLOUDFRONT_URL
 from auxiliary.util.global_constants import L1_WTS, L1_LBL_ENC, L1_SCL_ENC
+from auxiliary.util.global_constants import WTS_PATH, CFG_PATH, ENC_PATH, SCL_ENC_PATH, LBL_ENC_PATH
 
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 
-
-WTS_PATH = 'weights'
-ENC_PATH = 'encoder'
-
-LBL_ENC_PATH = 'label_encoders'
-SCL_ENC_PATH = 'scaler'
 
 for wts in L1_WTS:
 

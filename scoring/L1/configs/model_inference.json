@@ -1,0 +1,325 @@
+{
+    "paid_leads_object_data": {
+        "filters": {
+            "Source": [
+                "MedicareFAQ",
+                "Medicare",
+                "Facebook"
+            ],
+            "Original_Lead_Ad_Source__c": [
+                "google",
+                "bing",
+                "facebook",
+                "tiktok"
+            ],
+            "Lead_Medium__c": [
+                "search",
+                "display",
+                "youtube",
+                "discovery",
+                "social",
+                "website",
+                "form",
+                "conv"
+            ]
+        },
+        "neustar_filter": {
+            "matched": {
+                "select_model": "paid_leads_with_neustar_matched",
+                "data_source": "paid_data_config",
+                "considered_features": [
+                    "Original_Device__c",
+                    "Appended Addresses1 DPC",
+                    "Household Buying Power Score",
+                    "phone_type",
+                    "p",
+                    "bs",
+                    "Monday",
+                    "Saturday",
+                    "Input Phone1 DNC",
+                    "keyword_type",
+                    "Household Net Asset Value",
+                    "Original_Operating_System__c",
+                    "t",
+                    "Overall",
+                    "Appended Phones Error Code",
+                    "Original_Lead_Match_Type__c",
+                    "Tuesday",
+                    "Friday",
+                    "Thursday",
+                    "time_of_day",
+                    "IsWeekday",
+                    "Wednesday",
+                    "Original_Screen_Height__c",
+                    "WeekOfMonth",
+                    "d",
+                    "Sunday",
+                    "tfidf_vector",
+                    "Lead_Network__c",
+                    "Supplemental_Form_Received__c",
+                    "Territory__c",
+                    "count_vector",
+                    "Original_Screen_Width__c",
+                    "Gender__c",
+                    "region",
+                    "Original_Browser__c",
+                    "quarter",
+                    "h",
+                    "CPO_bucket",
+                    "CreatedMonth",
+                    "phone_usage_12",
+                    "Sales_Agent_Routing__c",
+                    "phone_usage_2",
+                    "Lead_Brand__c",
+                    "HasOptedOutOfEmail",
+                    "verified_phone",
+                    "Age",
+                    "State",
+                    "SMSOptIn__c"
+                ],
+                "model_params": {
+                    "preprocessing_steps": [
+                        "label_encoders_paid",
+                        "scaler_paid"
+                    ],
+                    "column_renaming_config": "col_rename",
+                    "model_wts": "paid_leads_with_neu.sav"
+                }
+            },
+            "not_matched": {
+                "select_model": "paid_leads_with_neustar_not_matched",
+                "data_source": "paid_data_config",
+                "considered_features": [
+                    "bs",
+                    "Original_Operating_System__c",
+                    "t",
+                    "Original_Lead_Match_Type__c",
+                    "time_of_day",
+                    "IsWeekday",
+                    "Original_Screen_Height__c",
+                    "WeekOfMonth",
+                    "d",
+                    "tfidf_vector",
+                    "Lead_Network__c",
+                    "Supplemental_Form_Received__c",
+                    "Territory__c",
+                    "count_vector",
+                    "Original_Screen_Width__c",
+                    "Gender__c",
+                    "region",
+                    "Original_Browser__c",
+                    "quarter",
+                    "h",
+                    "CPO_bucket",
+                    "CreatedMonth",
+                    "Sales_Agent_Routing__c",
+                    "Lead_Brand__c",
+                    "HasOptedOutOfEmail",
+                    "Age",
+                    "SMSOptIn__c"
+                ],
+                "model_params": {
+                    "preprocessing_steps": [
+                        "label_encoders_paid",
+                        "scaler_paid"
+                    ],
+                    "column_renaming_config": "col_rename",
+                    "model_wts": "paid_leads_wo_neu.sav"
+                }
+            }
+        }
+    },
+    "not_paid_leads_object_data": {
+        "filters": {
+            "Source": [
+                "MedicarFAQ",
+                "Medicare",
+                "ApplyForMedicare"
+            ],
+            "Lead_Medium__c": [
+                "organic",
+                "direct"
+            ]
+        },
+        "neustar_filter": {
+            "matched": {
+                "select_model": "not_paid_leads_with_neustar_matched",
+                "data_source": "not_paid_config",
+                "considered_features": [
+                    
+                         "Original_Lead_Ad_Source__c",
+                         "Lead_Medium__c",
+                         "class_url",
+                         "phone_usage_12",
+                         "Input Phone1 DNC",
+                         "Sunday",
+                         "Original_Operating_System__c",
+                         "Input Phone1 Active",
+                         "phone_type",
+                         "Friday",
+                         "Thursday",
+                         "verified_phone",
+                         "Monday",
+                         "Wednesday",
+                         "Original_Screen_Width__c",
+                         "Original_Browser__c",
+                         "Appended Phones Error Code",
+                         "Saturday",
+                         "Household Net Asset Value",
+                         "Original_Screen_Height__c",
+                         "WeekOfMonth",
+                         "Appended Addresses1 DPC",
+                         "Supplemental_Form_Received__c",
+                         "Overall",
+                         "Tuesday",
+                         "IsWeekday",
+                         "Original_Device__c",
+                         "Household Buying Power Score",
+                         "time_of_day",
+                         "Gender__c",
+                         "phone_usage_2",
+                         "Lead_Referring_URL__c",
+                         "HasOptedOutOfEmail",
+                         "region",
+                         "CreatedMonth",
+                         "Territory__c",
+                         "quarter",
+                         "Age",
+                         "Main_Form_Received__c",
+                         "SMSOptIn__c",
+                         "State",
+                         "Lead_Brand__c",
+                         "Sales_Agent_Routing__c"], 
+                
+                "model_params": {
+                    "preprocessing_steps": [
+                        "label_encoders_not_paid",
+                        "scaler_not_paid"
+                    ],
+                    "column_renaming_config": "col_rename",
+                    "model_wts": "not_paid_leads_with_neu.sav"
+                }
+            },
+            "not_matched": {
+                "select_model": "not_paid_leads_with_neustar_not_matched",
+                "data_source": "not_paid_config",
+                "considered_features": [
+                    "Original_Lead_Ad_Source__c",
+                    "class_landing",
+                    "Lead_Medium__c",
+                    "class_url",
+                    "Original_Operating_System__c",
+                    "Original_Screen_Width__c",
+                    "Original_Browser__c",
+                    "Original_Screen_Height__c",
+                    "WeekOfMonth",
+                    "Supplemental_Form_Received__c",
+                    "IsWeekday",
+                    "Original_Device__c",
+                    "time_of_day",
+                    "Gender__c",
+                    "Lead_Referring_URL__c",
+                    "HasOptedOutOfEmail",
+                    "region",
+                    "CreatedMonth",
+                    "Territory__c",
+                    "quarter",
+                    "Age",
+                    "Main_Form_Received__c",
+                    "SMSOptIn__c",
+                    "State",
+                    "Lead_Brand__c",
+                    "Sales_Agent_Routing__c"
+                ],
+                "model_params": {
+                    "preprocessing_steps": [
+                        "label_encoders_not_paid",
+                        "scaler_not_paid"
+                    ],
+                    "column_renaming_config": "col_rename",
+                    "model_wts": "not_paid_leads_wo_neu.sav"
+                }
+            }
+        }
+    },
+    "partner_leads_object_data": {
+        "filters": {
+            "Source": "Partner"
+        },
+        "neustar_filter": {
+            "matched": {
+                "select_model": "partner_leads_with_neustar_matched",
+                "data_source": "partner_data_config",
+                "considered_features": [
+                    "Wednesday",
+                    "phone_usage_12",
+                    "Household Buying Power Score",
+                    "Monday",
+                    "IsWeekday",
+                    "Household Net Asset Value",
+                    "time_of_day",
+                    "Thursday",
+                    "Input Phone1 Active",
+                    "phone_type",
+                    "verified_phone",
+                    "Appended Addresses1 DPC",
+                    "Lead_Medium__c",
+                    "Appended Addresses1 Type",
+                    "HasOptedOutOfEmail",
+                    "State",
+                    "region",
+                    "Tuesday",
+                    "Gender__c",
+                    "Sunday",
+                    "Appended Phones Error Code",
+                    "Input Phone1 DNC",
+                    "Friday",
+                    "Overall",
+                    "Saturday",
+                    "phone_usage_2",
+                    "Age",
+                    "class_url",
+                    "WeekOfMonth",
+                    "quarter",
+                    "CreatedMonth",
+                    "Territory__c"
+                ],
+                "model_params": {
+                    "preprocessing_steps": [
+                        "label_encoders_partner",
+                        "scaler_partner"
+                    ],
+                    "column_renaming_config": "col_rename",
+                    "model_wts": "partner_leads_with_neu.sav"
+                }
+            },
+            "not_matched": {
+                "select_model": "partner_leads_with_neustar_not_matched",
+                "data_source": "partner_data_config",
+                "considered_features": [
+                     "IsWeekday",
+                     "time_of_day",
+                     "Lead_Medium__c",
+                     "HasOptedOutOfEmail",
+                     "State",
+                     "region",
+                     "Gender__c",
+                     "Age",
+                     "class_url",
+                     "WeekOfMonth",
+                     "quarter",
+                     "CreatedMonth",
+                     "Territory__c"
+                ],
+                "model_params": {
+                    "preprocessing_steps": [
+                        "label_encoders_partner",
+                        "scaler_partner"
+                    ],
+                    "column_renaming_config": "col_rename",
+                    "model_wts": "partner_leads_wo_neu.sav"
+                }
+            }
+        }
+    }
+}
