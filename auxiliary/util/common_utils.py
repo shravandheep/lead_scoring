@@ -4,19 +4,8 @@ Common utils
 
 # General imports
 import os
-import time
-import boto3
 import copy
-import base64
 import logging
-import requests
-
-from io import BytesIO
-from PIL import Image
-import cv2
-import numpy as np
-import matplotlib.pyplot as plt
-import matplotlib.patches as patches
 
 # Internal imports
 
@@ -35,44 +24,6 @@ def setup_logger(name, level):
     logger.disabled = local_flag # Make this True if you want to turn off logging
      
     return logger
-
-def draw_bbox(img, x, title):
-    '''
-        Parameters :
-    ----------
-       img : numpy nd array of image
-        x1, y1, x2, y2 : boxe
-
-    '''
-
-    figure, ax = plt.subplots(1)
-    plt.title(title)
-    
-    cv_img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
-    
-    for i in x:
-        rect = patches.Rectangle(
-            (i[0], i[1]), i[2]-i[0], i[3]-i[1], edgecolor='r', facecolor="none", linewidth=5)
-        ax.add_patch(rect)
-    plt.imshow(cv_img)
-
-
-def rect_overlap(x11, y11, x12, y12, x21, y21, x22, y22):
-    """
-        overlap defined as - area(R1)/area(R2)
-        TODO - This suffices for this case - A better measure is IoU
-
-    Parameters :
-    ----------
-        x11, y11, x12, y12 : vertices of the first rectangle
-        x21, y21, x22, y22 : vertices of the second rectangle
-
-    Returns :
-    -------
-        float measuring overlap
-    """
-    return float((x12-x11)*(y12-y11)) / ((x22-x21)*(y22-y21))
-
 
 def check_and_unpack_data(data):
     """
@@ -149,8 +100,3 @@ def create_arguments_dict(parsed_data, input_required_args, allow_duplicate_args
     return arguments_dict
 
 log = setup_logger(__name__, logging.INFO)
-
-logging.getLogger('boto3').setLevel(logging.INFO)
-logging.getLogger('botocore').setLevel(logging.INFO)
-logging.getLogger('s3transfer').setLevel(logging.INFO)
-logging.getLogger('urllib3').setLevel(logging.INFO)

@@ -1,23 +1,12 @@
 import os
-import sys
-import random
 import joblib
-import pickle
 
-import numpy as np
 import pandas as pd
 
-import time
-import torch
-from torch.nn.utils.rnn import pad_sequence
-from scipy.special import softmax
-
-from scoring.L1.plugins import Plugin 
+from auxiliary.util.global_constants import _WTS_EXT_L1
 from scoring.L1.translators import Translator
 
-
 # Helpers 
-
 def initialize_model(wts_path):
 
     all_wts = []
@@ -29,7 +18,7 @@ def initialize_model(wts_path):
     
     for wt in all_wts:
         
-        model_name = wt.split('/')[-1].replace('.sav', '')
+        model_name = wt.split('/')[-1].replace(_WTS_EXT_L1, '')
         model = joblib.load(wt)
         model_dict[model_name] = model
 

@@ -14,15 +14,47 @@ NODE_L1 = "L1_score"
 NODE_L2 = "L2_score"
 NODE_CONSOLIDATION = "lead_score_consolidation"
 
+# Hardcoded file names
+WTS_PATH = 'weights'
+ENC_PATH = 'encoders'
+CFG_PATH = 'configs'
+SCL_ENC_PATH = 'scaler'
+LBL_ENC_PATH = 'label_encoders'
+
+# Extensions
+_ENC_EXT_L1 = '.pkl'
+_WTS_EXT_L1 = '.sav'
+_CFG_EXT_L1 = '.json'
+
+_WTS_EXT_L2 = '.pth'
+
 # S3 
 _BUCKET_NAME = "eip-insurance-useast1"
+_CLOUDFRONT_URL = "https://d10nf2miq8av5z.cloudfront.net/"
 
-
-## Model configs
+## Model weights and configs
 # L1
-L1_MODEL_WTS = 'https://eip-insurance-useast1.s3.amazonaws.com/model_experiments/weights/L2/L2_model.pth' #change after uploading 6 model wts
-L1_MODEL_WTS_FILE = L1_MODEL_WTS.split('/')[-1]
+L1_WTS = [
+    'model_experiments/weights/L1/not_paid_leads_with_neustar_not_matched.sav',
+    'model_experiments/weights/L1/not_paid_leads_with_neustar_matched.sav',
+    'model_experiments/weights/L1/paid_leads_with_neustar_not_matched.sav',
+    'model_experiments/weights/L1/paid_leads_with_neustar_matched.sav',
+    'model_experiments/weights/L1/partner_leads_with_neustar_not_matched.sav',
+    'model_experiments/weights/L1/partner_leads_with_neustar_matched.sav'
+]
+
+L1_LBL_ENC = [
+    'model_experiments/weights/L1/encoders/label_encoders_not_paid.pkl',
+    'model_experiments/weights/L1/encoders/label_encoders_paid.pkl',
+    'model_experiments/weights/L1/encoders/label_encoders_partner.pkl'
+]
+
+L1_SCL_ENC = [
+    'model_experiments/weights/L1/encoders/scaler_not_paid.pkl',
+    'model_experiments/weights/L1/encoders/scaler_paid.pkl',
+    'model_experiments/weights/L1/encoders/scaler_partner.pkl'
+]
+
 
 #L2
-L2_MODEL_WTS = 'https://eip-insurance-useast1.s3.amazonaws.com/model_experiments/weights/L2/L2_model.pth'
-L2_MODEL_WTS_FILE = L1_MODEL_WTS.split('/')[-1]
+L2_MODEL_WTS = ['model_experiments/weights/L2/L2_model.pth']

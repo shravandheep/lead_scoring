@@ -5,7 +5,9 @@ import pickle
 import logging
 
 # Internal imports
-from auxiliary.util.global_constants import NODE_L1, L1_MODEL_WTS_FILE
+from auxiliary.util.global_constants import NODE_L1
+from auxiliary.util.global_constants import _ENC_EXT_L1, _CFG_EXT_L1
+from auxiliary.util.global_constants import WTS_PATH, CFG_PATH, ENC_PATH, SCL_ENC_PATH, LBL_ENC_PATH
 from auxiliary.util.common_utils import setup_logger, check_and_unpack_data, create_arguments_dict
 
 from scoring.L1.model_inference import initialize_model, inference
@@ -13,11 +15,8 @@ from scoring.L1.model_inference import initialize_model, inference
 logger = setup_logger(NODE_L1, logging.INFO)
 local_flag = True if os.getenv('local') else False
 
-
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
-config_path = os.path.join(_FILE_PATH, 'configs')
-encoders_path = os.path.join(_FILE_PATH, 'encoders')
-weights_path = os.path.join(_FILE_PATH, 'weights')
+model_inf_config = 'model_inference.json'
 
 def initialize_node(node_config, **kwargs):
     """
@@ -31,13 +30,19 @@ def initialize_node(node_config, **kwargs):
     -------
         None
     """
+
+    # Paths
+    config_path = os.path.join(_FILE_PATH, CFG_PATH)
+    encoders_path = os.path.join(_FILE_PATH, ENC_PATH)
+    weights_path = os.path.join(_FILE_PATH, WTS_PATH)
+    path_to_inference = os.path.join(config_path, model_inf_config)
+    parent_path_to_encoders = os.path.join(encoders_path, LBL_ENC_PATH)
+    parent_path_to_scalers = os.path.join(encoders_path, SCL_ENC_PATH)
     
-    path_to_inference = os.path.join(config_path, 'model_inference.json')
-    parent_path_to_encoders = os.path.join(encoders_path, 'label_encoders')
-    parent_path_to_scalers = os.path.join(encoders_path, 'scaler')
-    
-    
+    # init model
     model_dict = initialize_model(weights_path)
+
+    # init encoders
     label_encoders_dict = {}
     scalers_dict = {}
     config_dict = dict()
@@ -45,7 +50,7 @@ def initialize_node(node_config, **kwargs):
     for r,d,f in os.walk(parent_path_to_encoders):
         for enc in f:
             
-            key = enc.replace('.pkl', '')
+            key = enc.replace(_ENC_EXT_L1, '')
             
             with open(os.path.join(r, enc), 'rb') as f:
                 label_encoders_dict[key] = pickle.load(f)
@@ -53,14 +58,15 @@ def initialize_node(node_config, **kwargs):
     for r,d,f in os.walk(parent_path_to_scalers):
         for scl in f:
             
-            key = scl.replace('.pkl', '')
+            key = scl.replace(_ENC_EXT_L1, '')
             
             with open(os.path.join(r, scl), 'rb') as f:
                 scalers_dict[key] = pickle.load(f)
     
+    # init model configs
     for r,d,f in os.walk(config_path):
         for files in f:
-            key = files.replace('.json', '')
+            key = files.replace(_CFG_EXT_L1, '')
             config_dict[key] = os.path.join(r, files)
             
     with open(path_to_inference) as inf:
