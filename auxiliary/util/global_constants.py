@@ -8,11 +8,11 @@ os.makedirs(_TMP_FILE_PATH, exist_ok=True)
 os.environ['LRU_CACHE_CAPACITY'] = '1'
 
 
-# Names of the nodes
+# Names of the nodes [This should match the name of the node in the graph]
 NODE_INPUT = "input"
-NODE_L1 = "L1_score"
-NODE_L2 = "L2_score"
-NODE_CONSOLIDATION = "lead_score_consolidation"
+NODE_L1 = "l1_model"
+NODE_L2 = "l2_model"
+NODE_CONSOLIDATION = "lead_consolidation"
 
 # Hardcoded file names
 WTS_PATH = 'weights'

@@ -41,7 +41,7 @@ def process(data):
     """
 
     parsed_data, packet_id, _ = check_and_unpack_data(data)
-    args_dict = create_arguments_dict(parsed_data, ['input', 'L1_model_score', 'L2_model_score'])
+    args_dict = create_arguments_dict(parsed_data, ['data', 'L1_model_score', 'L2_model_score'])
     
     # HACK 
     final_score = args_dict['L1_model_score']

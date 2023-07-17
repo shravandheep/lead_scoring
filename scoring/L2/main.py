@@ -1,5 +1,6 @@
 # General imports
 import os
+import random
 import logging
 
 # Internal imports
@@ -28,7 +29,11 @@ def initialize_node(node_config, **kwargs):
     """
     
     weights_path = os.path.join(_FILE_PATH, WTS_PATH)
-    model = initialize_model(weights_path)
+    
+    # Fix model in the later patches
+    # model = initialize_model(weights_path)
+    
+    model = None
     
     logger.info('Node initialized')
     
@@ -53,7 +58,7 @@ def process(data, model):
     args_dict = create_arguments_dict(parsed_data, ['data'])
 
     result_dict = {
-        'L2_model_score' : 1.0
+        'L2_model_score' : random.random()
     }
         
     return result_dict
