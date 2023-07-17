@@ -14,10 +14,10 @@ log = setup_logger(NODE_L2, logging.INFO)
 node = App('L2 scoring')
 
 # get config
-config = get_config()
+# config = get_config()
 
 # model init
-model = initialize_node(config)
+model = initialize_node({})
 log.info("initialize_node done")
 log.info("ENV_TYPE is : {}".format(_ENV_TYPE))
 
