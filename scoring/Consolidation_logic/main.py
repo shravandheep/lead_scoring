@@ -47,7 +47,9 @@ def process(data):
     final_score = args_dict['L1_model_score']
 
     result_dict = {
-        'Lead_score' : final_score
+        'Lead_score' : final_score,
+        'L1_score' : args_dict['L1_model_score'],
+        'L2_score' : args_dict['L2_model_score'],
     }
         
     return result_dict

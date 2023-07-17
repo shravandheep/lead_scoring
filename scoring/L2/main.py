@@ -3,11 +3,16 @@ import os
 import logging
 
 # Internal imports
-from auxiliary.util.global_constants import NODE_L2, L2_MODEL_WTS_FILE
+from auxiliary.util.global_constants import NODE_L2 
+from auxiliary.util.global_constants import WTS_PATH
 from auxiliary.util.common_utils import setup_logger, check_and_unpack_data, create_arguments_dict
+
+from scoring.L2.L2_model import initialize_model, inference
 
 logger = setup_logger(NODE_L2, logging.INFO)
 local_flag = True if os.getenv('local') else False
+
+_FILE_PATH = os.path.realpath(os.path.dirname(__file__)) 
 
 def initialize_node(node_config, **kwargs):
     """
@@ -22,8 +27,8 @@ def initialize_node(node_config, **kwargs):
         None
     """
     
-    path_to_weights = os.path.join(weights_path, 'weights', L2_MODEL_WTS_FILE)
-    model = initialize_model(path_to_weights)
+    weights_path = os.path.join(_FILE_PATH, WTS_PATH)
+    model = initialize_model(weights_path)
     
     logger.info('Node initialized')
     

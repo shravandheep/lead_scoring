@@ -1,4 +1,6 @@
+import os
 import sys
+import math
 import random
 import joblib
 
@@ -26,10 +28,17 @@ def normalize_list(lst):
     return normalized_lst
 
 def initialize_model(wts_path):
+
+    wts = None
+
+    for r,d,f in os.walk(wts_path):
+
+        for weights in f:
+            wts = os.path.join(r, weights)
     
     # Initialization
 
-    model = torch.load(wts_path)
+    model = torch.load(wts)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
     model.to(device)
@@ -47,4 +56,5 @@ def transform_features(features):
 
 def do_inference(X):
     
-    return results:
+    # Do something here
+    return X
