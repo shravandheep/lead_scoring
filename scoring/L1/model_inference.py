@@ -57,8 +57,14 @@ def inference(node_dict, data):
     model_config = node_dict['inference_cfg']    
     config_dict = node_dict['config_dict']
     
-    
     filters_t = transform_features(data, config_dict['feature_config']) #include new data config 
+    
+    data_config = None
+    considered_features = []
+    
+    selected_model = None
+    selected_scaler = None
+    selected_label_encoder = None
     
     for key, value in model_config.items():
         
@@ -81,7 +87,7 @@ def inference(node_dict, data):
     if config_dict.get(data_config):
         data = transform_features(data, config_dict[data_config])
     else:
-        raise Exception("No config was found. Please check")
+        raise Exception("No config was found for key {}. Please check".format(data_config))
 
     data = pd.DataFrame.from_dict(data, orient='index').T
     data = data[considered_features]
@@ -119,7 +125,3 @@ def inference(node_dict, data):
     score = prediction[0][1]
     
     return score
-
-
-
-
