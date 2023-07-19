@@ -102,13 +102,18 @@ def process(data, node_dict):
     """
 
     parsed_data, packet_id, _ = check_and_unpack_data(data)
-    args_dict = create_arguments_dict(parsed_data, ['data'])
+    args_dict = create_arguments_dict(parsed_data, ['data', 'lead_id'])
 
-    lead_data = args_dict['data']
-    score = inference(node_dict, lead_data)
+    combined_data = dict()    
+    
+    for k,v in args_dict['data'].items():
+        combined_data.update(v)
+    
+    score = inference(node_dict, combined_data)
     
     result_dict = {
-        'L1_model_score' : score
+        'l1_lead_score' : score,
+        'l1_policy_score' : 0
     }
         
     return result_dict

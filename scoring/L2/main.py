@@ -58,7 +58,8 @@ def process(data, model):
     args_dict = create_arguments_dict(parsed_data, ['data'])
 
     result_dict = {
-        'L2_model_score' : random.random()
+        'l2_lead_score' : random.random(),
+        'l2_policy_score' : 0
     }
         
     return result_dict

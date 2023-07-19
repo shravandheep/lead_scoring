@@ -40,16 +40,22 @@ def process(data):
         result_dic : dict of result
     """
 
+    required_keys = ['lead_id', 'l1_lead_score', 'l1_policy_score', 
+                     'l2_lead_score', 'l2_policy_score']
+    
     parsed_data, packet_id, _ = check_and_unpack_data(data)
-    args_dict = create_arguments_dict(parsed_data, ['data', 'L1_model_score', 'L2_model_score'])
+    args_dict = create_arguments_dict(parsed_data, required_keys)
     
     # HACK 
-    final_score = args_dict['L1_model_score']
+    final_lead_score = args_dict['l1_lead_score']
+    final_policy_score = args_dict['l1_policy_score']
+    
+    final_args = dict((k,v) for (k,v) in args_dict.items() if k in required_keys)
 
     result_dict = {
-        'Lead_score' : final_score,
-        'L1_score' : args_dict['L1_model_score'],
-        'L2_score' : args_dict['L2_model_score'],
+        **final_args,
+        'lead_score' : final_lead_score,
+        'policy_score' : final_policy_score
     }
         
     return result_dict
