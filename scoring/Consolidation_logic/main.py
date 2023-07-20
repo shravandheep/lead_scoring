@@ -41,19 +41,19 @@ def process(data):
         result_dic : dict of result
     """
     
+    required_keys = ['lead_id', 'l1_score', 'l2_score']
+    
     parsed_data, packet_id, _ = check_and_unpack_data(data)
     args_dict = create_arguments_dict(parsed_data, required_keys)
     score_request = args_dict['data'][LEAD_DATA]['type']
     
-    required_keys = ['lead_id', 'l1_score', 'l2_score']
-    
     # HACK 
-    final_policy_score = args_dict['l1_score']
+    final_score = args_dict['l1_score']
     final_args = dict((k,v) for (k,v) in args_dict.items() if k in required_keys)
 
     result_dict = {
         **final_args,
-        'score' : final_lead_score,
+        'score' : final_score,
         'type' : score_request
     }
         
