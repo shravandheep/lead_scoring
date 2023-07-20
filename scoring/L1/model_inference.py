@@ -52,7 +52,7 @@ def encoding(features, encoders_dict):
     return X
     
 
-def inference(node_dict, data):
+def inference(node_dict, data, score_request):
                            
     model_config = node_dict['inference_cfg']    
     config_dict = node_dict['config_dict']
@@ -87,7 +87,7 @@ def inference(node_dict, data):
     if config_dict.get(data_config):
         data = transform_features(data, config_dict[data_config])
     else:
-        raise Exception("No config was found for key {}. Please check".format(data_config))
+        raise Exception("No data transform config was found for key {}. Please check".format(data_config))
 
     data = pd.DataFrame.from_dict(data, orient='index').T
     data = data[considered_features]

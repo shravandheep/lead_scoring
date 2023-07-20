@@ -28,6 +28,12 @@ _CFG_EXT_L1 = '.json'
 
 _WTS_EXT_L2 = '.pth'
 
+LEAD_DATA = 'lead_data'
+NEUSTAR_DATA = 'neustar_data'
+
+LEAD_REQ_SCORE = 'request_score_for_lead'
+POLICY_REQ_SCORE = 'request_score_for_policy'
+
 # S3 
 _BUCKET_NAME = "eip-insurance-useast1"
 _CLOUDFRONT_URL = "https://d10nf2miq8av5z.cloudfront.net/"

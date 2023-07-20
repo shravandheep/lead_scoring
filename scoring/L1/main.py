@@ -8,6 +8,7 @@ import logging
 from auxiliary.util.global_constants import NODE_L1
 from auxiliary.util.global_constants import _ENC_EXT_L1, _CFG_EXT_L1
 from auxiliary.util.global_constants import WTS_PATH, CFG_PATH, ENC_PATH, SCL_ENC_PATH, LBL_ENC_PATH
+from auxiliary.util.global_constants import LEAD_DATA, NEUSTAR_DATA, LEAD_REQ_SCORE, POLICY_REQ_SCORE
 from auxiliary.util.common_utils import setup_logger, check_and_unpack_data, create_arguments_dict
 
 from scoring.L1.model_inference import initialize_model, inference
@@ -103,17 +104,21 @@ def process(data, node_dict):
 
     parsed_data, packet_id, _ = check_and_unpack_data(data)
     args_dict = create_arguments_dict(parsed_data, ['data', 'lead_id'])
-
+    score_request = args_dict['data'][LEAD_DATA]['type']
+    
+    # data sources
     combined_data = dict()    
     
-    for k,v in args_dict['data'].items():
-        combined_data.update(v)
+    lead_data = args_dict['data'][LEAD_DATA]['lead']
+    neustar_data = args_dict['data'].get(NEUSTAR_DATA, {})
     
-    score = inference(node_dict, combined_data)
+    combined_data.update(lead_data)
+    combined_data.update(neustar_data)
+    
+    score = inference(node_dict, combined_data, score_request)
     
     result_dict = {
-        'l1_lead_score' : score,
-        'l1_policy_score' : 0
+        'l1_score' : score
     }
         
     return result_dict

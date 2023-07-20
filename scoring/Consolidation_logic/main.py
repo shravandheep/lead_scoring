@@ -4,6 +4,7 @@ import logging
 
 # Internal imports
 from auxiliary.util.global_constants import NODE_CONSOLIDATION
+from auxiliary.util.global_constants import LEAD_DATA, NEUSTAR_DATA, LEAD_REQ_SCORE, POLICY_REQ_SCORE
 from auxiliary.util.common_utils import setup_logger, check_and_unpack_data, create_arguments_dict
 
 logger = setup_logger(NODE_CONSOLIDATION, logging.INFO)
@@ -39,23 +40,21 @@ def process(data):
     -------
         result_dic : dict of result
     """
-
-    required_keys = ['lead_id', 'l1_lead_score', 'l1_policy_score', 
-                     'l2_lead_score', 'l2_policy_score']
     
     parsed_data, packet_id, _ = check_and_unpack_data(data)
     args_dict = create_arguments_dict(parsed_data, required_keys)
+    score_request = args_dict['data'][LEAD_DATA]['type']
+    
+    required_keys = ['lead_id', 'l1_score', 'l2_score']
     
     # HACK 
-    final_lead_score = args_dict['l1_lead_score']
-    final_policy_score = args_dict['l1_policy_score']
-    
+    final_policy_score = args_dict['l1_score']
     final_args = dict((k,v) for (k,v) in args_dict.items() if k in required_keys)
 
     result_dict = {
         **final_args,
-        'lead_score' : final_lead_score,
-        'policy_score' : final_policy_score
+        'score' : final_lead_score,
+        'type' : score_request
     }
         
     return result_dict

@@ -6,6 +6,7 @@ import logging
 # Internal imports
 from auxiliary.util.global_constants import NODE_L2 
 from auxiliary.util.global_constants import WTS_PATH
+from auxiliary.util.global_constants import LEAD_DATA, NEUSTAR_DATA, LEAD_REQ_SCORE, POLICY_REQ_SCORE
 from auxiliary.util.common_utils import setup_logger, check_and_unpack_data, create_arguments_dict
 
 from scoring.L2.L2_model import initialize_model
@@ -56,10 +57,14 @@ def process(data, model):
 
     parsed_data, packet_id, _ = check_and_unpack_data(data)
     args_dict = create_arguments_dict(parsed_data, ['data'])
+    score_request = args_dict['data'][LEAD_DATA]['type']
+    
+    
+    # HACK 
+    score = random.random()
 
     result_dict = {
-        'l2_lead_score' : random.random(),
-        'l2_policy_score' : 0
+        'l2_score' : score
     }
         
     return result_dict
