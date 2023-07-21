@@ -332,13 +332,6 @@
       }
   ],
   "Birthdate__c": [
-      
-      {
-          "apply": "fill_na", 
-          "kwargs": {
-              "value": "unknown"
-          } 
-      },
       {
           "apply": "fill_na",
           "kwargs": {
@@ -350,6 +343,12 @@
           "apply": "timediff",
           "kwargs": {},
           "alias": "Age"
+      },
+      {
+          "apply": "fill_na", 
+          "kwargs": {
+              "value": "unknown"
+          } 
       }
   ],
   "CampaignID__c": [
