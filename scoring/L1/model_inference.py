@@ -45,18 +45,42 @@ def encoding(features, encoders_dict):
 
     for col in X.columns:
         if label_encoder.get(col):
-            X[col] = label_encoder[col].transform(X[col])
+            
+            try:
+                X[col] = label_encoder[col].transform(X[col])
+            except Exception as e:
+                print('For the column :', col, e)
+                raise Exception('Error in Label encoding')
+                
 
     ## TODO: Fix the scaler 
     # X = scaler.transform(X)
     return X
     
+    
+# TODO: Please don't use this function in the future
+# This is a hack / hardcoded function
+def handle_lead_type(data):
+    
+    default_values = {
+        'LeadSource': 'MedicareFAQ',
+        'Lead_Medium__c' : 'search',
+        'Original_Lead_Ad_Source__c' : 'google'
+    }
+    
+    for k,v in default_values.items():
+        
+        if not data.get(k, False) or data.get(k) == '':
+            data[k] = v
+            
+    return data
 
 def inference(node_dict, data, score_request):
                            
     model_config = node_dict['inference_cfg']    
     config_dict = node_dict['config_dict']
     
+    data = handle_lead_type(data)
     filters_t = transform_features(data, config_dict['feature_config']) #include new data config 
     
     data_config = None
@@ -71,8 +95,8 @@ def inference(node_dict, data, score_request):
         filters = value.get("filters", {})
         
         if all(filter_name in filters_t and filters_t[filter_name] in filter_values for filter_name, filter_values in filters.items()):
-            #nuestar logic
-            #neu_match = "not_matched"
+            
+            # nuestar logic
             neu_match = "matched"
             
             
@@ -91,7 +115,6 @@ def inference(node_dict, data, score_request):
 
     data = pd.DataFrame.from_dict(data, orient='index').T
     data = data[considered_features]
-    
     
     # Encoding 
     label_encoder_dict = node_dict['label_encoders']

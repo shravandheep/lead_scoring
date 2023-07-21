@@ -37,7 +37,7 @@ class Split(Plugin):
 
     def apply(self,x):
         split_data = str(x).split(self._char) 
-        return split_data[self._day]
+        return int(split_data[self._day])
      
 
 
@@ -71,7 +71,7 @@ class Timediff(Plugin):
         return self._error
 
     def apply(self,x):
-        x = datetime.strptime(x, '%Y-%m-%d %H:%M:%S')
+        x = datetime.strptime(x, '%Y-%m-%d')
         current_time = datetime.today()
         
         return (current_time.year - x.year)
@@ -160,23 +160,27 @@ class Substitute(Plugin):
             self._to = kwargs['to']
             self._from = kwargs['from']
             
-            if type(self._from)==str: 
+            if isinstance(self._from, str): 
                 
                 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
                 config_path = os.path.join(_FILE_PATH, 'configs')
                 subst_path = os.path.join(config_path, self._from)
-                self._data = json.load(open(subst_path))
                 
-                assert type(self._from)==str,"'from' must be a list of strings: %s "%self._from
+                if os.path.isfile(subst_path):
+                    self._data = json.load(open(subst_path))
+                else:
+                    raise Exception("Config file not found")
+                
+                assert isinstance(self._from, str),"'from' must be a list of strings: %s "%self._from
                 
             else:
-                assert type(self._from)==list,"'from' must be a list of strings: %s "%self._from
+                assert isinstance(self._from, list),"'from' must be a list of strings: %s "%self._from
                 
             
 #             assert type(self._from)==list,"'from' must be a list of strings: %s "%self._from
             assert len(self._from)>0,"Empty 'from' list : %s "%self._from
             assert self._to is not None,"Missing 'to' : %s "%self._to
-            assert all([type(k)==str for k in self._from]),"'from' must be a list of strings: %s "%self._from
+            assert all([isinstance(k, str) for k in self._from]),"'from' must be a list of strings: %s "%self._from
             self._status = True
             self._error = None
 #         except Exception as ex:
@@ -242,6 +246,13 @@ class Fill_Na(Plugin):
         return self._error
         
     def apply(self,x):
-        return self._value if x is None else x
+        
+        #TODO: Rewrite this logic better later
+        val = True
+        
+        if x == "" or x is None:
+            val = None
+            
+        return self._value if val is None else x
 
     

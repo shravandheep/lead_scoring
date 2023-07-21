@@ -1,213 +1,357 @@
 {
-    "CreatedDate": [
-        {
-            "apply": "isweekday",
-            "kwargs": {},
-            "alias": "IsWeekday"
-        },
-        {
-            "apply": "weekofmonth",
-            "kwargs": {},
-            "alias": "WeekOfMonth"
-        },
-        {
-            "apply": "timeofday",
-            "kwargs": {},
-            "alias": "time_of_day"
-        },
-        {
-            "apply": "quarter",
-            "kwargs": {},
-            "alias": "quarter"
-        },
-        {
-            "apply": "createdmonth",
-            "kwargs": {},
-            "alias": "CreatedMonth"
-        }
-    ],
-    "Input Phone1 Call Window": [
-        {
-            "apply": "split",
-            "kwargs": {
-                "char": "|",
-                "day": 0
-            },
-            "alias": "Monday"
-        },
-        {
-            "apply": "split",
-            "kwargs": {
-                "char": "|",
-                "day": 1
-            },
-            "alias": "Tuesday"
-        },
-        {
-            "apply": "split",
-            "kwargs": {
-                "char": "|",
-                "day": 2
-            },
-            "alias": "Wednesday"
-        },
-        {
-            "apply": "split",
-            "kwargs": {
-                "char": "|",
-                "day": 3
-            },
-            "alias": "Thursday"
-        },
-        {
-            "apply": "split",
-            "kwargs": {
-                "char": "|",
-                "day": 4
-            },
-            "alias": "Friday"
-        },
-        {
-            "apply": "split",
-            "kwargs": {
-                "char": "|",
-                "day": 5
-            },
-            "alias": "Saturday"
-        },
-        {
-            "apply": "split",
-            "kwargs": {
-                "char": "|",
-                "day": 6
-            },
-            "alias": "Overall"
-        }
-    ],
-    "Input Phone1 Contactability Score": [
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "A",
-                    "C",
-                    "B",
-                    "F"
-                ],
-                "to": 1
-            },
-            "alias": "phone_type"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "J",
-                    "I",
-                    "G",
-                    "K",
-                    "E"
-                ],
-                "to": 0
-            },
-            "alias": "phone_type"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "F",
-                    "J",
-                    "I",
-                    "G",
-                    "E",
-                    "K"
-                ],
-                "to": 0
-            },
-            "alias": "verified_phone"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "A",
-                    "C"
-                ],
-                "to": 1
-            },
-            "alias": "verified_phone"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "B"
-                ],
-                "to": -1
-            },
-            "alias": "verified_phone"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "F",
-                    "K"
-                ],
-                "to": 0
-            },
-            "alias": "phone_usage_12"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "A",
-                    "C",
-                    "B",
-                    "G",
-                    "E"
-                ],
-                "to": 1
-            },
-            "alias": "phone_usage_12"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "J",
-                    "I",
-                    "G",
-                    "K",
-                    "C",
-                    "F"
-                ],
-                "to": 0
-            },
-            "alias": "phone_usage_2"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "A",
-                    "B",
-                    "E"
-                ],
-                "to": 1
-            },
-            "alias": "phone_usage_2"
-        }
-    ],
-    "BirthDate": [
-        {
-            "apply": "timediff",
-            "kwargs": {},
-            "alias": "Age"
-        }
-    ],
+  "CreatedDate": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+          "alias": "IsWeekday"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+          "alias": "WeekOfMonth"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+          "alias": "time_of_day"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+          "alias": "quarter"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+          "alias": "CreatedMonth"
+      },
+      {
+          "apply": "isweekday",
+          "kwargs": {},
+          "alias": "IsWeekday"
+      }, 
+      {
+          "apply": "weekofmonth",
+          "kwargs": {},
+          "alias": "WeekOfMonth"
+      },
+      
+      {
+          "apply": "timeofday",
+          "kwargs": {},
+          "alias": "time_of_day"
+      },
+      {
+          "apply": "quarter",
+          "kwargs": {},
+          "alias": "quarter"
+      },
+      {
+          "apply": "createdmonth",
+          "kwargs": {},
+          "alias": "CreatedMonth"
+      }
+  ],
+  "Input Phone1 Call Window": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Monday"
+      },
+      {
+          "apply": "split",
+          "kwargs": {
+              "char": "|",
+              "day": 0
+          },
+          "alias": "Monday"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Tuesday"
+      },
+      {
+          "apply": "split",
+          "kwargs": {
+              "char": "|",
+              "day": 1
+          },
+          "alias": "Tuesday"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+          "alias": "Wednesday"
+      },
+      {
+          "apply": "split",
+          "kwargs": {
+              "char": "|",
+              "day": 2
+          },
+          "alias": "Wednesday"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Thursday"
+      },
+      {
+          "apply": "split",
+          "kwargs": {
+              "char": "|",
+              "day": 3
+          },
+          "alias": "Thursday"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Friday"
+      },
+      {
+          "apply": "split",
+          "kwargs": {
+              "char": "|",
+              "day": 4
+          },
+          "alias": "Friday"
+      },
+      
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Saturday"
+      },
+      {
+          "apply": "split",
+          "kwargs": {
+              "char": "|",
+              "day": 5
+          },
+          "alias": "Saturday"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Sunday"
+      },
+      {
+          "apply": "split",
+          "kwargs": {
+              "char": "|",
+              "day": 6
+          },
+          "alias": "Sunday"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Overall"
+      },
+      {
+          "apply": "split",
+          "kwargs": {
+              "char": "|",
+              "day": 7
+          },
+          "alias": "Overall"
+      }
+
+  ],
+  "Input Phone1 Contactability Score": [
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C",
+                  "B",
+                  "F"
+              ],
+              "to": 1
+          },
+          "alias": "phone_type"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "phone_type"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "J",
+                  "I",
+                  "G",
+                  "K",
+                  "E"
+              ],
+              "to": 0
+          },
+          "alias": "phone_type"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "F",
+                  "J",
+                  "I",
+                  "G",
+                  "E",
+                  "K"
+              ],
+              "to": 0
+          },
+          "alias": "verified_phone"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C"
+              ],
+              "to": 1
+          },
+          "alias": "verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "B"
+              ],
+              "to": -1
+          },
+          "alias": "verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "F",
+                  "K"
+              ],
+              "to": 0
+          },
+          "alias": "phone_usage_12"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C",
+                  "B",
+                  "G",
+                  "E"
+              ],
+              "to": 1
+          },
+          "alias": "phone_usage_12"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "phone_usage_12"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "J",
+                  "I",
+                  "G",
+                  "K",
+                  "C",
+                  "F"
+              ],
+              "to": 0
+          },
+          "alias": "phone_usage_2"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "phone_usage_2"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "B",
+                  "E"
+              ],
+              "to": 1
+          },
+          "alias": "phone_usage_2"
+      }
+  ],
+  "Birthdate__c": [
+      
+      {
+          "apply": "fill_na", 
+          "kwargs": {
+              "value": "unknown"
+          } 
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Age"
+      }, 
+      {
+          "apply": "timediff",
+          "kwargs": {},
+          "alias": "Age"
+      }
+  ],
     "State": [
         {
             "apply": "substitute",
@@ -295,6 +439,19 @@
                 "to": "Northeast"
             },
             "alias": "region"
+        }, 
+        {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }, 
+          "alias": "region"
+        },
+        {
+            "apply": "fill_na", 
+            "kwargs": {
+                "value": "unknown"
+            }
         }
     ],
     "Lead_Brand__c": [
@@ -522,6 +679,13 @@
         }
     ],
     "Lead_URL__c": [
+        {
+            "apply": "fill_na", 
+            "kwargs": {
+                "value": "unknown"
+            }, 
+            "alias": "class_url"
+        }, 
         {
             "apply": "substitute",
             "kwargs": {
@@ -1197,6 +1361,13 @@
         }
     ],
     "Original_Landing_Page__c": [
+        {
+            "apply": "substitute", 
+            "kwargs": {
+                "value": "unknown"
+            }, 
+            "alias": "class_landing"
+        }
         {
             "apply": "substitute",
             "kwargs": {
@@ -2413,6 +2584,20 @@
     ],
     "Supplemental_Form_Received__c": [
         {
+          "apply": "substitute", 
+          "kwargs": {
+              "from": ["false"], 
+              "to": 0
+          }
+      }, 
+      {
+          "apply": "substitute", 
+          "kwargs": {
+              "from": ["true"], 
+              "to": 1
+          }
+      }, 
+        {
             "apply": "fill_na",
             "kwargs": {
                 "value": 0
@@ -2453,6 +2638,20 @@
     ],
     "HasOptedOutOfEmail": [
         {
+          "apply": "substitute", 
+          "kwargs": {
+              "from": ["false"], 
+              "to": 0
+          }
+      }, 
+      {
+          "apply": "substitute", 
+          "kwargs": {
+              "from": ["true"], 
+              "to": 1
+          }
+      }, 
+        {
             "apply": "fill_na",
             "kwargs": {
                 "value": 0
@@ -2460,6 +2659,20 @@
         }
     ],
     "SMSOptIn__c": [
+        {
+          "apply": "substitute", 
+          "kwargs": {
+              "from": ["false"], 
+              "to": 0
+          }
+      }, 
+      {
+          "apply": "substitute", 
+          "kwargs": {
+              "from": ["true"], 
+              "to": 1
+          }
+      }, 
         {
             "apply": "fill_na",
             "kwargs": {
@@ -2484,6 +2697,20 @@
         }
     ],
     "Main_Form_Received__c": [
+        {
+          "apply": "substitute", 
+          "kwargs": {
+              "from": ["false"], 
+              "to": 0
+          }
+      }, 
+      {
+          "apply": "substitute", 
+          "kwargs": {
+              "from": ["true"], 
+              "to": 1
+          }
+      }, 
         {
             "apply": "fill_na",
             "kwargs": {

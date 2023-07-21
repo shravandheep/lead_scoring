@@ -74,10 +74,17 @@ class Translator(object):
                     
                     for (y, func) in zip(new_fields, functions):
                             
-                        if new_data.get(y):
+                        
+                        
+                        if new_data.get(y) is not None:
                             value = new_data[y]
-                            
-                        new_data[y] = self.run_translators(value, func)   
+                        else:
+                            value = new_data[key]
+                        
+                        try:
+                            new_data[y] = self.run_translators(value, func)   
+                        except:
+                            new_data[y] = value
 
                 except Exception as ex:
                     pass
