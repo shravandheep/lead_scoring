@@ -73,13 +73,10 @@ class Translator(object):
                     functions = self._translators[key]['function']
                     
                     for (y, func) in zip(new_fields, functions):
-                            
                         
-                        
-                        if new_data.get(y) is not None:
-                            value = new_data[y]
-                        else:
-                            value = new_data[key]
+                        nv = new_data.get(y)
+                        ov = new_data[key]
+                        value = nv if nv is not None else ov
                         
                         try:
                             new_data[y] = self.run_translators(value, func)   

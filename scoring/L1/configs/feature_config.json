@@ -24,8 +24,7 @@
                     "search,search",
                     "[\"cpc\",\"search\"]",
                     "search10",
-                    "googlesearch",
-                    "organic"
+                    "googlesearch"
                 ],
                 "to": "search"
             }

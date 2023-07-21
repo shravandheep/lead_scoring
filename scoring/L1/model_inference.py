@@ -63,49 +63,71 @@ def encoding(features, encoders_dict):
 def handle_lead_type(data):
     
     default_values = {
-        'LeadSource': 'MedicareFAQ',
-        'Lead_Medium__c' : 'search',
-        'Original_Lead_Ad_Source__c' : 'google'
+        'LeadSource': 'deafult',
+        'Lead_Medium__c' : 'default',
+        'Original_Lead_Ad_Source__c' : 'default'
     }
     
     for k,v in default_values.items():
         
-        if not data.get(k, False) or data.get(k) == '':
+        if data.get(k) == '' or not data.get(k): 
             data[k] = v
             
     return data
 
-def inference(node_dict, data, score_request):
+def inference(node_dict, data, score_request, force=False):
                            
     model_config = node_dict['inference_cfg']    
     config_dict = node_dict['config_dict']
     
-    data = handle_lead_type(data)
+    # Disabled temporarily
+    # data = handle_lead_type(data)
     filters_t = transform_features(data, config_dict['feature_config']) #include new data config 
     
-    data_config = None
-    considered_features = []
     
+    data_config = None
     selected_model = None
     selected_scaler = None
     selected_label_encoder = None
+    considered_features = list()
     
-    for key, value in model_config.items():
+    for _, lead_type in model_config.items():
         
-        filters = value.get("filters", {})
+        filters = lead_type.get("filters", {})
+        filter_condition = []
         
-        if all(filter_name in filters_t and filters_t[filter_name] in filter_values for filter_name, filter_values in filters.items()):
+        for (fk, fv) in filters.items():
             
+            print(fk, filters_t[fk])
+            
+            condition_1 = fk in filters_t 
+            condition_2 = filters_t[fk] in fv 
+            condition_final = condition_1 and condition_2
+            filter_condition.append(condition_final)
+            
+            
+        if all(filter_condition):
+            # TODO: Write a better neustar logic. This process might change in the future
             # nuestar logic
+            
             neu_match = "matched"
-            
-            
-            selected_model = value["neustar_filter"][neu_match]["select_model"]
-            data_config = value["neustar_filter"][neu_match]["data_source"]
-            considered_features = value["neustar_filter"][neu_match]["considered_features"]
-            selected_label_encoder = value["neustar_filter"][neu_match]["model_params"]['preprocessing_steps'][0]
-            selected_scaler = value["neustar_filter"][neu_match]["model_params"]['preprocessing_steps'][1]
+
+            data_config = lead_type["neustar_filter"][neu_match]["data_source"]
+            considered_features = lead_type["neustar_filter"][neu_match]["considered_features"]
+            selected_model = lead_type["neustar_filter"][neu_match]["select_model"]
+            selected_label_encoder = lead_type["neustar_filter"][neu_match]["model_params"]['preprocessing_steps'][0]
+            selected_scaler = lead_type["neustar_filter"][neu_match]["model_params"]['preprocessing_steps'][1]
             break
+    else:
+        
+        if force:
+            data_config = lead_type["neustar_filter"][neu_match]["data_source"]
+            considered_features = lead_type["neustar_filter"][neu_match]["considered_features"]
+            selected_model = lead_type["neustar_filter"][neu_match]["select_model"]
+            selected_label_encoder = lead_type["neustar_filter"][neu_match]["model_params"]['preprocessing_steps'][0]
+            selected_scaler = lead_type["neustar_filter"][neu_match]["model_params"]['preprocessing_steps'][1]
+        else:
+            return -1
     
     # Feature selection
     if config_dict.get(data_config):

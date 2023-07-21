@@ -157,8 +157,8 @@ class Createdmonth(Plugin):
 class Substitute(Plugin):
     def __init__(self,kwargs):
 #         try:
-            self._to = kwargs['to']
-            self._from = kwargs['from']
+            self._to = kwargs["to"]
+            self._from = kwargs["from"]
             
             if isinstance(self._from, str): 
                 
@@ -207,8 +207,8 @@ class Substitute(Plugin):
 class Regex(Plugin):   
     def __init__(self,kwargs):
         try:
-            self._to = kwargs['to']
-            self._from = kwargs['from']
+            self._to = kwargs["to"]
+            self._from = kwargs["from"]
             self._reg_list = list(map(re.compile,self._from))
             assert type(self._from)==list,"'from' must be a list of strings: %s "%self._from
             assert len(self._from)>0,"Empty 'from' list : %s "%self._from
@@ -232,7 +232,7 @@ class Regex(Plugin):
 class Fill_Na(Plugin):
     def __init__(self,kwargs):
         try:
-            self._value = kwargs['value']
+            self._value = kwargs["value"]
             self._status = True
             self._error = None
         except Exception as ex:

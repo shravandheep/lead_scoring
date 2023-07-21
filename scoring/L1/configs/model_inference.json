@@ -321,5 +321,117 @@
                 }
             }
         }
+    },
+    "default_leads_object_data": {
+        "filters" : {
+            "Source": [],
+            "Original_Lead_Ad_Source__c": [],
+            "Lead_Medium__c": []
+        },
+        "neustar_filter": {
+            "matched": {
+                "select_model": "paid_leads_with_neustar_matched",
+                "data_source": "paid_data_config",
+                "considered_features": [
+                    "Original_Device__c",
+                    "Appended Addresses1 DPC",
+                    "Household Buying Power Score",
+                    "phone_type",
+                    "p",
+                    "bs",
+                    "Monday",
+                    "Saturday",
+                    "Input Phone1 DNC",
+                    "keyword_type",
+                    "Household Net Asset Value",
+                    "Original_Operating_System__c",
+                    "t",
+                    "Overall",
+                    "Appended Phones Error Code",
+                    "Original_Lead_Match_Type__c",
+                    "Tuesday",
+                    "Friday",
+                    "Thursday",
+                    "time_of_day",
+                    "IsWeekday",
+                    "Wednesday",
+                    "Original_Screen_Height__c",
+                    "WeekOfMonth",
+                    "d",
+                    "Sunday",
+                    "tfidf_vector",
+                    "Lead_Network__c",
+                    "Supplemental_Form_Received__c",
+                    "Territory__c",
+                    "count_vector",
+                    "Original_Screen_Width__c",
+                    "Gender__c",
+                    "region",
+                    "Original_Browser__c",
+                    "quarter",
+                    "h",
+                    "CPO_bucket",
+                    "CreatedMonth",
+                    "phone_usage_12",
+                    "Sales_Agent_Routing__c",
+                    "phone_usage_2",
+                    "Lead_Brand__c",
+                    "HasOptedOutOfEmail",
+                    "verified_phone",
+                    "Age",
+                    "State",
+                    "SMSOptIn__c"
+                ],
+                "model_params": {
+                    "preprocessing_steps": [
+                        "label_encoders_paid",
+                        "scaler_paid"
+                    ],
+                    "column_renaming_config": "col_rename",
+                    "model_wts": "paid_leads_with_neu.sav"
+                }
+            },
+            "not_matched": {
+                "select_model": "paid_leads_with_neustar_not_matched",
+                "data_source": "paid_data_config",
+                "considered_features": [
+                    "bs",
+                    "Original_Operating_System__c",
+                    "t",
+                    "Original_Lead_Match_Type__c",
+                    "time_of_day",
+                    "IsWeekday",
+                    "Original_Screen_Height__c",
+                    "WeekOfMonth",
+                    "d",
+                    "tfidf_vector",
+                    "Lead_Network__c",
+                    "Supplemental_Form_Received__c",
+                    "Territory__c",
+                    "count_vector",
+                    "Original_Screen_Width__c",
+                    "Gender__c",
+                    "region",
+                    "Original_Browser__c",
+                    "quarter",
+                    "h",
+                    "CPO_bucket",
+                    "CreatedMonth",
+                    "Sales_Agent_Routing__c",
+                    "Lead_Brand__c",
+                    "HasOptedOutOfEmail",
+                    "Age",
+                    "SMSOptIn__c"
+                ],
+                "model_params": {
+                    "preprocessing_steps": [
+                        "label_encoders_paid",
+                        "scaler_paid"
+                    ],
+                    "column_renaming_config": "col_rename",
+                    "model_wts": "paid_leads_wo_neu.sav"
+                }
+            }
+        }
     }
 }
