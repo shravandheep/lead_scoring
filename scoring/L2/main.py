@@ -66,7 +66,7 @@ def process(data, model):
 
     result_dict = {
         'l2_score' : score,
-        'l2_reson' : reason
+        'l2_reason' : reason
     }
         
     return result_dict
