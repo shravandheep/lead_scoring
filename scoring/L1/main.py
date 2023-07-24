@@ -116,15 +116,13 @@ def process(data, node_dict):
     combined_data.update(neustar_data)
     
     try:
-        score, reason = inference(node_dict, combined_data, score_request)
+        result_dict = inference(node_dict, combined_data, score_request)
     except Exception as e:
-        score = -1
-        reason = str(e)
-    
-    result_dict = {
-        'l1_score' : score,
-        'l1_reason': reason
-    }
+        
+        result_dict = {
+            'l1_score' : -1,
+            'l1_reason' : str(e)
+        }
         
     return result_dict
 

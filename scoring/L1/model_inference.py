@@ -45,9 +45,22 @@ def encoding(features, encoders_dict):
 
     for col in X.columns:
         if label_encoder.get(col):
-            
             try:
-                X[col] = label_encoder[col].transform(X[col])
+                
+                val = set(X[col].values)
+                cle = set(label_encoder[col].classes_)
+                unknown_labels = list(val.difference(cle))
+                
+                if unknown_labels:
+                    # HACK : This should be handled by the config and not in code
+                    if 'unknown' in label_encoder[col].classes_:
+                        X[col] = label_encoder[col].transform(['unknown'])
+                    elif 'others' in label_encoder[col].classes_:
+                        X[col] = label_encoder[col].transform(['others'])
+                    else:
+                        raise Exception('Error in Encoding this value {}. The model has not been trained with this label for the field {}'.format(X[col], col))
+                else:
+                    X[col] = label_encoder[col].transform(X[col])
             except Exception as e:
                 raise Exception('Error in Label encoding. For the field : {}, {}'.format(col, e))
                 
@@ -82,6 +95,7 @@ def inference(node_dict, data, score_request):
     # Disabled temporarily
     # data = handle_lead_type(data)
     filters_t = transform_features(data, config_dict['feature_config']) #include new data config 
+    lead_type_f = None
     
     
     data_config = None
@@ -114,6 +128,8 @@ def inference(node_dict, data, score_request):
             selected_model = lead_type["neustar_filter"][neu_match]["select_model"]
             selected_label_encoder = lead_type["neustar_filter"][neu_match]["model_params"]['preprocessing_steps'][0]
             selected_scaler = lead_type["neustar_filter"][neu_match]["model_params"]['preprocessing_steps'][1]
+            
+            lead_type_f = _
             break
     else:
         
@@ -163,4 +179,10 @@ def inference(node_dict, data, score_request):
     prediction = model.predict_proba(data)
     score = prediction[0][1]
     
-    return score, ''
+    result_dict = {
+        'l1_score' : score,
+        'l1_reason' : '',
+        'lead_type' : lead_type_f
+    }
+    
+    return result_dict
