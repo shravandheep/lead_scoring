@@ -49,8 +49,7 @@ def encoding(features, encoders_dict):
             try:
                 X[col] = label_encoder[col].transform(X[col])
             except Exception as e:
-                print('For the column :', col, e)
-                raise Exception('Error in Label encoding')
+                raise Exception('Error in Label encoding. For the field : {}, {}'.format(col, e))
                 
 
     ## TODO: Fix the scaler 
@@ -75,7 +74,7 @@ def handle_lead_type(data):
             
     return data
 
-def inference(node_dict, data, score_request, force=False):
+def inference(node_dict, data, score_request):
                            
     model_config = node_dict['inference_cfg']    
     config_dict = node_dict['config_dict']
@@ -98,8 +97,6 @@ def inference(node_dict, data, score_request, force=False):
         
         for (fk, fv) in filters.items():
             
-            print(fk, filters_t[fk])
-            
             condition_1 = fk in filters_t 
             condition_2 = filters_t[fk] in fv 
             condition_final = condition_1 and condition_2
@@ -120,14 +117,10 @@ def inference(node_dict, data, score_request, force=False):
             break
     else:
         
-        if force:
-            data_config = lead_type["neustar_filter"][neu_match]["data_source"]
-            considered_features = lead_type["neustar_filter"][neu_match]["considered_features"]
-            selected_model = lead_type["neustar_filter"][neu_match]["select_model"]
-            selected_label_encoder = lead_type["neustar_filter"][neu_match]["model_params"]['preprocessing_steps'][0]
-            selected_scaler = lead_type["neustar_filter"][neu_match]["model_params"]['preprocessing_steps'][1]
-        else:
-            return -1
+        type_matching_keys = ['LeadSource', 'Lead_Medium__c', 'Original_Lead_Ad_Source__c']
+        reason = "LeadSource, Lead_Medium__c and Original_Lead_Ad_Source__c in combination did not match any of the lead types" 
+        
+        raise Exception(reason)
     
     # Feature selection
     if config_dict.get(data_config):
@@ -158,6 +151,7 @@ def inference(node_dict, data, score_request, force=False):
         'scaler' : scaler
     }
     
+
     data = encoding(data, encoders_dict)
     
     # Model selection
@@ -169,4 +163,4 @@ def inference(node_dict, data, score_request, force=False):
     prediction = model.predict_proba(data)
     score = prediction[0][1]
     
-    return score
+    return score, ''

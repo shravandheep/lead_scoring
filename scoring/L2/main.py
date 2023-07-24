@@ -62,9 +62,11 @@ def process(data, model):
     
     # HACK 
     score = random.random()
+    reason = ''
 
     result_dict = {
-        'l2_score' : score
+        'l2_score' : score,
+        'l2_reson' : reason
     }
         
     return result_dict

@@ -41,7 +41,7 @@ def process(data):
         result_dic : dict of result
     """
     
-    required_keys = ['lead_id', 'l1_score', 'l2_score']
+    required_keys = ['lead_id', 'l1_score', 'l1_reason', 'l2_score', 'l2_reason']
     
     parsed_data, packet_id, _ = check_and_unpack_data(data)
     args_dict = create_arguments_dict(parsed_data, required_keys)
