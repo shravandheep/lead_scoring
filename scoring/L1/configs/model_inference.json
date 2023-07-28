@@ -20,7 +20,7 @@
                     "phone_type",
                     "verified_phone",
                     "Appended Addresses1 DPC",
-                    "Lead_Medium__c",
+                    "Original_Lead_Medium__c",
                     "Appended Addresses1 Type",
                     "HasOptedOutOfEmail",
                     "State",
@@ -56,7 +56,7 @@
                 "considered_features": [
                      "IsWeekday",
                      "time_of_day",
-                     "Lead_Medium__c",
+                     "Original_Lead_Medium__c",
                      "HasOptedOutOfEmail",
                      "State",
                      "region",
@@ -86,7 +86,7 @@
                 "Medicare",
                 "ApplyForMedicare"
             ],
-            "Lead_Medium__c": [
+            "Original_Lead_Medium__c": [
                 "organic",
                 "direct"
             ]
@@ -98,7 +98,7 @@
                 "considered_features": [
                     
                          "Original_Lead_Ad_Source__c",
-                         "Lead_Medium__c",
+                         "Original_Lead_Medium__c",
                          "class_url",
                          "phone_usage_12",
                          "Input Phone1 DNC",
@@ -156,7 +156,7 @@
                 "considered_features": [
                     "Original_Lead_Ad_Source__c",
                     "class_landing",
-                    "Lead_Medium__c",
+                    "Original_Lead_Medium__c",
                     "class_url",
                     "Original_Operating_System__c",
                     "Original_Screen_Width__c",
@@ -205,7 +205,7 @@
                 "facebook",
                 "tiktok"
             ],
-            "Lead_Medium__c": [
+            "Original_Lead_Medium__c": [
                 "search",
                 "display",
                 "youtube",
@@ -326,7 +326,7 @@
         "filters" : {
             "Source": [],
             "Original_Lead_Ad_Source__c": [],
-            "Lead_Medium__c": []
+            "Original_Lead_Medium__c": []
         },
         "neustar_filter": {
             "matched": {

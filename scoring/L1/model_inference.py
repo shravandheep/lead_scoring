@@ -132,9 +132,8 @@ def inference(node_dict, data, score_request):
             lead_type_f = _
             break
     else:
-        
-        type_matching_keys = ['LeadSource', 'Lead_Medium__c', 'Original_Lead_Ad_Source__c']
-        reason = "LeadSource, Lead_Medium__c and Original_Lead_Ad_Source__c in combination did not match any of the lead types" 
+
+        reason = "Lead Source,Medium and Ad Source in combination did not match any of the lead model types" 
         
         raise Exception(reason)
     

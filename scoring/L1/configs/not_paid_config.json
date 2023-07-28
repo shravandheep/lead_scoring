@@ -2718,7 +2718,7 @@
               }
           }
       ],
-      "Lead_Medium__c": [
+      "Original_Lead_Medium__c": [
           {
               "apply": "substitute",
               "kwargs": {
