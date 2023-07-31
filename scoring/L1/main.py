@@ -121,6 +121,7 @@ def process(data, node_dict):
         
         result_dict = {
             'l1_score' : -1,
+            'l1_likelihood' : -1,
             'l1_reason' : str(e)
         }
         

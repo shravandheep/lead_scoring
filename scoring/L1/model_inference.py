@@ -1,4 +1,5 @@
 import os
+import json
 import joblib
 
 import pandas as pd
@@ -44,23 +45,32 @@ def encoding(features, encoders_dict):
         X = features
 
     for col in X.columns:
-        if label_encoder.get(col):
+        
+        # HACK
+        enc_mapping = {
+            'Original_Lead_Medium__c' : 'Lead_Medium__c'
+        }
+        
+        if label_encoder.get(col) or col in list(enc_mapping.keys()):
+            
+            enc_col = enc_mapping.get(col, col)
+            
             try:
                 
                 val = set(X[col].values)
-                cle = set(label_encoder[col].classes_)
+                cle = set(label_encoder[enc_col].classes_)
                 unknown_labels = list(val.difference(cle))
                 
                 if unknown_labels:
                     # HACK : This should be handled by the config and not in code
-                    if 'unknown' in label_encoder[col].classes_:
-                        X[col] = label_encoder[col].transform(['unknown'])
-                    elif 'others' in label_encoder[col].classes_:
-                        X[col] = label_encoder[col].transform(['others'])
+                    if 'unknown' in label_encoder[enc_col].classes_:
+                        X[col] = label_encoder[enc_col].transform(['unknown'])
+                    elif 'others' in label_encoder[enc_col].classes_:
+                        X[col] = label_encoder[enc_col].transform(['others'])
                     else:
                         raise Exception('Error in Encoding this value {}. The model has not been trained with this label for the field {}'.format(X[col], col))
                 else:
-                    X[col] = label_encoder[col].transform(X[col])
+                    X[col] = label_encoder[enc_col].transform(X[col])
             except Exception as e:
                 raise Exception('Error in Label encoding. For the field : {}, {}'.format(col, e))
                 
@@ -165,9 +175,16 @@ def inference(node_dict, data, score_request):
         'label_encoder' : label_encoder,
         'scaler' : scaler
     }
-    
+
+    enc_mapping = {
+        'Original_Lead_Medium__c' : 'Lead_Medium__c'
+    }
 
     data = encoding(data, encoders_dict)
+    
+    for k,v in enc_mapping.items():
+        if k in data.columns:
+            data.rename(columns={k : v}, inplace=True)
     
     # Model selection
     if node_dict['model_dict'].get(selected_model):
@@ -175,13 +192,33 @@ def inference(node_dict, data, score_request):
     else:
         raise Exception("No model key was found. Please check")
 
+    
     prediction = model.predict_proba(data)
     score = prediction[0][1]
     
+    quartiles = json.load(open(config_dict['quartiles']))
+    likelihood = get_likelihood(score, quartiles)
+    
     result_dict = {
         'l1_score' : score,
+        'l1_likelihood' : likelihood,
         'l1_reason' : '',
         'lead_type' : lead_type_f
     }
     
     return result_dict
+
+def get_likelihood(score, quartiles):
+    
+    bucket = list(quartiles.values())
+    
+    if score < bucket[0]:
+        return 1
+    elif score > bucket[0] and score < bucket[1]:
+        return 2
+    elif score > bucket[1] and score < bucket[2]:
+        return 3
+    elif score > bucket[2]:
+        return 4
+    
+    return -1
