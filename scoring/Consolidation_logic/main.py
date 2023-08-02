@@ -50,12 +50,14 @@ def process(data):
     
     # HACK 
     final_score = args_dict['l1_score']
+    final_likelihood = args_dict['l1_likelihood']
     final_args = dict((k,v) for (k,v) in args_dict.items() if k in required_keys)
 
     result_dict = {
         **final_args,
         'score' : final_score,
-        'type' : score_request
+        'type' : score_request,
+        'likelihood' : final_likelihood
     }
         
     return result_dict
