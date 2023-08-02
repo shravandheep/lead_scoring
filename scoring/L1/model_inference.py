@@ -79,23 +79,6 @@ def encoding(features, encoders_dict):
     # X = scaler.transform(X)
     return X
     
-    
-# TODO: Please don't use this function in the future
-# This is a hack / hardcoded function
-def handle_lead_type(data):
-    
-    default_values = {
-        'LeadSource': 'deafult',
-        'Lead_Medium__c' : 'default',
-        'Original_Lead_Ad_Source__c' : 'default'
-    }
-    
-    for k,v in default_values.items():
-        
-        if data.get(k) == '' or not data.get(k): 
-            data[k] = v
-            
-    return data
 
 def inference(node_dict, data, score_request):
                            
@@ -106,8 +89,7 @@ def inference(node_dict, data, score_request):
     # data = handle_lead_type(data)
     filters_t = transform_features(data, config_dict['feature_config']) #include new data config 
     lead_type_f = None
-    
-    
+        
     data_config = None
     selected_model = None
     selected_scaler = None
@@ -176,6 +158,7 @@ def inference(node_dict, data, score_request):
         'scaler' : scaler
     }
 
+    ## Hack 
     enc_mapping = {
         'Original_Lead_Medium__c' : 'Lead_Medium__c'
     }
@@ -185,7 +168,7 @@ def inference(node_dict, data, score_request):
     for k,v in enc_mapping.items():
         if k in data.columns:
             data.rename(columns={k : v}, inplace=True)
-    
+            
     # Model selection
     if node_dict['model_dict'].get(selected_model):
         model = node_dict['model_dict'][selected_model]

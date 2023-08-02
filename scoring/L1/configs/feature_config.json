@@ -260,7 +260,7 @@
             "apply": "regex",
             "kwargs": {
                 "from": [
-                    ".*MedicareFAQ\b"
+                    ".*MedicareFAQ.*"
                 ],
                 "to": "MedicareFAQ"
             },
@@ -280,7 +280,7 @@
             "apply": "regex",
             "kwargs": {
                 "from": [
-                    ".*Medicare\b"
+                    "(?<!ApplyFor)Medicare(?!FAQ)"
                 ],
                 "to": "Facebook"
             },
