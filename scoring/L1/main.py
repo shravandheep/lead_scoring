@@ -3,6 +3,7 @@ import os
 import json
 import pickle
 import logging
+import traceback
 
 # Internal imports
 from auxiliary.util.global_constants import NODE_L1
@@ -115,14 +116,16 @@ def process(data, node_dict):
     combined_data.update(lead_data)
     combined_data.update(neustar_data)
     
+    node_dict['neustar_match'] = "not_matched" if not bool(neustar_data) else "matched"
+    
     try:
-        result_dict = inference(node_dict, combined_data, score_request)
+        result_dict = inference(node_dict, combined_data, score_request, )
     except Exception as e:
         
         result_dict = {
             'l1_score' : -1,
             'l1_likelihood' : -1,
-            'l1_reason' : str(e)
+            'l1_reason' : traceback.format_exc()
         }
         
     return result_dict

@@ -113,7 +113,7 @@ def inference(node_dict, data, score_request):
             # TODO: Write a better neustar logic. This process might change in the future
             # nuestar logic
             
-            neu_match = "matched"
+            neu_match = node_dict['neustar_match']
 
             data_config = lead_type["neustar_filter"][neu_match]["data_source"]
             considered_features = lead_type["neustar_filter"][neu_match]["considered_features"]
