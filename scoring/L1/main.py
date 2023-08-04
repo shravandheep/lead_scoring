@@ -119,7 +119,7 @@ def process(data, node_dict):
     node_dict['neustar_match'] = "not_matched" if not bool(neustar_data) else "matched"
     
     try:
-        result_dict = inference(node_dict, combined_data, score_request, )
+        result_dict = inference(node_dict, combined_data, score_request)
     except Exception as e:
         
         result_dict = {
