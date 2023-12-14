@@ -1,6 +1,6 @@
-flask==2.1.0
-cachetools==4.0.0
-gunicorn==20.0.4
+flask==3.0.0
+cachetools==5.3.1
+gunicorn==21.2.0
 kafka-python==2.0.2
 requests
 protobuf==3.20.*

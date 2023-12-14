@@ -63,7 +63,7 @@ def initialize_node(node_config, **kwargs):
     for r,d,f in os.walk(parent_path_to_scalers):
         for scl in f:
             
-            key = scl.replace(_ENC_EXT_POLCIY, '')
+            key = scl.replace(_ENC_EXT_POLICY, '')
             
             with open(os.path.join(r, scl), 'rb') as f:
                 scalers_dict[key] = pickle.load(f)
@@ -134,12 +134,12 @@ def process(data, node_dict):
         # This is just for populating dummy score
         dummy_score = random.random()
         dummy_score = dummy_score if dummy_score > 0.5 else 1 - dummy_score
-        dummy_classes = random.choice(['Medicare Advantage', 'Medicare Suppliment']
+        dummy_classes = random.choice(['Medicare Advantage', 'Medicare Suppliment'])
         dummy_likelihood = random.choice([1,2,3,4])
         quartile_values = [0.6, 0.75, 0.9]
         
-        return = {
-            'policy_name' : dummy_classes
+        return {
+            'policy_name' : dummy_classes,
             'policy_score' : dummy_score,
             'policy_likelihood' : dummy_likelihood,
             'policy_reason' : "SUCCESS"
