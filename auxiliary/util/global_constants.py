@@ -12,6 +12,7 @@ os.environ['LRU_CACHE_CAPACITY'] = '1'
 NODE_INPUT = "input"
 NODE_L1 = "l1_model"
 NODE_L2 = "l2_model"
+NODE_POLICY = "policy_model"
 NODE_CONSOLIDATION = "lead_consolidation"
 
 # Hardcoded file names
@@ -26,12 +27,17 @@ _ENC_EXT_L1 = '.pkl'
 _WTS_EXT_L1 = '.sav'
 _CFG_EXT_L1 = '.json'
 
+_ENC_EXT_POLICY = '.pkl'
+_WTS_EXT_POLICY = '.sav'
+_CFG_EXT_POLICY = '.json'
+
 _WTS_EXT_L2 = '.pth'
 
 LEAD_DATA = 'lead_data'
 NEUSTAR_DATA = 'neustar_data'
 
 LEAD_REQ_SCORE = 'request_score_for_lead'
+LEAD_UPD_SCORE = 'update_score_for_lead'
 POLICY_REQ_SCORE = 'request_score_for_policy'
 
 # S3 
@@ -64,3 +70,25 @@ L1_SCL_ENC = [
 
 #L2
 L2_MODEL_WTS = ['model_experiments/weights/L2/L2_model.pth']
+
+# POLICY
+POLICY_WTS = [
+    'model_experiments/weights/L1/not_paid_leads_with_neustar_not_matched.sav',
+    'model_experiments/weights/L1/not_paid_leads_with_neustar_matched.sav',
+    'model_experiments/weights/L1/paid_leads_with_neustar_not_matched.sav',
+    'model_experiments/weights/L1/paid_leads_with_neustar_matched.sav',
+    'model_experiments/weights/L1/partner_leads_with_neustar_not_matched.sav',
+    'model_experiments/weights/L1/partner_leads_with_neustar_matched.sav'
+]
+
+POLICY_LBL_ENC = [
+    'model_experiments/weights/L1/encoders/label_encoders_not_paid.pkl',
+    'model_experiments/weights/L1/encoders/label_encoders_paid.pkl',
+    'model_experiments/weights/L1/encoders/label_encoders_partner.pkl'
+]
+
+POLICY_SCL_ENC = [
+    'model_experiments/weights/L1/encoders/scaler_not_paid.pkl',
+    'model_experiments/weights/L1/encoders/scaler_paid.pkl',
+    'model_experiments/weights/L1/encoders/scaler_partner.pkl'
+]

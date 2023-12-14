@@ -1,0 +1,2024 @@
+{
+  "CreatedDate": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+          "alias": "IsWeekday"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+          "alias": "WeekOfMonth"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+          "alias": "time_of_day"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+          "alias": "quarter"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+          "alias": "CreatedMonth"
+      },
+      {
+          "apply": "isweekday",
+          "kwargs": {},
+          "alias": "IsWeekday"
+      }, 
+      {
+          "apply": "weekofmonth",
+          "kwargs": {},
+          "alias": "WeekOfMonth"
+      },
+      
+      {
+          "apply": "timeofday",
+          "kwargs": {},
+          "alias": "time_of_day"
+      },
+      {
+          "apply": "quarter",
+          "kwargs": {},
+          "alias": "quarter"
+      },
+      {
+          "apply": "createdmonth",
+          "kwargs": {},
+          "alias": "CreatedMonth"
+      }
+  ],
+  "Input Phone1 Call Window": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Monday"
+      },
+      {
+          "apply": "split",
+          "kwargs": {
+              "char": "|",
+              "day": 0
+          },
+          "alias": "Monday"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Tuesday"
+      },
+      {
+          "apply": "split",
+          "kwargs": {
+              "char": "|",
+              "day": 1
+          },
+          "alias": "Tuesday"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+          "alias": "Wednesday"
+      },
+      {
+          "apply": "split",
+          "kwargs": {
+              "char": "|",
+              "day": 2
+          },
+          "alias": "Wednesday"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Thursday"
+      },
+      {
+          "apply": "split",
+          "kwargs": {
+              "char": "|",
+              "day": 3
+          },
+          "alias": "Thursday"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Friday"
+      },
+      {
+          "apply": "split",
+          "kwargs": {
+              "char": "|",
+              "day": 4
+          },
+          "alias": "Friday"
+      },
+      
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Saturday"
+      },
+      {
+          "apply": "split",
+          "kwargs": {
+              "char": "|",
+              "day": 5
+          },
+          "alias": "Saturday"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Sunday"
+      },
+      {
+          "apply": "split",
+          "kwargs": {
+              "char": "|",
+              "day": 6
+          },
+          "alias": "Sunday"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Overall"
+      },
+      {
+          "apply": "split",
+          "kwargs": {
+              "char": "|",
+              "day": 7
+          },
+          "alias": "Overall"
+      }
+
+  ],
+  "Input Phone1 Contactability Score": [
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C",
+                  "B",
+                  "F"
+              ],
+              "to": 1
+          },
+          "alias": "phone_type"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "phone_type"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "J",
+                  "I",
+                  "G",
+                  "K",
+                  "E"
+              ],
+              "to": 0
+          },
+          "alias": "phone_type"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "F",
+                  "J",
+                  "I",
+                  "G",
+                  "E",
+                  "K"
+              ],
+              "to": 0
+          },
+          "alias": "verified_phone"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C"
+              ],
+              "to": 1
+          },
+          "alias": "verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "B"
+              ],
+              "to": -1
+          },
+          "alias": "verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "F",
+                  "K"
+              ],
+              "to": 0
+          },
+          "alias": "phone_usage_12"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C",
+                  "B",
+                  "G",
+                  "E"
+              ],
+              "to": 1
+          },
+          "alias": "phone_usage_12"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "phone_usage_12"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "J",
+                  "I",
+                  "G",
+                  "K",
+                  "C",
+                  "F"
+              ],
+              "to": 0
+          },
+          "alias": "phone_usage_2"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "phone_usage_2"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "B",
+                  "E"
+              ],
+              "to": 1
+          },
+          "alias": "phone_usage_2"
+      }
+  ],
+  "Birthdate__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 65
+          }, 
+          "alias": "Age"
+      }, 
+      {
+          "apply": "timediff",
+          "kwargs": {},
+          "alias": "Age"
+      },
+      {
+          "apply": "fill_na", 
+          "kwargs": {
+              "value": "unknown"
+          } 
+      }
+  ],
+  "CampaignID__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "CPO_bucket"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": "cpo_config.json",
+              "to": 0
+          },
+          "alias": "CPO_bucket"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }, 
+          "alias": "p"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": "p_config.json",
+              "to": "unknown"
+          },
+          "alias": "p"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }, 
+          "alias": "bs"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": "bs_config.json",
+              "to": "unknown"
+          },
+          "alias": "bs"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }, 
+          "alias": "t"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": "t_config.json",
+              "to": "unknown"
+          },
+          "alias": "t"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }, 
+          "alias": "d"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": "d_config.json",
+              "to": "unknown"
+          },
+          "alias": "d"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }, 
+          "alias": "h"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": "h_config.json",
+              "to": "unknown"
+          },
+          "alias": "h"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }
+      }
+  ],
+  "Lead_Keyword_s__c": [
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": "tfidf_config.json",
+              "to": "[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3061022542403851, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.9519986396781009, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
+          },
+          "alias": "tfidf_vector"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }, 
+          "alias": "tfidf_vector"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": "count_config.json",
+              "to": "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]"
+          },
+          "alias": "count_vector"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }, 
+          "alias": "count_vector"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "plan"
+          }, 
+          "alias": "keyword_type"
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*plan.+"
+              ],
+              "to": "plan"
+          },
+          "alias": "keyword_type"
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*supplement.+"
+              ],
+              "to": "plan"
+          },
+          "alias": "keyword_type"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "+arizona +medigap +g",
+                  "+arizona +medigap +n",
+                  "+best +medigap",
+                  "+best +medigap +in +maryland",
+                  "+best +medigap +in +south +carolina",
+                  "+california +best +medigap",
+                  "+california +medicare +f",
+                  "+california +medicare +medigap +policies",
+                  "+colorado +medicare +g",
+                  "+dc +medigap",
+                  "+delaware +medigap",
+                  "+florida +best +medigap",
+                  "+georgia +medicare +g",
+                  "+georgia +medigap +cost",
+                  "+georgia +medigap +insurance +rates",
+                  "+illinois +medigap",
+                  "+iowa +medigap +f",
+                  "+kentucky +medigap +f",
+                  "+kentucky +medigap +insurance +rates",
+                  "+maryland +medicare +g",
+                  "+maryland +medigap +costs",
+                  "+maryland +medigap +ratings",
+                  "+medicare +and +medigap",
+                  "+medicare +coverage +gap",
+                  "+medicare +f",
+                  "+medicare +f +arizona",
+                  "+medicare +f +florida",
+                  "+medicare +f +south +carolina",
+                  "+medicare +f +texas",
+                  "+medicare +g",
+                  "+medicare +g +arizona",
+                  "+medicare +g +florida",
+                  "+medicare +g +georgia",
+                  "+medicare +g +in +florida",
+                  "+medicare +g +maryland",
+                  "+medicare +g +michigan",
+                  "+medicare +g +missouri",
+                  "+medicare +g +nevada",
+                  "+medicare +g +north +carolina",
+                  "+medicare +g +virginia",
+                  "+medicare +gap",
+                  "+medicare +gap +coverage",
+                  "+medicare +gap +insurance",
+                  "+medicare +gap +policies",
+                  "+medicare +medigap",
+                  "+medicare +medigap +insurance",
+                  "+medicare +medigap +kansas",
+                  "+medicare +medigap +kentucky",
+                  "+medicare +n",
+                  "+medicare +n +in +north +carolina",
+                  "+medicare +n +new +jersey",
+                  "+medicare +n +vermont",
+                  "+medicare +part +f",
+                  "+medicare +part +f +california",
+                  "+medicare +part +f +coverage",
+                  "+medicare +part +f +premium",
+                  "+medicare +part +f +rates",
+                  "+medicare +part +g",
+                  "+medicare +part +g +cost",
+                  "+medicare +part +g +coverage",
+                  "+medicare +part +g +indiana",
+                  "+medicare +part +g +premium",
+                  "+medicare +part +g +rates",
+                  "+medicare +part +n",
+                  "+medicare +part +n +coverage",
+                  "+medicare +supp",
+                  "+medigap",
+                  "+medigap +alabama",
+                  "+medigap +arkansas",
+                  "+medigap +companies",
+                  "+medigap +companies +in +florida",
+                  "+medigap +cost",
+                  "+medigap +cost +new +jersey",
+                  "+medigap +costs",
+                  "+medigap +costs +maryland",
+                  "+medigap +coverage",
+                  "+medigap +coverage +arizona",
+                  "+medigap +coverage +arkansas",
+                  "+medigap +coverage +in +michigan",
+                  "+medigap +coverage +in +texas",
+                  "+medigap +coverage +in +utah",
+                  "+medigap +coverage +kentucky",
+                  "+medigap +coverage +utah",
+                  "+medigap +f +florida",
+                  "+medigap +f +pennsylvania",
+                  "+medigap +f +south +carolina",
+                  "+medigap +f +virginia",
+                  "+medigap +g",
+                  "+medigap +g +california",
+                  "+medigap +g +colorado",
+                  "+medigap +g +illinois",
+                  "+medigap +g +indiana",
+                  "+medigap +g +michigan",
+                  "+medigap +g +nevada",
+                  "+medigap +g +ohio",
+                  "+medigap +g +pennsylvania",
+                  "+medigap +g +texas",
+                  "+medigap +g +virginia",
+                  "+medigap +g +washington",
+                  "+medigap +georgia",
+                  "+medigap +in +alabama",
+                  "+medigap +in +delaware",
+                  "+medigap +in +georgia",
+                  "+medigap +in +louisiana",
+                  "+medigap +in +maine",
+                  "+medigap +ins",
+                  "+medigap +insurance",
+                  "+medigap +insurance +companies",
+                  "+medigap +insurance +company",
+                  "+medigap +insurance +coverage",
+                  "+medigap +insurance +in +dc",
+                  "+medigap +insurance +maine",
+                  "+medigap +insurance +north +carolina",
+                  "+medigap +insurance +policies",
+                  "+medigap +insurance +policy",
+                  "+medigap +insurance +premiums",
+                  "+medigap +insurance +premiums +ohio",
+                  "+medigap +insurance +rates",
+                  "+medigap +insurance +rates +in +virginia",
+                  "+medigap +insurance +rates +kentucky",
+                  "+medigap +insurance +ratings",
+                  "+medigap +insurance +texas",
+                  "+medigap +insurance +virginia",
+                  "+medigap +insurances",
+                  "+medigap +medicare",
+                  "+medigap +medicare +in +florida",
+                  "+medigap +mississippi",
+                  "+medigap +n",
+                  "+medigap +n +arizona",
+                  "+medigap +new +mexico",
+                  "+medigap +north +dakota",
+                  "+medigap +policies",
+                  "+medigap +policies +in +indiana",
+                  "+medigap +policies +ohio",
+                  "+medigap +policies +texas",
+                  "+medigap +policies +washington",
+                  "+medigap +policy",
+                  "+medigap +policy +costs",
+                  "+medigap +premium",
+                  "+medigap +premiums",
+                  "+medigap +premiums +illinois",
+                  "+medigap +premiums +ohio",
+                  "+medigap +quote",
+                  "+medigap +rates",
+                  "+medigap +rates +in +new +jersey",
+                  "+medigap +rates +in +pennsylvania",
+                  "+medigap +rates +maine",
+                  "+medigap +ratings",
+                  "+michigan +medigap",
+                  "+michigan +medigap +g",
+                  "+nevada +medicare +g",
+                  "+nevada +medigap +cost",
+                  "+new +jersey +medicare +g",
+                  "+new +jersey +medicare +n",
+                  "+new +jersey +medigap +companies",
+                  "+new +jersey +medigap +insurance +rates",
+                  "+new +jersey +part +n +medigap",
+                  "+new +mexico +medigap",
+                  "+north +dakota +medigap",
+                  "+ohio +best +medigap",
+                  "+ohio +medigap +g",
+                  "+part +f +medigap",
+                  "+part +g +medicare",
+                  "+part +g +medigap",
+                  "+part +n +medicare",
+                  "+part +n +medigap",
+                  "+south +carolina +medigap +comparison",
+                  "+texas +medicare +part +g",
+                  "+texas +medigap +insurance +rates",
+                  "+vermont +medigap +rates",
+                  "+virginia +medigap",
+                  "+virginia +medigap +f",
+                  "Elite Ins",
+                  "Elite Insurance",
+                  "Elite Insurance Partners",
+                  "age for medicare enrollment",
+                  "alabama best medigap insurance",
+                  "alabama medicare f",
+                  "alabama medicare n",
+                  "alabama medicare supp",
+                  "alabama medigap",
+                  "alabama medigap coverage",
+                  "alabama medigap ins",
+                  "alabama medigap n",
+                  "apply for medicare",
+                  "arizona cost of medigap insurance",
+                  "arizona medicare g",
+                  "arizona medicare n",
+                  "arizona medicare part n cost",
+                  "arizona medicare part n premium",
+                  "arizona medicare supp",
+                  "arizona medigap ins",
+                  "arkansas medicare f",
+                  "arkansas medicare n",
+                  "arkansas medicare supp",
+                  "arkansas medigap ins",
+                  "arkansas part f medicare",
+                  "best insurance for seniors on medicare",
+                  "best medicare",
+                  "best medicare coverage",
+                  "best medicare insurance",
+                  "best medicare option",
+                  "best medicare providers",
+                  "best medigap",
+                  "best medigap florida",
+                  "best medigap in florida",
+                  "best medigap in georgia",
+                  "best medigap in new jersey",
+                  "best medigap in north carolina",
+                  "best medigap insurance",
+                  "best medigap insurance companies",
+                  "best medigap insurance companies florida",
+                  "best medigap insurance companies louisiana",
+                  "best medigap insurance florida",
+                  "best medigap insurance in florida",
+                  "best medigap insurance in illinois",
+                  "best medigap insurance in new hampshire",
+                  "best medigap insurance in north carolina",
+                  "best medigap insurance in texas",
+                  "best medigap insurance nebraska",
+                  "best medigap insurance new jersey",
+                  "best medigap insurance new mexico",
+                  "best medigap insurance texas",
+                  "best medigap michigan",
+                  "best medigap new hampshire",
+                  "best medigap south carolina",
+                  "best medigap washington",
+                  "best option for medicare coverage",
+                  "california medicare medigap policies",
+                  "california medicare n",
+                  "california medicare part g rates",
+                  "california medicare supp",
+                  "california medigap",
+                  "california medigap coverage",
+                  "california medigap insurance",
+                  "california medigap rates",
+                  "choosing a medigap policy",
+                  "choosing a medigap policy florida",
+                  "choosing a medigap policy pennsylvania",
+                  "colorado medicare n",
+                  "compare medicare",
+                  "compare medicare insurance",
+                  "compare medicare rates",
+                  "compare medigap",
+                  "compare medigap illinois",
+                  "compare medigap in ohio",
+                  "compare medigap policies",
+                  "compare medigap policies in texas",
+                  "compare medigap premiums",
+                  "compare medigap premiums in pennsylvania",
+                  "compare medigap texas",
+                  "cost medicare insurance",
+                  "cost of medicare",
+                  "cost of medigap",
+                  "cost of medigap in arizona",
+                  "cost of medigap in california",
+                  "cost of medigap in michigan",
+                  "cost of medigap in new jersey",
+                  "cost of medigap in pennsylvania",
+                  "cost of medigap indiana",
+                  "cost of medigap insurance",
+                  "cost of medigap insurance florida",
+                  "cost of medigap insurance in florida",
+                  "cost of medigap insurance in vermont",
+                  "cost of medigap insurance texas",
+                  "default",
+                  "delaware medicare medigap insurance",
+                  "delaware medicare n",
+                  "delaware medigap",
+                  "enrolling in medicare",
+                  "faqs medicare",
+                  "florida best medigap",
+                  "florida cost of medigap",
+                  "florida cost of medigap insurance",
+                  "florida medicare f",
+                  "florida medicare medigap insurance",
+                  "florida medicare medigap policies",
+                  "florida medicare n",
+                  "florida medicare part g",
+                  "florida medicare part n premium",
+                  "florida medicare supp",
+                  "florida medigap",
+                  "florida medigap g",
+                  "florida medigap insurance",
+                  "florida medigap insurance companies",
+                  "florida medigap part g",
+                  "florida medigap rates",
+                  "georgia medicare medigap",
+                  "georgia medicare n",
+                  "georgia medicare part g rates",
+                  "georgia medicare supp",
+                  "georgia medigap",
+                  "georgia medigap insurance cost",
+                  "georgia medigap medicare",
+                  "georgia medigap rates",
+                  "idaho medicare n",
+                  "idaho medicare supp",
+                  "idaho medigap",
+                  "idaho medigap ins",
+                  "idaho medigap rates",
+                  "illinois medicare n",
+                  "illinois medigap",
+                  "illinois medigap cost",
+                  "illinois medigap insurance companies",
+                  "illinois medigap insurance rates",
+                  "illinois part g medicare",
+                  "indiana medicare g",
+                  "indiana medigap",
+                  "indiana medigap insurance company ratings",
+                  "insurance medicare",
+                  "iowa medicare n",
+                  "iowa medicare supp",
+                  "iowa medigap",
+                  "kansas medicare n",
+                  "kansas medigap",
+                  "kentucky medicare n",
+                  "kentucky medigap",
+                  "louisiana medicare gap",
+                  "louisiana medicare n",
+                  "louisiana medigap",
+                  "maine medicare n",
+                  "maine medicare supp",
+                  "maine medigap insurance",
+                  "maryland cost of medigap",
+                  "maryland medicare gap insurance",
+                  "maryland medicare n",
+                  "maryland medicare supp",
+                  "maryland medigap",
+                  "maryland medigap insurance",
+                  "maryland medigap insurance rates",
+                  "medicare advantage",
+                  "medicare age",
+                  "medicare and medigap",
+                  "medicare and medigap in texas",
+                  "medicare benefits",
+                  "medicare companies",
+                  "medicare company",
+                  "medicare comparison",
+                  "medicare comparison chart",
+                  "medicare comparison tool",
+                  "medicare cost",
+                  "medicare coverage",
+                  "medicare coverage gap",
+                  "medicare coverage gap in arizona",
+                  "medicare coverage gap in colorado",
+                  "medicare coverage gap in illinois",
+                  "medicare coverage options",
+                  "medicare deadline",
+                  "medicare eligibility",
+                  "medicare enrollment",
+                  "medicare enrollment application",
+                  "medicare enrollment period",
+                  "medicare f",
+                  "medicare f arizona",
+                  "medicare f florida",
+                  "medicare f in florida",
+                  "medicare f in maine",
+                  "medicare f south carolina",
+                  "medicare f texas",
+                  "medicare faq",
+                  "medicare faqs",
+                  "medicare g",
+                  "medicare g blue cross illinois",
+                  "medicare g california",
+                  "medicare g illinois",
+                  "medicare g in illinois",
+                  "medicare g in michigan",
+                  "medicare g in north carolina",
+                  "medicare g in south carolina",
+                  "medicare g indiana",
+                  "medicare g louisiana",
+                  "medicare g new jersey",
+                  "medicare g tennessee",
+                  "medicare g texas",
+                  "medicare g washington",
+                  "medicare gap",
+                  "medicare gap aetna",
+                  "medicare gap california",
+                  "medicare gap coverage",
+                  "medicare gap coverage louisiana",
+                  "medicare gap coverage north carolina",
+                  "medicare gap coverage tennessee",
+                  "medicare gap in alabama",
+                  "medicare gap in colorado",
+                  "medicare gap in indiana",
+                  "medicare gap in louisiana",
+                  "medicare gap insurance",
+                  "medicare gap insurance california",
+                  "medicare gap insurance cost",
+                  "medicare gap insurance in nebraska",
+                  "medicare gap insurance in ohio",
+                  "medicare gap insurance in oklahoma",
+                  "medicare gap insurance new jersey",
+                  "medicare gap louisiana",
+                  "medicare gap policies",
+                  "medicare gap policies in texas",
+                  "medicare health insurance",
+                  "medicare ins",
+                  "medicare insurance benefits",
+                  "medicare insurance companies",
+                  "medicare insurance company",
+                  "medicare insurance comparison",
+                  "medicare insurance coverage",
+                  "medicare insurance options",
+                  "medicare insurance policy",
+                  "medicare insurance providers",
+                  "medicare insurance quotes",
+                  "medicare insurance rates",
+                  "medicare medigap",
+                  "medicare medigap comparisons",
+                  "medicare medigap comparisons in georgia",
+                  "medicare medigap comparisons in michigan",
+                  "medicare medigap insurance",
+                  "medicare medigap insurance in alabama",
+                  "medicare medigap insurance in maryland",
+                  "medicare medigap insurance in oregon",
+                  "medicare medigap insurance in texas",
+                  "medicare medigap insurance in virginia",
+                  "medicare medigap insurance north carolina",
+                  "medicare medigap policies",
+                  "medicare medigap policies colorado",
+                  "medicare medigap policies in georgia",
+                  "medicare medigap policies in oklahoma",
+                  "medicare most popular",
+                  "medicare n",
+                  "medicare n alabama",
+                  "medicare n anthem",
+                  "medicare n arizona",
+                  "medicare n arkansas",
+                  "medicare n blue cross blue shield",
+                  "medicare n california",
+                  "medicare n colorado",
+                  "medicare n delaware",
+                  "medicare n florida",
+                  "medicare n georgia",
+                  "medicare n idaho",
+                  "medicare n illinois",
+                  "medicare n in alabama",
+                  "medicare n in arizona",
+                  "medicare n in arkansas",
+                  "medicare n in california",
+                  "medicare n in florida",
+                  "medicare n in idaho",
+                  "medicare n in illinois",
+                  "medicare n in iowa",
+                  "medicare n in louisiana",
+                  "medicare n in maine",
+                  "medicare n in nevada",
+                  "medicare n in new hampshire",
+                  "medicare n in new jersey",
+                  "medicare n in oregon",
+                  "medicare n in pennsylvania",
+                  "medicare n in rhode island",
+                  "medicare n in tennessee",
+                  "medicare n in texas",
+                  "medicare n in washington",
+                  "medicare n in wyoming",
+                  "medicare n iowa",
+                  "medicare n kentucky",
+                  "medicare n louisiana",
+                  "medicare n maryland",
+                  "medicare n michigan",
+                  "medicare n mississippi",
+                  "medicare n montana",
+                  "medicare n nebraska",
+                  "medicare n nevada",
+                  "medicare n new hampshire",
+                  "medicare n new jersey",
+                  "medicare n new mexico",
+                  "medicare n north carolina",
+                  "medicare n north dakota",
+                  "medicare n ohio",
+                  "medicare n oklahoma",
+                  "medicare n oregon",
+                  "medicare n pennsylvania",
+                  "medicare n rhode island",
+                  "medicare n south carolina",
+                  "medicare n south dakota",
+                  "medicare n tennessee",
+                  "medicare n texas",
+                  "medicare n utah",
+                  "medicare n vermont",
+                  "medicare n virginia",
+                  "medicare n washington",
+                  "medicare n west virginia",
+                  "medicare n wyoming",
+                  "medicare online",
+                  "medicare open enrollment",
+                  "medicare options",
+                  "medicare part c",
+                  "medicare part f",
+                  "medicare part f aarp",
+                  "medicare part f arizona",
+                  "medicare part f cost",
+                  "medicare part f coverage",
+                  "medicare part f florida",
+                  "medicare part f georgia",
+                  "medicare part f idaho",
+                  "medicare part f in tennessee",
+                  "medicare part f premium",
+                  "medicare part f premium michigan",
+                  "medicare part f rates",
+                  "medicare part g",
+                  "medicare part g arkansas",
+                  "medicare part g cost",
+                  "medicare part g cost florida",
+                  "medicare part g cost in ohio",
+                  "medicare part g cost vermont",
+                  "medicare part g coverage",
+                  "medicare part g coverage indiana",
+                  "medicare part g coverage new jersey",
+                  "medicare part g florida",
+                  "medicare part g illinois",
+                  "medicare part g in texas",
+                  "medicare part g in wyoming",
+                  "medicare part g indiana",
+                  "medicare part g kansas",
+                  "medicare part g maryland",
+                  "medicare part g montana",
+                  "medicare part g new jersey",
+                  "medicare part g pennsylvania",
+                  "medicare part g premium",
+                  "medicare part g premium tennessee",
+                  "medicare part g rates",
+                  "medicare part g rates florida",
+                  "medicare part g rates maine",
+                  "medicare part g rates mississippi",
+                  "medicare part g texas",
+                  "medicare part g virginia",
+                  "medicare part n",
+                  "medicare part n cost",
+                  "medicare part n cost alabama",
+                  "medicare part n coverage",
+                  "medicare part n in maine",
+                  "medicare part n in tennessee",
+                  "medicare part n new hampshire",
+                  "medicare part n new jersey",
+                  "medicare part n premium",
+                  "medicare part n premium wyoming",
+                  "medicare part n rates",
+                  "medicare part n texas",
+                  "medicare policies",
+                  "medicare premium cost",
+                  "medicare premiums",
+                  "medicare price",
+                  "medicare questions",
+                  "medicare quote",
+                  "medicare rate",
+                  "medicare ratings",
+                  "medicare secondary insurance",
+                  "medicare sign up",
+                  "medicare sign up online",
+                  "medicare sign up period",
+                  "medicare signup",
+                  "medicare supp",
+                  "medicare supp alabama",
+                  "medicare supp arizona",
+                  "medicare supp arkansas",
+                  "medicare supp california",
+                  "medicare supp florida",
+                  "medicare supp illinois",
+                  "medicare supp in alabama",
+                  "medicare supp in arkansas",
+                  "medicare supp in florida",
+                  "medicare supp in kansas",
+                  "medicare supp in kentucky",
+                  "medicare supp in missouri",
+                  "medicare supp in nevada",
+                  "medicare supp in new hampshire",
+                  "medicare supp in new jersey",
+                  "medicare supp in north carolina",
+                  "medicare supp in oklahoma",
+                  "medicare supp in pennsylvania",
+                  "medicare supp in rhode island",
+                  "medicare supp in south carolina",
+                  "medicare supp in south dakota",
+                  "medicare supp in tennessee",
+                  "medicare supp in texas",
+                  "medicare supp in washington",
+                  "medicare supp indiana",
+                  "medicare supp iowa",
+                  "medicare supp maryland",
+                  "medicare supp michigan",
+                  "medicare supp new hampshire",
+                  "medicare supp new jersey",
+                  "medicare supp north carolina",
+                  "medicare supp ohio",
+                  "medicare supp oklahoma",
+                  "medicare supp oregon",
+                  "medicare supp pennsylvania",
+                  "medicare supp rhode island",
+                  "medicare supp south carolina",
+                  "medicare supp tennessee",
+                  "medicarefaq",
+                  "medicarefaq com",
+                  "medigap",
+                  "medigap aarp",
+                  "medigap aetna",
+                  "medigap anthem",
+                  "medigap arizona",
+                  "medigap blue cross",
+                  "medigap blue cross arkansas",
+                  "medigap blue cross blue shield",
+                  "medigap blue cross blue shield texas",
+                  "medigap blue shield",
+                  "medigap blue shield tennessee",
+                  "medigap california",
+                  "medigap cigna",
+                  "medigap colorado",
+                  "medigap companies",
+                  "medigap companies in florida",
+                  "medigap companies in ohio",
+                  "medigap companies in south carolina",
+                  "medigap compare",
+                  "medigap compare in florida",
+                  "medigap compare south carolina",
+                  "medigap comparison",
+                  "medigap comparison in ohio",
+                  "medigap comparisons",
+                  "medigap comparisons in ohio",
+                  "medigap cost",
+                  "medigap cost florida",
+                  "medigap cost illinois",
+                  "medigap cost in colorado",
+                  "medigap cost in illinois",
+                  "medigap cost in new jersey",
+                  "medigap cost in washington",
+                  "medigap cost north carolina",
+                  "medigap cost oregon",
+                  "medigap costs",
+                  "medigap costs illinois",
+                  "medigap costs in idaho",
+                  "medigap costs in north carolina",
+                  "medigap costs texas",
+                  "medigap coverage",
+                  "medigap coverage alabama",
+                  "medigap coverage idaho",
+                  "medigap coverage illinois",
+                  "medigap coverage in new jersey",
+                  "medigap coverage in vermont",
+                  "medigap coverage new jersey",
+                  "medigap coverage oregon",
+                  "medigap coverage utah",
+                  "medigap coverage washington",
+                  "medigap f",
+                  "medigap f california",
+                  "medigap f florida",
+                  "medigap f in arizona",
+                  "medigap florida",
+                  "medigap g",
+                  "medigap g florida",
+                  "medigap g idaho",
+                  "medigap g in illinois",
+                  "medigap g in new jersey",
+                  "medigap g in ohio",
+                  "medigap georgia",
+                  "medigap humana",
+                  "medigap idaho",
+                  "medigap illinois",
+                  "medigap in california",
+                  "medigap in colorado",
+                  "medigap in florida",
+                  "medigap in iowa",
+                  "medigap in michigan",
+                  "medigap in nebraska",
+                  "medigap in new hampshire",
+                  "medigap in north carolina",
+                  "medigap in pennsylvania",
+                  "medigap in south dakota",
+                  "medigap in tennessee",
+                  "medigap in texas",
+                  "medigap in utah",
+                  "medigap in washington",
+                  "medigap indiana",
+                  "medigap ins",
+                  "medigap ins alabama",
+                  "medigap ins in florida",
+                  "medigap ins in new hampshire",
+                  "medigap ins in south carolina",
+                  "medigap ins in texas",
+                  "medigap ins missouri",
+                  "medigap ins pennsylvania",
+                  "medigap ins vermont",
+                  "medigap insurance",
+                  "medigap insurance arizona",
+                  "medigap insurance companies",
+                  "medigap insurance companies california",
+                  "medigap insurance companies florida",
+                  "medigap insurance companies in arkansas",
+                  "medigap insurance companies in florida",
+                  "medigap insurance companies in south carolina",
+                  "medigap insurance companies in virginia",
+                  "medigap insurance companies ohio",
+                  "medigap insurance company",
+                  "medigap insurance company georgia",
+                  "medigap insurance company in indiana",
+                  "medigap insurance company in mississippi",
+                  "medigap insurance company in north carolina",
+                  "medigap insurance company in washington",
+                  "medigap insurance company pennsylvania",
+                  "medigap insurance company ratings",
+                  "medigap insurance company ratings florida",
+                  "medigap insurance comparison",
+                  "medigap insurance comparison new hampshire",
+                  "medigap insurance cost",
+                  "medigap insurance cost in missouri",
+                  "medigap insurance cost in pennsylvania",
+                  "medigap insurance cost in utah",
+                  "medigap insurance cost nevada",
+                  "medigap insurance coverage",
+                  "medigap insurance coverage arkansas",
+                  "medigap insurance coverage in montana",
+                  "medigap insurance coverage in oklahoma",
+                  "medigap insurance coverage in oregon",
+                  "medigap insurance coverage in virginia",
+                  "medigap insurance coverage oklahoma",
+                  "medigap insurance coverage pennsylvania",
+                  "medigap insurance florida",
+                  "medigap insurance georgia",
+                  "medigap insurance in delaware",
+                  "medigap insurance in florida",
+                  "medigap insurance in illinois",
+                  "medigap insurance in kentucky",
+                  "medigap insurance in maryland",
+                  "medigap insurance in new jersey",
+                  "medigap insurance in oklahoma",
+                  "medigap insurance in oregon",
+                  "medigap insurance in texas",
+                  "medigap insurance in utah",
+                  "medigap insurance in washington",
+                  "medigap insurance indiana",
+                  "medigap insurance new jersey",
+                  "medigap insurance ohio",
+                  "medigap insurance oregon",
+                  "medigap insurance pennsylvania",
+                  "medigap insurance policies",
+                  "medigap insurance policies in georgia",
+                  "medigap insurance policies in maryland",
+                  "medigap insurance policies in missouri",
+                  "medigap insurance policies in texas",
+                  "medigap insurance policies in west virginia",
+                  "medigap insurance policies maryland",
+                  "medigap insurance policy",
+                  "medigap insurance policy in alabama",
+                  "medigap insurance policy in kansas",
+                  "medigap insurance policy in north carolina",
+                  "medigap insurance premiums",
+                  "medigap insurance premiums in kansas",
+                  "medigap insurance premiums maryland",
+                  "medigap insurance quote",
+                  "medigap insurance quotes",
+                  "medigap insurance quotes in california",
+                  "medigap insurance rates",
+                  "medigap insurance ratings",
+                  "medigap insurance ratings in colorado",
+                  "medigap insurance ratings in missouri",
+                  "medigap insurance ratings in virginia",
+                  "medigap insurance ratings new jersey",
+                  "medigap insurance tennessee",
+                  "medigap insurance virginia",
+                  "medigap insurance washington",
+                  "medigap insurances",
+                  "medigap insurances in north carolina",
+                  "medigap insurances in south carolina",
+                  "medigap insurances north carolina",
+                  "medigap insurances oklahoma",
+                  "medigap iowa",
+                  "medigap kansas",
+                  "medigap kentucky",
+                  "medigap louisiana",
+                  "medigap maine",
+                  "medigap maryland",
+                  "medigap medicare",
+                  "medigap medicare washington",
+                  "medigap michigan",
+                  "medigap missouri",
+                  "medigap mutual omaha",
+                  "medigap n",
+                  "medigap n georgia",
+                  "medigap n kentucky",
+                  "medigap nebraska",
+                  "medigap nevada",
+                  "medigap new jersey",
+                  "medigap new mexico",
+                  "medigap north carolina",
+                  "medigap ohio",
+                  "medigap oklahoma",
+                  "medigap oregon",
+                  "medigap part f",
+                  "medigap part g",
+                  "medigap part g florida",
+                  "medigap part g in florida",
+                  "medigap part g in maryland",
+                  "medigap part g in missouri",
+                  "medigap part g north carolina",
+                  "medigap part n",
+                  "medigap part n in florida",
+                  "medigap pennsylvania",
+                  "medigap policies",
+                  "medigap policies california",
+                  "medigap policies florida",
+                  "medigap policies illinois",
+                  "medigap policies in florida",
+                  "medigap policies in illinois",
+                  "medigap policies in michigan",
+                  "medigap policies in mississippi",
+                  "medigap policies in north carolina",
+                  "medigap policies in texas",
+                  "medigap policies in wyoming",
+                  "medigap policies ohio",
+                  "medigap policies oregon",
+                  "medigap policies texas",
+                  "medigap policy",
+                  "medigap policy costs",
+                  "medigap policy costs in georgia",
+                  "medigap policy costs in virginia",
+                  "medigap policy in pennsylvania",
+                  "medigap policy in south carolina",
+                  "medigap policy in tennessee",
+                  "medigap premium",
+                  "medigap premiums",
+                  "medigap premiums florida",
+                  "medigap quote",
+                  "medigap quote maryland",
+                  "medigap quotes",
+                  "medigap quotes in virginia",
+                  "medigap rates",
+                  "medigap rates california",
+                  "medigap rates illinois",
+                  "medigap rates in florida",
+                  "medigap rates in pennsylvania",
+                  "medigap rates new jersey",
+                  "medigap ratings",
+                  "medigap ratings in new mexico",
+                  "medigap south carolina",
+                  "medigap south dakota",
+                  "medigap tennessee",
+                  "medigap texas",
+                  "medigap united healthcare",
+                  "medigap utah",
+                  "medigap washington",
+                  "michigan medicare g",
+                  "michigan medicare medigap",
+                  "michigan medicare n",
+                  "michigan medigap",
+                  "michigan medigap g",
+                  "michigan medigap ins",
+                  "michigan part g medicare",
+                  "mississippi medicare n",
+                  "mississippi medigap",
+                  "missouri cost of medigap insurance",
+                  "missouri medicare n",
+                  "missouri medicare supp",
+                  "missouri medigap",
+                  "montana medicare n",
+                  "montana medigap",
+                  "nan",
+                  "nebraska cost of medigap insurance",
+                  "nebraska medicare medigap",
+                  "nebraska medicare n",
+                  "nebraska medicare supp",
+                  "nevada medicare supp",
+                  "new hampshire medicare n",
+                  "new hampshire medicare supp",
+                  "new hampshire medigap g",
+                  "new hampshire medigap insurance companies",
+                  "new hampshire medigap insurance ratings",
+                  "new hampshire medigap policies",
+                  "new jersey best medigap",
+                  "new jersey best medigap insurance",
+                  "new jersey choosing a medigap policy",
+                  "new jersey medicare n",
+                  "new jersey medigap",
+                  "new jersey medigap coverage",
+                  "new jersey medigap insurance",
+                  "new jersey part g medicare",
+                  "new mexico medicare n",
+                  "new mexico medigap",
+                  "north carolina best medigap",
+                  "north carolina medicare n",
+                  "north carolina medigap",
+                  "north carolina medigap ins",
+                  "north carolina part g medicare",
+                  "north dakota medicare n",
+                  "north dakota medicare supp",
+                  "ohio medicare medigap",
+                  "ohio medicare n",
+                  "ohio medicare supp",
+                  "ohio medigap",
+                  "ohio medigap insurance",
+                  "ohio medigap policies",
+                  "oklahoma medicare gap insurance",
+                  "oklahoma medicare n",
+                  "oklahoma medicare supp",
+                  "oklahoma medigap",
+                  "oklahoma medigap g",
+                  "oklahoma medigap ins",
+                  "oklahoma part n medicare",
+                  "open enrollment medicare",
+                  "oregon cost of medigap insurance",
+                  "oregon medicare part g",
+                  "oregon medigap policy costs",
+                  "oregon medigap rates",
+                  "part c",
+                  "part f",
+                  "part f aarp",
+                  "part f blue cross blue shield",
+                  "part f medicare",
+                  "part f medicare north carolina",
+                  "part f medigap",
+                  "part f texas",
+                  "part f united healthcare",
+                  "part f unitedhealthcare",
+                  "part f vs part g",
+                  "part g",
+                  "part g aarp",
+                  "part g aetna",
+                  "part g humana",
+                  "part g medicare",
+                  "part g medicare florida",
+                  "part g medicare in texas",
+                  "part g medicare north carolina",
+                  "part g medicare virginia",
+                  "part g medigap",
+                  "part g medigap new jersey",
+                  "part g medigap new mexico",
+                  "part g unitedhealthcare",
+                  "part n medicare",
+                  "part n medicare maryland",
+                  "part n medicare ohio",
+                  "part n medigap",
+                  "pennsylvania medicare n",
+                  "pennsylvania medicare part g rates",
+                  "pennsylvania medicare supp",
+                  "pennsylvania medigap",
+                  "pennsylvania medigap comparison",
+                  "pennsylvania medigap coverage",
+                  "pennsylvania medigap insurance coverage",
+                  "px-mfaq_oe-submitform_pl-tiktok_l-tier1_d-55+_t-broad_int-none_cc-lowest_ff-3",
+                  "register for medicare",
+                  "rhode island medicare n",
+                  "rhode island medicare supp",
+                  "rhode island medigap",
+                  "sales jobs",
+                  "secondary health insurance with medicare",
+                  "secondary insurance for medicare",
+                  "secondary insurance to medicare",
+                  "secondary insurance with medicare",
+                  "secondary medicare insurance",
+                  "sign up for medicare at 65",
+                  "sign up for medicare online",
+                  "signing up for medicare",
+                  "south carolina medicare g",
+                  "south carolina medicare medigap policies",
+                  "south carolina medicare n",
+                  "south carolina medicare supp",
+                  "south carolina medigap",
+                  "south carolina medigap ins",
+                  "south carolina medigap insurance quote",
+                  "south carolina medigap n",
+                  "south dakota best medigap insurance",
+                  "south dakota medicare n",
+                  "south dakota medicare part g",
+                  "south dakota medigap",
+                  "tennessee medicare gap",
+                  "tennessee medicare n",
+                  "tennessee medicare part f",
+                  "tennessee medicare part f cost",
+                  "tennessee medicare supp",
+                  "tennessee medigap",
+                  "tennessee medigap insurance",
+                  "texas choosing a medigap policy",
+                  "texas medicare g",
+                  "texas medicare gap insurance",
+                  "texas medicare n",
+                  "texas medicare part g coverage",
+                  "texas medicare supp",
+                  "texas medigap comparisons",
+                  "texas medigap insurance",
+                  "texas medigap rates",
+                  "texas medigap ratings",
+                  "top medicare companies",
+                  "top medicare insurance companies",
+                  "utah medicare n",
+                  "utah medigap",
+                  "vermont medicare medigap",
+                  "vermont medigap",
+                  "virginia best medigap insurance companies",
+                  "virginia choosing a medigap policy",
+                  "virginia medicare medigap",
+                  "virginia medicare n",
+                  "virginia medicare supp",
+                  "virginia medigap",
+                  "virginia medigap insurance companies",
+                  "virginia medigap n",
+                  "virginia medigap premiums",
+                  "washington best medigap insurance companies",
+                  "washington medicare n",
+                  "washington medicare part n rates",
+                  "washington medigap insurance companies",
+                  "washington medigap policy costs",
+                  "west virginia medicare n",
+                  "west virginia medicare part f",
+                  "west virginia medigap",
+                  "west virginia medigap insurance",
+                  "wyoming medicare medigap",
+                  "wyoming medigap"
+              ],
+              "to": "generic"
+          },
+          "alias": "keyword_type"
+      }
+  ],
+  "Original_Device__c": [
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "tablet",
+                  "console",
+                  "tv",
+                  "phablet",
+                  "portable media player"
+              ],
+              "to": "others"
+          }
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }
+      }
+  ],
+  "Lead_Brand__c": [
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "mutual of omaha-medicare",
+                  "apply for medicare"
+              ],
+              "to": "medicare compared"
+          }
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }
+      }
+  ],
+  "Original_Operating_System__c": [
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  "Mac.+"
+              ],
+              "to": "Mac"
+          }
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  "Chrom.+"
+              ],
+              "to": "Chrome"
+          }
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "Fedora",
+                  "Fuchsia",
+                  "GNU/Linux",
+                  "Linux",
+                  "Tizen",
+                  "Ubuntu",
+                  "Xbox",
+                  "iPadOS"
+              ],
+              "to": "others"
+          }
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }
+      }
+  ],
+  "Lead_Network__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "Test-123456",
+                  "a",
+                  "{network}",
+                  "site_source_name=fb",
+                  "d",
+                  "undefined",
+                  "vp",
+                  "ytv",
+                  "d,d",
+                  "hs"
+              ],
+              "to": "others"
+          }
+      }
+  ],
+  "Original_Lead_Match_Type__c": [
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  "p.+"
+              ],
+              "to": "p"
+          }
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  "e.+"
+              ],
+              "to": "e"
+          }
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }
+      }
+  ],
+  "Original_Browser__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }
+      }
+  ],
+  "State": [
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "California",
+                  "Utah",
+                  "Montana",
+                  "Oregon",
+                  "Washington",
+                  "Colorado",
+                  "Arizona",
+                  "Nevada",
+                  "Idaho",
+                  "Wyoming",
+                  "New Mexico",
+                  "Hawaii",
+                  "Alaska"
+              ],
+              "to": "West"
+          },
+          "alias": "region"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "Alabama",
+                  "Louisiana",
+                  "Florida",
+                  "Virginia",
+                  "Oklahoma",
+                  "South Carolina",
+                  "North Carolina",
+                  "Texas",
+                  "Mississippi",
+                  "Georgia",
+                  "Kentucky",
+                  "Maryland",
+                  "Tennessee",
+                  "West Virginia",
+                  "Arkansas"
+              ],
+              "to": "South"
+          },
+          "alias": "region"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "Illinois",
+                  "Kansas",
+                  "Ohio",
+                  "Michigan",
+                  "Missouri",
+                  "Iowa",
+                  "North Dakota",
+                  "Nebraska",
+                  "Minnesota",
+                  "Indiana",
+                  "Wisconsin",
+                  "South Dakota"
+              ],
+              "to": "Midwest"
+          },
+          "alias": "region"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "Pennsylvania",
+                  "New York",
+                  "New Jersey",
+                  "Rhode Island",
+                  "New Hampshire",
+                  "Delaware",
+                  "Maine",
+                  "Massachusetts",
+                  "Vermont",
+                  "Connecticut",
+                  "District of Columbia"
+              ],
+              "to": "Northeast"
+          },
+          "alias": "region"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }, 
+          "alias": "region"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }
+      }
+  ],
+  "Original_Lead_Medium__c": [
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "fb",
+                  "lg",
+                  "social",
+                  "youtube",
+                  "facebook",
+                  "social04",
+                  "social06"
+              ],
+              "to": "social"
+          },
+          "alias" : "Lead_Medium__c"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "search",
+                  "search,display",
+                  "search,search",
+                  "[\"cpc\",\"search\"]",
+                  "search10",
+                  "googlesearch",
+                  "organic"
+              ],
+              "to": "search"
+          },
+          "alias" : "Lead_Medium__c"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "cpc",
+                  "native03",
+                  "publisher_1",
+                  "publisher_5",
+                  "native02",
+                  "display01",
+                  "12",
+                  "email04hl",
+                  "1aa73",
+                  "email01",
+                  "native01",
+                  "publisher_15",
+                  "native07",
+                  "native06",
+                  "native08",
+                  "native10",
+                  "native09",
+                  "d2c9b78e-2b45-463c-943d-eac590b4efa2",
+                  "yahoo",
+                  "outbrain",
+                  "111678",
+                  "1401",
+                  "6330",
+                  "3468",
+                  "111677",
+                  "3421",
+                  "1984",
+                  "apollo",
+                  "5600",
+                  "3450",
+                  "3393",
+                  "3449",
+                  "3425",
+                  "5590",
+                  "5530",
+                  "8557",
+                  "1aa1d",
+                  "504",
+                  "1aa0c",
+                  "1ma00",
+                  "1aa16",
+                  "1aa82",
+                  "1aa1p",
+                  "1aa97",
+                  "1aa15",
+                  "1aa0b",
+                  "1aa0h",
+                  "901",
+                  "1ab11",
+                  "1aa12",
+                  "1aa81",
+                  "1aa0d",
+                  "1ab07",
+                  "1aa88",
+                  "301",
+                  "308",
+                  "email02",
+                  "email03hl",
+                  "email10hl",
+                  "emailmt05",
+                  "emailmt04",
+                  "partner",
+                  "internal",
+                  "1he02",
+                  "1aa14"
+              ],
+              "to": "others"
+          },
+          "alias" : "Lead_Medium__c"
+      }
+  ],
+  "Appended Addresses1 DPC": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }
+      }
+  ],
+  "Household Buying Power Score": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }
+      }
+  ],
+  "Input Phone1 DNC": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }
+      }
+  ],
+  "Household Net Asset Value": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }
+      }
+  ],
+  "Appended Phones Error Code": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }
+      }
+  ],
+  "Original_Screen_Height__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }
+      }
+  ],
+  "Supplemental_Form_Received__c": [
+      {
+          "apply": "substitute", 
+          "kwargs": {
+              "from": ["false"], 
+              "to": 0
+          }
+      }, 
+      {
+          "apply": "substitute", 
+          "kwargs": {
+              "from": ["true"], 
+              "to": 1
+          }
+      }, 
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }
+      }
+  ],
+  "Territory__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }
+      }
+  ],
+  "Original_Screen_Width__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }
+      }
+  ],
+  "Gender__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }
+      }
+  ],
+  "Sales_Agent_Routing__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }
+      }
+  ],
+  "HasOptedOutOfEmail": [
+      {
+          "apply": "substitute", 
+          "kwargs": {
+              "from": ["false"], 
+              "to": 0
+          }
+      }, 
+      {
+          "apply": "substitute", 
+          "kwargs": {
+              "from": ["true"], 
+              "to": 1
+          }
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }
+      }
+  ],
+  "SMSOptIn__c": [
+      {
+          "apply": "substitute", 
+          "kwargs": {
+              "from": ["false"], 
+              "to": 0
+          }
+      }, 
+      {
+          "apply": "substitute", 
+          "kwargs": {
+              "from": ["true"], 
+              "to": 1
+          }
+      }, 
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }
+      }
+  ]
+}
