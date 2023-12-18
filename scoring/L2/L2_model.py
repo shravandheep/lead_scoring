@@ -11,9 +11,10 @@ import torch
 from torch.nn.utils.rnn import pad_sequence
 from scipy.special import softmax
 
+from scoring.L2.model_inference import generate_df, model_inference
+
 
 weights_path = os.path.dirname(os.path.realpath(__file__))
-
 
 
 # Helpers 
@@ -27,34 +28,36 @@ def normalize_list(lst):
     normalized_lst = [(value - min_value) / (max_value - min_value) for value in lst]
     return normalized_lst
 
-def initialize_model(wts_path):
+# def initialize_model(wts_path):
 
-    wts = None
+#     wts = None
 
-    for r,d,f in os.walk(wts_path):
+#     for r,d,f in os.walk(wts_path):
 
-        for weights in f:
-            wts = os.path.join(r, weights)
+#         for weights in f:
+#             wts = os.path.join(r, weights)
     
-    # Initialization
+#     # Initialization
 
-    model = torch.load(wts)
-    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+#     model = torch.load(wts)
+#     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     
-    model.to(device)
-    model.eval()
+#     model.to(device)
+#     model.eval()
     
-    return model
+#     return model
 
 
 def transform_features(features):
     
-    # Do something here
+    Xp = generate_df(features)
     
-    return features
+    return Xp
 
 
 def do_inference(X):
     
-    # Do something here
-    return X
+    Xp = transform_features(features)
+    score = model_inference(Xp)
+    
+    return score

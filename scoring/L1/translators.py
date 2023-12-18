@@ -6,6 +6,8 @@ from copy import deepcopy
 import scoring.L1.plugins as plugins
 from scoring.L1.plugins import Plugin 
 
+from auxiliary.util.global_constants import WTS_PATH, CFG_PATH, ENC_PATH, SCL_ENC_PATH, LBL_ENC_PATH, KW_VEC_PATH
+
 
 class Translator(object):
     __instance = None
@@ -31,7 +33,6 @@ class Translator(object):
             self._translators[key]['alias'] = list()
             
             for op in self.confg[key]:
-                
                 
                 assert isinstance(op['apply'], str), "'plugin' must be a string: %s : %s" % (key, op)
                 assert issubclass(getattr(plugins, op['apply'].title()), Plugin), "%s is not a valid plugin: %s : %s" % (op['plugin'], key, op)
@@ -59,7 +60,27 @@ class Translator(object):
     def run_translators(self, value, func):
         return func(value)
 
-
+    def find_index_in_list(value, int_list):
+        if value == 'null': ##lead 
+            return -2
+        elif int_list == ['null', 'null', 'null']: 
+            return -2 
+        elif value in int_list:
+            return int_list.index(value)
+        else:
+            return -1
+    
+    def assign_random_score(category):
+        score_ranges = {
+        0: (0.9, 1.0),
+        1: (0.8, 0.9),
+        2: (0.7, 0.8), 
+        -1: (0.1, 0.2), 
+        -2: (0, 0.05) 
+        }
+        lower, upper = score_ranges.get(category, (0, 0))
+        return round(np.random.uniform(lower, upper), 2) 
+    
     def translate(self, data):
         
         new_data = deepcopy(data)
@@ -76,6 +97,7 @@ class Translator(object):
                         
                         nv = new_data.get(y)
                         ov = new_data[key]
+                        
                         value = nv if nv is not None else ov
                         
                         try:
@@ -88,6 +110,28 @@ class Translator(object):
             else:
                 pass
             
+        new_data = pd.DataFrame(new_data)
+        
+        phone_neu = ['Input Phone1 Number', 'Appended Phones1 Number', 'Appended Phones2 Number', 'Appended Phones3 Number']
+        phone_lead = ['MobilePhone']
+        email_neu = ['Appended Emails 1 Email Address', 'Appended Emails 2 Email Address', 'Appended Emails 3 Email Address']
+        email_lead = ['Email']
+        
+        new_data['Phones_Neustar'] = new_data.apply(lambda row: [row[column] for column in phone_neu], axis=1)
+        new_data['Email_Neustar'] = new_data.apply(lambda row: [row[column] for column in email_neu], axis=1)
+        
+        new_data['Email_matching'] = new_data.apply(lambda row: self.find_index_in_list(row['Email'], row['Email_Neustar']), axis=1)
+        new_data['Phone_matching'] = new_data.apply(lambda row: self.find_index_in_list(row['MobilePhone'], row['Phones_Neustar']), axis=1)
+        
+        new_data['Email_Match_Score'] = new_data['Email_matching'].apply(self.assign_random_score)
+        new_data['Phone_Match_Score'] = new_data['Phone_matching'].apply(self.assign_random_score)
+        
+        new_data['StateCode_Match'] = int(new_data['StateCode'] == new_data['StateCode'])
+        new_data['City_Match'] = int(new_data['City'] == new_data['Appended Addresses1 City'])
+        new_data['FirstName_Match'] = int(new_data['FirstName'] == new_data['Individual Name First'])
+        new_data['LastName_Match'] = int(new_data['LastName'] == new_data['Individual Name Last'])
+        
+                    
+        new_data = new_data.to_dict(orient='records')
+    
         return new_data
-    
-    

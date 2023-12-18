@@ -1,5 +1,86 @@
 {
-    "Original_Lead_Medium__c": [
+    "Lead_Medium__c": [
+        {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*youtube.+"
+              ],
+              "to": "youtube"
+          }
+         },
+         {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*conv.+"
+              ],
+              "to": "conv"
+          }
+         },
+         {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*discovery.+"
+              ],
+              "to": "discovery"
+          }
+         },
+        {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*search.+"
+              ],
+              "to": "search"
+          }
+         },
+         {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*display.+"
+              ],
+              "to": "display"
+          }
+         },
+         {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*website.+"
+              ],
+              "to": "website"
+          }
+         },
+        {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*form.+"
+              ],
+              "to": "form"
+          }
+         },
+        {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*organic.+"
+              ],
+              "to": "organic"
+          }
+         },
+        {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*direct.+"
+              ],
+              "to": "direct"
+          }
+         },
         {
             "apply": "substitute",
             "kwargs": {
@@ -12,7 +93,7 @@
                     "social04",
                     "social06"
                 ],
-                "to": "social"
+                "to": "search"
             }
         },
         {
@@ -103,7 +184,52 @@
             }
         }
     ],
-    "Original_Lead_Ad_Source__c": [
+    "Lead_Ad_Source__c": [
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*bing.+"
+                ],
+                "to": "bing"
+            }
+        },
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*google.+"
+                ],
+                "to": "google"
+            }
+        }, 
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*facebook.+"
+                ],
+                "to": "fb"
+            }
+        }, 
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*fb.+"
+                ],
+                "to": "fb"
+            }
+        }, 
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*tiktok.+"
+                ],
+                "to": "tiktok"
+            }
+        },
         {
             "apply": "substitute",
             "kwargs": {
@@ -235,24 +361,6 @@
                 ],
                 "to": "others"
             }
-        },
-        {
-            "apply": "regex",
-            "kwargs": {
-                "from": [
-                    ".*bing.+"
-                ],
-                "to": "bing"
-            }
-        },
-        {
-            "apply": "regex",
-            "kwargs": {
-                "from": [
-                    ".*google.+"
-                ],
-                "to": "google"
-            }
         }
     ],
     "LeadSource": [
@@ -260,9 +368,19 @@
             "apply": "regex",
             "kwargs": {
                 "from": [
-                    ".*MedicareFAQ.*"
+                    "(?<!ApplyFor)Medicare(?!FAQ)"
                 ],
                 "to": "MedicareFAQ"
+            },
+            "alias": "Source"
+        },
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*ApplyForMedicare.*"
+                ],
+                "to": "ApplyForMedicare"
             },
             "alias": "Source"
         },
@@ -273,16 +391,6 @@
                     ".*Partner\b"
                 ],
                 "to": "Partner"
-            },
-            "alias": "Source"
-        },
-        {
-            "apply": "regex",
-            "kwargs": {
-                "from": [
-                    "(?<!ApplyFor)Medicare(?!FAQ)"
-                ],
-                "to": "Medicare"
             },
             "alias": "Source"
         },
@@ -303,16 +411,6 @@
                     ".*Email\b"
                 ],
                 "to": "Email"
-            },
-            "alias": "Source"
-        },
-        {
-            "apply": "regex",
-            "kwargs": {
-                "from": [
-                    ".*ApplyForMedicare"
-                ],
-                "to": "ApplyForMedicare"
             },
             "alias": "Source"
         }
