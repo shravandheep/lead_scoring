@@ -59,24 +59,34 @@ def encoding(features, encoders_dict):
                 
                 val = set(X[col].values)
                 cle = set(label_encoder[enc_col].classes_)
-                unknown_labels = list(val.difference(cle))
+#                 unknown_labels = list(val.difference(cle))
                 
-                if unknown_labels:
-                    # HACK : This should be handled by the config and not in code
-                    if 'unknown' in label_encoder[enc_col].classes_:
-                        X[col] = label_encoder[enc_col].transform(['unknown'])
-                    elif 'others' in label_encoder[enc_col].classes_:
-                        X[col] = label_encoder[enc_col].transform(['others'])
-                    else:
-                        raise Exception('Error in Encoding this value {}. The model has not been trained with this label for the field {}'.format(X[col], col))
-                else:
-                    X[col] = label_encoder[enc_col].transform(X[col])
+                if val not in cle: 
+                    X[col] = 'unknown'
+                    
+                X[col] = label_encoder[enc_col].transform(X[col])
+                
+
+#                 if unknown_labels:
+#                     # HACK : This should be handled by the config and not in code
+                    
+#                     if 'unknown' in label_encoder[enc_col].classes_:
+#                         X[col] = label_encoder[enc_col].transform(['unknown'])
+#                     elif 'others' in label_encoder[enc_col].classes_:
+#                         X[col] = label_encoder[enc_col].transform(['others'])
+#                     else:
+
+#                         raise Exception('Error in Encoding this value {}. The model has not been trained with this label for the field {}'.format(X[col], col))
+#                 else:
+#                     X[col] = label_encoder[enc_col].transform(X[col])
+                    
+                    
             except Exception as e:
                 raise Exception('Error in Label encoding. For the field : {}, {}'.format(col, e))
                 
 
     ## TODO: Fix the scaler 
-    # X = scaler.transform(X)
+    X = scaler.transform([X])
     return X
     
 
@@ -110,22 +120,20 @@ def inference(node_dict, data, score_request):
             
             
         if all(filter_condition):
-            # TODO: Write a better neustar logic. This process might change in the future
-            # nuestar logic
-            
-            neu_match = node_dict['neustar_match']
 
-            data_config = lead_type["neustar_filter"][neu_match]["data_source"]
-            considered_features = lead_type["neustar_filter"][neu_match]["considered_features"]
-            selected_model = lead_type["neustar_filter"][neu_match]["select_model"]
-            selected_label_encoder = lead_type["neustar_filter"][neu_match]["model_params"]['preprocessing_steps'][0]
-            selected_scaler = lead_type["neustar_filter"][neu_match]["model_params"]['preprocessing_steps'][1]
+            data_config = lead_type["data_source"]
+            considered_features = lead_type["considered_features"]
+            selected_model = lead_type["select_model"]
+            
+            selected_label_encoder = lead_type["model_params"]['preprocessing_steps'][0]
+            selected_scaler = lead_type["model_params"]['preprocessing_steps'][1]
             
             lead_type_f = _
+            
             break
     else:
-
-        reason = "Lead Source,Medium and Ad Source in combination did not match any of the lead model types" 
+            
+        reason = "Lead Source, Medium and Ad Source in combination did not match any of the lead model types" 
         
         raise Exception(reason)
     
@@ -178,6 +186,8 @@ def inference(node_dict, data, score_request):
     
     prediction = model.predict_proba(data)
     score = prediction[0][1]
+    
+    #### include boosting logic here
     
     quartiles = json.load(open(config_dict['quartiles']))
     likelihood = get_likelihood(score, quartiles)

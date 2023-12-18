@@ -9,7 +9,7 @@ from auxiliary.util.global_constants import WTS_PATH
 from auxiliary.util.global_constants import LEAD_DATA, NEUSTAR_DATA, LEAD_REQ_SCORE, POLICY_REQ_SCORE
 from auxiliary.util.common_utils import setup_logger, check_and_unpack_data, create_arguments_dict
 
-from scoring.L2.L2_model import initialize_model
+from scoring.L2.L2_model import do_inference
 
 logger = setup_logger(NODE_L2, logging.INFO)
 local_flag = True if os.getenv('local') else False
@@ -61,7 +61,8 @@ def process(data, model):
     
     
     # HACK 
-    score = random.random()
+    score  = do_inference(args_dict) ### check
+#     score = random.random()
     reason = ''
 
     result_dict = {

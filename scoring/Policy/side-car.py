@@ -4,11 +4,11 @@ from mlaaslib import App, get_config
 from main import initialize_node
 from main import process as main_process
 
-from auxiliary.util.global_constants import NODE_POLICY
+from auxiliary.util.global_constants import NODE_L1
 from auxiliary.util.common_utils import setup_logger
 
 _ENV_TYPE = os.environ.get('ENV_TYPE')
-log = setup_logger(NODE_POLICY, logging.INFO)
+log = setup_logger(NODE_L1, logging.INFO)
 
 # App initialize
 node = App('Policy scoring')
@@ -43,4 +43,3 @@ def process(payload):
 
 if __name__ == "__main__":
     node.start()
-

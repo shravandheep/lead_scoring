@@ -21,6 +21,7 @@ ENC_PATH = 'encoders'
 CFG_PATH = 'configs'
 SCL_ENC_PATH = 'scaler'
 LBL_ENC_PATH = 'label_encoders'
+KW_VEC_PATH = 'vectoriser'
 
 # Extensions
 _ENC_EXT_L1 = '.pkl'
@@ -69,7 +70,8 @@ L1_SCL_ENC = [
 
 
 #L2
-L2_MODEL_WTS = ['model_experiments/weights/L2/L2_model.pth']
+L2_MODEL_WTS = 'model_experiments/weights/L2/L2_model.pth'
+L2_ENCODER_OBJ = 'model_experiments/encoders/L2/L2_model.pth'
 
 # POLICY
 POLICY_WTS = [

@@ -1,485 +1,36 @@
 {
-  "CreatedDate": [
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          },
-          "alias": "IsWeekday"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          },
-          "alias": "WeekOfMonth"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          },
-          "alias": "time_of_day"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          },
-          "alias": "quarter"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          },
-          "alias": "CreatedMonth"
-      },
-      {
-          "apply": "isweekday",
-          "kwargs": {},
-          "alias": "IsWeekday"
-      }, 
-      {
-          "apply": "weekofmonth",
-          "kwargs": {},
-          "alias": "WeekOfMonth"
-      },
-      
-      {
-          "apply": "timeofday",
-          "kwargs": {},
-          "alias": "time_of_day"
-      },
-      {
-          "apply": "quarter",
-          "kwargs": {},
-          "alias": "quarter"
-      },
-      {
-          "apply": "createdmonth",
-          "kwargs": {},
-          "alias": "CreatedMonth"
-      }
-  ],
-  "Input Phone1 Call Window": [
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 0
-          }, 
-          "alias": "Monday"
-      },
-      {
-          "apply": "split",
-          "kwargs": {
-              "char": "|",
-              "day": 0
-          },
-          "alias": "Monday"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 0
-          }, 
-          "alias": "Tuesday"
-      },
-      {
-          "apply": "split",
-          "kwargs": {
-              "char": "|",
-              "day": 1
-          },
-          "alias": "Tuesday"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 0
-          },
-          "alias": "Wednesday"
-      },
-      {
-          "apply": "split",
-          "kwargs": {
-              "char": "|",
-              "day": 2
-          },
-          "alias": "Wednesday"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 0
-          }, 
-          "alias": "Thursday"
-      },
-      {
-          "apply": "split",
-          "kwargs": {
-              "char": "|",
-              "day": 3
-          },
-          "alias": "Thursday"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 0
-          }, 
-          "alias": "Friday"
-      },
-      {
-          "apply": "split",
-          "kwargs": {
-              "char": "|",
-              "day": 4
-          },
-          "alias": "Friday"
-      },
-      
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 0
-          }, 
-          "alias": "Saturday"
-      },
-      {
-          "apply": "split",
-          "kwargs": {
-              "char": "|",
-              "day": 5
-          },
-          "alias": "Saturday"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 0
-          }, 
-          "alias": "Sunday"
-      },
-      {
-          "apply": "split",
-          "kwargs": {
-              "char": "|",
-              "day": 6
-          },
-          "alias": "Sunday"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 0
-          }, 
-          "alias": "Overall"
-      },
-      {
-          "apply": "split",
-          "kwargs": {
-              "char": "|",
-              "day": 7
-          },
-          "alias": "Overall"
-      }
-
-  ],
-  "Input Phone1 Contactability Score": [
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": [
-                  "A",
-                  "C",
-                  "B",
-                  "F"
-              ],
-              "to": 1
-          },
-          "alias": "phone_type"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 0
-          }, 
-          "alias": "phone_type"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": [
-                  "J",
-                  "I",
-                  "G",
-                  "K",
-                  "E"
-              ],
-              "to": 0
-          },
-          "alias": "phone_type"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": [
-                  "F",
-                  "J",
-                  "I",
-                  "G",
-                  "E",
-                  "K"
-              ],
-              "to": 0
-          },
-          "alias": "verified_phone"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 0
-          }, 
-          "alias": "verified_phone"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": [
-                  "A",
-                  "C"
-              ],
-              "to": 1
-          },
-          "alias": "verified_phone"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": [
-                  "B"
-              ],
-              "to": -1
-          },
-          "alias": "verified_phone"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": [
-                  "F",
-                  "K"
-              ],
-              "to": 0
-          },
-          "alias": "phone_usage_12"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": [
-                  "A",
-                  "C",
-                  "B",
-                  "G",
-                  "E"
-              ],
-              "to": 1
-          },
-          "alias": "phone_usage_12"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 0
-          }, 
-          "alias": "phone_usage_12"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": [
-                  "J",
-                  "I",
-                  "G",
-                  "K",
-                  "C",
-                  "F"
-              ],
-              "to": 0
-          },
-          "alias": "phone_usage_2"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 0
-          }, 
-          "alias": "phone_usage_2"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": [
-                  "A",
-                  "B",
-                  "E"
-              ],
-              "to": 1
-          },
-          "alias": "phone_usage_2"
-      }
-  ],
-  "Birthdate__c": [
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 65
-          }, 
-          "alias": "Age"
-      }, 
-      {
-          "apply": "timediff",
-          "kwargs": {},
-          "alias": "Age"
-      },
-      {
-          "apply": "fill_na", 
-          "kwargs": {
-              "value": "unknown"
-          } 
-      }
-  ],
-  "CampaignID__c": [
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 0
-          }, 
-          "alias": "CPO_bucket"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": "cpo_config.json",
-              "to": 0
-          },
-          "alias": "CPO_bucket"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          }, 
-          "alias": "p"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": "p_config.json",
-              "to": "unknown"
-          },
-          "alias": "p"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          }, 
-          "alias": "bs"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": "bs_config.json",
-              "to": "unknown"
-          },
-          "alias": "bs"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          }, 
-          "alias": "t"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": "t_config.json",
-              "to": "unknown"
-          },
-          "alias": "t"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          }, 
-          "alias": "d"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": "d_config.json",
-              "to": "unknown"
-          },
-          "alias": "d"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          }, 
-          "alias": "h"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": "h_config.json",
-              "to": "unknown"
-          },
-          "alias": "h"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          }
-      }
-  ],
   "Lead_Keyword_s__c": [
       {
-          "apply": "substitute",
+          "apply": "get_keyword_vector",
           "kwargs": {
-              "from": "tfidf_config.json",
-              "to": "[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.3061022542403851, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.9519986396781009, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]"
-          },
-          "alias": "tfidf_vector"
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          }, 
-          "alias": "tfidf_vector"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": "count_config.json",
-              "to": "[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]"
+          		"vector": "count_vectorizer.joblib"
           },
           "alias": "count_vector"
       },
+      
       {
           "apply": "fill_na",
           "kwargs": {
-              "value": "unknown"
+              "value": 0
           }, 
           "alias": "count_vector"
       },
+      {
+          "apply": "get_keyword_vector",
+          "kwargs": {
+          		"vector": "tfidf_vectorizer.joblib"
+          },
+          "alias" : "tfidf_vector"
+      },
+      
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "tfidf_vector"
+      },  
+
       {
           "apply": "fill_na",
           "kwargs": {
@@ -504,6 +55,26 @@
                   ".*supplement.+"
               ],
               "to": "plan"
+          },
+          "alias": "keyword_type"
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*medicare.+"
+              ],
+              "to": "medicare"
+          },
+          "alias": "keyword_type"
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*medigap.+"
+              ],
+              "to": "medigap"
           },
           "alias": "keyword_type"
       },
@@ -1524,27 +1095,8 @@
           "alias": "keyword_type"
       }
   ],
-  "Original_Device__c": [
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": [
-                  "tablet",
-                  "console",
-                  "tv",
-                  "phablet",
-                  "portable media player"
-              ],
-              "to": "others"
-          }
-      },
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          }
-      }
-  ],
+
+
   "Lead_Brand__c": [
       {
           "apply": "substitute",
@@ -1563,462 +1115,2838 @@
           }
       }
   ],
-  "Original_Operating_System__c": [
+
+  "Lead_Ad_Group__c": [
       {
-          "apply": "regex",
+          "apply": "split_string",
           "kwargs": {
-              "from": [
-                  "Mac.+"
-              ],
-              "to": "Mac"
-          }
+          	"split": ":"
+          },
+      },
+   ],
+
+  "Phone": [
+	  {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
       },
       {
-          "apply": "regex",
-          "kwargs": {
-              "from": [
-                  "Chrom.+"
-              ],
-              "to": "Chrome"
-          }
+          "apply": "check_presence",
+          "kwargs": {},
+          "alias": "HasPhone"
       },
       {
-          "apply": "substitute",
-          "kwargs": {
-              "from": [
-                  "Fedora",
-                  "Fuchsia",
-                  "GNU/Linux",
-                  "Linux",
-                  "Tizen",
-                  "Ubuntu",
-                  "Xbox",
-                  "iPadOS"
-              ],
-              "to": "others"
-          }
+          "apply": "check_valid_phone",
+          "kwargs": {},
+          "alias": "is_valid_phone"
       },
       {
           "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          }
-      }
-  ],
-  "Lead_Network__c": [
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          }
+          "kwargs": {},
+          "alias": "HasPhone"
       },
       {
-          "apply": "substitute",
-          "kwargs": {
-              "from": [
-                  "Test-123456",
-                  "a",
-                  "{network}",
-                  "site_source_name=fb",
-                  "d",
-                  "undefined",
-                  "vp",
-                  "ytv",
-                  "d,d",
-                  "hs"
-              ],
-              "to": "others"
-          }
-      }
-  ],
-  "Original_Lead_Match_Type__c": [
-      {
+          "apply": "fill_na",
+          "kwargs": {},
+          "alias": "is_valid_phone"
+      },
+
+   ],
+
+  "Lead_Ad_Campaign__c": [
+  	{
           "apply": "regex",
           "kwargs": {
               "from": [
-                  "p.+"
+                  ".*search.+"
               ],
-              "to": "p"
-          }
+              "to": "search"
+          },
+          "alias": "search"
       },
       {
           "apply": "regex",
           "kwargs": {
               "from": [
-                  "e.+"
+                  ".*youtube.+"
               ],
-              "to": "e"
-          }
+              "to": "yt"
+          },
+          "alias": "search"
       },
       {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          }
-      }
-  ],
-  "Original_Browser__c": [
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          }
-      }
-  ],
-  "State": [
-      {
-          "apply": "substitute",
+          "apply": "regex",
           "kwargs": {
               "from": [
-                  "California",
-                  "Utah",
-                  "Montana",
-                  "Oregon",
-                  "Washington",
-                  "Colorado",
-                  "Arizona",
-                  "Nevada",
-                  "Idaho",
-                  "Wyoming",
-                  "New Mexico",
-                  "Hawaii",
-                  "Alaska"
+                  ".*display.+"
               ],
-              "to": "West"
+              "to": "display"
           },
-          "alias": "region"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": [
-                  "Alabama",
-                  "Louisiana",
-                  "Florida",
-                  "Virginia",
-                  "Oklahoma",
-                  "South Carolina",
-                  "North Carolina",
-                  "Texas",
-                  "Mississippi",
-                  "Georgia",
-                  "Kentucky",
-                  "Maryland",
-                  "Tennessee",
-                  "West Virginia",
-                  "Arkansas"
-              ],
-              "to": "South"
-          },
-          "alias": "region"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": [
-                  "Illinois",
-                  "Kansas",
-                  "Ohio",
-                  "Michigan",
-                  "Missouri",
-                  "Iowa",
-                  "North Dakota",
-                  "Nebraska",
-                  "Minnesota",
-                  "Indiana",
-                  "Wisconsin",
-                  "South Dakota"
-              ],
-              "to": "Midwest"
-          },
-          "alias": "region"
-      },
-      {
-          "apply": "substitute",
-          "kwargs": {
-              "from": [
-                  "Pennsylvania",
-                  "New York",
-                  "New Jersey",
-                  "Rhode Island",
-                  "New Hampshire",
-                  "Delaware",
-                  "Maine",
-                  "Massachusetts",
-                  "Vermont",
-                  "Connecticut",
-                  "District of Columbia"
-              ],
-              "to": "Northeast"
-          },
-          "alias": "region"
+          "alias": "search"
       },
       {
           "apply": "fill_na",
           "kwargs": {
               "value": "unknown"
           }, 
-          "alias": "region"
+          "alias": "search"
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*medigap.+"
+              ],
+              "to": "medigap"
+          },
+          "alias": "p"
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*medicare.+"
+              ],
+              "to": "medicare"
+          },
+          "alias": "p"
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*advantage.+"
+              ],
+              "to": "medicare advantage"
+          },
+          "alias": "p"
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*eip.+"
+              ],
+              "to": "brand eip"
+          },
+          "alias": "p"
       },
       {
           "apply": "fill_na",
           "kwargs": {
               "value": "unknown"
-          }
-      }
-  ],
-  "Original_Lead_Medium__c": [
+          }, 
+          "alias": "p"
+      },
       {
-          "apply": "substitute",
+          "apply": "regex",
           "kwargs": {
               "from": [
-                  "fb",
-                  "lg",
-                  "social",
-                  "youtube",
-                  "facebook",
-                  "social04",
-                  "social06"
+                  ".*18to65+:uk.+"
               ],
-              "to": "social"
+              "to": "18to65+:uk"
           },
-          "alias" : "Lead_Medium__c"
+          "alias": "d"
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*50to65+.+"
+              ],
+              "to": "50to65+"
+          },
+          "alias": "d"
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*55to65.+"
+              ],
+              "to": "55to65+"
+          },
+          "alias": "d"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }, 
+          "alias": "d"
+      },
+
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*none.+"
+              ],
+              "to": "none"
+          },
+          "alias": "t"
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*none.+"
+              ],
+              "to": "none"
+          },
+          "alias": "t"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }, 
+          "alias": "t"
+      },
+
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*tcpa.+"
+              ],
+              "to": "tcpa"
+          },
+          "alias": "bs"
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*ecpa.+"
+              ],
+              "to": "ecpa"
+          },
+          "alias": "bs"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }, 
+          "alias": "bs"
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*bh.+"
+              ],
+              "to": "bh"
+          },
+          "alias": "h"
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*ah.+"
+              ],
+              "to": "ah"
+          },
+          "alias": "h"
+      },
+      {
+          "apply": "regex",
+          "kwargs": {
+              "from": [
+                  ".*wh.+"
+              ],
+              "to": "wh"
+          },
+          "alias": "h"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }, 
+          "alias": "h"
+      },
+
+
+
+
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }, 
+          "alias": "l"
       },
       {
           "apply": "substitute",
           "kwargs": {
-              "from": [
-                  "search",
-                  "search,display",
-                  "search,search",
-                  "[\"cpc\",\"search\"]",
-                  "search10",
-                  "googlesearch",
-                  "organic"
-              ],
-              "to": "search"
+              "from": "l_config.json",
+              "to": "unknown"
           },
-          "alias" : "Lead_Medium__c"
+          "alias": "l"
+      },
+
+      {
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*florida.*"],
+        "to": "florida"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*california.*"],
+        "to": "california"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*texas.*"],
+        "to": "texas"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*new jersey.*"],
+        "to": "new jersey"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*pennsylvania.*"],
+        "to": "pennsylvania"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*illinois.*"],
+        "to": "illinois"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*washington.*"],
+        "to": "washington"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*ohio.*"],
+        "to": "ohio"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*georgia.*"],
+        "to": "georgia"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*north carolina.*"],
+        "to": "north carolina"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*tennessee.*"],
+        "to": "tennessee"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*virginia.*"],
+        "to": "virginia"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*michigan.*"],
+        "to": "michigan"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*maryland.*"],
+        "to": "maryland"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*indiana.*"],
+        "to": "indiana"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*alabama.*"],
+        "to": "alabama"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*south carolina.*"],
+        "to": "south carolina"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*arizona.*"],
+        "to": "arizona"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*missouri.*"],
+        "to": "missouri"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*kentucky.*"],
+        "to": "kentucky"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*colorado.*"],
+        "to": "colorado"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*oregon.*"],
+        "to": "oregon"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*oklahoma.*"],
+        "to": "oklahoma"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*louisiana.*"],
+        "to": "louisiana"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*kansas.*"],
+        "to": "kansas"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*iowa.*"],
+        "to": "iowa"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*new mexico.*"],
+        "to": "new mexico"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*new hampshire.*"],
+        "to": "new hampshire"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*arkansas.*"],
+        "to": "arkansas"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*maine.*"],
+        "to": "maine"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*mississippi.*"],
+        "to": "mississippi"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*rhode island.*"],
+        "to": "rhode island"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*nevada.*"],
+        "to": "nevada"
+    },
+    "alias": "l"
+},
+{
+    "apply": "regex",
+    "kwargs": {
+        "from": [".*nebraska.*"],
+        "to": "nebraska"
+    },
+    "alias": "l"
+},
+{
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }, 
+          "alias": "unknown"
+      },
+
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          }
+      }
+  ],
+
+  "CreatedDate": [
+      {
+          "apply": "timediff",
+          "kwargs": {},
+          "alias": "Days_Since_Created__c"
       },
       {
-          "apply": "substitute",
+          "apply": "fill_na",
           "kwargs": {
-              "from": [
-                  "cpc",
-                  "native03",
-                  "publisher_1",
-                  "publisher_5",
-                  "native02",
-                  "display01",
-                  "12",
-                  "email04hl",
-                  "1aa73",
-                  "email01",
-                  "native01",
-                  "publisher_15",
-                  "native07",
-                  "native06",
-                  "native08",
-                  "native10",
-                  "native09",
-                  "d2c9b78e-2b45-463c-943d-eac590b4efa2",
-                  "yahoo",
-                  "outbrain",
-                  "111678",
-                  "1401",
-                  "6330",
-                  "3468",
-                  "111677",
-                  "3421",
-                  "1984",
-                  "apollo",
-                  "5600",
-                  "3450",
-                  "3393",
-                  "3449",
-                  "3425",
-                  "5590",
-                  "5530",
-                  "8557",
-                  "1aa1d",
-                  "504",
-                  "1aa0c",
-                  "1ma00",
-                  "1aa16",
-                  "1aa82",
-                  "1aa1p",
-                  "1aa97",
-                  "1aa15",
-                  "1aa0b",
-                  "1aa0h",
-                  "901",
-                  "1ab11",
-                  "1aa12",
-                  "1aa81",
-                  "1aa0d",
-                  "1ab07",
-                  "1aa88",
-                  "301",
-                  "308",
-                  "email02",
-                  "email03hl",
-                  "email10hl",
-                  "emailmt05",
-                  "emailmt04",
-                  "partner",
-                  "internal",
-                  "1he02",
-                  "1aa14"
-              ],
-              "to": "others"
+              "value": 0
           },
-          "alias" : "Lead_Medium__c"
-      }
-  ],
-  "Appended Addresses1 DPC": [
+          "alias": "Days_Since_Created__c"
+      },
       {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 0
-          }
-      }
-  ],
-  "Household Buying Power Score": [
+          "apply": "timeofday",
+          "kwargs": {},
+          "alias": "CreatedDate__time_of_day"
+      },
       {
           "apply": "fill_na",
           "kwargs": {
               "value": "unknown"
-          }
-      }
-  ],
-  "Input Phone1 DNC": [
+          },
+          "alias": "CreatedDate__time_of_day"
+      },
+
+   ], 
+
+  "Birthdate__c": [
       {
           "apply": "fill_na",
           "kwargs": {
-              "value": 0
-          }
-      }
-  ],
-  "Household Net Asset Value": [
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          }
-      }
-  ],
-  "Appended Phones Error Code": [
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": "unknown"
-          }
-      }
-  ],
-  "Original_Screen_Height__c": [
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 0
-          }
-      }
-  ],
-  "Supplemental_Form_Received__c": [
-      {
-          "apply": "substitute", 
-          "kwargs": {
-              "from": ["false"], 
-              "to": 0
-          }
+              "value": 65
+          }, 
+          "alias": "Age_as_of_createddate__c"
       }, 
       {
-          "apply": "substitute", 
+          "apply": "timediff",
+          "kwargs": {},
+          "alias": "Age_as_of_createddate__c"
+      },
+      {
+          "apply": "fill_na", 
           "kwargs": {
-              "from": ["true"], 
-              "to": 1
-          }
-      }, 
+              "value": "Age_as_of_createddate__c"
+          } 
+      }
+  ],
+  "Spouse_Birthdate__c": [
+      {
+          "apply": "Check_Presence",
+          "kwargs": {}, 
+          "alias": "Spouse_info_exists"
+      },
       {
           "apply": "fill_na",
           "kwargs": {
               "value": 0
-          }
+          }, 
+          "alias": "Spouse_info_exists"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 65
+          }, 
+          "alias": "Spouse_Age_as_of_CreatedDate"
+      },
+      {
+          "apply": "timediff",
+          "kwargs": {},
+          "alias": "Spouse_Age_as_of_CreatedDate"
       }
-  ],
-  "Territory__c": [
+  ], 
+
+ "Medicare_Part_B_Date_Current__c": [
+     {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Medicare_Part_B_Date_From_CreatedDate"
+      },
+      {
+          "apply": "timediff",
+          "kwargs": {},
+          "alias": "Medicare_Part_B_Date_From_CreatedDate"
+      }
+     
+ ],
+
+ "Lead_URL__c": [
+
+ 		  {
+              "apply": "fill_na", 
+              "kwargs": {
+                  "value": "unknown"
+              }, 
+              "alias": "url_path_1"
+          }, 
+          {
+              "apply": "fill_na", 
+              "kwargs": {
+                  "value": "unknown"
+              }, 
+              "alias": "class_url"
+          }, 
+          {
+              "apply": "substitute",
+              "kwargs": {
+                  "from": [
+                      "https://mutualofomaha-medicare.com/ma/",
+                      "https://rates.applyformedicare.com/ma/",
+                      "https://rates.medicarecompared.com/ma/",
+                      "https://rates.medicarefaq.com/ma/",
+                      "https://rates.medicarefaq.com/ma/part-c/",
+                      "https://www.medicarefaq.com/category/medicare-advantage/",
+                      "https://www.medicarefaq.com/medicare-part-c/medicare-advantage-eligibility/",
+                      "https://www.medicarefaq.com/medicare-part-c/medicare-advantage-enrollment-periods/",
+                      "https://www.medicarefaq.com/medicare-part-c/medicare-advantage-plan-hmo-pos/",
+                      "https://www.medicarefaq.com/medicare-part-c/medicare-advantage-plan-hmo/",
+                      "https://www.medicarefaq.com/medicare-part-c/medicare-advantage-plan-pffs/",
+                      "https://www.medicarefaq.com/medicare-part-c/medicare-advantage-plan-ppo/",
+                      "https://www.medicarefaq.com/medicare-part-c/medicare-advantage-plan-snp",
+                      "https://www.medicarefaq.com/medicare-part-c/medicare-advantage-plan-snp/",
+                      "https://www.medicarefaq.com/medicare-part-c/medicare-advantage-plan-types/",
+                      "https://www.medicarefaq.com/medicare-part-c/medicare-advantage-plans/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-c/medicare-advantage-eligibility/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-c/medicare-advantage-enrollment-periods/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-c/medicare-advantage-plan-types/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-c/medicare-advantage-plan-types/medicare-hmo-pos/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-c/medicare-advantage-plan-types/medicare-hmo/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-c/medicare-advantage-plan-types/medicare-ppo/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-c/medicare-advantage-plan-types/medicare-snp/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-c/medicare-advantage-prescription-drug-coverage/",
+                      "https://www.medicarefaq.com/videos/medicare-advantage/"
+                  ],
+                  "to": "ma"
+              },
+              "alias": "class_url"
+          },
+          {
+              "apply": "substitute",
+              "kwargs": {
+                  "from": [
+                      "www.compare-medicare-quotes.com",
+                      "quotes.affordablehealthplans.org",
+                      "quotes.medigap.com",
+                      "quotes.medigappolicies.org"
+                  ],
+                  "to": "quotes"
+              },
+              "alias": "class_url"
+          },
+          {
+              "apply": "substitute",
+              "kwargs": {
+                  "from": [
+                      "phreesia"
+                  ],
+                  "to": "phreesia"
+              },
+              "alias": "class_url"
+          },
+          {
+              "apply": "substitute",
+              "kwargs": {
+                  "from": [
+                      "https://medicarefaq.com/medigap/florida/",
+                      "https://medicareoe.com/medicare-part-c",
+                      "https://medicareoe.com/medicare-part-d",
+                      "https://www.applyformedicare.com/general-medicare-articles/medicare-parts-vs-plans/",
+                      "https://www.applyformedicare.com/medicare-coverage-articles/what-medicare-covers/",
+                      "https://www.applyformedicare.com/medicare-enrollment-articles/apply-for-medicare-part-a/",
+                      "https://www.applyformedicare.com/medicare-enrollment-articles/apply-for-medicare-part-b/",
+                      "https://www.applyformedicare.com/medicare-enrollment-articles/apply-for-medicare-part-c/",
+                      "https://www.applyformedicare.com/medicare-enrollment-articles/how-to-apply-for-medicare-online/",
+                      "https://www.applyformedicare.com/medicare-enrollment-articles/what-documents-do-i-need-to-apply-for-medicare/",
+                      "https://www.applyformedicare.com/medicare-part-d-articles/silverscript/",
+                      "https://www.medicarefaq.com/category/general-medicare/",
+                      "https://www.medicarefaq.com/category/medicare-coverage/",
+                      "https://www.medicarefaq.com/category/medicare-part-d/",
+                      "https://www.medicarefaq.com/medicare-part-c/",
+                      "https://www.medicarefaq.com/medicare-part-c/page/8/",
+                      "https://www.medicarefaq.com/original-medicare/",
+                      "https://www.medicarefaq.com/original-medicare/aetna-medicare-plans/",
+                      "https://www.medicarefaq.com/original-medicare/cigna-medicare-plans/",
+                      "https://www.medicarefaq.com/original-medicare/humana-medicare-plans/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-costs/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-coverage/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-eligibility/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-enrollment-periods",
+                      "https://www.medicarefaq.com/original-medicare/medicare-enrollment-periods/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-C/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-a/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-b-enrollment/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-b/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-b/#",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-c/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-d",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-d/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-d/medicare-donut-hole/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-d/medicare-part-d-eligibility/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-d/medicare-part-d-enrollment-periods/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-d/mutual-of-omaha/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-d/part-d-costs",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-d/part-d-costs/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-d/part-d-plans/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-d/silverscript",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-d/silverscript/",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-d/silverscript/#",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-d/silverscript/#:~:text=The%20SilverScript%20Plus%20(PDP)%20offers,delivered%20at%20no%20additional%20cost.",
+                      "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-d/silverscript/#Choice",
+                      "https://www.medicarefaq.com/original-medicare/mutual-of-omaha-medicare-plans/",
+                      "medigap.com"
+                  ],
+                  "to": "generic"
+              },
+              "alias": "class_url"
+          },
+          {
+              "apply": "substitute",
+              "kwargs": {
+                  "from": [
+                      "healthplanrate.com",
+                      "https://medicareoe.com/medicare-part-a",
+                      "https://medicareoe.com/privacy-policy/",
+                      "https://medicareoe.com/what-is-medicare/",
+                      "https://medicareoe.com/what-is-medicare/#",
+                      "https://medicareoe.com/what-is-medicare/?fbclid=IwAR1BFcajFxpHYOJI8jqXZybRqB6EmDHTQia0bxiVHDDwD4S7Y5",
+                      "https://rate.medicarefaq.com/fb/afm/",
+                      "https://rates.medicarecompared.com/lp1",
+                      "https://rates.medicarecompared.com/lp1/",
+                      "https://rates.medicarecompared.com/lp2/",
+                      "https://rates.medicarefaq.com/tt/",
+                      "https://www.blueskycoverage.com/health",
+                      "https://www.medicarefaq.com/about-us/",
+                      "https://www.medicarefaq.com/about-us/jagger-esch/",
+                      "https://www.medicarefaq.com/category/medicare-enrollment/",
+                      "https://www.medicarefaq.com/client-care-team/",
+                      "https://www.medicarefaq.com/contact-us/",
+                      "https://www.medicarefaq.com/contact-us/thank-you/",
+                      "https://www.medicarefaq.com/joe-namath-medicare-commericals/",
+                      "https://www.medicarefaq.com/medicare-flex-card/",
+                      "https://www.medicarefaq.com/news/",
+                      "https://www.medicarefaq.com/privacy-policy/",
+                      "https://www.medicarefaq.com/scholarship-opportunities/",
+                      "https://www.medicarefaq.com/third-party-partners/",
+                      "https://www.medicarefaq.com/videos/",
+                      "https://www.medicarefaq.com/videos/medicare-part-d/",
+                      "medicare.healthcare.com",
+                      "medicareguide.com",
+                      "medigappolicies.org",
+                      "mobile.medigap.com",
+                      "mobile.medigappolicies.org",
+                      "mobile.mymedicare.info",
+                      "mymedicare.info",
+                      "seekmedicare.com"
+                  ],
+                  "to": "others"
+              },
+              "alias": "class_url"
+          },
+          {
+              "apply": "substitute",
+              "kwargs": {
+                  "from": [
+                      "comparemedicare.com",
+                      "https://www.applyformedicare.com/compare-rates/",
+                      "https://www.medicarefaq.com/compare-rates/",
+                      "https://www.medicarefaq.com/compare-rates/supplemental-information/",
+                      "https://www.medicarefaq.com/compare-rates/thank-you/"
+                  ],
+                  "to": "compare"
+              },
+              "alias": "class_url"
+          },
+          {
+              "apply": "substitute",
+              "kwargs": {
+                  "from": [
+                      "https://medicarefaq.com/medicare-supplement/california/",
+                      "https://mutualofomaha-medicare.com/ms/",
+                      "https://qa.medicarefaq.com/medicare-supplements/medigap-eligibility/",
+                      "https://quotesqa.medicarefaq.com/ms/",
+                      "https://rate.medicarefaq.com/ms/",
+                      "https://rate.medicarefaq.com/ms/fb/",
+                      "https://rate.medicarefaq.com/ms/plan-c/",
+                      "https://rate.medicarefaq.com/ms/plan-f-high-deductible/",
+                      "https://rate.medicarefaq.com/ms/plan-f/",
+                      "https://rate.medicarefaq.com/ms/plan-g/",
+                      "https://rate.medicarefaq.com/ms/plan-n/",
+                      "https://rates.applyformedicare.com/ms/",
+                      "https://rates.medicarecompared.com/ms",
+                      "https://rates.medicarecompared.com/ms/",
+                      "https://rates.medicarefaq.com/ms",
+                      "https://rates.medicarefaq.com/ms/",
+                      "https://rates.medicarefaq.com/ms/fb/",
+                      "https://rates.medicarefaq.com/ms/plan-c/",
+                      "https://rates.medicarefaq.com/ms/plan-f-high-deductible/",
+                      "https://rates.medicarefaq.com/ms/plan-f/",
+                      "https://rates.medicarefaq.com/ms/plan-g/",
+                      "https://rates.medicarefaq.com/ms/plan-n/",
+                      "https://ratesqa.medicarefaq.com/ms/",
+                      "https://www.medicarefaq.com/Medicare-supplements/medigap-plans/",
+                      "https://www.medicarefaq.com/category/medicare-supplements/",
+                      "https://www.medicarefaq.com/medicare-supplements",
+                      "https://www.medicarefaq.com/medicare-supplements/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/accendo-medicare-supplement-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/accendo-medicare-supplement-plans/#",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/accendo-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/accendo-medigap-plans/#",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/accendo-medigap-plans/#:~:text=Accendo%20Insurance%20Company%20is%20an,twelve%20standardized%20Medigap%20plans%20nationwide.",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/accendo-medigap-plans/#:~:text=Is%20Accendo%20the%20same%20as,established%20Medicare%20Supplement%20carrier%20Aetna.",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/aetna-medicare-supplement-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/aetna-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/anthem-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/anthem-medigap-plans/#:~:text=Anthem%20Medicare%20Supplement%20Plans%20Medicare%20Supplement%20%28Medigap%29%20plans,These%20gaps%20include%20deductibles%2C%20coinsurance%2C%20copayments?",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/bankers-fidelity-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/blue-cross-blue-shield-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/central-states-indemnity-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/cigna-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/gerber-life-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/gpm-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/humana-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/lumico-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/manhattan-life-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/medico-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/mutual-of-omaha-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/national-general/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/oxford-life-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/transamerica-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/united-american-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-carrier/united-healthcare-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/alabama-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/alaska-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/arizona-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/arkansas-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/california-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/colorado-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/connecticut-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/delaware-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/florida-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/georgia-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/idaho-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/illinois-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/indiana-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/iowa-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/kansas-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/kentucky-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/kentucky-medigap-plans/#",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/louisiana-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/maine-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/maryland-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/massachusetts-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/michigan-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/minnesota-medigap-plans",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/minnesota-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/mississippi-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/missouri-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/montana-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/nebraska-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/nevada-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/new-hampshire-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/new-jersey-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/new-mexico-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/new-york-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/north-carolina-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/north-dakota-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/ohio-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/oklahoma-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/oregon-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/pennsylvania-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/rhode-island-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/south-carolina-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/south-dakota-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/tennessee-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/texas-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/utah-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/vermont-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/virginia-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/washington-dc-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/washington-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/west-virginia-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/wisconsin-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-by-state/wyoming-medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-coverage/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-eligibility/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/innovative-plan-f/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/medigap-plan-N/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/medigap-plan-a/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/medigap-plan-b/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/medigap-plan-c",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/medigap-plan-c/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/medigap-plan-d/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/medigap-plan-f",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/medigap-plan-f/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/medigap-plan-fi/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/medigap-plan-g/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/medigap-plan-g/#:~:text=The%20average%20Medicare%20Supplement%20Plan%20G%20rate%20increase,key%20determinant%20when%20selecting%20your%20Medigap%20insurance%20company.",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/medigap-plan-k/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/medigap-plan-l/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/medigap-plan-m/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/medigap-plan-n/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/plan-f-high-deductible/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/plan-g-high-deductible/",
+                      "https://www.medicarefaq.com/medicare-supplements/medigap-plans/plan-g-high-deductible/#:~:text=The%20average%20cost%20of%20High,including%20your%20age%20and%20location.",
+                      "https://www.medicarefaq.com/medicare-supplements/plan-c/",
+                      "https://www.medicarefaq.com/medicare-supplements/plan-f-high-deductible/",
+                      "https://www.medicarefaq.com/videos/medicare-supplements/", 
+                      "https://ratesqa.medicarecompared.com/ms/"
+                  ],
+                  "to": "ms"
+              },
+              "alias": "class_url"
+          },
+          {
+              "apply": "substitute",
+              "kwargs": {
+                  "from": [
+                      "https://qa.medicarefaq.com/faqs/medicare-supplement-plan-f-vs-plan-g-vs-plan-n/",
+                      "https://qa.medicarefaq.com/faqs/top-5-medicare-prescription-drug-plans/",
+                      "https://www.medicarefaq.com/faqs/",
+                      "https://www.medicarefaq.com/faqs/advance-beneficiary-notice/",
+                      "https://www.medicarefaq.com/faqs/advantages-and-disadvantages-medicare-advantage/",
+                      "https://www.medicarefaq.com/faqs/affordable-medicare-supplement-insurance-plans/",
+                      "https://www.medicarefaq.com/faqs/all-in-one-medicare-plan/",
+                      "https://www.medicarefaq.com/faqs/alternative-to-medicare/",
+                      "https://www.medicarefaq.com/faqs/ambulance-and-medicare-coverage/",
+                      "https://www.medicarefaq.com/faqs/applying-for-medicare/",
+                      "https://www.medicarefaq.com/faqs/average-cost-of-medicare-advantage/",
+                      "https://www.medicarefaq.com/faqs/average-cost-of-medicare-supplement-plans",
+                      "https://www.medicarefaq.com/faqs/average-cost-of-medicare-supplement-plans/",
+                      "https://www.medicarefaq.com/faqs/best-medicare-advantage-plans/",
+                      "https://www.medicarefaq.com/faqs/can-i-cancel-medicare-advantage-plan/",
+                      "https://www.medicarefaq.com/faqs/can-my-employer-pay-my-medicare-premiums/",
+                      "https://www.medicarefaq.com/faqs/can-you-be-denied-a-medicare-supplement-plan/",
+                      "https://www.medicarefaq.com/faqs/can-you-get-medicare-in-puerto-rico/",
+                      "https://www.medicarefaq.com/faqs/canadian-vs-american-medicare/",
+                      "https://www.medicarefaq.com/faqs/choosing-a-medigap-policy/",
+                      "https://www.medicarefaq.com/faqs/choosing-the-right-high-deductible-medigap-plan/",
+                      "https://www.medicarefaq.com/faqs/chronic-care-management",
+                      "https://www.medicarefaq.com/faqs/chronic-care-management/",
+                      "https://www.medicarefaq.com/faqs/common-medicare-complaints",
+                      "https://www.medicarefaq.com/faqs/common-medicare-complaints/",
+                      "https://www.medicarefaq.com/faqs/deductible-copay-coinsurance-premium/",
+                      "https://www.medicarefaq.com/faqs/denied-medicare-supplement-plan/",
+                      "https://www.medicarefaq.com/faqs/denied-medicare-supplement-plan/#:~:text=Pre-existing%20conditions%20are%20the%20main%20reason%20you%20could,you%20had%20a%20heart%20attack%20ten%20years%20ago.",
+                      "https://www.medicarefaq.com/faqs/dental-and-vision-insurance-for-seniors/",
+                      "https://www.medicarefaq.com/faqs/differences-between-medicare-and-social-security/",
+                      "https://www.medicarefaq.com/faqs/discontinued-medigap-plans/",
+                      "https://www.medicarefaq.com/faqs/do-i-really-need-supplemental-insurance-with-medicare/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-a-biopsy/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-acupuncture/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-an-echocardiogram/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-anemia/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-anesthesia/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-asthma-inhalers/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-atrial-fibrillation-afib/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-carpal-tunnel-syndrome-surgery/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-chiropractic-care/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-cologuard/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-copd/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-dental-implants/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-dental-implants/#:~:text=Unfortunately%2C%20Original%20Medicare%20does%20not,implants%20when%20enrolled%20in%20Medicare.",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-end-stage-renal-disease/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-fertility-treatments/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-gender-reassignment-surgery/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-glasses/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-hormone-therapy-for-menopause/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-hospice/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-macular-degeneration/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-meals-on-wheels/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-medical-alert-systems/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-medical-nutritional-therapy/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-medical-nutritional-therapy/#:~:text=Medicare%20doesn't%20cover%20a,receive%20full%20coverage%20from%20Medicare.",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-mental-health/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-oral-surgery/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-ostomy-supplies/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-ozempic/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-pre-existing-conditions",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-pre-existing-conditions/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-prosthetic-devices/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-robotic-surgery/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-root-canals/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-sleep-apnea/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-speech-therapy/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-urinary-catheters/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-urinary-catheters/#:~:text=Outpatient%20Coverage%20for%20Urinary%20Catheters&amp;text=For%20men%2C%20up%20to%2035,single%2Duse%20catheters%20each%20month.",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-varicose-veins/",
+                      "https://www.medicarefaq.com/faqs/does-medicare-cover-varicose-veins/#:~:text=Medicare%20may%20cover%20your%20varicose,these%20costs%20can%20add%20up.",
+                      "https://www.medicarefaq.com/faqs/does-medicare-have-cost-sharing/",
+                      "https://www.medicarefaq.com/faqs/doesmedicarecoverdentalimplants",
+                      "https://www.medicarefaq.com/faqs/durable-medical-equipment",
+                      "https://www.medicarefaq.com/faqs/durable-medical-equipment/",
+                      "https://www.medicarefaq.com/faqs/durable-medical-equipment/#:~:text=Does%20Medicare%20cover%20Hoyer%20lift,if%20you%20rent%20a%20lift.",
+                      "https://www.medicarefaq.com/faqs/dvh/",
+                      "https://www.medicarefaq.com/faqs/eliquis-cost-with-medicare/",
+                      "https://www.medicarefaq.com/faqs/factors-that-impact-your-medicare-supplement-rates/",
+                      "https://www.medicarefaq.com/faqs/fall-medicare-open-enrollment-period/",
+                      "https://www.medicarefaq.com/faqs/faqs-medicare-coverage-gap/",
+                      "https://www.medicarefaq.com/faqs/finding-local-doctors-who-accept-medicare/",
+                      "https://www.medicarefaq.com/faqs/get-on-the-medicare-do-not-call-list/",
+                      "https://www.medicarefaq.com/faqs/get-on-the-medicare-do-not-call-list/#",
+                      "https://www.medicarefaq.com/faqs/get-on-the-medicare-do-not-call-list/#:~:text=The%20phone%20number%20is%201,an%20end%20to%20the%20calls.",
+                      "https://www.medicarefaq.com/faqs/get-on-the-medicare-do-not-call-list/#:~:text=To%20register%2C%20call%20from%20the,an%20end%20to%20the%20calls.",
+                      "https://www.medicarefaq.com/faqs/home-safety-assessment-for-the-elderly",
+                      "https://www.medicarefaq.com/faqs/home-safety-assessment-for-the-elderly/",
+                      "https://www.medicarefaq.com/faqs/hospital-indemnity-insurance/",
+                      "https://www.medicarefaq.com/faqs/how-can-i-get-medicare-for-my-mom-or-dad/",
+                      "https://www.medicarefaq.com/faqs/how-dual-residency-and-medicare-works/",
+                      "https://www.medicarefaq.com/faqs/how-is-medicare-funded/",
+                      "https://www.medicarefaq.com/faqs/how-much-medigap-can-save-me/",
+                      "https://www.medicarefaq.com/faqs/how-old-to-get-medicare/",
+                      "https://www.medicarefaq.com/faqs/how-to-file-a-medicare-claim/",
+                      "https://www.medicarefaq.com/faqs/how-tricare-works-with-medicare",
+                      "https://www.medicarefaq.com/faqs/how-tricare-works-with-medicare/",
+                      "https://www.medicarefaq.com/faqs/hsa-and-medicare/",
+                      "https://www.medicarefaq.com/faqs/illegal-medigap-practices/",
+                      "https://www.medicarefaq.com/faqs/irmaa/",
+                      "https://www.medicarefaq.com/faqs/is-medicare-free/",
+                      "https://www.medicarefaq.com/faqs/is-medicare-mandatory/",
+                      "https://www.medicarefaq.com/faqs/manufacturers-coupons-and-medicare/",
+                      "https://www.medicarefaq.com/faqs/mapd-vs-part-d/",
+                      "https://www.medicarefaq.com/faqs/medicaid-spend-down-program/",
+                      "https://www.medicarefaq.com/faqs/medical-marijuana-and-medicare-coverage/",
+                      "https://www.medicarefaq.com/faqs/medical-rides/",
+                      "https://www.medicarefaq.com/faqs/medicare-8-minute-rule/",
+                      "https://www.medicarefaq.com/faqs/medicare-advantage-open-enrollment-period/",
+                      "https://www.medicarefaq.com/faqs/medicare-advantage-over-the-counter-cards",
+                      "https://www.medicarefaq.com/faqs/medicare-advantage-over-the-counter-cards/",
+                      "https://www.medicarefaq.com/faqs/medicare-advantage-over-the-counter-cards/#",
+                      "https://www.medicarefaq.com/faqs/medicare-advantage-over-the-counter-cards/#:~:text=OTC%20Medicare%20cards%20help%20cover%20the%20cost%20of,how%20they%20work%20and%20where%20to%20use%20them.",
+                      "https://www.medicarefaq.com/faqs/medicare-advantage-vs-medicare-supplement/",
+                      "https://www.medicarefaq.com/faqs/medicare-aep-vs-oep/",
+                      "https://www.medicarefaq.com/faqs/medicare-and-divorce",
+                      "https://www.medicarefaq.com/faqs/medicare-and-divorce/",
+                      "https://www.medicarefaq.com/faqs/medicare-and-divorce/#:~:text=Those%20currently%20divorced%3A%20As%20long,premium%2Dfree%20Part%20A%20benefits.",
+                      "https://www.medicarefaq.com/faqs/medicare-and-employer-coverage",
+                      "https://www.medicarefaq.com/faqs/medicare-and-employer-coverage/",
+                      "https://www.medicarefaq.com/faqs/medicare-and-employer-coverage/#:~:text=When%20you%20leave%20your%20group%20health%20coverage%2C%20the,B%20benefits%20and%20reenroll%20in%20the%20group%20coverage.",
+                      "https://www.medicarefaq.com/faqs/medicare-and-funeral-expenses/",
+                      "https://www.medicarefaq.com/faqs/medicare-and-mail-order-prescriptions/",
+                      "https://www.medicarefaq.com/faqs/medicare-and-marketplace/",
+                      "https://www.medicarefaq.com/faqs/medicare-and-retiree-insurance/",
+                      "https://www.medicarefaq.com/faqs/medicare-and-va-benefits/",
+                      "https://www.medicarefaq.com/faqs/medicare-and-wound-care-coverage/",
+                      "https://www.medicarefaq.com/faqs/medicare-annual-enrollment-period",
+                      "https://www.medicarefaq.com/faqs/medicare-annual-enrollment-period/",
+                      "https://www.medicarefaq.com/faqs/medicare-annual-notice-of-change-letter",
+                      "https://www.medicarefaq.com/faqs/medicare-annual-notice-of-change-letter/",
+                      "https://www.medicarefaq.com/faqs/medicare-annual-wellness-visit/",
+                      "https://www.medicarefaq.com/faqs/medicare-appeals-process/",
+                      "https://www.medicarefaq.com/faqs/medicare-assisted-living/",
+                      "https://www.medicarefaq.com/faqs/medicare-beneficiary-identifiers/",
+                      "https://www.medicarefaq.com/faqs/medicare-benefits-hotline/",
+                      "https://www.medicarefaq.com/faqs/medicare-benefits/",
+                      "https://www.medicarefaq.com/faqs/medicare-braces-devices/",
+                      "https://www.medicarefaq.com/faqs/medicare-calendar-year-and-benefit-periods/",
+                      "https://www.medicarefaq.com/faqs/medicare-changes",
+                      "https://www.medicarefaq.com/faqs/medicare-changes-in-2022",
+                      "https://www.medicarefaq.com/faqs/medicare-changes-in-2022/",
+                      "https://www.medicarefaq.com/faqs/medicare-changes/",
+                      "https://www.medicarefaq.com/faqs/medicare-cobra/",
+                      "https://www.medicarefaq.com/faqs/medicare-cover-dialysis-treatments/",
+                      "https://www.medicarefaq.com/faqs/medicare-cover-urgent-care-services/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-erectile-dysfunction/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-alcohol-misuse/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-alzheimers-disease/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-amyotrophic-lateral-sclerosis-als/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-bariatric-surgery/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-bathroom-safety-devices/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-blood-pressure-monitors/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-botox-treatments/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-botox-treatments/#:~:text=Medicare%20may%20cover%20Botox%20for,people%20with%20excessive%20armpit%20sweating.",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-cancer/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-cardiovascular-disease/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-colonoscopy-screenings/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-colonoscopy-screenings/#:~:text=Getting%20right%20to%20it%2C%20yes,diseases%20during%20their%20earliest%20stages.",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-compression-socks/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-dementia/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-dermatology/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-diabetic-shoes",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-diabetic-shoes/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-eczema/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-epilepsy/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-hearing-aids/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-hepatitis/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-hip-injections/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-hysterectomies/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-in-home-caregivers/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-incontinence-supplies/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-lift-chairs/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-lower-back-pain-management/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-lung-transplants/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-mammograms/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-mammograms/#",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-marriage-and-family-counseling/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-my-children/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-oxygen-therapy/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-pacemakers/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-physical-therapy/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-plastic-surgery/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-podiatry/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-podiatry/#:~:text=Does%20Medicare%20Cover%20Orthotics%20for,soft%20tissue%20around%20your%20heel.",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-podiatry/#:~:text=Medicare%20may%20cover%20some%20of%20the%20podiatry%20services,a%20hammertoe%2C%20various%20injuries%2C%20heel%20spurs%2C%20and%20deformities.",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-prostate-specific-antigen-psa-test/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-shingles/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-skilled-nursing-facilities/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-smoking-cessation-treatments/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-stem-cell-treatments/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-stroke-victims/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-substance-abuse/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-thyroid-disease/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-for-wheelchairs-and-scooters/",
+                      "https://www.medicarefaq.com/faqs/medicare-coverage-gap/",
+                      "https://www.medicarefaq.com/faqs/medicare-covered-alternatives-to-knee-replacement/",
+                      "https://www.medicarefaq.com/faqs/medicare-covered-alternatives-to-knee-replacement/#",
+                      "https://www.medicarefaq.com/faqs/medicare-diabetes",
+                      "https://www.medicarefaq.com/faqs/medicare-diabetes/",
+                      "https://www.medicarefaq.com/faqs/medicare-does-not-cover/",
+                      "https://www.medicarefaq.com/faqs/medicare-easy-pay/",
+                      "https://www.medicarefaq.com/faqs/medicare-enrollment-checklist/",
+                      "https://www.medicarefaq.com/faqs/medicare-equitable-relief/",
+                      "https://www.medicarefaq.com/faqs/medicare-expansion/",
+                      "https://www.medicarefaq.com/faqs/medicare-extra-help-program/",
+                      "https://www.medicarefaq.com/faqs/medicare-extra-help-program/#",
+                      "https://www.medicarefaq.com/faqs/medicare-for-disabled-individuals/",
+                      "https://www.medicarefaq.com/faqs/medicare-for-disabled-individuals/#:~:text=When%20you%E2%80%99re%20under%2065%2C%20you%20become%20eligible%20for,be%20enrolled%20when%20you%20begin%20receiving%20disability%20benefits.",
+                      "https://www.medicarefaq.com/faqs/medicare-for-dummies",
+                      "https://www.medicarefaq.com/faqs/medicare-for-dummies/",
+                      "https://www.medicarefaq.com/faqs/medicare-for-federal-retirees/",
+                      "https://www.medicarefaq.com/faqs/medicare-for-green-card-holders/",
+                      "https://www.medicarefaq.com/faqs/medicare-forms/",
+                      "https://www.medicarefaq.com/faqs/medicare-general-enrollment-period/",
+                      "https://www.medicarefaq.com/faqs/medicare-gov/",
+                      "https://www.medicarefaq.com/faqs/medicare-guaranteed-issue",
+                      "https://www.medicarefaq.com/faqs/medicare-guaranteed-issue/",
+                      "https://www.medicarefaq.com/faqs/medicare-gym-membership/",
+                      "https://www.medicarefaq.com/faqs/medicare-gym-membership/#",
+                      "https://www.medicarefaq.com/faqs/medicare-history/",
+                      "https://www.medicarefaq.com/faqs/medicare-hmo-vs-ppo/",
+                      "https://www.medicarefaq.com/faqs/medicare-initial-enrollment-period/",
+                      "https://www.medicarefaq.com/faqs/medicare-inpatient-vs-outpatient-vs-under-observation/",
+                      "https://www.medicarefaq.com/faqs/medicare-low-income-subsidy",
+                      "https://www.medicarefaq.com/faqs/medicare-low-income-subsidy/",
+                      "https://www.medicarefaq.com/faqs/medicare-managed-care-plans/",
+                      "https://www.medicarefaq.com/faqs/medicare-maximum-out-of-pocket/",
+                      "https://www.medicarefaq.com/faqs/medicare-medical-savings-account-plans-eligibility-costs/",
+                      "https://www.medicarefaq.com/faqs/medicare-paperless-billing/",
+                      "https://www.medicarefaq.com/faqs/medicare-part-b-drug-costs/",
+                      "https://www.medicarefaq.com/faqs/medicare-part-b-give-back-plan/",
+                      "https://www.medicarefaq.com/faqs/medicare-part-b-give-back-plan/%5C",
+                      "https://www.medicarefaq.com/faqs/medicare-part-b-late-enrollment-penalty/",
+                      "https://www.medicarefaq.com/faqs/medicare-part-b-premiums/",
+                      "https://www.medicarefaq.com/faqs/medicare-part-c-coverage/",
+                      "https://www.medicarefaq.com/faqs/medicare-part-d-enrollment/",
+                      "https://www.medicarefaq.com/faqs/medicare-part-d-late-enrollment-penalty/",
+                      "https://www.medicarefaq.com/faqs/medicare-part-d-part-b-vaccines/",
+                      "https://www.medicarefaq.com/faqs/medicare-part-d-plan-finder/",
+                      "https://www.medicarefaq.com/faqs/medicare-pay-long-term-care-facilities/",
+                      "https://www.medicarefaq.com/faqs/medicare-plan-g-reviews/",
+                      "https://www.medicarefaq.com/faqs/medicare-post-covid/",
+                      "https://www.medicarefaq.com/faqs/medicare-preventive-services/",
+                      "https://www.medicarefaq.com/faqs/medicare-prior-authorization/",
+                      "https://www.medicarefaq.com/faqs/medicare-prior-authorization/#:~:text=As%20part%20of%20Medicare%2C%20you,request%20gets%20approval%2C%20coverage%20begins.",
+                      "https://www.medicarefaq.com/faqs/medicare-qualified-government-wages/",
+                      "https://www.medicarefaq.com/faqs/medicare-questions/",
+                      "https://www.medicarefaq.com/faqs/medicare-reimbursement/",
+                      "https://www.medicarefaq.com/faqs/medicare-reimbursement/#:~:text=The%20Medicare%20reimbursement%20form%2C%20also%20known%20as%20the,form%20and%20an%20itemized%20bill%20supporting%20your%20claim.",
+                      "https://www.medicarefaq.com/faqs/medicare-replacement-plans",
+                      "https://www.medicarefaq.com/faqs/medicare-replacement-plans/",
+                      "https://www.medicarefaq.com/faqs/medicare-savings-programs/",
+                      "https://www.medicarefaq.com/faqs/medicare-secondary-insurance/",
+                      "https://www.medicarefaq.com/faqs/medicare-secondary-insurance/#",
+                      "https://www.medicarefaq.com/faqs/medicare-select/",
+                      "https://www.medicarefaq.com/faqs/medicare-social-security-and-power-of-attorney/",
+                      "https://www.medicarefaq.com/faqs/medicare-special-enrollment-periods/",
+                      "https://www.medicarefaq.com/faqs/medicare-supplement-insurance-worth-cost/",
+                      "https://www.medicarefaq.com/faqs/medicare-supplement-open-enrollment/",
+                      "https://www.medicarefaq.com/faqs/medicare-supplement-open-enrollment/#:~:text=Your%20Medicare%20Supplement%20Open%20Enrollment%20Period%20starts%20the%20first%20day,the%20month%20they%20turn%2065.",
+                      "https://www.medicarefaq.com/faqs/medicare-supplement-plan-f-vs-plan-g-vs-plan-n/",
+                      "https://www.medicarefaq.com/faqs/medicare-supplement-plan-reviews/",
+                      "https://www.medicarefaq.com/faqs/medicare-supplement-plans-and-pre-existing-conditions/",
+                      "https://www.medicarefaq.com/faqs/medicare-supplement-plans-medigap-pricing-methods/",
+                      "https://www.medicarefaq.com/faqs/medicare-supplement-underwriting-questions/",
+                      "https://www.medicarefaq.com/faqs/medicare-supplemental-health-insurance-for-veterans/",
+                      "https://www.medicarefaq.com/faqs/medicare-supplemental-insurance-tax-deductible/",
+                      "https://www.medicarefaq.com/faqs/medicare-tax-rate/",
+                      "https://www.medicarefaq.com/faqs/medicare-vision-care-coverage/",
+                      "https://www.medicarefaq.com/faqs/medicare-visiting-angels/",
+                      "https://www.medicarefaq.com/faqs/medicare-vs-medicaid/",
+                      "https://www.medicarefaq.com/faqs/medicare-vs-medicaid/#",
+                      "https://www.medicarefaq.com/faqs/medicare-vs-medicaid/#:~:text=You%20can%20qualify%20for%20both,recipients%20can%20get%20full%20Medicaid.",
+                      "https://www.medicarefaq.com/faqs/medigap-birthday-rule/",
+                      "https://www.medicarefaq.com/faqs/most-expensive-states-for-medigap",
+                      "https://www.medicarefaq.com/faqs/most-expensive-states-for-medigap/",
+                      "https://www.medicarefaq.com/faqs/most-popular-medicare-supplement-plans/",
+                      "https://www.medicarefaq.com/faqs/moving-to-another-state-with-medicare/",
+                      "https://www.medicarefaq.com/faqs/moving-to-another-state-with-medicare/#:~:text=Those%20with%20Original%20Medicare%20planning,the%20Railroad%20Retirement%20Board%20instead.",
+                      "https://www.medicarefaq.com/faqs/native-american-health-and-medicare/",
+                      "https://www.medicarefaq.com/faqs/new-to-medicare/",
+                      "https://www.medicarefaq.com/faqs/original-medicare-vs-medicare-advantage/",
+                      "https://www.medicarefaq.com/faqs/osteoporosis-bone-density-test-coverage-under-medicare/",
+                      "https://www.medicarefaq.com/faqs/page/2/",
+                      "https://www.medicarefaq.com/faqs/part-b-excess-charges-medicare-overcharge-measure/",
+                      "https://www.medicarefaq.com/faqs/part-d-formulary",
+                      "https://www.medicarefaq.com/faqs/part-d-formulary/",
+                      "https://www.medicarefaq.com/faqs/plan-f-vs-plan-g-vs-plan-n",
+                      "https://www.medicarefaq.com/faqs/plan-f-vs-plan-g-vs-plan-n/",
+                      "https://www.medicarefaq.com/faqs/plan-f-vs-plan-g-vs-plan-n/#:~:text=When%20you%20compare%20Medicare%20Supplement%20Plan%20G%20vs,small%20copays%20when%20visiting%20the%20doctor%20or%20hospital.",
+                      "https://www.medicarefaq.com/faqs/pre-enrollment-medicare-advantage-checklist/",
+                      "https://www.medicarefaq.com/faqs/pre-existing-conditions-for-medicare-supplement-plans/",
+                      "https://www.medicarefaq.com/faqs/qualified-health-plans-medicare/",
+                      "https://www.medicarefaq.com/faqs/qualified-medicare-beneficiary-program",
+                      "https://www.medicarefaq.com/faqs/qualified-medicare-beneficiary-program/",
+                      "https://www.medicarefaq.com/faqs/qualified-medicare-beneficiary-program/#",
+                      "https://www.medicarefaq.com/faqs/questions-to-ask-your-medicare-agent/",
+                      "https://www.medicarefaq.com/faqs/reasons-beneficiaries-leave-medicare-advantage/",
+                      "https://www.medicarefaq.com/faqs/reasons-beneficiaries-leave-medicare-advantage/#:~:text=Top%203%20Reasons%20People%20leave,Unreasonable%20cost%2Dsharing",
+                      "https://www.medicarefaq.com/faqs/reduce-medicare-premiums/",
+                      "https://www.medicarefaq.com/faqs/report-medicare-fraud/",
+                      "https://www.medicarefaq.com/faqs/rheumatoid-arthritis-treatment-and-medicare-coverage/",
+                      "https://www.medicarefaq.com/faqs/scope-of-appointment/",
+                      "https://www.medicarefaq.com/faqs/silver-sneakers-program",
+                      "https://www.medicarefaq.com/faqs/silver-sneakers-program/",
+                      "https://www.medicarefaq.com/faqs/six-protected-classes/",
+                      "https://www.medicarefaq.com/faqs/state-specific-medicare-rules/",
+                      "https://www.medicarefaq.com/faqs/switch-medicare-advantage-to-medicare-supplement/",
+                      "https://www.medicarefaq.com/faqs/telemedicine-and-medicare-coverage/",
+                      "https://www.medicarefaq.com/faqs/top-10-medicare-supplement-insurance-companies/",
+                      "https://www.medicarefaq.com/faqs/top-10-medicare-supplement-insurance-companies/#",
+                      "https://www.medicarefaq.com/faqs/top-10-medicare-supplement-insurance-companies/#1",
+                      "https://www.medicarefaq.com/faqs/top-3-medicare-supplement-plans/",
+                      "https://www.medicarefaq.com/faqs/top-5-dental-insurance-for-seniors/",
+                      "https://www.medicarefaq.com/faqs/top-5-medicare-prescription-drug-plans",
+                      "https://www.medicarefaq.com/faqs/top-5-medicare-prescription-drug-plans/",
+                      "https://www.medicarefaq.com/faqs/top-5-medicare-prescription-drug-plans/#1",
+                      "https://www.medicarefaq.com/faqs/top-5-medicare-prescription-drug-plans/#2",
+                      "https://www.medicarefaq.com/faqs/top-5-medicare-prescription-drug-plans/#:~:text=Humana%20Medicare%20Part%20D%20Plans%20%20%20Humana,multiple%20brand%20name%20or%20high-tier%20dr%20...%20",
+                      "https://www.medicarefaq.com/faqs/top-5-medicare-prescription-drug-plans/#:~:text=SilverScript%20Medicare%20Prescription%20Drug%20Plans&amp;text=Although%20costs%20vary%20by%20ZIP,D%20plan%20this%20carrier%20offers.",
+                      "https://www.medicarefaq.com/faqs/top-supplemental-medicare-plans/",
+                      "https://www.medicarefaq.com/faqs/top.5.medicare-prescription-drug-plans/",
+                      "https://www.medicarefaq.com/faqs/travel-insurance-for-seniors-with-medicare/",
+                      "https://www.medicarefaq.com/faqs/travel-insurance-for-seniors-with-medicare/#:~:text=Medicare%20Travel%20Insurance%20for%20Outside%20the%20U.S.%20Medicare,during%20the%20first%2060%20days%20of%20your%20trip.",
+                      "https://www.medicarefaq.com/faqs/truth-about-medicare/",
+                      "https://www.medicarefaq.com/faqs/types-of-medigap-pricing-methods/",
+                      "https://www.medicarefaq.com/faqs/welcome-to-medicare-preventative-visit/",
+                      "https://www.medicarefaq.com/faqs/what-are-medicare-select-plans/",
+                      "https://www.medicarefaq.com/faqs/what-dental-expenses-does-medicare-cover/",
+                      "https://www.medicarefaq.com/faqs/what-does-medically-necessary-mean/",
+                      "https://www.medicarefaq.com/faqs/what-is-creditable-coverage-regarding-medicare/",
+                      "https://www.medicarefaq.com/faqs/what-is-creditable-coverage-regarding-medicare/#:~:text=The%20Notice%20of%20Creditable%20Coverage,in%20the%20mail%20each%20year.&amp;text=This%20notice%20informs%20you%20that%20your%20current%20coverage%20is%20creditable.",
+                      "https://www.medicarefaq.com/faqs/what-is-medicare-assignment/",
+                      "https://www.medicarefaq.com/faqs/what-is-medicare-cost-sharing",
+                      "https://www.medicarefaq.com/faqs/what-is-medicare/",
+                      "https://www.medicarefaq.com/faqs/what-is-the-best-medicare-supplement-plan/",
+                      "https://www.medicarefaq.com/faqs/what-to-know-about-medicare-at-64/",
+                      "https://www.medicarefaq.com/faqs/what-you-need-to-know-about-medicare-advantage-plans/",
+                      "https://www.medicarefaq.com/faqs/when-can-i-change-my-medicare-supplement-plan/",
+                      "https://www.medicarefaq.com/faqs/when-does-medicare-start/",
+                      "https://www.medicarefaq.com/faqs/when-is-medicare-primary/",
+                      "https://www.medicarefaq.com/faqs/why-advantage-plans-exist/",
+                      "https://www.medicarefaq.com/faqs/why-are-medicare-star-ratings-important/",
+                      "https://www.medicarefaq.com/faqs/why-medicare-advantage-plans-are-bad",
+                      "https://www.medicarefaq.com/faqs/why-medicare-advantage-plans-are-bad/",
+                      "https://www.medicarefaq.com/faqs/why-you-need-a-medicare-agent/",
+                      "https://www.medicarefaq.com/faqs/will-medicare-cover-my-surgery/",
+                      "https://www.medicarefaq.com/faqs/will-medicare-cover-naturopathy/",
+                      "https://www.medicarefaq.com/faqs/will-medicare-pay-for-a-nebulizer-machine/",
+                      "https://www.medicarefaq.com/faqs/your-medicare-rights-and-protections/"
+                  ],
+                  "to": "faqs"
+              },
+              "alias": "class_url"
+          }
+   ], 
+
+  "Lead_Device__c": [
       {
           "apply": "fill_na",
           "kwargs": {
               "value": "unknown"
-          }
-      }
-  ],
-  "Original_Screen_Width__c": [
-      {
-          "apply": "fill_na",
-          "kwargs": {
-              "value": 0
-          }
-      }
-  ],
+          },
+      },
+  ], 
+
   "Gender__c": [
       {
           "apply": "fill_na",
           "kwargs": {
               "value": "unknown"
-          }
-      }
-  ],
-  "Sales_Agent_Routing__c": [
+          },
+      },
+  ], 
+
+  "Abandoned_Call_In__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+      },
+  ], 
+
+  "Boberdoo_Rejection_Reason__c": [
       {
           "apply": "fill_na",
           "kwargs": {
               "value": "unknown"
-          }
-      }
-  ],
-  "HasOptedOutOfEmail": [
+          },
+      },
+  ], 
+  "CallbackLogic__c": [
       {
-          "apply": "substitute", 
+          "apply": "fill_na",
           "kwargs": {
-              "from": ["false"], 
-              "to": 0
-          }
-      }, 
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "CallbackStatus__c": [
       {
-          "apply": "substitute", 
+          "apply": "fill_na",
           "kwargs": {
-              "from": ["true"], 
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "Coverage_Multi__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "Current_Coverage__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "Current_Plan_Type__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "CurrentProvider__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "Current_Plan_Type__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "Gender__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "Inbound_Calls__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+      },
+  ], 
+
+  "Inquired_Again__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+      },
+  ], 
+
+  "Twilio_CI_Phone_Type__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "Twilio_CI_Mobile_Type__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "PriorityCallback__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "Missed_Call_In__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+      },
+  ], 
+
+  "LeadCreationStage__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "LeadAppSubStage__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "LeadAppStage__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "Anticipated_Effective_Date__c": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ]
+
+  "Input Phone1 Active": [
+  	 {
+  	 	"apply": "fill_na", 
+  	 	"kwrags": {
+  	 		"value": "unknown"
+  	 	}
+
+  	 }, 
+  	 {
+  	 	"apply": "fill_na", 
+  	 	"kwrags": {
+  	 		"value": 0
+  	 	}, 
+  	 	"alias": "contact_counts"
+
+  	 }
+  ], 
+  "Appended Phones1 Active": [
+  	 {
+  	 	"apply": "fill_na", 
+  	 	"kwrags": {
+  	 		"value": "unknown"
+  	 	}
+
+  	 }, 
+  	 {
+  	 	"apply": "fill_na", 
+  	 	"kwrags": {
+  	 		"value": 1
+  	 	}, 
+  	 	"alias": "contact_counts"
+
+  	 }
+  ], 
+  "Appended Phones2 Active": [
+  	 {
+  	 	"apply": "fill_na", 
+  	 	"kwrags": {
+  	 		"value": "unknown"
+  	 	}
+
+  	 }, 
+  	 {
+  	 	"apply": "fill_na", 
+  	 	"kwrags": {
+  	 		"value": 2
+  	 	}, 
+  	 	"alias": "contact_counts"
+
+  	 }
+  ], 
+  "Appended Phones3 Active": [
+  	 {
+  	 	"apply": "fill_na", 
+  	 	"kwrags": {
+  	 		"value": "unknown"
+  	 	}
+
+  	 }, 
+  	 {
+  	 	"apply": "fill_na", 
+  	 	"kwrags": {
+  	 		"value": 3
+  	 	}, 
+  	 	"alias": "contact_counts"
+
+  	 }
+  ], 
+  "Input Phone1 Contactability Score": [
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C",
+                  "B",
+                  "F"
+              ],
               "to": 1
-          }
+          },
+          "alias": "Phone1__phone_type"
       },
       {
           "apply": "fill_na",
           "kwargs": {
               "value": 0
-          }
-      }
-  ],
-  "SMSOptIn__c": [
+          }, 
+          "alias": "Phone1__phone_type"
+      },
       {
-          "apply": "substitute", 
+          "apply": "substitute",
           "kwargs": {
-              "from": ["false"], 
+              "from": [
+                  "J",
+                  "I",
+                  "G",
+                  "K",
+                  "E"
+              ],
               "to": 0
-          }
-      }, 
+          },
+          "alias": "Phone1__phone_type"
+      },
       {
-          "apply": "substitute", 
+          "apply": "substitute",
           "kwargs": {
-              "from": ["true"], 
-              "to": 1
-          }
-      }, 
+              "from": [
+                  "F",
+                  "J",
+                  "I",
+                  "G",
+                  "E",
+                  "K"
+              ],
+              "to": 0
+          },
+          "alias": "Phone1__verified_phone"
+      },
       {
           "apply": "fill_na",
           "kwargs": {
               "value": 0
-          }
+          }, 
+          "alias": "Phone1__verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C"
+              ],
+              "to": 1
+          },
+          "alias": "Phone1__verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "B"
+              ],
+              "to": -1
+          },
+          "alias": "Phone1__verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "F",
+                  "K"
+              ],
+              "to": 0
+          },
+          "alias": "Phone1__phone_usage_12"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C",
+                  "B",
+                  "G",
+                  "E"
+              ],
+              "to": 1
+          },
+          "alias": "Phone1__phone_usage_12"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Phone1__phone_usage_12"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "J",
+                  "I",
+                  "G",
+                  "K",
+                  "C",
+                  "F"
+              ],
+              "to": 0
+          },
+          "alias": "Phone1__phone_usage_2"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Phone1__phone_usage_2"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "B",
+                  "E"
+              ],
+              "to": 1
+          },
+          "alias": "Phone1__phone_usage_2"
       }
-  ]
+  ],
+  "Appended Phones1 Contactability Score": [
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C",
+                  "B",
+                  "F"
+              ],
+              "to": 1
+          },
+          "alias": "Appended_Phone1__phone_type"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Appended_Phone1__phone_type"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "J",
+                  "I",
+                  "G",
+                  "K",
+                  "E"
+              ],
+              "to": 0
+          },
+          "alias": "Appended_Phone1__phone_type"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "F",
+                  "J",
+                  "I",
+                  "G",
+                  "E",
+                  "K"
+              ],
+              "to": 0
+          },
+          "alias": "Appended_Phone1__verified_phone"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Appended_Phone1__verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C"
+              ],
+              "to": 1
+          },
+          "alias": "Appended_Phone1__verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "B"
+              ],
+              "to": -1
+          },
+          "alias": "Appended_Phone1__verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "F",
+                  "K"
+              ],
+              "to": 0
+          },
+          "alias": "Appended_Phone1__phone_usage_12"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C",
+                  "B",
+                  "G",
+                  "E"
+              ],
+              "to": 1
+          },
+          "alias": "Appended_Phone1__phone_usage_12"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Appended_Phone1__phone_usage_12"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "J",
+                  "I",
+                  "G",
+                  "K",
+                  "C",
+                  "F"
+              ],
+              "to": 0
+          },
+          "alias": "Appended_Phone1__phone_usage_2"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Appended_Phone1__phone_usage_2"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "B",
+                  "E"
+              ],
+              "to": 1
+          },
+          "alias": "Appended_Phone1__phone_usage_2"
+      }
+  ],
+  "Appended Phones2 Contactability Score": [
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C",
+                  "B",
+                  "F"
+              ],
+              "to": 1
+          },
+          "alias": "Appended_Phone2__phone_type"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Appended_Phone2__phone_type"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "J",
+                  "I",
+                  "G",
+                  "K",
+                  "E"
+              ],
+              "to": 0
+          },
+          "alias": "Appended_Phone2__phone_type"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "F",
+                  "J",
+                  "I",
+                  "G",
+                  "E",
+                  "K"
+              ],
+              "to": 0
+          },
+          "alias": "Appended_Phone2__verified_phone"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Appended_Phone2__verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C"
+              ],
+              "to": 1
+          },
+          "alias": "Appended_Phone2__verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "B"
+              ],
+              "to": -1
+          },
+          "alias": "Appended_Phone2__verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "F",
+                  "K"
+              ],
+              "to": 0
+          },
+          "alias": "Appended_Phone2__phone_usage_12"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C",
+                  "B",
+                  "G",
+                  "E"
+              ],
+              "to": 1
+          },
+          "alias": "Appended_Phone2__phone_usage_12"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Appended_Phone2__phone_usage_12"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "J",
+                  "I",
+                  "G",
+                  "K",
+                  "C",
+                  "F"
+              ],
+              "to": 0
+          },
+          "alias": "Appended_Phone2__phone_usage_2"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Appended_Phone2__phone_usage_2"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "B",
+                  "E"
+              ],
+              "to": 1
+          },
+          "alias": "Appended_Phone2__phone_usage_2"
+      }
+  ],
+  "Appended Phones3 Contactability Score": [
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C",
+                  "B",
+                  "F"
+              ],
+              "to": 1
+          },
+          "alias": "Appended_Phone3__phone_type"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Appended_Phone3__phone_type"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "J",
+                  "I",
+                  "G",
+                  "K",
+                  "E"
+              ],
+              "to": 0
+          },
+          "alias": "Appended_Phone3__phone_type"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "F",
+                  "J",
+                  "I",
+                  "G",
+                  "E",
+                  "K"
+              ],
+              "to": 0
+          },
+          "alias": "Appended_Phone3__verified_phone"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Appended_Phone3__verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C"
+              ],
+              "to": 1
+          },
+          "alias": "Appended_Phone3__verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "B"
+              ],
+              "to": -1
+          },
+          "alias": "Appended_Phone3__verified_phone"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "F",
+                  "K"
+              ],
+              "to": 0
+          },
+          "alias": "Appended_Phone3__phone_usage_12"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "C",
+                  "B",
+                  "G",
+                  "E"
+              ],
+              "to": 1
+          },
+          "alias": "Appended_Phone3__phone_usage_12"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Appended_Phone3__phone_usage_12"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "J",
+                  "I",
+                  "G",
+                  "K",
+                  "C",
+                  "F"
+              ],
+              "to": 0
+          },
+          "alias": "Appended_Phone3__phone_usage_2"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          }, 
+          "alias": "Appended_Phone3__phone_usage_2"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "B",
+                  "E"
+              ],
+              "to": 1
+          },
+          "alias": "Appended_Phone3__phone_usage_2"
+      }
+  ], 
+  "Appended Emails 1 Email Address": [
+      {
+          "apply": "chech_email_validity",
+          "kwargs": {},
+           "alias": "is_valid_Appended Emails 1 Email Address"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+          	"value": "False"
+          },
+          "alias": "is_valid_Appended Emails 1 Email Address"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+          "alias": "Email_Match_Score"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+          "alias": "Birthdate_Flag"
+      },
+
+  ], 
+  "Appended Emails 2 Email Address": [
+      {
+          "apply": "chech_email_validity",
+          "kwargs": {},
+           "alias": "is_valid_Appended Emails 2 Email Address"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+          	"value": "False"
+          },
+          "alias": "is_valid_Appended Emails 2 Email Address"
+      },
+  ], 
+  "Appended Emails 3 Email Address": [
+      {
+          "apply": "chech_email_validity",
+          "kwargs": {},
+           "alias": "is_valid_Appended Emails 3 Email Address"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+          	"value": "False"
+          },
+          "alias": "is_valid_Appended Emails 3 Email Address"
+      },
+  ], 
+
+  "Input Phone1 Active": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "Input Phone1 DNC": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+      },
+  ], 
+
+  "Input Phone1 Line Type": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ],
+
+  "Input Phone1 Phone Confidence": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ],
+
+  "Input Phone1 Phone Usage: Past 12 months": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+      },
+  ],
+  "Input Phone1 Verification Result Code": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+      },
+  ],
+  "Appended Phones1 Active": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "Appended Phones1 DNC": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+      },
+  ], 
+
+  "Appended Phones1 Line Type": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ],
+
+  "Appended Phones1 Phone Confidence": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ],
+
+  "Appended Phones1 Phone Usage: Past 12 months": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+      },
+  ],
+  "Appended Phones1 Verification Result Code": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+      },
+  ],
+
+  "Appended Phones2 Active": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "Appended Phones2 DNC": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+      },
+  ], 
+
+  "Appended Phones2 Line Type": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ],
+
+  "Appended Phones2 Phone Confidence": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ],
+
+  "Appended Phones2 Phone Usage: Past 12 months": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+      },
+  ],
+  "Appended Phones2 Verification Result Code": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+      },
+  ],
+  "Appended Phones3 Active": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+
+  "Appended Phones3 DNC": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+      },
+  ], 
+
+  "Appended Phones3 Line Type": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ],
+
+  "Appended Phones3 Phone Confidence": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ],
+
+  "Appended Phones3 Phone Usage: Past 12 months": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+      },
+  ],
+  "Appended Phones3 Verification Result Code": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+      },
+  ],
+
+  "Individual Occupation": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ],
+
+    "Individual Occupation Group": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "K6",
+                  "K7",
+                  "K8",
+                  "K9"
+              ],
+              "to": "Low income"
+          },
+          "alias": "Occupation_group"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "K3",
+                  "K4",
+                  "K5",
+              ],
+              "to": "Medium income"
+          },
+          "alias": "Occupation_group"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "K1",
+                  "K2",
+
+              ],
+              "to": "High income"
+          },
+          "alias": "Occupation_group"
+      },
+  ],
+
+  "Individual Education": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Property/Realty: Home Land Value": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Property/Realty: Home Total Value": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Property/Realty: Property indicator": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Length of Residence": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Individual Ethnicity Group": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Property/Realty: Median Home Value": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Census: Rural-Urban County Size Code": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Median Family Household Income": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Household Composition": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Dwelling Type": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Estimated Current Home Value": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Estimated Household Income (Narrow)": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Estimated Household Income (Broad band)": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "A",
+                  "B",
+                  "C",
+                  "D"
+              ],
+              "to": "Low income"
+          },
+          "alias": "Income_group"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "E",
+                  "F",
+                  "G",
+                  "H"
+              ],
+              "to": "Medium income"
+          },
+          "alias": "Income_group"
+      },
+      {
+          "apply": "substitute",
+          "kwargs": {
+              "from": [
+                  "I",
+                  "J",
+                  "K",
+                  "L"
+              ],
+              "to": "High income"
+          },
+          "alias": "Income_group"
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+          "alias": "Income_group"
+      },
+
+  ], 
+  "Homeowner: Combined Homeowner/Renter": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Individual Marital Status": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+      {
+      	  "apply": "extract_string", 
+      	  "kwargs": {
+      	  	 "regex": "r'([A-Za-z]+)'"
+      	  }
+
+
+      }
+  ], 
+  "Individual Person Type": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Appended Addresses1 City": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+          "alias": "City_Match"
+      },
+  ], 
+  "Appended Addresses1 State": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+          "alias": "StateCode_Match"
+      },
+  ], 
+  "Appended Addresses1 Type": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Appended Addresses1 Zip5": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+  "Household Buying Power Score": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+      {
+          "apply": "extract_string",
+          "kwargs": {
+              "regex": "r'([A-Za-z]+)'"
+          },
+          "alias": "Letter_score"
+      },
+      {
+          "apply": "extract_string",
+          "kwargs": {
+              "regex": "r'(\d+)'"
+          },
+          "alias": "Numerical_score"
+      },
+  ], 
+  "Match Type": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+    "Individual Address Matches": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+  ], 
+    "Individual First Name Match": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+          "alias": "FirstName_Match"
+      },
+  ], 
+
+    "Individual Last Name Match": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+          "alias": "LastName_Match"
+      },
+  ], 
+    "Individual Phone1 Matches": [
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": "unknown"
+          },
+      },
+      {
+          "apply": "fill_na",
+          "kwargs": {
+              "value": 0
+          },
+          "alias": "Phone_Match_Score"
+      },
+  ], 
 }
