@@ -103,11 +103,13 @@ def score_boost(score, data, selected_model):
 
     with open(cpo_path, "r") as json_file:
         data_cpo = json.load(json_file)
-
+        
+    campaign_id = data["CampaignID__c"]
+    
     if campaign_id:
-        campaign_id = data["CampaignID__c"]
-        cpo_score = data_cpo.get()
-        score = score * 0.67 + cpo_score * 0.33
+        cpo_score = data_cpo.get(campaign_id)
+        if cpo_score:
+            score = score * 0.67 + cpo_score * 0.33
 
     if source_type == "partner_model":
         score = score * 0.9
