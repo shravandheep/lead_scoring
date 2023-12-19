@@ -1,4 +1,24 @@
 {
+    "LeadSource": [
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*Online.*"
+                ],
+                "to": "Online"
+            },
+            "alias": "Type"
+        },
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
+            },
+            "alias": "Type"
+        }
+    ],
+    
 	"Lead_Ad_Source__c":[
         {
             "apply":"regex",
@@ -1328,7 +1348,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                
+                "value": 0 
             },
             "alias":"is_valid_phone"
         }
