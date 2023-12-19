@@ -109,7 +109,7 @@ def inference(node_dict, data, score_request):
 #             considered_features = lead_type["considered_features"]
             numeric_cols = lead_type["numeric_features"]
             categorical_cols = lead_type["categorical_features"]
-            selected_model = lead_type["select_model"]
+            selected_model = lead_type["model_wts"]
             considered_features = numeric_cols+categorical_cols
 
             selected_label_encoder = lead_type["model_params"]["preprocessing_steps"][0]
