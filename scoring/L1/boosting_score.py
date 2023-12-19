@@ -116,8 +116,12 @@ def score_boost(score, data, selected_model):
     lead_type = data["Type"]
     if lead_type == "Online":
         score = score * 0.9
+        
+    if data['Input Phone1 Call Window'] != '':
 
-    call_score = get_call_window_score(data)
-    final_score = score * 0.67 + call_score * 0.33
+        call_score = get_call_window_score(data)
+        final_score = score * 0.67 + call_score * 0.33
+    else: 
+        final_score = score
 
     return final_score
