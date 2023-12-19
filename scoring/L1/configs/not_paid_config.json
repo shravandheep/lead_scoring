@@ -4015,7 +4015,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":"unknown"
+                "value":0
             }
         }
     ],
