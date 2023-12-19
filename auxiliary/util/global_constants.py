@@ -48,24 +48,21 @@ _CLOUDFRONT_URL = "https://d10nf2miq8av5z.cloudfront.net/"
 ## Model weights and configs
 # L1
 L1_WTS = [
-    'model_experiments/weights/L1/not_paid_leads_with_neustar_not_matched.sav',
-    'model_experiments/weights/L1/not_paid_leads_with_neustar_matched.sav',
-    'model_experiments/weights/L1/paid_leads_with_neustar_not_matched.sav',
-    'model_experiments/weights/L1/paid_leads_with_neustar_matched.sav',
-    'model_experiments/weights/L1/partner_leads_with_neustar_not_matched.sav',
-    'model_experiments/weights/L1/partner_leads_with_neustar_matched.sav'
+    'model_experiments/weights/L1/paid_model_xgb.sav', 
+    'model_experiments/weights/L1/not_paid_model_xgb.sav', 
+    'model_experiments/weights/L1/partner_model_xgb.sav', 
 ]
 
 L1_LBL_ENC = [
-    'model_experiments/weights/L1/encoders/label_encoders_not_paid.pkl',
-    'model_experiments/weights/L1/encoders/label_encoders_paid.pkl',
-    'model_experiments/weights/L1/encoders/label_encoders_partner.pkl'
+    'model_experiments/weights/L1/encoders/paid_encoder_obj.joblib',
+    'model_experiments/weights/L1/encoders/seo_encoder_obj.joblib',
+    'model_experiments/weights/L1/encoders/partner_encoder_obj.joblib',
 ]
 
 L1_SCL_ENC = [
-    'model_experiments/weights/L1/encoders/scaler_not_paid.pkl',
-    'model_experiments/weights/L1/encoders/scaler_paid.pkl',
-    'model_experiments/weights/L1/encoders/scaler_partner.pkl'
+    'model_experiments/weights/L1/encoders/paid_scaler_obj.joblib',
+    'model_experiments/weights/L1/encoders/seo_scaler_obj.joblib',
+    'model_experiments/weights/L1/encoders/partner_scaler_obj.joblib',
 ]
 
 
