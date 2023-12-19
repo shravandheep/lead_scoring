@@ -1740,14 +1740,6 @@
             "alias":"l"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":"l_config.json",
-                "to":"unknown"
-            },
-            "alias":"l"
-        },
-        {
             "apply":"regex",
             "kwargs":{
                 "from":[
