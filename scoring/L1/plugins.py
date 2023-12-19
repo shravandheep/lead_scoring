@@ -367,9 +367,11 @@ class Get_Keyword_Vector(Plugin):
     def apply(self, x):
         
         vec_obj = vectorizers_dict[self._vector]
-        tr_kw = vec_obj.transform([x]).toarray().tolist()
+        tr_kw = vec_obj.transform(x).toarray().tolist()
         wts = np.arange(15, 0, -1)
-        return np.average(tr_kw, weights=wts)
+        kw_ = np.average(tr_kw[0], weights=wts)
+        
+        return kw_
 
 
 class Chech_Email_Validity(Plugin):
