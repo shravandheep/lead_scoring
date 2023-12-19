@@ -63,7 +63,7 @@ def initialize_node(node_config, **kwargs):
     for r,d,f in os.walk(parent_path_to_scalers):
         for scl in f:
             
-            key = scl.replace(_ENC_EXT_POLCIY, '')
+            key = scl.replace(_ENC_EXT_POLICY, '')
             
             with open(os.path.join(r, scl), 'rb') as f:
                 scalers_dict[key] = pickle.load(f)
@@ -130,10 +130,11 @@ def process(data, node_dict):
     try:
         
         if score_request == 'request_policy_score_for_lead':
-        ## Uncomment this later to run the inference
             result_dict = inference(node_dict, combined_data, score_request)
         else: 
             result_dict = {}          
+        
+                                      
     except Exception as e:
         
         result_dict = [
