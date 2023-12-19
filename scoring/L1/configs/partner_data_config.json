@@ -1,4 +1,25 @@
 {
+    "LeadSource": [
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*Online.*"
+                ],
+                "to": "Online"
+            },
+            "alias": "Type"
+        },
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
+            },
+            "alias": "Type"
+        }
+    ],
+        
+        
     "Lead_Medium__c": [
         {
             "apply": "regex",
