@@ -46,7 +46,9 @@ def encoding(features, encoders_dict):
     else:
         X = features
     
+    print(X)
     numeric_cols = list(X.select_dtypes(include=['float64']).columns)
+    print(numeric_cols)
 
     for col in X.columns:
         
