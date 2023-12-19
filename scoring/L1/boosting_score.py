@@ -1,5 +1,6 @@
+import os
 import pandas as pd
-
+_FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 
 def split_and_create_dict(data):
     if data == "null":
@@ -97,8 +98,10 @@ def get_call_window_score(df_leads_neu):
 def score_boost(score, data, selected_model):
 
     source_type = selected_model
+    
+    cpo_path = os.path.join(_FILE_PATH, 'data_cpo.json')
 
-    with open("scoring/L1/data_cpo.json", "r") as json_file:
+    with open(cpo_path, "r") as json_file:
         data_cpo = json.load(json_file)
 
     if campaign_id:

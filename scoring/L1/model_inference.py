@@ -8,6 +8,7 @@ from auxiliary.util.global_constants import _WTS_EXT_L1
 from scoring.L1.translators import Translator
 
 from boosting_score import score_boost
+_FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 
 # Helpers
 def initialize_model(wts_path):
