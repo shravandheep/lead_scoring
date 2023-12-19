@@ -236,7 +236,7 @@
         "model_params": {
             "preprocessing_steps": ["partner_encoder_obj", "partner_scaler_obj"]
         }, 
-        "model_wts": "partner_model_xgb.sav"
+        "model_wts": "partner_model_xgb"
     }, 
 
     "not_paid_leads_object_data": {
@@ -365,7 +365,7 @@
         "model_params": {
             "preprocessing_steps": ["seo_encoder_obj", "seo_scaler_obj"]
         }, 
-        "model_wts": "not_paid_model_xgb.sav"
+        "model_wts": "not_paid_model_xgb"
     },
 
     "paid_leads_object_data": {
@@ -504,6 +504,6 @@
         "model_params": {
             "preprocessing_steps": ["paid_encoder_obj", "paid_scaler_obj"]
         }, 
-        "model_wts": "paid_model_xgb.sav"
+        "model_wts": "paid_model_xgb"
     }
 }
