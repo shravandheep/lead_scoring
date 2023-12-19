@@ -2534,6 +2534,20 @@
     ],
     "Abandoned_Call_In__c":[
         {
+            "apply":"substitute",
+            "kwargs":{
+                "from": ["true"],
+                "to":1
+            }
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from": ["false"],
+                "to":0
+            }
+        },
+        {
             "apply":"fill_na",
             "kwargs":{
                 "value":0
@@ -2622,6 +2636,20 @@
     ],
     "Inquired_Again__c":[
         {
+            "apply":"substitute",
+            "kwargs":{
+                "from": ["true"],
+                "to":1
+            }
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from": ["false"],
+                "to":0
+            }
+        },
+        {
             "apply":"fill_na",
             "kwargs":{
                 "value":0
@@ -2646,13 +2674,41 @@
     ],
     "PriorityCallback__c":[
         {
+            "apply":"substitute",
+            "kwargs":{
+                "from": ["true"],
+                "to":1
+            }
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from": ["false"],
+                "to":0
+            }
+        },
+        {
             "apply":"fill_na",
             "kwargs":{
-                "value":"unknown"
+                "value":0
             }
         }
     ],
     "Missed_Call_In__c":[
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from": ["true"],
+                "to":1
+            }
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from": ["false"],
+                "to":0
+            }
+        },
         {
             "apply":"fill_na",
             "kwargs":{

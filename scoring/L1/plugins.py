@@ -344,8 +344,8 @@ class Check_Valid_Phone(Plugin):
 
 class Get_Keyword_Vector(Plugin):
 
-    encoders_path = os.path.join(_FILE_PATH, ENC_PATH)
-    parent_path_to_vectoriser = os.path.join(encoders_path, KW_VEC_PATH)
+#     encoders_path = os.path.join(_FILE_PATH, ENC_PATH)
+#     parent_path_to_vectoriser = os.path.join(encoders_path, KW_VEC_PATH)
 
     def __init__(self, kwargs):
         self._vector = kwargs["vector"]
@@ -359,9 +359,10 @@ class Get_Keyword_Vector(Plugin):
         return self._error
 
     def apply(self, x):
-        vec_obj = joblib.load(
-            f"{os.path(join(parent_path_to_vectoriser))}/{self._vector}"
-        )
+        vec_obj = joblib.load(self._vector)
+#         vec_obj = joblib.load(
+#             f"{os.path(join(parent_path_to_vectoriser))}/{self._vector}"
+#         )
         tr_kw = vec_obj.transform([x]).toarray().tolist()
         wts = np.arange(15, 0, -1)
         np.average(tr_kw, weights=wts)

@@ -45,47 +45,29 @@ def encoding(features, encoders_dict):
         X = pd.DataFrame.from_dict(features, orient="index").T
     else:
         X = features
+    
+    numeric_cols = list(X.select_dtypes(include=['float64']).columns)
 
     for col in X.columns:
 
-        # HACK
-        enc_mapping = {"Original_Lead_Medium__c": "Lead_Medium__c"}
-
         if label_encoder.get(col) or col in list(enc_mapping.keys()):
-
             enc_col = enc_mapping.get(col, col)
-
             try:
-
                 val = set(X[col].values)
                 cle = set(label_encoder[enc_col].classes_)
-                #                 unknown_labels = list(val.difference(cle))
 
                 if val not in cle:
                     X[col] = "unknown"
 
                 X[col] = label_encoder[enc_col].transform(X[col])
 
-            #                 if unknown_labels:
-            #                     # HACK : This should be handled by the config and not in code
-
-            #                     if 'unknown' in label_encoder[enc_col].classes_:
-            #                         X[col] = label_encoder[enc_col].transform(['unknown'])
-            #                     elif 'others' in label_encoder[enc_col].classes_:
-            #                         X[col] = label_encoder[enc_col].transform(['others'])
-            #                     else:
-
-            #                         raise Exception('Error in Encoding this value {}. The model has not been trained with this label for the field {}'.format(X[col], col))
-            #                 else:
-            #                     X[col] = label_encoder[enc_col].transform(X[col])
-
             except Exception as e:
                 raise Exception(
                     "Error in Label encoding. For the field : {}, {}".format(col, e)
                 )
 
-    ## TODO: Fix the scaler
-    X = scaler.transform([X])
+    X[numeric_cols] = scaler.transform(X[numeric_cols])
+    
     return X
 
 
@@ -171,13 +153,13 @@ def inference(node_dict, data, score_request):
     encoders_dict = {"label_encoder": label_encoder, "scaler": scaler}
 
     ## Hack
-    enc_mapping = {"Original_Lead_Medium__c": "Lead_Medium__c"}
+#     enc_mapping = {"Original_Lead_Medium__c": "Lead_Medium__c"}
 
     data_subset_features = encoding(data_subset_features, encoders_dict)
 
-    for k, v in enc_mapping.items():
-        if k in data.columns:
-            data_subset_features.rename(columns={k: v}, inplace=True)
+#     for k, v in enc_mapping.items():
+#         if k in data.columns:
+#             data_subset_features.rename(columns={k: v}, inplace=True)
 
     # Model selection
     if node_dict["model_dict"].get(selected_model):
