@@ -24,8 +24,8 @@ parent_path_to_vectorizers = os.path.join(encoders_path, KW_VEC_PATH)
 vectorizers_dict = dict()
 for r, d, f in os.walk(parent_path_to_vectorizers):
     for vec in f:
-        key = scl.replace(_ENC_EXT_L1, "")
-        vectorizers_dict[key] = joblib.load(os.path.join(r, scl))
+        key = vec.replace(_ENC_EXT_L1, "")
+        vectorizers_dict[key] = joblib.load(os.path.join(r, vec))
 
 
 class Plugin(ABC):
