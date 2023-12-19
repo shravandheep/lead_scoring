@@ -3148,12 +3148,6 @@
         {
             "apply": "fill_na",
             "kwargs": {
-                "value": "unknown"
-            }
-        },
-        {
-            "apply": "fill_na",
-            "kwargs": {
                 "value": 0
             },
             "alias": "contact_counts"
@@ -3168,13 +3162,6 @@
                     "F"
                 ],
                 "to": 1
-            },
-            "alias": "Phone1__phone_type"
-        },
-        {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
             },
             "alias": "Phone1__phone_type"
         },
@@ -3261,13 +3248,6 @@
             "alias": "Phone1__phone_usage_12"
         },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
-            },
-            "alias": "Phone1__phone_usage_12"
-        },
-        {
             "apply": "substitute",
             "kwargs": {
                 "from": [
@@ -3283,13 +3263,6 @@
             "alias": "Phone1__phone_usage_2"
         },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
-            },
-            "alias": "Phone1__phone_usage_2"
-        },
-        {
             "apply": "substitute",
             "kwargs": {
                 "from": [
@@ -3300,15 +3273,43 @@
                 "to": 1
             },
             "alias": "Phone1__phone_usage_2"
-        }
-    ],
-    "Appended Phones1 Contactability Score": [
+        }, 
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
+            },
+            "alias": "Phone1__phone_type"
+        },
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
+            },
+            "alias": "Phone1__verified_phone"
+        },
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
+            },
+            "alias": "Phone1__phone_usage_2"
+        },
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
+            },
+            "alias": "Phone1__phone_usage_12"
+        }, 
         {
             "apply": "fill_na",
             "kwargs": {
                 "value": "unknown"
             }
-        },
+        }
+    ],
+    "Appended Phones1 Contactability Score": [
         {
             "apply": "fill_na",
             "kwargs": {
@@ -3394,6 +3395,13 @@
             "alias": "Appended_Phone1__verified_phone"
         },
         {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
+            },
+            "alias": "Appended_Phone1__verified_phone"
+        },
+        {
             "apply": "substitute",
             "kwargs": {
                 "from": [
@@ -3458,15 +3466,15 @@
                 "to": 1
             },
             "alias": "Appended_Phone1__phone_usage_2"
-        }
-    ],
-    "Appended Phones2 Contactability Score": [
+        }, 
         {
             "apply": "fill_na",
             "kwargs": {
                 "value": "unknown"
             }
-        },
+        }
+    ],
+    "Appended Phones2 Contactability Score": [
         {
             "apply": "fill_na",
             "kwargs": {
@@ -3563,6 +3571,13 @@
             "alias": "Appended_Phone2__phone_usage_12"
         },
         {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
+            },
+            "alias": "Appended_Phone2__verified_phone"
+        },
+        {
             "apply": "substitute",
             "kwargs": {
                 "from": [
@@ -3616,15 +3631,15 @@
                 "to": 1
             },
             "alias": "Appended_Phone2__phone_usage_2"
-        }
-    ],
-    "Appended Phones3 Contactability Score": [
+        }, 
         {
             "apply": "fill_na",
             "kwargs": {
                 "value": "unknown"
             }
-        },
+        }
+    ],
+    "Appended Phones3 Contactability Score": [
         {
             "apply": "fill_na",
             "kwargs": {
@@ -3774,6 +3789,12 @@
                 "to": 1
             },
             "alias": "Appended_Phone3__phone_usage_2"
+        }, 
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
+            }
         }
     ],
     "Appended Emails 1 Email Address": [
