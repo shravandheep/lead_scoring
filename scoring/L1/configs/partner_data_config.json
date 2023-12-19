@@ -3086,7 +3086,7 @@
                 "value":0
             },
             "alias":"contact_counts"
-        }, 
+        }
     ],
     "Appended Phones1 Active":[
         {
@@ -3131,7 +3131,7 @@
                 "value":3
             },
             "alias":"contact_counts"
-        }, 
+        }
     ],
     "Input Phone1 Contactability Score":[
         {
