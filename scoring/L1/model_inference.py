@@ -53,12 +53,12 @@ def encoding(features, encoders_dict):
         if label_encoder.get(col):
             try:
                 val = set(X[col].values)
-                cle = set(label_encoder[enc_col].classes_)
+                cle = set(label_encoder[col].classes_)
 
                 if val not in cle:
                     X[col] = "unknown"
 
-                X[col] = label_encoder[enc_col].transform(X[col])
+                X[col] = label_encoder[col].transform(X[col])
 
             except Exception as e:
                 raise Exception(
