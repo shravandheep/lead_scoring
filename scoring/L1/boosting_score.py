@@ -98,6 +98,9 @@ def get_call_window_score(df_leads_neu):
 
 
 def score_boost(score, data, selected_model):
+    
+    
+    data = data.to_dict()
 
     source_type = selected_model
     
