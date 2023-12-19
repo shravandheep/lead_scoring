@@ -1,8 +1,9 @@
 import os
 import pandas as pd
-import json 
+import json
 
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
+
 
 def split_and_create_dict(data):
     if data == "null":
@@ -98,19 +99,19 @@ def get_call_window_score(df_leads_neu):
 
 
 def score_boost(score, data, selected_model):
-    
-    
-    data = data.to_dict()
 
+    # data = data.to_dict()
+
+    data = data.to_dict(orient="records")[0]
     source_type = selected_model
-    
-    cpo_path = os.path.join(_FILE_PATH, 'data_cpo.json')
+
+    cpo_path = os.path.join(_FILE_PATH, "data_cpo.json")
 
     with open(cpo_path, "r") as json_file:
         data_cpo = json.load(json_file)
-        
+
     campaign_id = data["CampaignID__c"]
-    
+
     if campaign_id:
         cpo_score = data_cpo.get(campaign_id)
         if cpo_score:
@@ -126,12 +127,12 @@ def score_boost(score, data, selected_model):
     lead_type = data["Type"]
     if lead_type == "Online":
         score = score * 0.9
-        
-    if data['Input Phone1 Call Window'] != '':
+
+    if data["Input Phone1 Call Window"] != "":
 
         call_score = get_call_window_score(data)
         final_score = score * 0.67 + call_score * 0.33
-    else: 
+    else:
         final_score = score
 
     return final_score
