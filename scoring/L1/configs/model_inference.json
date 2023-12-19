@@ -252,7 +252,7 @@
             ]
         },
         "select_model": "not_paid_model",
-        "data_source": "not_paid_data_config",
+        "data_source": "not_paid_config",
         
         "numeric_features": ["Anticipated_Effective_Date__c",
 "CallbackStatus__c",
