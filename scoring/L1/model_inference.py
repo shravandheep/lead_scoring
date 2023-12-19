@@ -171,6 +171,8 @@ def inference(node_dict, data, score_request):
     else:
         raise Exception("No model key was found. Please check")
 
+    ordered_cols = model.get_booster().feature_names
+    data_subset_features = data_subset_features[ordered_cols]
     prediction = model.predict_proba(data_subset_features)
     score = prediction[0][1]
 
