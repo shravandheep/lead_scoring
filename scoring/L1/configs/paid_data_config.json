@@ -3,7 +3,7 @@
         {
             "apply":"get_keyword_vector",
             "kwargs":{
-                "vector":"count_vectorizer.joblib"
+                "vector":"count_vectorizer"
             },
             "alias":"count_vector"
         },
@@ -17,7 +17,7 @@
         {
             "apply":"get_keyword_vector",
             "kwargs":{
-                "vector":"tfidf_vectorizer.joblib"
+                "vector":"tfidf_vectorizer"
             },
             "alias":"tfidf_vector"
         },

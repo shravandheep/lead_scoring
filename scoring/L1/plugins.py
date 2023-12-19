@@ -7,6 +7,7 @@ import phonenumbers
 import joblib
 from email_validator import validate_email, EmailNotValidError
 from auxiliary.util.global_constants import (
+    _ENC_EXT_L1,
     WTS_PATH,
     CFG_PATH,
     ENC_PATH,
@@ -15,8 +16,16 @@ from auxiliary.util.global_constants import (
     KW_VEC_PATH,
 )
 
-
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
+
+encoders_path = os.path.join(_FILE_PATH, ENC_PATH)
+parent_path_to_vectorizers = os.path.join(encoders_path, KW_VEC_PATH)
+
+vectorizers_dict = dict()
+for r, d, f in os.walk(parent_path_to_vectorizers):
+    for vec in f:
+        key = scl.replace(_ENC_EXT_L1, "")
+        vectorizers_dict[key] = joblib.load(os.path.join(r, scl))
 
 
 class Plugin(ABC):
@@ -344,9 +353,6 @@ class Check_Valid_Phone(Plugin):
 
 class Get_Keyword_Vector(Plugin):
 
-#     encoders_path = os.path.join(_FILE_PATH, ENC_PATH)
-#     parent_path_to_vectoriser = os.path.join(encoders_path, KW_VEC_PATH)
-
     def __init__(self, kwargs):
         self._vector = kwargs["vector"]
         self._status = True
@@ -359,13 +365,11 @@ class Get_Keyword_Vector(Plugin):
         return self._error
 
     def apply(self, x):
-        vec_obj = joblib.load(self._vector)
-#         vec_obj = joblib.load(
-#             f"{os.path(join(parent_path_to_vectoriser))}/{self._vector}"
-#         )
+        
+        vec_obj = vectorizers_dict[self._vector]
         tr_kw = vec_obj.transform([x]).toarray().tolist()
         wts = np.arange(15, 0, -1)
-        np.average(tr_kw, weights=wts)
+        return np.average(tr_kw, weights=wts)
 
 
 class Chech_Email_Validity(Plugin):

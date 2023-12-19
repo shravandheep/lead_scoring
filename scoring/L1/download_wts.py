@@ -11,6 +11,7 @@ from auxiliary.util.global_constants import (
     ENC_PATH,
     SCL_ENC_PATH,
     LBL_ENC_PATH,
+    KW_VEC_PATH
 )
 
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
@@ -139,10 +140,10 @@ for enc in L1_VEC:
             )
 
             os.makedirs(os.path.join(_FILE_PATH, ENC_PATH), exist_ok=True)
-            os.makedirs(os.path.join(_FILE_PATH, ENC_PATH, SCL_ENC_PATH), exist_ok=True)
+            os.makedirs(os.path.join(_FILE_PATH, ENC_PATH, KW_VEC_PATH), exist_ok=True)
 
             local_path = os.path.realpath(
-                os.path.join(_FILE_PATH, ENC_PATH, SCL_ENC_PATH, file_name)
+                os.path.join(_FILE_PATH, ENC_PATH, KW_VEC_PATH, file_name)
             )
 
             print("Local path :", local_path)
