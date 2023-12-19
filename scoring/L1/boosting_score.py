@@ -98,7 +98,7 @@ def score_boost(score, data, selected_model):
 
     source_type = selected_model
 
-    with open("data_cpo.json", "r") as json_file:
+    with open("scoring/L1/data_cpo.json", "r") as json_file:
         data_cpo = json.load(json_file)
 
     if campaign_id:
