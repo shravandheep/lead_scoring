@@ -202,7 +202,7 @@
         {
             "apply":"get_keyword_vector",
             "kwargs":{
-                "vector":"count_vec"
+                "vector":"count_vectorizer"
             },
             "alias":"count_vector"
         },
@@ -216,7 +216,7 @@
         {
             "apply":"get_keyword_vector",
             "kwargs":{
-                "vector":"count_vec"
+                "vector":"tfidf_vectorizer"
             },
             "alias":"tfidf_vector"
         },
