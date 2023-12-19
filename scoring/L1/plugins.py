@@ -1,5 +1,6 @@
 import os
 import re
+import numpy as np
 import json
 from abc import ABC, abstractmethod
 from datetime import datetime

@@ -1,4 +1,23 @@
 {
+    "LeadSource": [
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*Online.*"
+                ],
+                "to": "Online"
+            },
+            "alias": "Type"
+        },
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
+            },
+            "alias": "Type"
+        }
+    ],
     "Lead_Keyword_s__c":[
         {
             "apply":"get_keyword_vector",
