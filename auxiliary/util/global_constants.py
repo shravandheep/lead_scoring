@@ -54,15 +54,20 @@ L1_WTS = [
 ]
 
 L1_LBL_ENC = [
-    'model_experiments/weights/L1/encoders/paid_encoder_obj.joblib',
-    'model_experiments/weights/L1/encoders/seo_encoder_obj.joblib',
-    'model_experiments/weights/L1/encoders/partner_encoder_obj.joblib',
+    'model_experiments/weights/L1/encoders/paid_encoder_obj-2.joblib',
+    'model_experiments/weights/L1/encoders/seo_encoder_obj-2.joblib',
+    'model_experiments/weights/L1/encoders/partner_encoder_obj-2.joblib',
 ]
 
 L1_SCL_ENC = [
     'model_experiments/weights/L1/encoders/paid_scaler_obj.joblib',
     'model_experiments/weights/L1/encoders/seo_scaler_obj.joblib',
     'model_experiments/weights/L1/encoders/partner_scaler_obj.joblib',
+]
+
+L1_VEC = [
+    'model_experiments/weights/L1/encoders/tfidf_vectorizer.joblib',
+    'model_experiments/weights/L1/encoders/count_vectorizer.joblib'
 ]
 
 

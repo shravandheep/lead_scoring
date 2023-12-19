@@ -100,7 +100,6 @@ def inference(node_dict, data, score_request):
     filters_t = transform_features(
         data, config_dict["feature_config"]
     )  # include new data config
-    # Gprint(filters_t)
     lead_type_f = None
 
     data_config = None
@@ -148,13 +147,16 @@ def inference(node_dict, data, score_request):
                 data_config
             )
         )
-
-    data = pd.DataFrame.from_dict(data, orient="index").T
+    data = pd.DataFrame.from_dict(data[0], orient="index").T
+    
     data_subset_features = data[considered_features]
 
     # Encoding
     label_encoder_dict = node_dict["label_encoders"]
     scaler_dict = node_dict["scalers"]
+    
+    print('*'*100)
+    print(selected_label_encoder, selected_scaler)
 
     if label_encoder_dict.get(selected_label_encoder):
         label_encoder = label_encoder_dict[selected_label_encoder]

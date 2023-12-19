@@ -12,3 +12,4 @@ auto-sklearn==0.15.0
 itsdangerous
 phonenumbers
 email_validator
+xgboost

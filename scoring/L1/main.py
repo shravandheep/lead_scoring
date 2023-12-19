@@ -2,6 +2,7 @@
 import os
 import json
 import pickle
+import joblib
 import logging
 import traceback
 
@@ -51,11 +52,17 @@ def initialize_node(node_config, **kwargs):
 
     # Paths
     config_path = os.path.join(_FILE_PATH, CFG_PATH)
+    print(config_path)
     encoders_path = os.path.join(_FILE_PATH, ENC_PATH)
+    print(encoders_path)
     weights_path = os.path.join(_FILE_PATH, WTS_PATH)
+    print(weights_path)
     path_to_inference = os.path.join(config_path, model_inf_config)
+    print(path_to_inference)
     parent_path_to_encoders = os.path.join(encoders_path, LBL_ENC_PATH)
+    print(parent_path_to_encoders)
     parent_path_to_scalers = os.path.join(encoders_path, SCL_ENC_PATH)
+    print(parent_path_to_scalers)
 
     # init model
     model_dict = initialize_model(weights_path)
@@ -66,24 +73,28 @@ def initialize_node(node_config, **kwargs):
     config_dict = dict()
 
     for r, d, f in os.walk(parent_path_to_encoders):
+
         for enc in f:
-
+            print(enc)
             key = enc.replace(_ENC_EXT_L1, "")
-
-            with open(os.path.join(r, enc), "rb") as f:
-                label_encoders_dict[key] = pickle.load(f)
+            key = key.split('-')[0]
+            # with open(os.path.join(r, enc), "rb") as f:
+                # label_encoders_dict[key] = pickle.load(f)
+            label_encoders_dict[key] = joblib.load(os.path.join(r, enc))
 
     for r, d, f in os.walk(parent_path_to_scalers):
         for scl in f:
-
+            print(scl)   
             key = scl.replace(_ENC_EXT_L1, "")
-
-            with open(os.path.join(r, scl), "rb") as f:
-                scalers_dict[key] = pickle.load(f)
+            key = key.split('-')[0]
+            # with open(os.path.join(r, scl), "rb") as f:
+                # scalers_dict[key] = pickle.load(f)
+            scalers_dict[key] = joblib.load(os.path.join(r, scl))
 
     # init model configs
     for r, d, f in os.walk(config_path):
         for files in f:
+            print(files)
             key = files.replace(_CFG_EXT_L1, "")
             config_dict[key] = os.path.join(r, files)
 
@@ -99,6 +110,7 @@ def initialize_node(node_config, **kwargs):
         "label_encoders": label_encoders_dict,
         "scalers": scalers_dict,
     }
+    print(initialized_objects['label_encoders'])
 
     return initialized_objects
 
