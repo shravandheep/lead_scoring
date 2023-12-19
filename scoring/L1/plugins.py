@@ -342,7 +342,7 @@ class Check_Valid_Phone(Plugin):
             return False
 
 
-class get_keyword_vector(Plugin):
+class Get_Keyword_Vector(Plugin):
 
     encoders_path = os.path.join(_FILE_PATH, ENC_PATH)
     parent_path_to_vectoriser = os.path.join(encoders_path, KW_VEC_PATH)
@@ -367,7 +367,7 @@ class get_keyword_vector(Plugin):
         np.average(tr_kw, weights=wts)
 
 
-class chech_email_validity(Plugin):
+class Chech_Email_Validity(Plugin):
     def __init__(self, kwargs):
         self._status = True
         self._error = None
@@ -387,7 +387,7 @@ class chech_email_validity(Plugin):
             return False
 
 
-class extract_string(Plugin):
+class Extract_String(Plugin):
     def __init__(self, kwargs):
         try:
             self._regex = kwargs["regex"]
@@ -407,7 +407,7 @@ class extract_string(Plugin):
         return x.str.extract(self._regex)
 
 
-class groups_regex(Plugin):
+class Groups_Regex(Plugin):
     def __init__(self, kwargs):
         try:
             self._type = kwargs["type"]

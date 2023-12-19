@@ -1506,7 +1506,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                
+                "value": 0
             },
             "alias":"HasPhone"
         },
