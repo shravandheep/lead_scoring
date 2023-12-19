@@ -1,90 +1,90 @@
 {
-	"Lead_Medium__c":[
+    "Lead_Medium__c": [
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*youtube.+"
                 ],
-                "to":"youtube"
+                "to": "youtube"
             }
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*conv.+"
                 ],
-                "to":"conv"
+                "to": "conv"
             }
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*discovery.+"
                 ],
-                "to":"discovery"
+                "to": "discovery"
             }
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*search.+"
                 ],
-                "to":"search"
+                "to": "search"
             }
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*display.+"
                 ],
-                "to":"display"
+                "to": "display"
             }
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*website.+"
                 ],
-                "to":"website"
+                "to": "website"
             }
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*form.+"
                 ],
-                "to":"form"
+                "to": "form"
             }
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*organic.+"
                 ],
-                "to":"organic"
+                "to": "organic"
             }
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*direct.+"
                 ],
-                "to":"direct"
+                "to": "direct"
             }
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "fb",
                     "lg",
                     "social",
@@ -93,13 +93,13 @@
                     "social04",
                     "social06"
                 ],
-                "to":"search"
+                "to": "search"
             }
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "search",
                     "search,display",
                     "search,search",
@@ -107,13 +107,13 @@
                     "search10",
                     "googlesearch"
                 ],
-                "to":"search"
+                "to": "search"
             }
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "cpc",
                     "native03",
                     "publisher_1",
@@ -180,60 +180,60 @@
                     "1he02",
                     "1aa14"
                 ],
-                "to":"others"
+                "to": "others"
             }
         }
     ],
-    "Lead_Ad_Source__c":[
+    "Lead_Ad_Source__c": [
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*bing.+"
                 ],
-                "to":"bing"
+                "to": "bing"
             }
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*google.+"
                 ],
-                "to":"google"
+                "to": "google"
             }
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*facebook.+"
                 ],
-                "to":"fb"
+                "to": "fb"
             }
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*fb.+"
                 ],
-                "to":"fb"
+                "to": "fb"
             }
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*tiktok.+"
                 ],
-                "to":"tiktok"
+                "to": "tiktok"
             }
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "aol",
                     "startpage",
                     "shopperapproved",
@@ -359,90 +359,90 @@
                     "blog",
                     "healthadvocate"
                 ],
-                "to":"others"
+                "to": "others"
             }
         }
     ],
-    "Lead_Keyword_s__c":[
+    "Lead_Keyword_s__c": [
         {
-            "apply":"get_keyword_vector",
-            "kwargs":{
-                "vector":"count_vec"
+            "apply": "get_keyword_vector",
+            "kwargs": {
+                "vector": "count_vec"
             },
-            "alias":"count_vector"
+            "alias": "count_vector"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"count_vector"
+            "alias": "count_vector"
         },
         {
-            "apply":"get_keyword_vector",
-            "kwargs":{
-                "vector":"count_vec"
+            "apply": "get_keyword_vector",
+            "kwargs": {
+                "vector": "count_vec"
             },
-            "alias":"tfidf_vector"
+            "alias": "tfidf_vector"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"tfidf_vector"
+            "alias": "tfidf_vector"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"plan"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "plan"
             },
-            "alias":"keyword_type"
+            "alias": "keyword_type"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*plan.+"
                 ],
-                "to":"plan"
+                "to": "plan"
             },
-            "alias":"keyword_type"
+            "alias": "keyword_type"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*supplement.+"
                 ],
-                "to":"plan"
+                "to": "plan"
             },
-            "alias":"keyword_type"
+            "alias": "keyword_type"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*medicare.+"
                 ],
-                "to":"medicare"
+                "to": "medicare"
             },
-            "alias":"keyword_type"
+            "alias": "keyword_type"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*medigap.+"
                 ],
-                "to":"medigap"
+                "to": "medigap"
             },
-            "alias":"keyword_type"
+            "alias": "keyword_type"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "+arizona +medigap +g",
                     "+arizona +medigap +n",
                     "+best +medigap",
@@ -1451,765 +1451,748 @@
                     "wyoming medicare medigap",
                     "wyoming medigap"
                 ],
-                "to":"generic"
+                "to": "generic"
             },
-            "alias":"keyword_type"
+            "alias": "keyword_type"
         }
     ],
-    "Lead_Brand__c":[
+    "Lead_Brand__c": [
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "mutual of omaha-medicare",
                     "apply for medicare"
                 ],
-                "to":"medicare compared"
+                "to": "medicare compared"
             }
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        }
-    ],
-    "Lead_Ad_Group__c":[
-        {
-            "apply":"split_string",
-            "kwargs":{
-                "split":":"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Phone":[
+    "Lead_Ad_Group__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "split_string",
+            "kwargs": {
+                "split": ":"
+            }
+        }
+    ],
+    "Phone": [
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         },
         {
-            "apply":"check_presence",
-            "kwargs":{
-                
-            },
-            "alias":"HasPhone"
+            "apply": "check_presence",
+            "kwargs": {},
+            "alias": "HasPhone"
         },
         {
-            "apply":"check_valid_phone",
-            "kwargs":{
-                
-            },
-            "alias":"is_valid_phone"
+            "apply": "check_valid_phone",
+            "kwargs": {},
+            "alias": "is_valid_phone"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
+            "apply": "fill_na",
+            "kwargs": {
                 "value": 0
             },
-            "alias":"HasPhone"
+            "alias": "HasPhone"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
+            "apply": "fill_na",
+            "kwargs": {
                 "value": 0
-                
             },
-            "alias":"is_valid_phone"
+            "alias": "is_valid_phone"
         }
     ],
-    "Lead_Ad_Campaign__c":[
+    "Lead_Ad_Campaign__c": [
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*search.+"
                 ],
-                "to":"search"
+                "to": "search"
             },
-            "alias":"search"
+            "alias": "search"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*youtube.+"
                 ],
-                "to":"yt"
+                "to": "yt"
             },
-            "alias":"search"
+            "alias": "search"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*display.+"
                 ],
-                "to":"display"
+                "to": "display"
             },
-            "alias":"search"
+            "alias": "search"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             },
-            "alias":"search"
+            "alias": "search"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*medigap.+"
                 ],
-                "to":"medigap"
+                "to": "medigap"
             },
-            "alias":"p"
+            "alias": "p"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*medicare.+"
                 ],
-                "to":"medicare"
+                "to": "medicare"
             },
-            "alias":"p"
+            "alias": "p"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*advantage.+"
                 ],
-                "to":"medicare advantage"
+                "to": "medicare advantage"
             },
-            "alias":"p"
+            "alias": "p"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*eip.+"
                 ],
-                "to":"brand eip"
+                "to": "brand eip"
             },
-            "alias":"p"
+            "alias": "p"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             },
-            "alias":"p"
+            "alias": "p"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*18to65+:uk.+"
                 ],
-                "to":"18to65+:uk"
+                "to": "18to65+:uk"
             },
-            "alias":"d"
+            "alias": "d"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*50to65+.+"
                 ],
-                "to":"50to65+"
+                "to": "50to65+"
             },
-            "alias":"d"
+            "alias": "d"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*55to65.+"
                 ],
-                "to":"55to65+"
+                "to": "55to65+"
             },
-            "alias":"d"
+            "alias": "d"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             },
-            "alias":"d"
+            "alias": "d"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*none.+"
                 ],
-                "to":"none"
+                "to": "none"
             },
-            "alias":"t"
+            "alias": "t"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*none.+"
                 ],
-                "to":"none"
+                "to": "none"
             },
-            "alias":"t"
+            "alias": "t"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             },
-            "alias":"t"
+            "alias": "t"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*tcpa.+"
                 ],
-                "to":"tcpa"
+                "to": "tcpa"
             },
-            "alias":"bs"
+            "alias": "bs"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*ecpa.+"
                 ],
-                "to":"ecpa"
+                "to": "ecpa"
             },
-            "alias":"bs"
+            "alias": "bs"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             },
-            "alias":"bs"
+            "alias": "bs"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*bh.+"
                 ],
-                "to":"bh"
+                "to": "bh"
             },
-            "alias":"h"
+            "alias": "h"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*ah.+"
                 ],
-                "to":"ah"
+                "to": "ah"
             },
-            "alias":"h"
+            "alias": "h"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*wh.+"
                 ],
-                "to":"wh"
+                "to": "wh"
             },
-            "alias":"h"
+            "alias": "h"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             },
-            "alias":"h"
+            "alias": "h"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*florida.*"
                 ],
-                "to":"florida"
+                "to": "florida"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*california.*"
                 ],
-                "to":"california"
+                "to": "california"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*texas.*"
                 ],
-                "to":"texas"
+                "to": "texas"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*new jersey.*"
                 ],
-                "to":"new jersey"
+                "to": "new jersey"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*pennsylvania.*"
                 ],
-                "to":"pennsylvania"
+                "to": "pennsylvania"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*illinois.*"
                 ],
-                "to":"illinois"
+                "to": "illinois"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*washington.*"
                 ],
-                "to":"washington"
+                "to": "washington"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*ohio.*"
                 ],
-                "to":"ohio"
+                "to": "ohio"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*georgia.*"
                 ],
-                "to":"georgia"
+                "to": "georgia"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*north carolina.*"
                 ],
-                "to":"north carolina"
+                "to": "north carolina"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*tennessee.*"
                 ],
-                "to":"tennessee"
+                "to": "tennessee"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*virginia.*"
                 ],
-                "to":"virginia"
+                "to": "virginia"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*michigan.*"
                 ],
-                "to":"michigan"
+                "to": "michigan"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*maryland.*"
                 ],
-                "to":"maryland"
+                "to": "maryland"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*indiana.*"
                 ],
-                "to":"indiana"
+                "to": "indiana"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*alabama.*"
                 ],
-                "to":"alabama"
+                "to": "alabama"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*south carolina.*"
                 ],
-                "to":"south carolina"
+                "to": "south carolina"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*arizona.*"
                 ],
-                "to":"arizona"
+                "to": "arizona"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*missouri.*"
                 ],
-                "to":"missouri"
+                "to": "missouri"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*kentucky.*"
                 ],
-                "to":"kentucky"
+                "to": "kentucky"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*colorado.*"
                 ],
-                "to":"colorado"
+                "to": "colorado"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*oregon.*"
                 ],
-                "to":"oregon"
+                "to": "oregon"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*oklahoma.*"
                 ],
-                "to":"oklahoma"
+                "to": "oklahoma"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*louisiana.*"
                 ],
-                "to":"louisiana"
+                "to": "louisiana"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*kansas.*"
                 ],
-                "to":"kansas"
+                "to": "kansas"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*iowa.*"
                 ],
-                "to":"iowa"
+                "to": "iowa"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*new mexico.*"
                 ],
-                "to":"new mexico"
+                "to": "new mexico"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*new hampshire.*"
                 ],
-                "to":"new hampshire"
+                "to": "new hampshire"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*arkansas.*"
                 ],
-                "to":"arkansas"
+                "to": "arkansas"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*maine.*"
                 ],
-                "to":"maine"
+                "to": "maine"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*mississippi.*"
                 ],
-                "to":"mississippi"
+                "to": "mississippi"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*rhode island.*"
                 ],
-                "to":"rhode island"
+                "to": "rhode island"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*nevada.*"
                 ],
-                "to":"nevada"
+                "to": "nevada"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"regex",
-            "kwargs":{
-                "from":[
+            "apply": "regex",
+            "kwargs": {
+                "from": [
                     ".*nebraska.*"
                 ],
-                "to":"nebraska"
+                "to": "nebraska"
             },
-            "alias":"l"
+            "alias": "l"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             },
-            "alias":"unknown"
+            "alias": "unknown"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "CreatedDate":[
+    "CreatedDate": [
         {
-            "apply":"timediff",
-            "kwargs":{
-                
-            },
-            "alias":"Days_Since_Created__c"
+            "apply": "timediff",
+            "kwargs": {},
+            "alias": "Days_Since_Created__c"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Days_Since_Created__c"
+            "alias": "Days_Since_Created__c"
         },
         {
-            "apply":"timeofday",
-            "kwargs":{
-                
-            },
-            "alias":"CreatedDate__time_of_day"
+            "apply": "timeofday",
+            "kwargs": {},
+            "alias": "CreatedDate__time_of_day"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             },
-            "alias":"CreatedDate__time_of_day"
+            "alias": "CreatedDate__time_of_day"
         }
     ],
-    "Birthdate__c":[
+    "Birthdate__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":65
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 65
             },
-            "alias":"Age_as_of_createddate__c"
+            "alias": "Age_as_of_createddate__c"
         },
         {
-            "apply":"timediff",
-            "kwargs":{
-                
-            },
-            "alias":"Age_as_of_createddate__c"
+            "apply": "timediff",
+            "kwargs": {},
+            "alias": "Age_as_of_createddate__c"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Spouse_Birthdate__c":[
+    "Spouse_Birthdate__c": [
         {
-            "apply":"Check_Presence",
-            "kwargs":{
-                
-            },
-            "alias":"Spouse_info_exists"
+            "apply": "Check_Presence",
+            "kwargs": {},
+            "alias": "Spouse_info_exists"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Spouse_info_exists"
+            "alias": "Spouse_info_exists"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":65
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 65
             },
-            "alias":"Spouse_Age_as_of_CreatedDate"
+            "alias": "Spouse_Age_as_of_CreatedDate"
         },
         {
-            "apply":"timediff",
-            "kwargs":{
-                
-            },
-            "alias":"Spouse_Age_as_of_CreatedDate"
+            "apply": "timediff",
+            "kwargs": {},
+            "alias": "Spouse_Age_as_of_CreatedDate"
         }
     ],
-    "Medicare_Part_B_Date_Current__c":[
+    "Medicare_Part_B_Date_Current__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Medicare_Part_B_Date_From_CreatedDate"
+            "alias": "Medicare_Part_B_Date_From_CreatedDate"
         },
         {
-            "apply":"timediff",
-            "kwargs":{
-                
-            },
-            "alias":"Medicare_Part_B_Date_From_CreatedDate"
+            "apply": "timediff",
+            "kwargs": {},
+            "alias": "Medicare_Part_B_Date_From_CreatedDate"
         }
     ],
-    "Lead_URL__c":[
+    "Lead_URL__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             },
-            "alias":"url_path_1"
+            "alias": "url_path_1"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             },
-            "alias":"class_url"
+            "alias": "class_url"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "https://mutualofomaha-medicare.com/ma/",
                     "https://rates.applyformedicare.com/ma/",
                     "https://rates.medicarecompared.com/ma/",
@@ -2236,37 +2219,37 @@
                     "https://www.medicarefaq.com/original-medicare/medicare-parts/medicare-part-c/medicare-advantage-prescription-drug-coverage/",
                     "https://www.medicarefaq.com/videos/medicare-advantage/"
                 ],
-                "to":"ma"
+                "to": "ma"
             },
-            "alias":"class_url"
+            "alias": "class_url"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "www.compare-medicare-quotes.com",
                     "quotes.affordablehealthplans.org",
                     "quotes.medigap.com",
                     "quotes.medigappolicies.org"
                 ],
-                "to":"quotes"
+                "to": "quotes"
             },
-            "alias":"class_url"
+            "alias": "class_url"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "phreesia"
                 ],
-                "to":"phreesia"
+                "to": "phreesia"
             },
-            "alias":"class_url"
+            "alias": "class_url"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "https://medicarefaq.com/medigap/florida/",
                     "https://medicareoe.com/medicare-part-c",
                     "https://medicareoe.com/medicare-part-d",
@@ -2316,14 +2299,14 @@
                     "https://www.medicarefaq.com/original-medicare/mutual-of-omaha-medicare-plans/",
                     "medigap.com"
                 ],
-                "to":"generic"
+                "to": "generic"
             },
-            "alias":"class_url"
+            "alias": "class_url"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "healthplanrate.com",
                     "https://medicareoe.com/medicare-part-a",
                     "https://medicareoe.com/privacy-policy/",
@@ -2359,28 +2342,28 @@
                     "mymedicare.info",
                     "seekmedicare.com"
                 ],
-                "to":"others"
+                "to": "others"
             },
-            "alias":"class_url"
+            "alias": "class_url"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "comparemedicare.com",
                     "https://www.applyformedicare.com/compare-rates/",
                     "https://www.medicarefaq.com/compare-rates/",
                     "https://www.medicarefaq.com/compare-rates/supplemental-information/",
                     "https://www.medicarefaq.com/compare-rates/thank-you/"
                 ],
-                "to":"compare"
+                "to": "compare"
             },
-            "alias":"class_url"
+            "alias": "class_url"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "https://medicarefaq.com/medicare-supplement/california/",
                     "https://mutualofomaha-medicare.com/ms/",
                     "https://qa.medicarefaq.com/medicare-supplements/medigap-eligibility/",
@@ -2516,14 +2499,14 @@
                     "https://www.medicarefaq.com/videos/medicare-supplements/",
                     "https://ratesqa.medicarecompared.com/ms/"
                 ],
-                "to":"ms"
+                "to": "ms"
             },
-            "alias":"class_url"
+            "alias": "class_url"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "https://qa.medicarefaq.com/faqs/medicare-supplement-plan-f-vs-plan-g-vs-plan-n/",
                     "https://qa.medicarefaq.com/faqs/top-5-medicare-prescription-drug-plans/",
                     "https://www.medicarefaq.com/faqs/",
@@ -2876,371 +2859,343 @@
                     "https://www.medicarefaq.com/faqs/will-medicare-pay-for-a-nebulizer-machine/",
                     "https://www.medicarefaq.com/faqs/your-medicare-rights-and-protections/"
                 ],
-                "to":"faqs"
+                "to": "faqs"
             },
-            "alias":"class_url"
+            "alias": "class_url"
         }
     ],
-    "Lead_Device__c":[
+    "Lead_Device__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Gender__c":[
+    "Gender__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Abandoned_Call_In__c":[
+    "Abandoned_Call_In__c": [
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from": ["true"],
-                "to":1
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "true"
+                ],
+                "to": 1
             }
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from": ["false"],
-                "to":0
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "false"
+                ],
+                "to": 0
             }
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Boberdoo_Rejection_Reason__c":[
+    "Boberdoo_Rejection_Reason__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "CallbackLogic__c":[
+    "CallbackLogic__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "CallbackStatus__c":[
+    "CallbackStatus__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Coverage_Multi__c":[
+    "Coverage_Multi__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Current_Coverage__c":[
+    "Current_Coverage__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Current_Plan_Type__c":[
+    "Current_Plan_Type__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "CurrentProvider__c":[
+    "CurrentProvider__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Current_Plan_Type__c":[
+    "Inbound_Calls__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Gender__c":[
+    "Inquired_Again__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        }
-    ],
-    "Inbound_Calls__c":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
-            }
-        }
-    ],
-    "Inquired_Again__c":[
-        {
-            "apply":"substitute",
-            "kwargs":{
-                "from": ["true"],
-                "to":1
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "true"
+                ],
+                "to": 1
             }
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from": ["false"],
-                "to":0
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "false"
+                ],
+                "to": 0
             }
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Twilio_CI_Phone_Type__c":[
+    "Twilio_CI_Phone_Type__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Twilio_CI_Mobile_Type__c":[
+    "Twilio_CI_Mobile_Type__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "PriorityCallback__c":[
+    "PriorityCallback__c": [
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from": ["true"],
-                "to":1
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "true"
+                ],
+                "to": 1
             }
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from": ["false"],
-                "to":0
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "false"
+                ],
+                "to": 0
             }
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Missed_Call_In__c":[
+    "Missed_Call_In__c": [
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from": ["true"],
-                "to":1
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "true"
+                ],
+                "to": 1
             }
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from": ["false"],
-                "to":0
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "false"
+                ],
+                "to": 0
             }
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "LeadCreationStage__c":[
+    "LeadCreationStage__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "LeadAppSubStage__c":[
+    "LeadAppSubStage__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "LeadAppStage__c":[
+    "LeadAppStage__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Anticipated_Effective_Date__c":[
+    "Anticipated_Effective_Date__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Bobberdoo_Filter_Set__c":[
+    "Bobberdoo_Filter_Set__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Boberdoo_Purchase_Price__c":[
+    "Boberdoo_Purchase_Price__c": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Input Phone1 Active":[
+    "Input Phone1 Active": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
+            }
+        }
+    ],
+    "Appended Phones1 Active": [
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
+            }
+        }
+    ],
+    "Appended Phones2 Active": [
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
+            }
+        }
+    ],
+    "Appended Phones3 Active": [
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
+            }
+        }
+    ],
+    "Input Phone1 Contactability Score": [
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"contact_counts"
-        }
-    ],
-    "Appended Phones1 Active":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
+            "alias": "contact_counts"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":1
-            },
-            "alias":"contact_counts"
-        }
-    ],
-    "Appended Phones2 Active":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        },
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":2
-            },
-            "alias":"contact_counts"
-        }
-    ],
-    "Appended Phones3 Active":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        },
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":3
-            },
-            "alias":"contact_counts"
-        }
-    ],
-    "Input Phone1 Contactability Score":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        },
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
-            },
-            "alias":"contact_counts"
-        }, 
-        {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "C",
                     "B",
                     "F"
                 ],
-                "to":1
+                "to": 1
             },
-            "alias":"Phone1__phone_type"
+            "alias": "Phone1__phone_type"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Phone1__phone_type"
+            "alias": "Phone1__phone_type"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "J",
                     "I",
                     "G",
                     "K",
                     "E"
                 ],
-                "to":0
+                "to": 0
             },
-            "alias":"Phone1__phone_type"
+            "alias": "Phone1__phone_type"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "F",
                     "J",
                     "I",
@@ -3248,74 +3203,74 @@
                     "E",
                     "K"
                 ],
-                "to":0
+                "to": 0
             },
-            "alias":"Phone1__verified_phone"
+            "alias": "Phone1__verified_phone"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Phone1__verified_phone"
+            "alias": "Phone1__verified_phone"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "C"
                 ],
-                "to":1
+                "to": 1
             },
-            "alias":"Phone1__verified_phone"
+            "alias": "Phone1__verified_phone"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "B"
                 ],
-                "to":-1
+                "to": -1
             },
-            "alias":"Phone1__verified_phone"
+            "alias": "Phone1__verified_phone"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "F",
                     "K"
                 ],
-                "to":0
+                "to": 0
             },
-            "alias":"Phone1__phone_usage_12"
+            "alias": "Phone1__phone_usage_12"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "C",
                     "B",
                     "G",
                     "E"
                 ],
-                "to":1
+                "to": 1
             },
-            "alias":"Phone1__phone_usage_12"
+            "alias": "Phone1__phone_usage_12"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Phone1__phone_usage_12"
+            "alias": "Phone1__phone_usage_12"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "J",
                     "I",
                     "G",
@@ -3323,82 +3278,82 @@
                     "C",
                     "F"
                 ],
-                "to":0
+                "to": 0
             },
-            "alias":"Phone1__phone_usage_2"
+            "alias": "Phone1__phone_usage_2"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Phone1__phone_usage_2"
+            "alias": "Phone1__phone_usage_2"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "B",
                     "E"
                 ],
-                "to":1
+                "to": 1
             },
-            "alias":"Phone1__phone_usage_2"
+            "alias": "Phone1__phone_usage_2"
         }
     ],
-    "Appended Phones1 Contactability Score":[
+    "Appended Phones1 Contactability Score": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":1
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 1
             },
-            "alias":"contact_counts"
+            "alias": "contact_counts"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "C",
                     "B",
                     "F"
                 ],
-                "to":1
+                "to": 1
             },
-            "alias":"Appended_Phone1__phone_type"
+            "alias": "Appended_Phone1__phone_type"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Appended_Phone1__phone_type"
+            "alias": "Appended_Phone1__phone_type"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "J",
                     "I",
                     "G",
                     "K",
                     "E"
                 ],
-                "to":0
+                "to": 0
             },
-            "alias":"Appended_Phone1__phone_type"
+            "alias": "Appended_Phone1__phone_type"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "F",
                     "J",
                     "I",
@@ -3406,74 +3361,74 @@
                     "E",
                     "K"
                 ],
-                "to":0
+                "to": 0
             },
-            "alias":"Appended_Phone1__verified_phone"
+            "alias": "Appended_Phone1__verified_phone"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Appended_Phone1__verified_phone"
+            "alias": "Appended_Phone1__verified_phone"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "C"
                 ],
-                "to":1
+                "to": 1
             },
-            "alias":"Appended_Phone1__verified_phone"
+            "alias": "Appended_Phone1__verified_phone"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "B"
                 ],
-                "to":-1
+                "to": -1
             },
-            "alias":"Appended_Phone1__verified_phone"
+            "alias": "Appended_Phone1__verified_phone"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "F",
                     "K"
                 ],
-                "to":0
+                "to": 0
             },
-            "alias":"Appended_Phone1__phone_usage_12"
+            "alias": "Appended_Phone1__phone_usage_12"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "C",
                     "B",
                     "G",
                     "E"
                 ],
-                "to":1
+                "to": 1
             },
-            "alias":"Appended_Phone1__phone_usage_12"
+            "alias": "Appended_Phone1__phone_usage_12"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Appended_Phone1__phone_usage_12"
+            "alias": "Appended_Phone1__phone_usage_12"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "J",
                     "I",
                     "G",
@@ -3481,82 +3436,82 @@
                     "C",
                     "F"
                 ],
-                "to":0
+                "to": 0
             },
-            "alias":"Appended_Phone1__phone_usage_2"
+            "alias": "Appended_Phone1__phone_usage_2"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Appended_Phone1__phone_usage_2"
+            "alias": "Appended_Phone1__phone_usage_2"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "B",
                     "E"
                 ],
-                "to":1
+                "to": 1
             },
-            "alias":"Appended_Phone1__phone_usage_2"
+            "alias": "Appended_Phone1__phone_usage_2"
         }
     ],
-    "Appended Phones2 Contactability Score":[
+    "Appended Phones2 Contactability Score": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":2
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 2
             },
-            "alias":"contact_counts"
+            "alias": "contact_counts"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "C",
                     "B",
                     "F"
                 ],
-                "to":1
+                "to": 1
             },
-            "alias":"Appended_Phone2__phone_type"
+            "alias": "Appended_Phone2__phone_type"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Appended_Phone2__phone_type"
+            "alias": "Appended_Phone2__phone_type"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "J",
                     "I",
                     "G",
                     "K",
                     "E"
                 ],
-                "to":0
+                "to": 0
             },
-            "alias":"Appended_Phone2__phone_type"
+            "alias": "Appended_Phone2__phone_type"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "F",
                     "J",
                     "I",
@@ -3564,74 +3519,74 @@
                     "E",
                     "K"
                 ],
-                "to":0
+                "to": 0
             },
-            "alias":"Appended_Phone2__verified_phone"
+            "alias": "Appended_Phone2__verified_phone"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Appended_Phone2__verified_phone"
+            "alias": "Appended_Phone2__verified_phone"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "C"
                 ],
-                "to":1
+                "to": 1
             },
-            "alias":"Appended_Phone2__verified_phone"
+            "alias": "Appended_Phone2__verified_phone"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "B"
                 ],
-                "to":-1
+                "to": -1
             },
-            "alias":"Appended_Phone2__verified_phone"
+            "alias": "Appended_Phone2__verified_phone"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "F",
                     "K"
                 ],
-                "to":0
+                "to": 0
             },
-            "alias":"Appended_Phone2__phone_usage_12"
+            "alias": "Appended_Phone2__phone_usage_12"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "C",
                     "B",
                     "G",
                     "E"
                 ],
-                "to":1
+                "to": 1
             },
-            "alias":"Appended_Phone2__phone_usage_12"
+            "alias": "Appended_Phone2__phone_usage_12"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Appended_Phone2__phone_usage_12"
+            "alias": "Appended_Phone2__phone_usage_12"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "J",
                     "I",
                     "G",
@@ -3639,82 +3594,82 @@
                     "C",
                     "F"
                 ],
-                "to":0
+                "to": 0
             },
-            "alias":"Appended_Phone2__phone_usage_2"
+            "alias": "Appended_Phone2__phone_usage_2"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Appended_Phone2__phone_usage_2"
+            "alias": "Appended_Phone2__phone_usage_2"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "B",
                     "E"
                 ],
-                "to":1
+                "to": 1
             },
-            "alias":"Appended_Phone2__phone_usage_2"
+            "alias": "Appended_Phone2__phone_usage_2"
         }
     ],
-    "Appended Phones3 Contactability Score":[
+    "Appended Phones3 Contactability Score": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":3
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 3
             },
-            "alias":"contact_counts"
+            "alias": "contact_counts"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "C",
                     "B",
                     "F"
                 ],
-                "to":1
+                "to": 1
             },
-            "alias":"Appended_Phone3__phone_type"
+            "alias": "Appended_Phone3__phone_type"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Appended_Phone3__phone_type"
+            "alias": "Appended_Phone3__phone_type"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "J",
                     "I",
                     "G",
                     "K",
                     "E"
                 ],
-                "to":0
+                "to": 0
             },
-            "alias":"Appended_Phone3__phone_type"
+            "alias": "Appended_Phone3__phone_type"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "F",
                     "J",
                     "I",
@@ -3722,74 +3677,74 @@
                     "E",
                     "K"
                 ],
-                "to":0
+                "to": 0
             },
-            "alias":"Appended_Phone3__verified_phone"
+            "alias": "Appended_Phone3__verified_phone"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Appended_Phone3__verified_phone"
+            "alias": "Appended_Phone3__verified_phone"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "C"
                 ],
-                "to":1
+                "to": 1
             },
-            "alias":"Appended_Phone3__verified_phone"
+            "alias": "Appended_Phone3__verified_phone"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "B"
                 ],
-                "to":-1
+                "to": -1
             },
-            "alias":"Appended_Phone3__verified_phone"
+            "alias": "Appended_Phone3__verified_phone"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "F",
                     "K"
                 ],
-                "to":0
+                "to": 0
             },
-            "alias":"Appended_Phone3__phone_usage_12"
+            "alias": "Appended_Phone3__phone_usage_12"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "C",
                     "B",
                     "G",
                     "E"
                 ],
-                "to":1
+                "to": 1
             },
-            "alias":"Appended_Phone3__phone_usage_12"
+            "alias": "Appended_Phone3__phone_usage_12"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Appended_Phone3__phone_usage_12"
+            "alias": "Appended_Phone3__phone_usage_12"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "J",
                     "I",
                     "G",
@@ -3797,651 +3752,613 @@
                     "C",
                     "F"
                 ],
-                "to":0
+                "to": 0
             },
-            "alias":"Appended_Phone3__phone_usage_2"
+            "alias": "Appended_Phone3__phone_usage_2"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Appended_Phone3__phone_usage_2"
+            "alias": "Appended_Phone3__phone_usage_2"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "B",
                     "E"
                 ],
-                "to":1
+                "to": 1
             },
-            "alias":"Appended_Phone3__phone_usage_2"
+            "alias": "Appended_Phone3__phone_usage_2"
         }
     ],
-    "Appended Emails 1 Email Address":[
+    "Appended Emails 1 Email Address": [
         {
-            "apply":"chech_email_validity",
-            "kwargs":{
-                
-            },
-            "alias":"is_valid_Appended Emails 1 Email Address"
+            "apply": "chech_email_validity",
+            "kwargs": {},
+            "alias": "is_valid_Appended Emails 1 Email Address"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"False"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "False"
             },
-            "alias":"is_valid_Appended Emails 1 Email Address"
+            "alias": "is_valid_Appended Emails 1 Email Address"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Email_Match_Score"
+            "alias": "Email_Match_Score"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Birthdate_Flag"
+            "alias": "Birthdate_Flag"
         }
     ],
-    "Appended Emails 2 Email Address":[
+    "Appended Emails 2 Email Address": [
         {
-            "apply":"chech_email_validity",
-            "kwargs":{
-                
-            },
-            "alias":"is_valid_Appended Emails 2 Email Address"
+            "apply": "chech_email_validity",
+            "kwargs": {},
+            "alias": "is_valid_Appended Emails 2 Email Address"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"False"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "False"
             },
-            "alias":"is_valid_Appended Emails 2 Email Address"
+            "alias": "is_valid_Appended Emails 2 Email Address"
         }
     ],
-    "Appended Emails 3 Email Address":[
+    "Appended Emails 3 Email Address": [
         {
-            "apply":"chech_email_validity",
-            "kwargs":{
-                
-            },
-            "alias":"is_valid_Appended Emails 3 Email Address"
+            "apply": "chech_email_validity",
+            "kwargs": {},
+            "alias": "is_valid_Appended Emails 3 Email Address"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"False"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "False"
             },
-            "alias":"is_valid_Appended Emails 3 Email Address"
+            "alias": "is_valid_Appended Emails 3 Email Address"
         }
     ],
-    "Input Phone1 Active":[
+    "Input Phone1 DNC": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Input Phone1 DNC":[
+    "Input Phone1 Line Type": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Input Phone1 Line Type":[
+    "Input Phone1 Phone Confidence": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Input Phone1 Phone Confidence":[
+    "Input Phone1 Phone Usage: Past 12 months": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Input Phone1 Phone Usage: Past 12 months":[
+    "Input Phone1 Verification Result Code": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Input Phone1 Verification Result Code":[
+    "Appended Phones1 DNC": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Appended Phones1 Active":[
+    "Appended Phones1 Line Type": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Appended Phones1 DNC":[
+    "Appended Phones1 Phone Confidence": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Appended Phones1 Line Type":[
+    "Appended Phones1 Phone Usage: Past 12 months": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Appended Phones1 Phone Confidence":[
+    "Appended Phones1 Verification Result Code": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Appended Phones1 Phone Usage: Past 12 months":[
+    "Appended Phones2 DNC": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Appended Phones1 Verification Result Code":[
+    "Appended Phones2 Line Type": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Appended Phones2 Active":[
+    "Appended Phones2 Phone Confidence": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Appended Phones2 DNC":[
+    "Appended Phones2 Phone Usage: Past 12 months": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Appended Phones2 Line Type":[
+    "Appended Phones2 Verification Result Code": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Appended Phones2 Phone Confidence":[
+    "Appended Phones3 DNC": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Appended Phones2 Phone Usage: Past 12 months":[
+    "Appended Phones3 Line Type": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Appended Phones2 Verification Result Code":[
+    "Appended Phones3 Phone Confidence": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Appended Phones3 Active":[
+    "Appended Phones3 Phone Usage: Past 12 months": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Appended Phones3 DNC":[
+    "Appended Phones3 Verification Result Code": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Appended Phones3 Line Type":[
+    "Individual Occupation": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Appended Phones3 Phone Confidence":[
+    "Individual Occupation Group": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        }
-    ],
-    "Appended Phones3 Phone Usage: Past 12 months":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
-            }
-        }
-    ],
-    "Appended Phones3 Verification Result Code":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
-            }
-        }
-    ],
-    "Individual Occupation":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        }
-    ],
-    "Individual Occupation Group":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "K6",
                     "K7",
                     "K8",
                     "K9"
                 ],
-                "to":"Low income"
+                "to": "Low income"
             },
-            "alias":"Occupation_group"
+            "alias": "Occupation_group"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "K3",
                     "K4",
                     "K5"
                 ],
-                "to":"Medium income"
+                "to": "Medium income"
             },
-            "alias":"Occupation_group"
+            "alias": "Occupation_group"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "K1",
                     "K2"
                 ],
-                "to":"High income"
+                "to": "High income"
             },
-            "alias":"Occupation_group"
+            "alias": "Occupation_group"
         }
     ],
-    "Individual Education":[
+    "Individual Education": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Property/Realty: Home Land Value":[
+    "Property/Realty: Home Land Value": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Property/Realty: Home Total Value":[
+    "Property/Realty: Home Total Value": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Property/Realty: Property indicator":[
+    "Property/Realty: Property indicator": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Length of Residence":[
+    "Length of Residence": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Individual Ethnicity Group":[
+    "Individual Ethnicity Group": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Property/Realty: Median Home  Value":[
+    "Property/Realty: Median Home  Value": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Census: Rural-Urban County Size Code":[
+    "Census: Rural-Urban County Size Code": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Median Family Household Income":[
+    "Median Family Household Income": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Household Composition":[
+    "Household Composition": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Dwelling Type":[
+    "Dwelling Type": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Estimated Current Home Value":[
+    "Estimated Current Home Value": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Estimated Household Income (Narrow)":[
+    "Estimated Household Income (Narrow)": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Estimated Household Income (Broad band)":[
+    "Estimated Household Income (Broad band)": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "A",
                     "B",
                     "C",
                     "D"
                 ],
-                "to":"Low income"
+                "to": "Low income"
             },
-            "alias":"Income_group"
+            "alias": "Income_group"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "E",
                     "F",
                     "G",
                     "H"
                 ],
-                "to":"Medium income"
+                "to": "Medium income"
             },
-            "alias":"Income_group"
+            "alias": "Income_group"
         },
         {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
                     "I",
                     "J",
                     "K",
                     "L"
                 ],
-                "to":"High income"
+                "to": "High income"
             },
-            "alias":"Income_group"
+            "alias": "Income_group"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             },
-            "alias":"Income_group"
+            "alias": "Income_group"
         }
     ],
-    "Homeowner: Combined Homeowner/Renter":[
+    "Homeowner: Combined Homeowner/Renter": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Individual Marital Status":[
+    "Individual Marital Status": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        },
-        {
-            "apply":"extract_string",
-            "kwargs":{
-                "regex":"r'([A-Za-z]+)'"
-            }
-        }
-    ],
-    "Individual Person Type":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        }
-    ],
-    "Appended Addresses1 City":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
-            },
-            "alias":"City_Match"
+            "apply": "extract_string",
+            "kwargs": {
+                "regex": "r'([A-Za-z]+)'"
+            }
         }
     ],
-    "Appended Addresses1 State":[
+    "Individual Person Type": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
+            }
+        }
+    ],
+    "Appended Addresses1 City": [
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"StateCode_Match"
+            "alias": "City_Match"
         }
     ],
-    "Appended Addresses1 Type":[
+    "Appended Addresses1 State": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        }
-    ],
-    "Appended Addresses1 Zip5":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        }
-    ],
-    "Household Buying Power Score":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         },
         {
-            "apply":"extract_string",
-            "kwargs":{
-                "regex":"r'([A-Za-z]+)'"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Letter_score"
-        },
-        {
-            "apply":"extract_string",
-            "kwargs":{
-                "regex":"r'(\\d+)'"
-            },
-            "alias":"Numerical_score"
+            "alias": "StateCode_Match"
         }
     ],
-    "Match Type":[
+    "Appended Addresses1 Type": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         }
     ],
-    "Individual Address Matches":[
+    "Appended Addresses1 Zip5": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
-    "Individual First Name Match":[
+    "Household Buying Power Score": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "extract_string",
+            "kwargs": {
+                "regex": "r'([A-Za-z]+)'"
             },
-            "alias":"FirstName_Match"
+            "alias": "Letter_score"
+        },
+        {
+            "apply": "extract_string",
+            "kwargs": {
+                "regex": "r'(\\d+)'"
+            },
+            "alias": "Numerical_score"
         }
     ],
-    "Individual Last Name Match":[
+    "Match Type": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
+            }
+        }
+    ],
+    "Individual Address Matches": [
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
+            }
+        }
+    ],
+    "Individual First Name Match": [
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"LastName_Match"
+            "alias": "FirstName_Match"
         }
     ],
-    "Individual Phone1 Matches":[
+    "Individual Last Name Match": [
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
             }
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             },
-            "alias":"Phone_Match_Score"
+            "alias": "LastName_Match"
+        }
+    ],
+    "Individual Phone1 Matches": [
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
+            }
+        },
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
+            },
+            "alias": "Phone_Match_Score"
         }
     ]
 }
