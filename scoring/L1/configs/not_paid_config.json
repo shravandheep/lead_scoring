@@ -3010,6 +3010,13 @@
     ],
     "Input Phone1 Contactability Score":[
         {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
+            },
+            "alias":"contact_counts"
+        },
+        {
             "apply":"substitute",
             "kwargs":{
                 "from":[
@@ -3154,6 +3161,14 @@
         }
     ],
     "Appended Phones1 Contactability Score":[
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":1
+            },
+            "alias":"contact_counts"
+        },
+        
         {
             "apply":"substitute",
             "kwargs":{
@@ -3300,6 +3315,13 @@
     ],
     "Appended Phones2 Contactability Score":[
         {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":2
+            },
+            "alias":"contact_counts"
+        },
+        {
             "apply":"substitute",
             "kwargs":{
                 "from":[
@@ -3444,6 +3466,13 @@
         }
     ],
     "Appended Phones3 Contactability Score":[
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":3
+            },
+            "alias":"contact_counts"
+        },
         {
             "apply":"substitute",
             "kwargs":{
