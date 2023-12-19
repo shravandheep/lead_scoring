@@ -7,11 +7,11 @@ from main import process as main_process
 from auxiliary.util.global_constants import NODE_L1
 from auxiliary.util.common_utils import setup_logger
 
-_ENV_TYPE = os.environ.get('ENV_TYPE')
+_ENV_TYPE = os.environ.get("ENV_TYPE")
 log = setup_logger(NODE_L1, logging.INFO)
 
 # App initialize
-node = App('L1 scoring')
+node = App(NODE_L1)
 
 # get config
 # config = get_config()

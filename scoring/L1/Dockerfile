@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y libgomp1 libglib2.0-0 libsm6 libxrender
 
 # Installs mlaaslib which is required for NW3.
 ARG PIP_INDEX_URL
-RUN pip install --index-url ${PIP_INDEX_URL} mlaaslib
+RUN pip install --index-url ${PIP_INDEX_URL} mlaaslib==2.0.0
 
 RUN mkdir -p /home/ubuntu/mad/
 
@@ -13,6 +13,9 @@ RUN mkdir -p /home/ubuntu/mad/
 ARG MODULE_NAME
 COPY ./scoring/${MODULE_NAME}/requirements.txt /home/ubuntu/mad/requirements.txt
 RUN pip install -r /home/ubuntu/mad/requirements.txt
+
+# COPY ./scoring/${MODULE_NAME}/download_wts.py /home/ubuntu/mad/download_wts.py
+# RUN python /home/ubuntu/mad/download_wts.py
 
 COPY ./ /home/ubuntu/mad/lead_scoring/
 
