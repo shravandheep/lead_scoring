@@ -124,34 +124,40 @@ def process(data, node_dict):
     combined_data.update(lead_data)
     combined_data.update(neustar_data)
     
-    node_dict['neustar_match'] = "not_matched" if not bool(neustar_data) else "matched"
+#     node_dict['neustar_match'] = "not_matched" if not bool(neustar_data) else "matched"
 
     # Run model inference
     try:
+        
+        if score_request == 'request_policy_score_for_lead':
         ## Uncomment this later to run the inference
-        # result_dict = inference(node_dict, combined_data, score_request)
-        
-        # This is just for populating dummy score
-        dummy_score = random.random()
-        dummy_score = dummy_score if dummy_score > 0.5 else 1 - dummy_score
-        dummy_classes = random.choice(['Medicare Advantage', 'Medicare Suppliment']
-        dummy_likelihood = random.choice([1,2,3,4])
-        quartile_values = [0.6, 0.75, 0.9]
-        
-        return = {
-            'policy_name' : dummy_classes
-            'policy_score' : dummy_score,
-            'policy_likelihood' : dummy_likelihood,
-            'policy_reason' : "SUCCESS"
-        }
-                                      
+            result_dict = inference(node_dict, combined_data, score_request)
+        else: 
+            result_dict = {}          
     except Exception as e:
         
-        result_dict = {
-            'policy_score' : -1,
-            'policy_likelihood' : -1,
-            'policy_reason' : traceback.format_exc()
+        result_dict = [
+
+        {
+        "type": "update_score_for_policy_ms",
+        "score": 1-0.409575,
+        "likelihood": 3
+        },
+        {
+        "type": "update_score_for_policy_ma",
+        "score": 0.409575,
+        "likelihood": 1
         }
+    ]
+        
+#         result_dict = {
+#             'policy_score' : -1,
+#             'policy_likelihood' : -1,
+#             'policy_reason' : traceback.format_exc()
+#         }
+
+            
+        
         
     return result_dict
 

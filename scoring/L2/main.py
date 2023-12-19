@@ -3,6 +3,7 @@ import os
 import random
 import logging
 
+import traceback
 # Internal imports
 from auxiliary.util.global_constants import NODE_L2 
 from auxiliary.util.global_constants import WTS_PATH
@@ -60,15 +61,24 @@ def process(data, model):
     score_request = args_dict['data'][LEAD_DATA]['type']
     
     
-    # HACK 
-    score  = do_inference(args_dict) ### check
-#     score = random.random()
-    reason = ''
-
-    result_dict = {
-        'l2_score' : score,
-        'l2_reason' : reason
-    }
+    try: 
+        if score_request == 'update_score_for_lead':
+            score, time_since_lead_creation  = do_inference(args_dict) ### check
+            reason = ''
+            result_dict = {
+                'l2_score' : score,
+                'time_since_lead_creation': time_since_lead_creation
+                'l2_reason' : reason
+            }
+        else: 
+            result_dict = {}
+    except: 
+        result_dict = {
+                'l2_score' : 0,
+                'time_since_lead_creation': 300,
+                'l2_reason' : traceback.format_exc()
+            }
+        
         
     return result_dict
 

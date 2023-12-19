@@ -7,6 +7,8 @@ import pandas as pd
 
 
 
+
+
 def sigmoid(x, x0, k):
     return 1 / (1 + np.exp(-k * (x - x0)))
 

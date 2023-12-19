@@ -50,14 +50,14 @@ def normalize_list(lst):
 
 def transform_features(features):
     
-    Xp = generate_df(features)
+    Xp, time_since_lead_creation = generate_df(features)
     
-    return Xp
+    return Xp, time_since_lead_creation
 
 
 def do_inference(X):
     
-    Xp = transform_features(features)
+    Xp, time_since_lead_creation = transform_features(features)
     score = model_inference(Xp)
     
-    return score
+    return score, time_since_lead_creation

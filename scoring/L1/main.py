@@ -107,6 +107,7 @@ def process(data, node_dict):
     args_dict = create_arguments_dict(parsed_data, ['data', 'lead_id'])
     score_request = args_dict['data'][LEAD_DATA]['type']
     
+    
     # data sources
     combined_data = dict()    
     
@@ -116,15 +117,20 @@ def process(data, node_dict):
     combined_data.update(lead_data)
     combined_data.update(neustar_data)
     
-    node_dict['neustar_match'] = "not_matched" if not bool(neustar_data) else "matched"
+#     node_dict['neustar_match'] = "not_matched" if not bool(neustar_data) else "matched"
     
     try:
-        result_dict = inference(node_dict, combined_data, score_request)
+        
+        if score_request == 'request_score_for_lead' or score_request == 'update_score_for_lead':
+            result_dict = inference(node_dict, combined_data, score_request)
+        else:
+            result_dict = {
+            }
     except Exception as e:
         
         result_dict = {
-            'l1_score' : -1,
-            'l1_likelihood' : -1,
+            'l1_score' : 0.4,
+            'l1_likelihood' : 1,
             'l1_reason' : traceback.format_exc()
         }
         

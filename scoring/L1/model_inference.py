@@ -7,6 +7,8 @@ import pandas as pd
 from auxiliary.util.global_constants import _WTS_EXT_L1
 from scoring.L1.translators import Translator
 
+from boosting_score import score_boost
+
 # Helpers 
 def initialize_model(wts_path):
 
@@ -97,6 +99,8 @@ def inference(node_dict, data, score_request):
     
     # Disabled temporarily
     # data = handle_lead_type(data)
+    
+    
     filters_t = transform_features(data, config_dict['feature_config']) #include new data config 
     lead_type_f = None
         
@@ -129,7 +133,7 @@ def inference(node_dict, data, score_request):
             selected_scaler = lead_type["model_params"]['preprocessing_steps'][1]
             
             lead_type_f = _
-            
+
             break
     else:
             
@@ -144,7 +148,7 @@ def inference(node_dict, data, score_request):
         raise Exception("No data transform config was found for key {}. Please check".format(data_config))
 
     data = pd.DataFrame.from_dict(data, orient='index').T
-    data = data[considered_features]
+    data_subset_features = data[considered_features]
     
     # Encoding 
     label_encoder_dict = node_dict['label_encoders']
@@ -171,11 +175,11 @@ def inference(node_dict, data, score_request):
         'Original_Lead_Medium__c' : 'Lead_Medium__c'
     }
 
-    data = encoding(data, encoders_dict)
+    data_subset_features = encoding(data_subset_features, encoders_dict)
     
     for k,v in enc_mapping.items():
         if k in data.columns:
-            data.rename(columns={k : v}, inplace=True)
+            data_subset_features.rename(columns={k : v}, inplace=True)
             
     # Model selection
     if node_dict['model_dict'].get(selected_model):
@@ -184,10 +188,12 @@ def inference(node_dict, data, score_request):
         raise Exception("No model key was found. Please check")
 
     
-    prediction = model.predict_proba(data)
+    prediction = model.predict_proba(data_subset_features)
     score = prediction[0][1]
     
     #### include boosting logic here
+    score = score_boost(score, data, selected_model)
+    
     
     quartiles = json.load(open(config_dict['quartiles']))
     likelihood = get_likelihood(score, quartiles)

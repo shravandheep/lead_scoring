@@ -29,6 +29,18 @@ def initialize_node(node_config, **kwargs):
     
     logger.info('Node initialized')
 
+def get_likelihood(score):
+    
+    if score <= 0.1:
+        return 1
+    elif score > 0.1 and score <= 0.4:
+        return 2
+    elif score > 0.4 and score <= 0.7:
+        return 3
+    elif score > 0.7:
+        return 4
+    
+    return -1
 
 def process(data):
     """
@@ -44,37 +56,44 @@ def process(data):
         result_dic : dict of result
     """
     
+    
+    
     required_keys = ['lead_id', 'l1_score', 'l1_reason', 'l1_likelihood',
                      'l2_score', 'l2_reason']
     
+    input_keys = ['lead_id', 'l1_score', 'l1_reason', 'l1_likelihood',
+                     'l2_score', 'l2_reason', 'time_since_lead_creation', 'data']
+    
     parsed_data, packet_id, _ = check_and_unpack_data(data)
-    args_dict = create_arguments_dict(parsed_data, required_keys)
+    
+    args_dict = create_arguments_dict(parsed_data, input_keys)
     score_request = args_dict['data'][LEAD_DATA]['type']
     
-    # HACK 
+    if score_request == 'update_score_for_lead' or score_request == 'request_score_for_lead': 
     
     
-    final_score = args_dict['l1_score']
-    final_likelihood = args_dict['l1_likelihood']
-    final_args = dict((k,v) for (k,v) in args_dict.items() if k in required_keys)
-    
-    
-    l1_score = arrgs_dict['l1_score']
-    
-    if args_dict['l2_score']:
-        l2_score = args_dict['l2_score']
-    else:
-        l2_score = 0
-        
-    final_score = compute_hybrid(l1_score. l2_score, 500)   ##check if we have time here
-    
+        l1_score = arrgs_dict['l1_score']
 
-    result_dict = {
-        **final_args,
-        'score' : final_score,
-        'type' : score_request,
-        'likelihood' : final_likelihood
-    }
+        if args_dict['l2_score']:
+            l2_score = args_dict['l2_score']
+        else:
+            l2_score = 0
+
+        final_score = compute_hybrid(l1_score. l2_score, arrgs_dict['time_since_lead_creation'])   ##check if we have time here
+        final_likelihood = get_likelihood(score)
+
+        final_args = dict((k,v) for (k,v) in args_dict.items() if k in required_keys)
+
+
+
+        result_dict = {
+            **final_args,
+            'score' : final_score,
+            'type' : score_request,
+            'likelihood' : final_likelihood
+        }
+    else: 
+        result_dict = {}
         
     return result_dict
 

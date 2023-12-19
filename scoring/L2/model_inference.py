@@ -71,7 +71,7 @@ def generate_time_based_feat(lead_history_df):
 
     ### TIME SINCE LEAD CREATION
     lead_history_df['TIMESINCELEADCREATION'] = lead_history_df['TIMEDIFF'].cumsum()
-    return lead_history_df
+    return lead_history_df, lead_history_df['TIMESINCELEADCREATION']
 
 
 def generate_sequences(X):
@@ -100,7 +100,7 @@ def generate_df(lead_history):
     lead_history_df['field_changed'] = lead_history_df['field_changed'].map(reverse_field_mapping)
     lead_history_df['update_time'] = pd.to_datetime(lead_history_df['update_time'])
     
-    lead_history_df = generate_time_based_feat(lead_history_df) ### time based 
+    lead_history_df, time_since_lead_creation = generate_time_based_feat(lead_history_df) ### time based 
     
     ### one hot encoding fields
     lead_history_df_not_status = lead_history_df[lead_history_df['field_changed']!='Status']
@@ -132,7 +132,7 @@ def generate_df(lead_history):
     
     Xp_ = generate_sequences(X) ### model input 
     
-    return Xp_ 
+    return Xp_, time_since_lead_creation
 
 
 
