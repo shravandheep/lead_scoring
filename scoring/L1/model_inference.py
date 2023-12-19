@@ -105,10 +105,11 @@ def inference(node_dict, data, score_request):
         if all(filter_condition):
 
             data_config = lead_type["data_source"]
-            considered_features = lead_type["considered_features"]
+#             considered_features = lead_type["considered_features"]
             numeric_cols = lead_type["numeric_features"]
             categorical_cols = lead_type["categorical_features"]
             selected_model = lead_type["select_model"]
+            considered_features = numeric_cols+categorical_cols
 
             selected_label_encoder = lead_type["model_params"]["preprocessing_steps"][0]
             selected_scaler = lead_type["model_params"]["preprocessing_steps"][1]
