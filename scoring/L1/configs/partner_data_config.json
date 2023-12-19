@@ -1513,6 +1513,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
+                "value": 0
                 
             },
             "alias":"is_valid_phone"
@@ -2148,7 +2149,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":"Age_as_of_createddate__c"
+                "value":0
             }
         }
     ],
