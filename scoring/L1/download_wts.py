@@ -35,7 +35,7 @@ for wts in L1_WTS:
                     wts
                 )
             )
-            time.sleep(2)
+
             os.makedirs(os.path.join(_FILE_PATH, WTS_PATH), exist_ok=True)
             local_path = os.path.realpath(os.path.join(_FILE_PATH, WTS_PATH, file_name))
 
@@ -66,7 +66,7 @@ for enc in L1_LBL_ENC:
                     enc
                 )
             )
-            time.sleep(2)
+
             os.makedirs(os.path.join(_FILE_PATH, ENC_PATH), exist_ok=True)
             os.makedirs(os.path.join(_FILE_PATH, ENC_PATH, LBL_ENC_PATH), exist_ok=True)
 
@@ -101,7 +101,7 @@ for enc in L1_SCL_ENC:
                     enc
                 )
             )
-            time.sleep(2)
+
             os.makedirs(os.path.join(_FILE_PATH, ENC_PATH), exist_ok=True)
             os.makedirs(os.path.join(_FILE_PATH, ENC_PATH, SCL_ENC_PATH), exist_ok=True)
 

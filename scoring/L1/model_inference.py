@@ -49,8 +49,7 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
 #     numeric_cols = list(X.select_dtypes(include=['float64']).columns)
 #     print(numeric_cols)
 
-    for col in X.columns:
-        
+    for col in categorical_cols:
         if label_encoder.get(col):
             try:
                 val = set(X[col].values)
@@ -65,6 +64,8 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
                 raise Exception(
                     "Error in Label encoding. For the field : {}, {}".format(col, e)
                 )
+                
+    print(X[numeric_cols])
 
     X[numeric_cols] = scaler.transform(X[numeric_cols])
     
