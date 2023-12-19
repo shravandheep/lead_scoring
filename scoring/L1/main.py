@@ -153,7 +153,7 @@ def process(data, node_dict):
         ):
             print("MODEL INFERENCE")
             result_dict = inference(node_dict, combined_data, score_request)
-            result_dict['l1_score'] = float(round(result_dict['l1_score'], 2))
+            result_dict["l1_score"] = round(float(result_dict["l1_score"]), 2)
         else:
             result_dict = {}
     except Exception as e:
@@ -161,10 +161,10 @@ def process(data, node_dict):
         result_dict = {
             "l1_score": 0.4,
             "l1_likelihood": 1,
-            "l1_reason": traceback.print_exc(),
+            "l1_reason": traceback.format_exc(),
         }
 
-    print('*'*100)
+    print("*" * 100)
     print(result_dict)
 
     return result_dict
