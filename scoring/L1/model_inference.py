@@ -36,7 +36,7 @@ def transform_features(data, config_path):
     return features
 
 
-def encoding(features, encoders_dict):
+def encoding(features, encoders_dict, numeric_cols, categorical_cols):
 
     label_encoder = encoders_dict["label_encoder"]
     scaler = encoders_dict["scaler"]
@@ -46,9 +46,8 @@ def encoding(features, encoders_dict):
     else:
         X = features
     
-    print(X)
-    numeric_cols = list(X.select_dtypes(include=['float64']).columns)
-    print(numeric_cols)
+#     numeric_cols = list(X.select_dtypes(include=['float64']).columns)
+#     print(numeric_cols)
 
     for col in X.columns:
         
@@ -107,12 +106,14 @@ def inference(node_dict, data, score_request):
 
             data_config = lead_type["data_source"]
             considered_features = lead_type["considered_features"]
+            numeric_cols = lead_type["numeric_features"]
+            categorical_cols = lead_type["categorical_features"]
             selected_model = lead_type["select_model"]
 
             selected_label_encoder = lead_type["model_params"]["preprocessing_steps"][0]
             selected_scaler = lead_type["model_params"]["preprocessing_steps"][1]
 
-            lead_type_f = _
+            lead_type_f = lead_type['select_model']
 
             break
     else:
@@ -156,7 +157,7 @@ def inference(node_dict, data, score_request):
     ## Hack
     enc_mapping = {"Original_Lead_Medium__c": "Lead_Medium__c"}
 
-    data_subset_features = encoding(data_subset_features, encoders_dict)
+    data_subset_features = encoding(data_subset_features, encoders_dict, numeric_cols, categorical_cols)
 
     for k, v in enc_mapping.items():
         if k in data.columns:
