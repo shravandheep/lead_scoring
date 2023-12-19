@@ -24,11 +24,11 @@ LBL_ENC_PATH = 'label_encoders'
 KW_VEC_PATH = 'vectoriser'
 
 # Extensions
-_ENC_EXT_L1 = '.pkl'
+_ENC_EXT_L1 = '.joblib'
 _WTS_EXT_L1 = '.sav'
 _CFG_EXT_L1 = '.json'
 
-_ENC_EXT_POLICY = '.pkl'
+_ENC_EXT_POLICY = '.joblib'
 _WTS_EXT_POLICY = '.sav'
 _CFG_EXT_POLICY = '.json'
 
