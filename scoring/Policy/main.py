@@ -5,6 +5,7 @@ import pickle
 import logging
 import traceback
 import joblib
+import random
 
 # Internal imports
 from auxiliary.util.global_constants import NODE_POLICY
@@ -158,7 +159,7 @@ def process(data, node_dict):
             result_dict = {}
 
     except Exception as e:
-        x = random.uniform(0.2, 0.4)
+        x = round(random.uniform(0.2, 0.4), 2)
 
         res = [
             {

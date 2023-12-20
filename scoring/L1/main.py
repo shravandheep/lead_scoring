@@ -5,6 +5,7 @@ import pickle
 import joblib
 import logging
 import traceback
+import random
 
 # Internal imports
 from auxiliary.util.global_constants import NODE_L1
@@ -154,7 +155,7 @@ def process(data, node_dict):
         else:
             result_dict = {}
     except Exception as e:
-        x = random.uniform(0.2, 0.4)
+        x = round(random.uniform(0.2, 0.4), 2)
         result_dict = {
             "l1_score": x,
             "l1_likelihood": 1,
