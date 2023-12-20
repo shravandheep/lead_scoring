@@ -20,12 +20,13 @@ import numpy as np
 import logging
 from copy import deepcopy
 
+
 import scoring.Policy.plugins as plugins
 from scoring.Policy.plugins import Plugin
 
 # from scoring.L1.main import logger
 
-from auxiliary.util.common_utils import check_and_unpack_data, create_arguments_dict
+from auxiliary.util.common_utils import check_and_unpack_data, create_arguments_dict, setup_logger
 from auxiliary.util.global_constants import (
     WTS_PATH,
     CFG_PATH,
@@ -34,6 +35,8 @@ from auxiliary.util.global_constants import (
     LBL_ENC_PATH,
     KW_VEC_PATH,
 )
+
+logger = setup_logger(__name__, logging.INFO)
 
 
 class Translator(object):
@@ -146,8 +149,8 @@ class Translator(object):
             else:
                 pass
 
-        # logger.info('LOGGING HERE')
-        # logger.info('*'*100)
+        logger.info('LOGGING HERE')
+        logger.info('*'*100)
         new_data = pd.DataFrame([new_data])
 
         phone_neu = [
@@ -207,3 +210,5 @@ class Translator(object):
         new_data = new_data.to_dict(orient="records")
 
         return new_data
+
+if __name__
