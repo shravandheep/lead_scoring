@@ -64,26 +64,6 @@ class Translator(object):
     def run_translators(self, value, func):
         return func(value)
     
-    def find_index_in_list(self, value, int_list):
-        if value == "null":  ##lead
-            return -2
-        elif int_list == ["null", "null", "null"]:
-            return -2
-        elif value in int_list:
-            return int_list.index(value)
-        else:
-            return -1
-
-    def assign_random_score(self, category):
-        score_ranges = {
-            0: (0.9, 1.0),
-            1: (0.8, 0.9),
-            2: (0.7, 0.8),
-            -1: (0.1, 0.2),
-            -2: (0, 0.05),
-        }
-        lower, upper = score_ranges.get(category, (0, 0))
-        return round(np.random.uniform(lower, upper), 2)
     
     def is_IEP(row):
 
@@ -180,50 +160,71 @@ class Translator(object):
         new_data['is_MAOEP'] = new_data.apply(is_MAOEP, axis=1)
         new_data['is_MSOEP'] = new_data.apply(is_MSOEP, axis=1)
         
-#         age_rating = pd.read_csv(age_rating)
-#         new_data = new_data.merge(age_rating, how='left')
-#         new_data['Community %'] = new_data['Community %'].str.rstrip('%').astype(float)
-        
-        
-        phone_neu = [
-            "Input Phone1 Number",
-            "Appended Phones1 Number",
-            "Appended Phones2 Number",
-            "Appended Phones3 Number",
-        ]
-        
-        phone_lead = ["MobilePhone"]
-        email_neu = [
-            "Appended Emails 1 Email Address",
-            "Appended Emails 2 Email Address",
-            "Appended Emails 3 Email Address",
-        ]
-        email_lead = ["Email"]
+        age_rating = pd.read_csv(age_rating)
+        new_data = new_data.merge(age_rating, how='left')
+        new_data['Community %'] = new_data['Community %'].str.rstrip('%').astype(float)
 
-        new_data["Phones_Neustar"] = new_data.apply(
-            lambda row: [row[column] for column in phone_neu], axis=1
-        )
-        new_data["Email_Neustar"] = new_data.apply(
-            lambda row: [row[column] for column in email_neu], axis=1
-        )
+    
+        def find_index_in_list(self, value, int_list):
+            if value == "null":  ##lead
+                return -2
+            elif int_list == ["null", "null", "null"]:
+                return -2
+            elif value in int_list:
+                return int_list.index(value)
+            else:
+                return -1
 
-        new_data["Email_matching"] = new_data.apply(
-            lambda row: self.find_index_in_list(row["Email"], row["Email_Neustar"]),
-            axis=1,
-        )
-        new_data["Phone_matching"] = new_data.apply(
-            lambda row: self.find_index_in_list(
-                row["MobilePhone"], row["Phones_Neustar"]
-            ),
-            axis=1,
-        )
+        def assign_random_score(self, category):
+            score_ranges = {
+                0: (0.9, 1.0),
+                1: (0.8, 0.9),
+                2: (0.7, 0.8),
+                -1: (0.1, 0.2),
+                -2: (0, 0.05),
+            }
+            lower, upper = score_ranges.get(category, (0, 0))
+            return round(np.random.uniform(lower, upper), 2)
+        
+#         phone_neu = [
+#             "Input Phone1 Number",
+#             "Appended Phones1 Number",
+#             "Appended Phones2 Number",
+#             "Appended Phones3 Number",
+#         ]
+        
+#         phone_lead = ["MobilePhone"]
+#         email_neu = [
+#             "Appended Emails 1 Email Address",
+#             "Appended Emails 2 Email Address",
+#             "Appended Emails 3 Email Address",
+#         ]
+#         email_lead = ["Email"]
 
-        new_data["Email_Match_Score"] = new_data["Email_matching"].apply(
-            self.assign_random_score
-        )
-        new_data["Phone_Match_Score"] = new_data["Phone_matching"].apply(
-            self.assign_random_score
-        )
+#         new_data["Phones_Neustar"] = new_data.apply(
+#             lambda row: [row[column] for column in phone_neu], axis=1
+#         )
+#         new_data["Email_Neustar"] = new_data.apply(
+#             lambda row: [row[column] for column in email_neu], axis=1
+#         )
+
+#         new_data["Email_matching"] = new_data.apply(
+#             lambda row: self.find_index_in_list(row["Email"], row["Email_Neustar"]),
+#             axis=1,
+#         )
+#         new_data["Phone_matching"] = new_data.apply(
+#             lambda row: self.find_index_in_list(
+#                 row["MobilePhone"], row["Phones_Neustar"]
+#             ),
+#             axis=1,
+#         )
+
+#         new_data["Email_Match_Score"] = new_data["Email_matching"].apply(
+#             self.assign_random_score
+#         )
+#         new_data["Phone_Match_Score"] = new_data["Phone_matching"].apply(
+#             self.assign_random_score
+#         )
 
         new_data["StateCode_Match"] = int(
             new_data["StateCode"] == new_data["StateCode"]
