@@ -44,7 +44,7 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
     else:
         X = features
         
-    X = X.loc[:,~X.T.duplicated(keep='last')]
+#     X = X.loc[:,~X.T.duplicated(keep='last')]
 
     for col in categorical_cols:
         
