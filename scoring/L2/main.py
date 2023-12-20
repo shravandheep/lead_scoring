@@ -13,6 +13,8 @@ from auxiliary.util.global_constants import (
     NEUSTAR_DATA,
     LEAD_REQ_SCORE,
     POLICY_REQ_SCORE,
+    ENC_PATH,
+    SCL_ENC_PATH,
 )
 from auxiliary.util.common_utils import (
     setup_logger,
