@@ -7,6 +7,12 @@ import pandas as pd
 from auxiliary.util.global_constants import _WTS_EXT_L1
 from scoring.Policy.translators import Translator
 
+def process_value(value):
+    try:
+        return float(value)
+    except ValueError:
+        return 0
+
 # Helpers 
 def initialize_model(wts_path):
 
@@ -62,12 +68,11 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
                 raise Exception(
                     "Error in Label encoding. For the field : {}, {}".format(col, e)
                 )
-                
+    
+    for col in numeric_cols:
+        X[col] = X[col].apply(process_value)
+        
     print(X[numeric_cols])
-    
-    
-   
-    
 
     X[numeric_cols] = scaler.transform(X[numeric_cols])
     
