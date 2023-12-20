@@ -140,8 +140,8 @@ def process(data, node_dict):
             ma_score = result_dict['result'][0]['score']
             ms_score = result_dict['result'][1]['score']
             
-            result_dict['result'][0]['score'] = round(float(ma_score, 2))
-            result_dict['result'][1]['score'] = round(float(ms_score, 2))
+            result_dict['result'][0]['score'] = round(float(ma_score), 2)
+            result_dict['result'][1]['score'] = round(float(ms_score), 2)
             
         else: 
             result_dict = {}          
