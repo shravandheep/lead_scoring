@@ -62,6 +62,7 @@ def initialize_model():
     for r, d, f in os.walk(weights_path):
         model_path = os.path.join(r, f[0])
 
+    print(f'WTS PATH IS: {weights_path}')
     model = torch.load(model_path)
 
     return model
