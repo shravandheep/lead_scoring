@@ -7,6 +7,11 @@ import pandas as pd
 import scoring.L1.plugins as plugins
 from scoring.L1.plugins import Plugin 
 
+from auxiliary.util.common_utils import setup_logger
+from auxiliary.util.global_constants import NODE_POLICY
+
+logger = setup_logger(NODE_POLICY, logging.INFO)
+
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 age_rating = os.path.join(_FILE_PATH, "age_rating.csv")
 
@@ -140,11 +145,11 @@ class Translator(object):
             else:
                 pass
         
-        print('*'*100)
-        print(new_data)
+        logger.info('*'*100)
+        logger.info(new_data)
         new_data = pd.DataFrame([new_data])
-        print('#'*100)
-        print(new_data)
+        logger.info('#'*100)
+        logger.info(new_data)
         
         new_data['Birthdate__c'] = pd.to_datetime(new_data['Birthdate__c'])
         new_data['CreatedDate'] = pd.to_datetime(new_data['CreatedDate'])
