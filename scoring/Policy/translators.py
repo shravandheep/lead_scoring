@@ -10,7 +10,7 @@ from scoring.L1.plugins import Plugin
 from auxiliary.util.common_utils import setup_logger
 from auxiliary.util.global_constants import NODE_POLICY
 
-logger = setup_logger(NODE_POLICY, logging.INFO)
+logger = setup_logger(__name__, logging.INFO)
 
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 age_rating = os.path.join(_FILE_PATH, "age_rating.csv")
