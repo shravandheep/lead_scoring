@@ -3349,9 +3349,27 @@
     ],
     "Missed_Call_In__c":[
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "true"
+                ],
+                "to": 1
+            }
+        },
+        {
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "false"
+                ],
+                "to": 0
+            }
+        },
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],

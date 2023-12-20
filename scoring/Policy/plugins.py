@@ -97,7 +97,8 @@ class Timediff(Plugin):
         if x == '': 
             return 0
         else:
-            x = datetime.strptime(x, '%Y-%m-%d')
+#             x = x.split(' ')[0]
+            x = datetime.strptime(x, "%Y-%m-%d %H:%M:%S")
             current_time = datetime.today()
 
             return (current_time.year - x.year)

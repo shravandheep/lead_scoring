@@ -30,6 +30,7 @@ def transform_features(data, config_path):
     
     feature_translator = Translator(config_path) 
     features = feature_translator.translate(data)
+    
     return features
                            
     
@@ -45,7 +46,6 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
         
 #     X = X.loc[:,~X.T.duplicated(keep='last')]
 
-    print(f'X is : {X}')
     for col in categorical_cols:
         
         if label_encoder.get(col):
@@ -55,7 +55,7 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
 
                 if val not in cle:
                     X[col] = "unknown"
-                
+
                 X[col] = label_encoder[col].transform(X[col])
 
             except Exception as e:
@@ -63,10 +63,10 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
                     "Error in Label encoding. For the field : {}, {}".format(col, e)
                 )
                 
-    for col in numeric_cols:
-        if isinstance(X[col].to_dict()[0], str):
-            print(f'{col}: {X[col].to_dict()[0]}')
     print(X[numeric_cols])
+    
+    
+   
     
 
     X[numeric_cols] = scaler.transform(X[numeric_cols])
@@ -81,8 +81,6 @@ def inference(node_dict, data, score_request):
     config_dict = node_dict["config_dict"]
 
 
-    print('----------------------------------------------MODEL CONFIG----------------------------------')
-    print(model_config)
     filters_t = transform_features(
         data, config_dict["feature_config"]
     )  # include new data config
@@ -93,8 +91,7 @@ def inference(node_dict, data, score_request):
     selected_scaler = None
     selected_label_encoder = None
     considered_features = list()
-    print('----------------------------------------------MODEL CONFIG----------------------------------')
-    print(model_config)
+
     for _, lead_type in model_config.items():
 
         filters = lead_type.get("filters", {})
@@ -106,7 +103,7 @@ def inference(node_dict, data, score_request):
             condition_2 = filters_t[0][fk] in fv
             condition_final = condition_1 and condition_2
             filter_condition.append(condition_final)
-        print(filter_condition)
+
         if all(filter_condition):
 
             data_config = lead_type["data_source"]
@@ -120,7 +117,7 @@ def inference(node_dict, data, score_request):
             selected_scaler = lead_type["model_params"]["preprocessing_steps"][1]
 
             lead_type_f = lead_type['select_model']
-            print('DATA CONFIG IS: ',data_config)
+
             break
     else:
 
@@ -130,9 +127,6 @@ def inference(node_dict, data, score_request):
 
     # Feature selection
     if config_dict.get(data_config):
-        print('!'*100)
-        print(data_config)
-        print(config_dict[data_config])
         data = transform_features(data, config_dict[data_config])
     else:
         raise Exception(
@@ -148,6 +142,7 @@ def inference(node_dict, data, score_request):
     label_encoder_dict = node_dict["label_encoders"]
     scaler_dict = node_dict["scalers"]
     
+    print('*'*100)
     print(selected_label_encoder, selected_scaler)
 
     if label_encoder_dict.get(selected_label_encoder):

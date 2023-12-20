@@ -82,21 +82,25 @@ class Isweekday(Plugin):
 
 
 class Timediff(Plugin):
-    def __init__(self, kwargs):
+    def __init__(self,kwargs):
         self._status = True
-        self._error = None
-
+        self._error =None
+    
     def get_status(self):
         return self._status
-
+    
     def get_error(self):
         return self._error
 
-    def apply(self, x):
-        x = datetime.strptime(x, "%Y-%m-%d")
-        current_time = datetime.today()
+    def apply(self,x):
+        if x == '': 
+            return 0
+        else:
+#             x = x.split(' ')[0]
+            x = datetime.strptime(x, "%Y-%m-%d %H:%M:%S")
+            current_time = datetime.today()
 
-        return current_time.year - x.year
+            return (current_time.year - x.year)
 
 
 class Weekofmonth(Plugin):
