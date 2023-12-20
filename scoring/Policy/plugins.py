@@ -94,7 +94,7 @@ class Timediff(Plugin):
         return self._error
 
     def apply(self,x):
-        if x ='': 
+        if x == '': 
             return 0
         else:
             x = datetime.strptime(x, '%Y-%m-%d')
