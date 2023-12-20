@@ -167,7 +167,11 @@ def process(data, node_dict):
                 "score": x,
                 "likelihood": 1,
             },
-            {"type": "update_score_for_policy_ms", "score": 1 - x, "likelihood": 3},
+            {
+                "type": "update_score_for_policy_ms",
+                "score": round(1 - x, 2),
+                "likelihood": 3,
+            },
         ]
         result_dict = dict(
             result=res, lead_id=lead_id, policy_reason=traceback.format_exc()
