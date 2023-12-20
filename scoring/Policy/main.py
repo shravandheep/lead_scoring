@@ -56,7 +56,6 @@ def initialize_node(node_config, **kwargs):
     
     for r,d,f in os.walk(parent_path_to_encoders):
         for enc in f:
-            print(enc)
             key = enc.replace(_ENC_EXT_POLICY, '')
             key = key.split("-")[0]
             
@@ -74,7 +73,9 @@ def initialize_node(node_config, **kwargs):
     
     # init model configs
     for r,d,f in os.walk(config_path):
+        print(r, d, f)
         for files in f:
+            print(f)
             key = files.replace(_CFG_EXT_POLICY, '')
             key = key.split("-")[0]
             config_dict[key] = os.path.join(r, files)
@@ -94,7 +95,7 @@ def initialize_node(node_config, **kwargs):
         'scalers' : scalers_dict
     }
     
-    print(initialized_objects['label_encoders'])
+    print(initialized_objects['config_dict'])
     
     
     return initialized_objects
