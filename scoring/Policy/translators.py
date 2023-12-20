@@ -109,6 +109,57 @@ class Translator(object):
         }
         lower, upper = score_ranges.get(category, (0, 0))
         return round(np.random.uniform(lower, upper), 2)
+    
+    
+    
+def is_IEP(self, row):
+    
+    created_date = row['CreatedDate']
+    birthdate = row['Birthdate__c']
+    if pd.isnull(created_date) or pd.isnull(birthdate):
+        return None
+    sixty_fifth_birthday = birthdate + pd.DateOffset(years=65)
+    three_months_before = sixty_fifth_birthday - pd.DateOffset(months=3)
+    three_months_after = sixty_fifth_birthday + pd.DateOffset(months=3)
+    
+    if three_months_before <= created_date <= three_months_after:
+        return 1
+    else:
+        return 0
+    
+    def is_MSOEP(self, row):
+        created_date = row['CreatedDate']
+        birthdate = row['Birthdate__c']
+        if pd.isnull(created_date) or pd.isnull(birthdate):
+            return None
+        sixty_fifth_birthday = birthdate + pd.DateOffset(years=65)
+        six_months_before = sixty_fifth_birthday - pd.DateOffset(months=6)
+        six_months_after = sixty_fifth_birthday + pd.DateOffset(months=6)
+        three_months_after = sixty_fifth_birthday + pd.DateOffset(months=3)
+        three_months_before = sixty_fifth_birthday - pd.DateOffset(months=3)
+        if six_months_before <= created_date <= six_months_after:
+            return 1
+        else:
+            return 0
+
+
+    def is_AEP(self, row):
+        created_date = row['CreatedDate']
+        if pd.isnull(created_date):
+            return None
+        if pd.Timestamp(created_date.year, 10, 1) <= created_date <= pd.Timestamp(created_date.year, 12, 7):
+            return 1
+        else:
+            return 0
+
+    def is_MAOEP(self, row):
+        created_date = row['CreatedDate']
+        if pd.isnull(created_date):
+            return None
+        if pd.Timestamp(created_date.year, 1, 1) <= created_date <= pd.Timestamp(created_date.year, 3, 1):
+            return 1
+        else:
+            return 0
 
     def translate(self, data):
 
