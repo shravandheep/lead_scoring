@@ -101,7 +101,7 @@ class Timediff(Plugin):
             current_time = datetime.today()
 
             return (current_time.year - x.year)
-
+        
 
 class Weekofmonth(Plugin):
     def __init__(self, kwargs):

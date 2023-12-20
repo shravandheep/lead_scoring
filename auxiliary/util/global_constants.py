@@ -92,7 +92,7 @@ POLICY_LBL_ENC = [
 ]
 
 POLICY_SCL_ENC = [
-    'model_experiments/weights/Policy/encoders/paid_scaler_obj.joblib',
-    'model_experiments/weights/Policy/encoders/not_paid_scaler_obj.joblib',
-    'model_experiments/weights/Policy/encoders/partner_scaler_obj.joblib'
+    'model_experiments/weights/Policy/encoders/paid_scaler_obj-2.joblib',
+    'model_experiments/weights/Policy/encoders/not_paid_scaler_obj-2.joblib',
+    'model_experiments/weights/Policy/encoders/partner_scaler_obj-2.joblib'
 ]
