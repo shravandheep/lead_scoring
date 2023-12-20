@@ -55,6 +55,17 @@ ordinal_feat_normalize = [
 ]
 
 weights_path = os.path.join(GConst._FILE_PATH, GConst.WTS_PATH)
+
+
+def initialize_model():
+
+    for r, d, f in os.walk(weights_path):
+        model_path = os.path.join(r, f[0])
+
+    model = torch.load(wt)
+
+    return model
+
 model = initialize_model()
 
 def Ordinal_FeatEngg(lead_history_df_merged_subsetcols, scaler):
@@ -193,16 +204,6 @@ def generate_df(lead_history, node_dict):
     Xp_ = generate_sequences(X)  ### model input
 
     return Xp_, time_since_lead_creation
-
-
-def initialize_model():
-
-    for r, d, f in os.walk(weights_path):
-        model_path = os.path.join(r, f[0])
-
-    model = torch.load(wt)
-
-    return model
 
 
 def model_inference(Xp_):
