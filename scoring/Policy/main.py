@@ -55,7 +55,7 @@ def initialize_node(node_config, **kwargs):
     
     for r,d,f in os.walk(parent_path_to_encoders):
         for enc in f:
-            
+            print(enc)
             key = enc.replace(_ENC_EXT_POLICY, '')
             
             with open(os.path.join(r, enc), 'rb') as f:
@@ -89,6 +89,9 @@ def initialize_node(node_config, **kwargs):
         'label_encoders' : label_encoders_dict,
         'scalers' : scalers_dict
     }
+    
+    print(initialized_objects['label_encoders'])
+    
     
     return initialized_objects
 
