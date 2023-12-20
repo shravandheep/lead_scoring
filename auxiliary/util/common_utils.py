@@ -10,8 +10,9 @@ import logging
 # Internal imports
 
 # to handle the timeout configuration through an env variable
-_ENV_TYPE = os.environ.get('ENV_TYPE')
-local_flag = True if os.getenv('local') else False
+_ENV_TYPE = os.environ.get("ENV_TYPE")
+local_flag = True if os.getenv("local") else False
+
 
 def setup_logger(name, level):
     logging.basicConfig(
@@ -20,14 +21,15 @@ def setup_logger(name, level):
         level=level,
     )
     logger = logging.getLogger(name)
-    logger.propagate = True # remove this if you want to turn off logging
-    logger.disabled = local_flag # Make this True if you want to turn off logging
-     
+    logger.propagate = True  # remove this if you want to turn off logging
+    logger.disabled = local_flag  # Make this True if you want to turn off logging
+
     return logger
+
 
 def check_and_unpack_data(data):
     """
-    Validate type and parse. Format for data 
+    Validate type and parse. Format for data
 
     data = {
           'parent_1': {
@@ -50,7 +52,9 @@ def check_and_unpack_data(data):
     """
 
     if not isinstance(data, dict):
-        raise TypeError('Input to node not of type dict, it is of type {}'.format(type(data)))
+        raise TypeError(
+            "Input to node not of type dict, it is of type {}".format(type(data))
+        )
 
     parsed_data = {}
 
@@ -60,14 +64,14 @@ def check_and_unpack_data(data):
 
     for parent_node, result in data.items():
         try:
-            result = result.get("result", '{}')
+            result = result.get("result", "{}")
             parsed_data[parent_node] = copy.deepcopy(result)
         except:
-            raise ValueError('JSON Decode error')
+            raise ValueError("JSON Decode error")
 
     log.info("GRAPH ID: {}".format(graph_id))
     log.info("PACKET ID: {}".format(packet_id))
-#     log.info("INPUT PAYLOAD: {}".format(parsed_data))
+    #     log.info("INPUT PAYLOAD: {}".format(parsed_data))
 
     return parsed_data, packet_id, graph_id
 
@@ -86,17 +90,26 @@ def create_arguments_dict(parsed_data, input_required_args, allow_duplicate_args
     """
 
     arguments_dict = {}
-    
+
     for _, result in parsed_data.items():
         for key, value in result.items():
             if key in arguments_dict and key not in allow_duplicate_args:
-                raise KeyError("The key {} already exists. Ensure you do not duplicate keys across parent nodes".format(key))
+                raise KeyError(
+                    "The key {} already exists. Ensure you do not duplicate keys across parent nodes".format(
+                        key
+                    )
+                )
             arguments_dict[key] = value
 
     # Ensure required keys from parent nodes are all present
     if len(set(input_required_args) - set(arguments_dict.keys())) != 0:
-        raise KeyError("Following required keys from parent not present - {}".format(set(input_required_args) - set(arguments_dict.keys())))
+        raise KeyError(
+            "Following required keys from parent not present - {}".format(
+                set(input_required_args) - set(arguments_dict.keys())
+            )
+        )
 
     return arguments_dict
+
 
 log = setup_logger(__name__, logging.INFO)
