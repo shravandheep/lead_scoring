@@ -180,9 +180,9 @@ class Translator(object):
         new_data['is_MAOEP'] = new_data.apply(is_MAOEP, axis=1)
         new_data['is_MSOEP'] = new_data.apply(is_MSOEP, axis=1)
         
-        age_rating = pd.read_csv(age_rating)
-        new_data = new_data.merge(age_rating, how='left')
-        new_data['Community %'] = new_data['Community %'].str.rstrip('%').astype(float)
+#         age_rating = pd.read_csv(age_rating)
+#         new_data = new_data.merge(age_rating, how='left')
+#         new_data['Community %'] = new_data['Community %'].str.rstrip('%').astype(float)
         
         
         phone_neu = [
