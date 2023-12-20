@@ -139,7 +139,9 @@ class Translator(object):
                     pass
             else:
                 pass
-            
+        
+        print('*'*100)
+        print(new_data)
         new_data = pd.DataFrame([new_data])
         print('#'*100)
         print(new_data)
