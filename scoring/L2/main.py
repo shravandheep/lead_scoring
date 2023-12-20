@@ -14,6 +14,7 @@ from auxiliary.util.global_constants import (
     LEAD_REQ_SCORE,
     POLICY_REQ_SCORE,
     ENC_PATH,
+    WTS_PATH,
     SCL_ENC_PATH,
 )
 from auxiliary.util.common_utils import (
@@ -43,6 +44,8 @@ def initialize_node(node_config, **kwargs):
     -------
         None
     """
+    
+    weights_path = os.path.join(_FILE_PATH, WTS_PATH)
 
     encoders_path = os.path.join(_FILE_PATH, ENC_PATH)
     print(encoders_path)
@@ -67,7 +70,7 @@ def initialize_node(node_config, **kwargs):
     logger.info("Node initialized. Models, scalers, encoders Loaded")
 
     initialized_objects = {
-        "model_dict": model_dict,
+        # "model_dict": model_dict,
         "scalers": scalers_dict,
     }
 
