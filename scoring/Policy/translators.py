@@ -112,20 +112,20 @@ class Translator(object):
     
     
     
-def is_IEP(self, row):
-    
-    created_date = row['CreatedDate']
-    birthdate = row['Birthdate__c']
-    if pd.isnull(created_date) or pd.isnull(birthdate):
-        return None
-    sixty_fifth_birthday = birthdate + pd.DateOffset(years=65)
-    three_months_before = sixty_fifth_birthday - pd.DateOffset(months=3)
-    three_months_after = sixty_fifth_birthday + pd.DateOffset(months=3)
-    
-    if three_months_before <= created_date <= three_months_after:
-        return 1
-    else:
-        return 0
+    def is_IEP(self, row):
+
+        created_date = row['CreatedDate']
+        birthdate = row['Birthdate__c']
+        if pd.isnull(created_date) or pd.isnull(birthdate):
+            return None
+        sixty_fifth_birthday = birthdate + pd.DateOffset(years=65)
+        three_months_before = sixty_fifth_birthday - pd.DateOffset(months=3)
+        three_months_after = sixty_fifth_birthday + pd.DateOffset(months=3)
+
+        if three_months_before <= created_date <= three_months_after:
+            return 1
+        else:
+            return 0
     
     def is_MSOEP(self, row):
         created_date = row['CreatedDate']
