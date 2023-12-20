@@ -2079,7 +2079,27 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":0
+                "value":"Age_as_of_createddate__c"
+            }
+        },
+         {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":65
+            },
+            "alias":"Age"
+        },
+        {
+            "apply":"timediff",
+            "kwargs":{
+                
+            },
+            "alias":"Age"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":"Age"
             }
         }
     ],
