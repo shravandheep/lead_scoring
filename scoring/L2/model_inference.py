@@ -6,9 +6,6 @@ from auxiliary.util import global_constants as GConst
 
 
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
-model_wts_path = os.path.join(_FILE_PATH, GConst.L2_MODEL_WTS)
-
-# parent_path_to_model_wts = os.path.join(model_wts_path, KW_VEC_PATH)
 
 
 reverse_field_mapping = {
