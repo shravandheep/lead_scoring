@@ -89,7 +89,7 @@ def generate_sequences(X):
     
     Xp_ = pad_sequence(X_, batch_first=True)
     
-    retrun Xp_
+    return Xp_
     
     
 
