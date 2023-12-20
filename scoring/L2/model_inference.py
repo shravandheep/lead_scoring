@@ -118,6 +118,7 @@ def Ordinal_FeatEngg(lead_history_df_merged_subsetcols, scaler):
             [lead_history_df_merged_subsetcols[f]]
         )
         print(f'INVERSE IS : {inv}')
+        print(f'FIELD IS: {f}, LEN IS: {len(inv[0])}')
         lead_history_df_merged_subsetcols[f] = inv[0]
 
     return lead_history_df_merged_subsetcols
