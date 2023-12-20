@@ -246,7 +246,7 @@ def generate_df(lead_history, node_dict):
 
     lead_history_df_merged_subsetcols = lead_history_df_merged_[reqd_cols].fillna(0)
     
-    print(f'LEAD HISTORY DATA: {lead_history_df_merged_subsetcols}')
+    print(f'LEAD HISTORY DATA: {lead_history_df_merged_subsetcols.to_dict(orient='records')}')
 
     X = Ordinal_FeatEngg(
         lead_history_df_merged_subsetcols, node_dict["scalers"]["scalers_dict"]
