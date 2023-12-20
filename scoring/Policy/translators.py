@@ -154,28 +154,60 @@ class Translator(object):
         new_data = new_data.merge(age_rating, how='left')
         new_data['Community %'] = new_data['Community %'].str.rstrip('%').astype(float)
         
-        phone_neu = ['Input Phone1 Number', 'Appended Phones1 Number', 'Appended Phones2 Number', 'Appended Phones3 Number']
-        phone_lead = ['MobilePhone']
-        email_neu = ['Appended Emails 1 Email Address', 'Appended Emails 2 Email Address', 'Appended Emails 3 Email Address']
-        email_lead = ['Email']
         
-        new_data['Phones_Neustar'] = new_data.apply(lambda row: [row[column] for column in phone_neu], axis=1)
-        new_data['Email_Neustar'] = new_data.apply(lambda row: [row[column] for column in email_neu], axis=1)
+        phone_neu = [
+            "Input Phone1 Number",
+            "Appended Phones1 Number",
+            "Appended Phones2 Number",
+            "Appended Phones3 Number",
+        ]
+        phone_lead = ["MobilePhone"]
+        email_neu = [
+            "Appended Emails 1 Email Address",
+            "Appended Emails 2 Email Address",
+            "Appended Emails 3 Email Address",
+        ]
+        email_lead = ["Email"]
+
+        new_data["Phones_Neustar"] = new_data.apply(
+            lambda row: [row[column] for column in phone_neu], axis=1
+        )
+        new_data["Email_Neustar"] = new_data.apply(
+            lambda row: [row[column] for column in email_neu], axis=1
+        )
+
+        new_data["Email_matching"] = new_data.apply(
+            lambda row: self.find_index_in_list(row["Email"], row["Email_Neustar"]),
+            axis=1,
+        )
+        new_data["Phone_matching"] = new_data.apply(
+            lambda row: self.find_index_in_list(
+                row["MobilePhone"], row["Phones_Neustar"]
+            ),
+            axis=1,
+        )
+
+        new_data["Email_Match_Score"] = new_data["Email_matching"].apply(
+            self.assign_random_score
+        )
+        new_data["Phone_Match_Score"] = new_data["Phone_matching"].apply(
+            self.assign_random_score
+        )
+
+        new_data["StateCode_Match"] = int(
+            new_data["StateCode"] == new_data["StateCode"]
+        )
+        new_data["City_Match"] = int(
+            new_data["City"] == new_data["Appended Addresses1 City"]
+        )
+        new_data["FirstName_Match"] = int(
+            new_data["FirstName"] == new_data["Individual Name First"]
+        )
+        new_data["LastName_Match"] = int(
+            new_data["LastName"] == new_data["Individual Name Last"]
+        )
         
-        new_data['Email_matching'] = new_data.apply(lambda row: self.find_index_in_list(row['Email'], row['Email_Neustar']), axis=1)
-        new_data['Phone_matching'] = new_data.apply(lambda row: self.find_index_in_list(row['MobilePhone'], row['Phones_Neustar']), axis=1)
-        
-        new_data['Email_Match_Score'] = new_data['Email_matching'].apply(self.assign_random_score)
-        new_data['Phone_Match_Score'] = new_data['Phone_matching'].apply(self.assign_random_score)
-        
-        new_data['StateCode_Match'] = int(new_data['StateCode'] == new_data['StateCode'])
-        new_data['City_Match'] = int(new_data['City'] == new_data['Appended Addresses1 City'])
-        new_data['FirstName_Match'] = int(new_data['FirstName'] == new_data['Individual Name First'])
-        new_data['LastName_Match'] = int(new_data['LastName'] == new_data['Individual Name Last'])
-        
-        new_data.loc[new_data['p'].isin(['medicare', 'medicarefaq', 'brand eip','medicare advantage']), 'campaign_product'] = 'not_medigap'
-        new_data.loc[new_data['p'].isin(['medigap']), 'campaign_product'] = 'medigap'
-        
+        ## add translator
         new_data['b'] = 'medigap'
         
         new_data = new_data.to_dict(orient='records')
