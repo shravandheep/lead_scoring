@@ -48,10 +48,6 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
         X = features
         
 
-    
-#     numeric_cols = list(X.select_dtypes(include=['float64']).columns)
-#     print(numeric_cols)
-
     for col in categorical_cols:
         if label_encoder.get(col):
             try:

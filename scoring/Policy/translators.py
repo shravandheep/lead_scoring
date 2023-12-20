@@ -268,6 +268,8 @@ class Translator(object):
         new_data = new_data.merge(age_rating, how='left')
         new_data['Community %'] = new_data['Community %'].str.rstrip('%').astype(float)
         new_data['region'] = 'unknown'
+        new_data['LeadAppSubStage__c'] = 0
+        new_data['LeadAppStage__c'] = 0
         
 #         new_data = new_data.loc[:,~new_data.T.duplicated(keep='last')]
         

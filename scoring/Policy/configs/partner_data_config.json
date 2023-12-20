@@ -3103,6 +3103,60 @@
             }
         }
     ],
+    "Supplemental_Form_Received__c": [
+        {
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "true"
+                ],
+                "to": 1
+            }
+        },
+        {
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "false"
+                ],
+                "to": 0
+            }
+        },
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
+            }
+        }
+    ],
+    
+    "HasOptedOutOfEmail": [
+        {
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "true"
+                ],
+                "to": 1
+            }
+        },
+        {
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "false"
+                ],
+                "to": 0
+            }
+        },
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
+            }
+        }
+    ],
+    
     "Gender__c":[
         {
             "apply":"fill_na",
@@ -3207,7 +3261,17 @@
             }
         }
     ],
+   
+
     "Inbound_Calls__c":[
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
+            }
+        }
+    ],
+    "Appended Addresses1 DPC":[
         {
             "apply":"fill_na",
             "kwargs":{
@@ -3217,9 +3281,27 @@
     ],
     "Inquired_Again__c":[
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "true"
+                ],
+                "to": 1
+            }
+        },
+        {
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "false"
+                ],
+                "to": 0
+            }
+        },
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
@@ -3241,9 +3323,27 @@
     ],
     "PriorityCallback__c":[
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "true"
+                ],
+                "to": 1
+            }
+        },
+        {
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "false"
+                ],
+                "to": 0
+            }
+        },
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
             }
         }
     ],
@@ -3275,7 +3375,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":"unknown"
+                "value":0
             }
         }
     ],
@@ -4317,7 +4417,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":"unknown"
+                "value":0
             }
         }
     ],
@@ -4376,7 +4476,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":"unknown"
+                "value":0
             }
         }
     ],
@@ -4384,7 +4484,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":"unknown"
+                "value":0
             }
         }
     ],
@@ -4392,7 +4492,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":"unknown"
+                "value":0
             }
         }
     ],
@@ -4400,7 +4500,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":"unknown"
+                "value":0
             }
         }
     ],
@@ -4408,7 +4508,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":"unknown"
+                "value":0
             }
         }
     ],
@@ -4424,7 +4524,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":"unknown"
+                "value":0
             }
         }
     ],
@@ -4432,7 +4532,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":"unknown"
+                "value":0
             }
         }
     ],
@@ -4440,7 +4540,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":"unknown"
+                "value":0
             }
         }
     ],
@@ -4464,7 +4564,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":"unknown"
+                "value":0
             }
         }
     ],
@@ -4472,7 +4572,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":"unknown"
+                "value":0
             }
         }
     ],
@@ -4610,17 +4710,11 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":"unknown"
+                "value":0
             }
         }
     ],
     "Household Buying Power Score":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        },
         {
             "apply":"extract_string",
             "kwargs":{
@@ -4634,7 +4728,20 @@
                 "regex":"r'(\\d+)'"
             },
             "alias":"Numerical_score"
-        }
+        }, 
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
+            }, 
+            "alias": "Numerical_score"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":"unknown"
+            }
+        },
     ],
     "Match Type":[
         {
