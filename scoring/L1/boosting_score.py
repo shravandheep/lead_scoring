@@ -1,14 +1,27 @@
 import os
 import pandas as pd
 import json
+from datetime import datetime
 
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 
 
-def split_and_create_dict(data):
-    if data == "null":
-        return None  # Return None for null values
-    values = data.split("|")[:8]
+def calc_diff(actual, expected): 
+    if expected == 0:
+        return 0
+    elif expected == actual:
+        return 0
+    else:
+        diff = min(
+            abs(expected - actual),
+            (abs(abs(actual - expected) - 12)),
+        )
+        return abs(diff)
+    
+def get_call_window_score(input_call_window, created_time):
+    
+    created_time = datetime.strptime(created_time, '%Y-%m-%d %H:%M:%S')
+    values= input_call_window.split('|')[:8]
     keys = [
         "overall",
         "Monday",
@@ -20,82 +33,23 @@ def split_and_create_dict(data):
         "Sunday",
     ]
     dictionary = {keys[i]: int(value) for i, value in enumerate(values)}
-    return dictionary
+    actual_call_day = created_time.strftime('%A')
+    expected_call_window_on_day = dictionary.get(actual_call_day)
+    expected_overall_call_window = dictionary.get('overall')
+    actual_call_window = int(1+int(created_time.strftime('%H'))/2)
 
-
-def extract_value_all(row):
-    if row["call_window"] is not None:
-        day_name = row["Created_DAY"]
-        return row["call_window"].get(day_name, None)
-    return None
-
-
-def extract_value_overall(row):
-    if row["call_window"] is not None:
-        day_name = "overall"
-        return row["call_window"].get(day_name, None)
-    return None
-
-
-def calculate_call_window_difference(row):
-    expected_window = row["Expected_Call_Window"]
-    actual_window = row["Actual_Call_Window"]
-
-    if expected_window == 0:
-        return None
-    elif expected_window == actual_window:
-        return 0
-    else:
-
-        diff = min(
-            abs(expected_window - actual_window),
-            (abs(abs(actual_window - expected_window) - 12)),
-        )
-        return abs(diff)
-
-
-def calculate_combined_score(row):
-    daywise_diff = row["Daywise_window_diff"]
-    overall_diff = row["Overall_window_diff"]
-
-    if pd.isna(daywise_diff) or pd.isna(overall_diff):
-        return np.nan
+    overall_diff = calc_diff(actual_call_window, expected_overall_call_window)
+    daywise_diff = calc_diff(actual_call_window, expected_call_window_on_day)
 
     daywise_score = max(0, 1 - daywise_diff / 12)
     overall_score = max(0, 1 - overall_diff / 12)
 
-    combined_score = (weight_daywise * daywise_score) + (weight_overall * overall_score)
-
-    return combined_score
-
-
-def get_call_window_score(df_leads_neu):
-
-    df_leads_neu["call_window"] = df_leads_neu["Input Phone1 Call Window"].apply(
-        split_and_create_dict
-    )
-    df_leads_neu["CreatedDate"] = pd.to_datetime(df_leads_neu["CreatedDate"])
-    df_leads_neu["Created_DAY"] = df_leads_neu["CreatedDate"].dt.day_name()
-
-    df_leads_neu["Expected_Call_Window"] = df_leads_neu.apply(extract_value_all, axis=1)
-    df_leads_neu["Overall_Call_Window"] = df_leads_neu.apply(
-        extract_value_overall, axis=1
-    )
-
-    df_leads_neu["Actual_Call_Window"] = (
-        df_leads_neu["CreatedDate"].dt.hour / 2
-    ).astype(int) + 1
-    df_leads_neu["Daywise_window_diff"] = df_leads_neu.apply(
-        calculate_call_window_difference, axis=1
-    )
-
     weight_daywise = 0.7
     weight_overall = 0.3
 
-    df_leads_neu["Call_window_score"] = df_leads_neu.apply(
-        calculate_combined_score, axis=1
-    )
-    return df_leads_neu["Call_window_score"]
+    combined_score = (weight_daywise * daywise_score) + (weight_overall * overall_score)
+    return combined_score
+
 
 
 def score_boost(score, data, selected_model):
@@ -127,10 +81,14 @@ def score_boost(score, data, selected_model):
     lead_type = data["Type"]
     if lead_type == "Online":
         score = score * 0.9
+    
+    created_time = data["CreatedDate"]
+    input_call_window = data["Input Phone1 Call Window"]
+    
+    
+    if input_call_window != "":
 
-    if data["Input Phone1 Call Window"] != "":
-
-        call_score = get_call_window_score(data)
+        call_score = get_call_window_score(input_call_window, created_time)
         final_score = score * 0.67 + call_score * 0.33
     else:
         final_score = score
