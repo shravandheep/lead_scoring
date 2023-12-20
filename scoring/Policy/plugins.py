@@ -94,10 +94,13 @@ class Timediff(Plugin):
         return self._error
 
     def apply(self,x):
-        x = datetime.strptime(x, '%Y-%m-%d')
-        current_time = datetime.today()
-        
-        return (current_time.year - x.year)
+        if x ='': 
+            return 0
+        else:
+            x = datetime.strptime(x, '%Y-%m-%d')
+            current_time = datetime.today()
+
+            return (current_time.year - x.year)
     
     
 class Weekofmonth(Plugin):
