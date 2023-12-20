@@ -271,5 +271,7 @@ class Translator(object):
         new_data["p"] = "unknown"
         
         new_data = new_data.to_dict(orient="records")
+        print("$"*100)
+        print(new_data)
 
         return new_data
