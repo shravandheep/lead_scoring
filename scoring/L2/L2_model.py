@@ -82,7 +82,7 @@ def do_inference(data):
     keys_to_consider = descending[:30]
     
     all_changes = list()
-    _ = [all_changes.extend(json.loads(res[k])['changes']) for k in keys_to_consider]
+    _ = [all_changes.extend(json.loads(lead_history_from_dynamodb[k])['changes']) for k in keys_to_consider]
     
     print(f'LEN OF ALL CHANGES: {len(all_changes)}')
     f = pd.DataFrame(all_changes)
