@@ -70,7 +70,7 @@ def process(data):
     score_request = args_dict['data'][LEAD_DATA]['type']
     
     if score_request == 'update_score_for_lead' or score_request == 'request_score_for_lead':
-        l1_score = arrgs_dict['l1_score']
+        l1_score = args_dict['l1_score']
 
         if args_dict['l2_score']:
             l2_score = args_dict['l2_score']
