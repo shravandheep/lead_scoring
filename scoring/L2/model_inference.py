@@ -143,7 +143,7 @@ def generate_time_based_feat(lead_history_df):
     )
     lead_history_df.loc[NEXTCALL, "TIMETONEXTCALL"] = (
         lead_history_df[NEXTCALL]["new_value"] - lead_history_df[NEXTCALL]["old_value"]
-    ).dt.total_seconds()
+    ).total_seconds()
 
     ### TIME BETWEEN CALLS
     OUTBOUNDCALLS = lead_history_df["field_changed"] == "Outbound_Calls__c"
