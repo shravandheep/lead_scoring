@@ -152,17 +152,7 @@ class Translator(object):
         logger.info('#'*100)
         logger.info(new_data)
         
-        new_data['Birthdate__c'] = pd.to_datetime(new_data['Birthdate__c'])
-        new_data['CreatedDate'] = pd.to_datetime(new_data['CreatedDate'])
         
-        new_data['is_IEP'] = new_data.apply(self.is_IEP, axis=1)
-        new_data['is_AEP'] = new_data.apply(self.is_AEP, axis=1)
-        new_data['is_MAOEP'] = new_data.apply(self.is_MAOEP, axis=1)
-        new_data['is_MSOEP'] = new_data.apply(self.is_MSOEP, axis=1)
-        
-        age_rating = pd.read_csv(age_rating)
-        new_data = new_data.merge(age_rating, how='left')
-        new_data['Community %'] = new_data['Community %'].str.rstrip('%').astype(float)
 
     
         def find_index_in_list(self, value, int_list):
@@ -241,6 +231,18 @@ class Translator(object):
         
         ## add translator
         new_data['b'] = 'medigap'
+        
+        new_data['Birthdate__c'] = pd.to_datetime(new_data['Birthdate__c'])
+        new_data['CreatedDate'] = pd.to_datetime(new_data['CreatedDate'])
+        
+        new_data['is_IEP'] = new_data.apply(self.is_IEP, axis=1)
+        new_data['is_AEP'] = new_data.apply(self.is_AEP, axis=1)
+        new_data['is_MAOEP'] = new_data.apply(self.is_MAOEP, axis=1)
+        new_data['is_MSOEP'] = new_data.apply(self.is_MSOEP, axis=1)
+        
+        age_rating = pd.read_csv(age_rating)
+        new_data = new_data.merge(age_rating, how='left')
+        new_data['Community %'] = new_data['Community %'].str.rstrip('%').astype(float)
         
         new_data = new_data.to_dict(orient='records')
         
