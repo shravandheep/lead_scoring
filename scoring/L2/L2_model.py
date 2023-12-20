@@ -21,16 +21,14 @@ weights_path = os.path.dirname(os.path.realpath(__file__))
 
 # Helpers
 def get_history_from_dynamodb(lead_id):
-    
     items = history_table.query_by_partition_key(
-        GConst.HISTORY_TABLE_PARTITION_KEY, 
-        lead_id
+        GConst.HISTORY_TABLE_PARTITION_KEY, lead_id
     )
-    
+
     # Only one entry, list of dicts
     items = items[0]
     items.pop(GConst.HISTORY_TABLE_PARTITION_KEY)
-    
+
     return items
 
 
@@ -72,25 +70,24 @@ def transform_features(features):
 
 
 def do_inference(data):
-    
     lead_id = data["lead_id"]
     lead_history_from_dynamodb = get_history_from_dynamodb(lead_id)
-    
+
     descending = sorted(list(lead_history_from_dynamodb.keys()))[::-1]
-    
+
     # Taking the last 30 entries
     keys_to_consider = descending[:30]
-    
+
     all_changes = list()
-    _ = [all_changes.extend(json.loads(lead_history_from_dynamodb[k])['changes']) for k in keys_to_consider]
-    
-    print(f'LEN OF ALL CHANGES: {len(all_changes)}')
-    f = pd.DataFrame(all_changes)
-    
-    print(f'Data: {f}')
-        
-    
-    Xp, time_since_lead_creation = transform_features(features)
+    _ = [
+        all_changes.extend(json.loads(lead_history_from_dynamodb[k])["changes"])
+        for k in keys_to_consider
+    ]
+
+    print(f"LEN OF ALL CHANGES: {len(all_changes)}")
+    print(all_changes)
+
+    Xp, time_since_lead_creation = transform_features(all_changes)
     score = model_inference(Xp)
 
     return score, time_since_lead_creation
