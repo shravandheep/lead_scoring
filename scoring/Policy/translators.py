@@ -64,6 +64,27 @@ class Translator(object):
     def run_translators(self, value, func):
         return func(value)
     
+    def find_index_in_list(self, value, int_list):
+        if value == "null":  ##lead
+            return -2
+        elif int_list == ["null", "null", "null"]:
+            return -2
+        elif value in int_list:
+            return int_list.index(value)
+        else:
+            return -1
+
+    def assign_random_score(self, category):
+        score_ranges = {
+            0: (0.9, 1.0),
+            1: (0.8, 0.9),
+            2: (0.7, 0.8),
+            -1: (0.1, 0.2),
+            -2: (0, 0.05),
+        }
+        lower, upper = score_ranges.get(category, (0, 0))
+        return round(np.random.uniform(lower, upper), 2)
+    
     def is_IEP(row):
 
         created_date = row['CreatedDate']
@@ -170,6 +191,7 @@ class Translator(object):
             "Appended Phones2 Number",
             "Appended Phones3 Number",
         ]
+        
         phone_lead = ["MobilePhone"]
         email_neu = [
             "Appended Emails 1 Email Address",
