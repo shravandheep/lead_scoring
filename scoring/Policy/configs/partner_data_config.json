@@ -4285,12 +4285,6 @@
     ],
     "Estimated Household Income (Broad band)":[
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        },
-        {
             "apply":"substitute",
             "kwargs":{
                 "from":[
@@ -4335,6 +4329,12 @@
                 "value":"unknown"
             },
             "alias":"Income_group"
+        }, 
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":"unknown"
+            }
         }
     ],
     "Homeowner: Combined Homeowner/Renter":[
