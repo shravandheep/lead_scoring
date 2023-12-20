@@ -140,7 +140,7 @@ class Translator(object):
             else:
                 pass
             
-        new_data = pd.DataFrame(new_data)
+        new_data = pd.DataFrame([new_data])
         
         new_data['Birthdate__c'] = pd.to_datetime(new_data['Birthdate__c'])
         new_data['CreatedDate'] = pd.to_datetime(new_data['CreatedDate'])
