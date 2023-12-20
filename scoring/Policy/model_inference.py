@@ -5,7 +5,7 @@ import joblib
 import pandas as pd
 
 from auxiliary.util.global_constants import _WTS_EXT_L1
-from scoring.L1.translators import Translator
+from scoring.Policy.translators import Translator
 
 # Helpers 
 def initialize_model(wts_path):
