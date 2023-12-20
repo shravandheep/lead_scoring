@@ -62,7 +62,7 @@ def initialize_node(node_config, **kwargs):
             scalers_dict[key] = joblib.load(os.path.join(r, scl))
 
     # Fix model in the later patches
-    model = initialize_model(weights_path)
+    # model = initialize_model(weights_path)
 
     logger.info("Node initialized. Models, scalers, encoders Loaded")
 
