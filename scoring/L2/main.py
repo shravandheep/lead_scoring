@@ -110,6 +110,12 @@ def process(data, node_dict):
                 "time_since_lead_creation": time_since_lead_creation,
                 "l2_reason": reason,
             }
+        elif score_request == "request_score_for_lead":
+            result_dict = {
+                "l2_score": 0,
+                "time_since_lead_creation": 300,
+                "l2_reason": "No L2 invocation for new lead.",
+            }
         else:
             result_dict = {}
     except:
