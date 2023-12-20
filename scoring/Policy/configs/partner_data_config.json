@@ -413,7 +413,7 @@
         {
             "apply":"get_keyword_vector",
             "kwargs":{
-                "vector":"count_vec"
+                "vector":"count_vectorizer"
             },
             "alias":"count_vector"
         },
@@ -427,7 +427,7 @@
         {
             "apply":"get_keyword_vector",
             "kwargs":{
-                "vector":"count_vec"
+                "vector":"tfidf_vectorizer"
             },
             "alias":"tfidf_vector"
         },
@@ -2194,7 +2194,7 @@
             "kwargs":{
                 "value":"unknown"
             },
-            "alias":"unknown"
+            "alias":"l"
         },
         {
             "apply":"fill_na",
@@ -4753,6 +4753,13 @@
                 "value":0
             }, 
             "alias": "Numerical_score"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":"unknown"
+            }, 
+            "alias": "Letter_score"
         },
         {
             "apply":"fill_na",
