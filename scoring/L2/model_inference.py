@@ -4,7 +4,6 @@ import os
 
 from auxiliary.util import global_constants as GConst
 
-
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 
 
@@ -203,7 +202,7 @@ def initialize_model(wts_path):
             all_wts.append(os.path.join(r, weights))
 
     for wt in all_wts:
-        model_name = wt.split("/")[-1].replace(_WTS_EXT_L2, "")
+        model_name = wt.split("/")[-1].replace(GConst._WTS_EXT_L2, "")
         model = torch.load(wt)
         model_dict[model_name] = model
 
