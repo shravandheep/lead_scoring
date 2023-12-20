@@ -104,6 +104,7 @@ def process(data, node_dict):
                 args_dict, node_dict
             )  ### check
             reason = ""
+            print(f'SCORE IS: {score}')
             result_dict = {
                 "l2_score": score,
                 "time_since_lead_creation": time_since_lead_creation,
