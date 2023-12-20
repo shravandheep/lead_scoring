@@ -46,8 +46,6 @@ def initialize_node(node_config, **kwargs):
 
     encoders_path = os.path.join(_FILE_PATH, ENC_PATH)
     print(encoders_path)
-    weights_path = os.path.join(_FILE_PATH, WTS_PATH)
-    print(weights_path)
 
     parent_path_to_scalers = os.path.join(encoders_path, SCL_ENC_PATH)
     print(parent_path_to_scalers)

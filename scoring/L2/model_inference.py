@@ -7,7 +7,6 @@ from auxiliary.util import global_constants as GConst
 
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 
-
 reverse_field_mapping = {
     "NVMConnect__NextContactTime__c": "NVMConnect__NextContactTime__c",
     "Outbound_Calls__c": "Outbound_Calls__c",
@@ -55,6 +54,8 @@ ordinal_feat_normalize = [
     "Cumulative_Detail_changes",
 ]
 
+weights_path = os.path.join(GConst._FILE_PATH, GConst.WTS_PATH)
+model = initialize_model()
 
 def Ordinal_FeatEngg(lead_history_df_merged_subsetcols, scaler):
     for f in ordinal_feat_standardize + ordinal_feat_normalize:
@@ -194,24 +195,17 @@ def generate_df(lead_history, node_dict):
     return Xp_, time_since_lead_creation
 
 
-def initialize_model(wts_path):
-    all_wts = []
-    model_dict = {}
+def initialize_model():
 
-    for r, d, f in os.walk(wts_path):
-        for weights in f:
-            all_wts.append(os.path.join(r, weights))
+    for r, d, f in os.walk(weights_path):
+        model_path = os.path.join(r, f[0])
 
-    for wt in all_wts:
-        model_name = wt.split("/")[-1].replace(GConst._WTS_EXT_L2, "")
-        model = torch.load(wt)
-        model_dict[model_name] = model
+    model = torch.load(wt)
 
-    return model_dict
+    return model
 
 
 def model_inference(Xp_):
-    model = torch.load("weights/lstm_wts_v3.1_champ.pt")
 
     outputs = model(Xp_)
     softmax = torch.nn.Softmax(dim=1)
