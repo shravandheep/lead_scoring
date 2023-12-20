@@ -621,7 +621,7 @@
             "Appended_Phone2__verified_phone",
             "Inquired_Again__c"],
         "model_params": {
-            "preprocessing_steps": ["seo_encoder_obj", "seo_scaler_obj"]
+            "preprocessing_steps": ["not_paid_encoder_obj", "not_paid_scaler_obj"]
         }, 
         "model_wts": "not_paid_model_xgb"
     },
