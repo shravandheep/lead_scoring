@@ -114,7 +114,7 @@ def process(data, node_dict):
             result_dict = {
                 "l2_score": 0,
                 "time_since_lead_creation": 300,
-                "l2_reason": '',
+                "l2_reason": "",
             }
     except:
         result_dict = {

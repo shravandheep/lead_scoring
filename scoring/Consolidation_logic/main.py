@@ -88,13 +88,14 @@ def process(data):
 
     parsed_data, packet_id, _ = check_and_unpack_data(data)
 
-    args_dict = create_arguments_dict(parsed_data, input_keys)
+    args_dict = create_arguments_dict(parsed_data, ["data"])
     score_request = args_dict["data"][LEAD_DATA]["type"]
 
     if (
         score_request == "update_score_for_lead"
         or score_request == "request_score_for_lead"
     ):
+        args_dict = create_arguments_dict(parsed_data, input_keys)
         l1_score = args_dict["l1_score"]
 
         if args_dict["l2_score"]:
