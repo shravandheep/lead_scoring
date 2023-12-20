@@ -4326,7 +4326,7 @@
         {
             "apply":"fill_na",
             "kwargs":{
-                "value":"unknown"
+                "value":"Medium income"
             },
             "alias":"Income_group"
         }, 

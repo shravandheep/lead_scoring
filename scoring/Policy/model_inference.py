@@ -48,7 +48,6 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
 #     print(numeric_cols)
 
     for col in categorical_cols:
-        print(X[col])
         if label_encoder.get(col):
             try:
                 val = set(X[col].values)
@@ -67,6 +66,8 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
     print(X[numeric_cols])
 
     X[numeric_cols] = scaler.transform(X[numeric_cols])
+    
+    return X
     
     
 

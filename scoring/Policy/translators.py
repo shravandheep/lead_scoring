@@ -270,8 +270,6 @@ class Translator(object):
         new_data["campaign_product"] = "unknown"
         new_data["p"] = "unknown"
         
-        new_data = new_data.loc[:,~new_data.columns.duplicated()]
-        
         new_data = new_data.to_dict(orient="records")
         print("$"*100)
         print(new_data)
