@@ -1,0 +1,15 @@
+flask==3.0.0
+cachetools==5.3.1
+gunicorn==21.2.0
+kafka-python==2.0.2
+requests
+protobuf==3.20.*
+pandas
+numpy==1.23.4
+boto3==1.17.97
+botocore==1.20.97
+scikit-learn==0.22.2
+itsdangerous
+phonenumbers
+email_validator
+xgboost
