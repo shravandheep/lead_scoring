@@ -128,7 +128,7 @@ def process(data, node_dict):
 
     # Run model inference
     try:
-        
+        raise    
         if score_request == 'request_policy_score_for_lead':
             result_dict = dict(result=inference(node_dict, combined_data, score_request), policy_reason='')
             ma_score = result_dict['result'][0]['score']

@@ -69,9 +69,7 @@ def process(data):
     args_dict = create_arguments_dict(parsed_data, input_keys)
     score_request = args_dict['data'][LEAD_DATA]['type']
     
-    if score_request == 'update_score_for_lead' or score_request == 'request_score_for_lead': 
-    
-    
+    if score_request == 'update_score_for_lead' or score_request == 'request_score_for_lead':
         l1_score = arrgs_dict['l1_score']
 
         if args_dict['l2_score']:
@@ -84,14 +82,13 @@ def process(data):
 
         final_args = dict((k,v) for (k,v) in args_dict.items() if k in required_keys)
 
-
-
         result_dict = {
             **final_args,
             'score' : final_score,
             'type' : score_request,
             'likelihood' : final_likelihood
         }
+
     else: 
         result_dict = {}
         

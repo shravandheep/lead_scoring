@@ -145,7 +145,7 @@ def process(data, node_dict):
     #     node_dict['neustar_match'] = "not_matched" if not bool(neustar_data) else "matched"
 
     try:
-
+        raise
         if (
             score_request == "request_score_for_lead"
             or score_request == "update_score_for_lead"
@@ -155,8 +155,8 @@ def process(data, node_dict):
             result_dict["l1_score"] = round(float(result_dict["l1_score"]), 2)
         else:
             result_dict = {}
+    
     except Exception as e:
-
         result_dict = {
             "l1_score": 0.4,
             "l1_likelihood": 1,

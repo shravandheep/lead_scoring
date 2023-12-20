@@ -62,6 +62,7 @@ def process(data, model):
     
     
     try: 
+        raise
         if score_request == 'update_score_for_lead':
             score, time_since_lead_creation  = do_inference(args_dict) ### check
             reason = ''
