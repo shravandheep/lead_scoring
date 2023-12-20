@@ -45,6 +45,11 @@ POLICY_REQ_SCORE = "request_score_for_policy"
 _BUCKET_NAME = "eip-insurance-useast1"
 _CLOUDFRONT_URL = "https://d10nf2miq8av5z.cloudfront.net/"
 
+# Dynamo
+HISTORY_TABLE = "eip_history_table"
+DYNAMO_REGION = "us-east-1"
+HISTORY_TABLE_PARTITION_KEY = "leadID"
+
 ## Model weights and configs
 # L1
 L1_WTS = [

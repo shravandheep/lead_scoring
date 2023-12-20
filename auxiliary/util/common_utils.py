@@ -4,14 +4,36 @@ Common utils
 
 # General imports
 import os
+import boto3
 import copy
 import logging
 
+from boto3.dynamodb.conditions import Key
+
 # Internal imports
+from auxiliary.util import global_constants as GConst
 
 # to handle the timeout configuration through an env variable
 _ENV_TYPE = os.environ.get("ENV_TYPE")
 local_flag = True if os.getenv("local") else False
+
+
+class DynamoUtils:
+    def __init__(self, table):
+        """
+        Params init
+        """
+        self.dynamodb = boto3.resource("dynamodb", region_name=GConst.DYNAMO_REGION)
+        self.table = self.dynamodb.Table(table)
+
+    def query_by_partition_key(self, partition_key, value):
+        key_condition_expression = Key(partition_key).eq(value)
+
+        # Query the table
+        response = self.table.query(KeyConditionExpression=key_condition_expression)
+
+        # Return the result
+        return response["Items"]
 
 
 def setup_logger(name, level):
@@ -21,6 +43,7 @@ def setup_logger(name, level):
         level=level,
     )
     logger = logging.getLogger(name)
+    logger.addHandler(logging.StreamHandler(sys.stdout))
     logger.propagate = True  # remove this if you want to turn off logging
     logger.disabled = local_flag  # Make this True if you want to turn off logging
 
