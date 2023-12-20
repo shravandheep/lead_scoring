@@ -106,7 +106,7 @@ def process(data, node_dict):
             reason = ""
             print(f'SCORE IS: {score}')
             result_dict = {
-                "l2_score": score,
+                "l2_score": round(float(score[1]), 2),
                 "time_since_lead_creation": time_since_lead_creation,
                 "l2_reason": reason,
             }
