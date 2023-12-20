@@ -108,7 +108,7 @@ class Translator(object):
         else:
             return 0
 
-    def is_MAOEP(self, srow):
+    def is_MAOEP(self, row):
         created_date = row['CreatedDate']
         if pd.isnull(created_date):
             return None
