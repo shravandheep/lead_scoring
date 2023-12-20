@@ -133,7 +133,7 @@ def inference(node_dict, data, score_request):
         )
     data = pd.DataFrame.from_dict(data[0], orient="index").T
     
-    data_subset_features = data[numeric_cols+categorical_cols]
+    data_subset_features = data[considered_features]
 
     # Encoding
     label_encoder_dict = node_dict["label_encoders"]

@@ -4161,12 +4161,6 @@
     ],
     "Individual Occupation Group":[
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        },
-        {
             "apply":"substitute",
             "kwargs":{
                 "from":[
@@ -4201,7 +4195,20 @@
                 "to":"High income"
             },
             "alias":"Occupation_group"
-        }
+        }, 
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":"unknown"
+            }, 
+            "alias": "Occupation_group"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":"unknown"
+            }
+        },
     ],
     "Individual Education":[
         {

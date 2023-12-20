@@ -269,7 +269,7 @@ class Translator(object):
         new_data['Community %'] = new_data['Community %'].str.rstrip('%').astype(float)
         new_data['region'] = 'unknown'
         
-        new_data = new_data.loc[:,~new_data.T.duplicated(keep='last')]
+#         new_data = new_data.loc[:,~new_data.T.duplicated(keep='last')]
         
         new_data = new_data.to_dict(orient="records")
         print("$"*100)
