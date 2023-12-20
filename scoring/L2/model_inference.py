@@ -155,7 +155,7 @@ def generate_time_based_feat(lead_history_df):
 
     ### TIME SINCE LEAD CREATION
     lead_history_df["TIMESINCELEADCREATION"] = lead_history_df["TIMEDIFF"].cumsum()
-    return lead_history_df, lead_history_df["TIMESINCELEADCREATION"]
+    return lead_history_df, lead_history_df["TIMESINCELEADCREATION"].tolist()[-1]
 
 
 def generate_sequences(X):
