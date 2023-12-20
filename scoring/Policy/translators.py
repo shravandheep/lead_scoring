@@ -7,7 +7,8 @@ import pandas as pd
 import scoring.L1.plugins as plugins
 from scoring.L1.plugins import Plugin 
 
-    
+_FILE_PATH = os.path.realpath(os.path.dirname(__file__))
+age_rating = os.path.join(_FILE_PATH, "age_rating.csv")
 
 
 class Translator(object):
@@ -53,10 +54,6 @@ class Translator(object):
                     self._translators[key]['apply_on'] = key
                     self._translators[key]['alias'].append(key)
                     self._translators[key]['function'].append(func)
-                    
-        ## HACK : This is a singleton class but we're removing this constraint for a specific usecase
-        ## This should be handled differently in the future
-        # Translator.__instance = self
 
 
     def run_translators(self, value, func):
@@ -153,7 +150,7 @@ class Translator(object):
         new_data['is_MAOEP'] = new_data.apply(is_MAOEP, axis=1)
         new_data['is_MSOEP'] = new_data.apply(is_MSOEP, axis=1)
         
-        age_rating = pd.read_csv('age_rating.csv')
+        age_rating = pd.read_csv(age_rating)
         new_data = new_data.merge(age_rating, how='left')
         new_data['Community %'] = new_data['Community %'].str.rstrip('%').astype(float)
         
