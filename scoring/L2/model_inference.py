@@ -54,8 +54,8 @@ ordinal_feat_normalize = [
     "Cumulative_Detail_changes",
 ]
 
-weights_path = os.path.join(GConst._FILE_PATH, GConst.WTS_PATH)
-
+_FILE_PATH = os.path.realpath(os.path.dirname(__file__))
+weights_path = os.path.join(_FILE_PATH, GConst.WTS_PATH)
 
 def initialize_model():
 
