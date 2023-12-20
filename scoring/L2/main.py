@@ -21,6 +21,7 @@ from auxiliary.util.common_utils import (
 )
 
 from scoring.L2.L2_model import do_inference
+from scoring.L2.model_inference import initialize_model
 
 logger = setup_logger(NODE_L2, logging.INFO)
 local_flag = True if os.getenv("local") else False
@@ -41,19 +42,41 @@ def initialize_node(node_config, **kwargs):
         None
     """
 
+    encoders_path = os.path.join(_FILE_PATH, ENC_PATH)
+    print(encoders_path)
     weights_path = os.path.join(_FILE_PATH, WTS_PATH)
+    print(weights_path)
+
+    parent_path_to_scalers = os.path.join(encoders_path, SCL_ENC_PATH)
+    print(parent_path_to_scalers)
+
+    scalers_dict = {}
+
+    for r, d, f in os.walk(parent_path_to_scalers):
+        for scl in f:
+            print(scl)
+            key = scl.replace(_ENC_EXT_L1, "")
+            key = key.split("-")[0]
+            # with open(os.path.join(r, scl), "rb") as f:
+            # scalers_dict[key] = pickle.load(f)
+            scalers_dict[key] = joblib.load(os.path.join(r, scl))
 
     # Fix model in the later patches
-    # model = initialize_model(weights_path)
+    model = initialize_model(weights_path)
 
-    model = None
+    logger.info("Node initialized. Models, scalers, encoders Loaded")
 
-    logger.info("Node initialized")
+    initialized_objects = {
+        "model_dict": model_dict,
+        "scalers": scalers_dict,
+    }
 
-    return model
+    print(f"{initialized_objects}")
+
+    return initialized_objects
 
 
-def process(data, model):
+def process(data, node_dict):
     """
     Process data from parent nodes. Parent node for Border is Background
 
@@ -73,7 +96,9 @@ def process(data, model):
 
     try:
         if score_request == "update_score_for_lead":
-            score, time_since_lead_creation = do_inference(args_dict)  ### check
+            score, time_since_lead_creation = do_inference(
+                args_dict, node_dict
+            )  ### check
             reason = ""
             result_dict = {
                 "l2_score": score,

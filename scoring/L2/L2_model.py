@@ -63,13 +63,13 @@ def normalize_list(lst):
 #     return model
 
 
-def transform_features(features):
-    Xp, time_since_lead_creation = generate_df(features)
+def transform_features(features, node_dict):
+    Xp, time_since_lead_creation = generate_df(features, node_dict)
 
     return Xp, time_since_lead_creation
 
 
-def do_inference(data):
+def do_inference(data, node_dict):
     lead_id = data["lead_id"]
     lead_history_from_dynamodb = get_history_from_dynamodb(lead_id)
 
@@ -87,7 +87,7 @@ def do_inference(data):
     print(f"LEN OF ALL CHANGES: {len(all_changes)}")
     print(all_changes)
 
-    Xp, time_since_lead_creation = transform_features(all_changes)
+    Xp, time_since_lead_creation = transform_features(all_changes, node_dict)
     score = model_inference(Xp)
 
     return score, time_since_lead_creation

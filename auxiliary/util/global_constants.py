@@ -32,7 +32,8 @@ _ENC_EXT_POLICY = ".joblib"
 _WTS_EXT_POLICY = ".sav"
 _CFG_EXT_POLICY = ".json"
 
-_WTS_EXT_L2 = ".pth"
+_WTS_EXT_L2 = ".pt"
+_ENC_EXT_L2 = ".joblib"
 
 LEAD_DATA = "lead_data"
 NEUSTAR_DATA = "neustar_data"
@@ -80,8 +81,8 @@ L1_VEC = [
 
 
 # L2
-L2_MODEL_WTS = "model_experiments/weights/L2/L2_model.pth"
-L2_ENCODER_OBJ = "model_experiments/encoders/L2/L2_model.pth"
+L2_MODEL_WTS = ["model_experiments/weights/L2/lstm_wts_v3.1_champ.pt"]
+L2_SCL_ENC = ["model_experiments/encoders/L2/encoders/scalers_dict.joblib"]
 
 # POLICY
 POLICY_WTS = [

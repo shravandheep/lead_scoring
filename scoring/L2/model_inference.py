@@ -59,10 +59,9 @@ ordinal_feat_normalize = [
 ]
 
 
-def Ordinal_FeatEngg(lead_history_df_merged_subsetcols):
-    num_encoders = joblib.load("encoders/scalers_dict.joblib")  ## check this
+def Ordinal_FeatEngg(lead_history_df_merged_subsetcols, scaler):
     for f in ordinal_feat_standardize + ordinal_feat_normalize:
-        encoder = num_encoders[f]
+        encoder = scaler[f]
         lead_history_df_merged_subsetcols[f] = encoder.inverse_transform(
             [lead_history_df_merged_subsetcols[f]]
         )
@@ -120,7 +119,7 @@ def generate_sequences(X):
     return Xp_
 
 
-def generate_df(lead_history):
+def generate_df(lead_history, node_dict):
     lead_history_df = pd.DataFrame(lead_history)
     lead_history_df["field_changed"] = lead_history_df["field_changed"].map(
         reverse_field_mapping
@@ -189,11 +188,29 @@ def generate_df(lead_history):
 
     lead_history_df_merged_subsetcols = lead_history_df_merged_[reqd_cols].fillna(0)
 
-    X = Ordinal_FeatEngg(lead_history_df_merged_subsetcols)
+    X = Ordinal_FeatEngg(
+        lead_history_df_merged_subsetcols, node_dict["scalers"]["scalers_dict"]
+    )
 
     Xp_ = generate_sequences(X)  ### model input
 
     return Xp_, time_since_lead_creation
+
+
+def initialize_model(wts_path):
+    all_wts = []
+    model_dict = {}
+
+    for r, d, f in os.walk(wts_path):
+        for weights in f:
+            all_wts.append(os.path.join(r, weights))
+
+    for wt in all_wts:
+        model_name = wt.split("/")[-1].replace(_WTS_EXT_L2, "")
+        model = torch.load(wt)
+        model_dict[model_name] = model
+
+    return model_dict
 
 
 def model_inference(Xp_):
