@@ -68,7 +68,7 @@ def process(data, model):
     """
 
     parsed_data, packet_id, _ = check_and_unpack_data(data)
-    args_dict = create_arguments_dict(parsed_data, ["data"])
+    args_dict = create_arguments_dict(parsed_data, ["data", "lead_id"])
     score_request = args_dict["data"][LEAD_DATA]["type"]
 
     try:
