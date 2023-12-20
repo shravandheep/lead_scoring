@@ -210,5 +210,3 @@ class Translator(object):
         new_data = new_data.to_dict(orient="records")
 
         return new_data
-
-if __name__
