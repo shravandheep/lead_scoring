@@ -63,6 +63,7 @@ def initialize_model():
         model_path = os.path.join(r, f[0])
 
     print(f'WTS PATH IS: {weights_path}')
+    print(f'MODEL PATH IS: {model_path}')
     model = torch.load(model_path)
 
     return model
