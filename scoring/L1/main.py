@@ -74,7 +74,6 @@ def initialize_node(node_config, **kwargs):
     config_dict = dict()
 
     for r, d, f in os.walk(parent_path_to_encoders):
-
         for enc in f:
             print(enc)
             key = enc.replace(_ENC_EXT_L1, "")
@@ -145,7 +144,6 @@ def process(data, node_dict):
     #     node_dict['neustar_match'] = "not_matched" if not bool(neustar_data) else "matched"
 
     try:
-
         if (
             score_request == "request_score_for_lead"
             or score_request == "update_score_for_lead"
@@ -156,9 +154,9 @@ def process(data, node_dict):
         else:
             result_dict = {}
     except Exception as e:
-
+        x = random.uniform(0.2, 0.4)
         result_dict = {
-            "l1_score": 0.4,
+            "l1_score": x,
             "l1_likelihood": 1,
             "l1_reason": traceback.format_exc(),
         }

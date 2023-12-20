@@ -125,6 +125,7 @@ def process(data, node_dict):
 
     parsed_data, packet_id, _ = check_and_unpack_data(data)
     args_dict = create_arguments_dict(parsed_data, ["data", "lead_id"])
+    lead_id = args_dict["lead_id"]
     score_request = args_dict["data"][LEAD_DATA]["type"]
 
     # data sources
@@ -141,10 +142,10 @@ def process(data, node_dict):
 
     # Run model inference
     try:
-
         if score_request == "request_policy_score_for_lead":
             result_dict = dict(
                 result=inference(node_dict, combined_data, score_request),
+                lead_id=lead_id,
                 policy_reason="",
             )
             ma_score = result_dict["result"][0]["score"]
@@ -157,16 +158,19 @@ def process(data, node_dict):
             result_dict = {}
 
     except Exception as e:
+        x = random.uniform(0.2, 0.4)
 
         res = [
             {
                 "type": "update_score_for_policy_ma",
-                "score": 0.40,
-                "likelihood": 3,
+                "score": x,
+                "likelihood": 1,
             },
-            {"type": "update_score_for_policy_ms", "score": 1 - 0.40, "likelihood": 1},
+            {"type": "update_score_for_policy_ms", "score": 1 - x, "likelihood": 3},
         ]
-        result_dict = dict(result=res, policy_reason=traceback.format_exc())
+        result_dict = dict(
+            result=res, lead_id=lead_id, policy_reason=traceback.format_exc()
+        )
 
     return result_dict
 

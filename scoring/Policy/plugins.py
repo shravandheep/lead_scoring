@@ -183,7 +183,6 @@ class Substitute(Plugin):
         self._to = kwargs["to"]
         self._from = kwargs["from"]
         if isinstance(self._from, str):
-
             _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
             config_path = os.path.join(_FILE_PATH, "configs")
             subst_path = os.path.join(config_path, self._from)
@@ -274,7 +273,6 @@ class Fill_Na(Plugin):
         return self._error
 
     def apply(self, x):
-
         # TODO: Rewrite this logic better later
         val = True
 
@@ -369,7 +367,6 @@ class Get_Keyword_Vector(Plugin):
         return self._error
 
     def apply(self, x):
-
         vec_obj = vectorizers_dict[self._vector]
         tr_kw = vec_obj.transform([x]).toarray().tolist()
         wts = np.arange(15, 0, -1)
@@ -435,7 +432,6 @@ class Groups_Regex(Plugin):
         return self._error
 
     def cleanup_url(self, url):
-
         url = (
             url.replace("https://", " ")
             .replace("www.", " ")
@@ -458,7 +454,6 @@ class Groups_Regex(Plugin):
         return any(matches)
 
     def get_url_group(self, url):
-
         patterns = {
             "Medigap Plans by State": {
                 "match": ["state", "states"],
@@ -493,7 +488,6 @@ class Groups_Regex(Plugin):
         }
 
         for class_name, pattern in patterns.items():
-
             wordlist = cleanup_url(url)
 
             mapped_1 = any(
@@ -512,7 +506,6 @@ class Groups_Regex(Plugin):
             return "Others"
 
     def Get_Keyword_Group(self, keyword):
-
         patterns = {
             "Health Insurance Medicare Supplement": {
                 "match": ["health insurance medicare supplement"],
@@ -550,7 +543,6 @@ class Groups_Regex(Plugin):
         }
 
         for class_name, pattern in patterns.items():
-
             wordlist = keyword.split()
 
             mapped_1 = any(

@@ -20,7 +20,6 @@ def calc_diff(actual, expected):
 
 
 def get_call_window_score(input_call_window, created_time):
-
     created_time = datetime.strptime(created_time, "%Y-%m-%d %H:%M:%S")
     values = input_call_window.split("|")[:8]
     keys = [
@@ -53,7 +52,6 @@ def get_call_window_score(input_call_window, created_time):
 
 
 def score_boost(score, data, selected_model):
-
     # data = data.to_dict()
 
     data = data.to_dict(orient="records")[0]
@@ -86,7 +84,6 @@ def score_boost(score, data, selected_model):
     input_call_window = data["Input Phone1 Call Window"]
 
     if input_call_window != "":
-
         call_score = get_call_window_score(input_call_window, created_time)
         final_score = score * 0.67 + call_score * 0.33
     else:

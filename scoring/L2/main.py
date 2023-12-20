@@ -45,7 +45,7 @@ def initialize_node(node_config, **kwargs):
     -------
         None
     """
-    
+
     weights_path = os.path.join(_FILE_PATH, WTS_PATH)
 
     encoders_path = os.path.join(_FILE_PATH, ENC_PATH)
@@ -104,7 +104,7 @@ def process(data, node_dict):
                 args_dict, node_dict
             )  ### check
             reason = ""
-            print(f'SCORE IS: {score}')
+            print(f"SCORE IS: {score}")
             result_dict = {
                 "l2_score": round(float(score[1]), 2),
                 "time_since_lead_creation": time_since_lead_creation,

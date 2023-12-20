@@ -43,7 +43,6 @@ class Translator(object):
         return cls.__instance
 
     def __init__(self, config_file):
-
         if self.__instance is not None:
             raise Exception(
                 "data transformations service is a singleton, use `get_instance` method instead"
@@ -55,13 +54,11 @@ class Translator(object):
         self._translators = {}
 
         for key in self.confg:
-
             self._translators[key] = dict()
             self._translators[key]["function"] = list()
             self._translators[key]["alias"] = list()
 
             for op in self.confg[key]:
-
                 assert isinstance(
                     op["apply"], str
                 ), "'plugin' must be a string: %s : %s" % (key, op)
@@ -117,7 +114,6 @@ class Translator(object):
         return round(np.random.uniform(lower, upper), 2)
 
     def is_IEP(self, row):
-
         created_date = row["CreatedDate"]
         birthdate = row["Birthdate__c"]
         if pd.isnull(created_date) or pd.isnull(birthdate):
@@ -173,19 +169,15 @@ class Translator(object):
             return 0
 
     def translate(self, data):
-
         new_data = deepcopy(data)
 
         for key, value in data.items():
-
             if key in self._translators.keys():
-
                 try:
                     new_fields = self._translators[key]["alias"]
                     functions = self._translators[key]["function"]
 
-                    for (y, func) in zip(new_fields, functions):
-
+                    for y, func in zip(new_fields, functions):
                         nv = new_data.get(y)
                         ov = new_data[key]
 

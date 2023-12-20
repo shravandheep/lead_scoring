@@ -22,7 +22,6 @@ def process_value(value):
 
 # Helpers
 def initialize_model(wts_path):
-
     all_wts = []
     model_dict = {}
 
@@ -31,7 +30,6 @@ def initialize_model(wts_path):
             all_wts.append(os.path.join(r, weights))
 
     for wt in all_wts:
-
         model_name = wt.split("/")[-1].replace(_WTS_EXT_L1, "")
         model = joblib.load(wt)
         model_dict[model_name] = model
@@ -40,7 +38,6 @@ def initialize_model(wts_path):
 
 
 def transform_features(data, config_path):
-
     feature_translator = Translator(config_path)
     features = feature_translator.translate(data)
 
@@ -48,7 +45,6 @@ def transform_features(data, config_path):
 
 
 def encoding(features, encoders_dict, numeric_cols, categorical_cols):
-
     label_encoder = encoders_dict["label_encoder"]
     scaler = encoders_dict["scaler"]
 
@@ -86,7 +82,6 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
 
 
 def inference(node_dict, data, score_request):
-
     model_config = node_dict["inference_cfg"]
     config_dict = node_dict["config_dict"]
 
@@ -102,19 +97,16 @@ def inference(node_dict, data, score_request):
     considered_features = list()
 
     for _, lead_type in model_config.items():
-
         filters = lead_type.get("filters", {})
         filter_condition = []
 
-        for (fk, fv) in filters.items():
-
+        for fk, fv in filters.items():
             condition_1 = fk in filters_t[0]
             condition_2 = filters_t[0][fk] in fv
             condition_final = condition_1 and condition_2
             filter_condition.append(condition_final)
 
         if all(filter_condition):
-
             data_config = lead_type["data_source"]
             #             considered_features = lead_type["considered_features"]
             numeric_cols = lead_type["numeric_features"]
@@ -129,7 +121,6 @@ def inference(node_dict, data, score_request):
 
             break
     else:
-
         reason = "Lead Source, Medium and Ad Source in combination did not match any of the lead model types"
 
         raise Exception(reason)
@@ -205,7 +196,6 @@ def inference(node_dict, data, score_request):
 
 
 def get_likelihood(score, quartiles):
-
     bucket = list(quartiles.values())
 
     if score < bucket[0]:

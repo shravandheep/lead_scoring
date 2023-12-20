@@ -23,7 +23,6 @@ _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 
 
 for wts in POLICY_WTS:
-
     endpoint = _CLOUDFRONT_URL + wts
     file_name = wts.split("/")[-1]
 
@@ -54,7 +53,6 @@ for wts in POLICY_WTS:
         print("Model wts {} download failed: ".format(wts), e)
 
 for enc in POLICY_LBL_ENC:
-
     endpoint = _CLOUDFRONT_URL + enc
     file_name = enc.split("/")[-1]
 
@@ -89,7 +87,6 @@ for enc in POLICY_LBL_ENC:
         print("Label encoder {} download failed: ".format(wts), e)
 
 for enc in POLICY_SCL_ENC:
-
     endpoint = _CLOUDFRONT_URL + enc
     file_name = enc.split("/")[-1]
 
@@ -125,7 +122,6 @@ for enc in POLICY_SCL_ENC:
 
 
 for enc in L1_VEC:
-
     endpoint = _CLOUDFRONT_URL + enc
     file_name = enc.split("/")[-1]
 

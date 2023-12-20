@@ -63,8 +63,8 @@ _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 weights_path = os.path.join(_FILE_PATH, GConst.WTS_PATH)
 
 input_size = 12
-hidden_size = 64  
-num_layers = 2  
+hidden_size = 64
+num_layers = 2
 output_size = 2
 
 sequence_length = 30
@@ -74,9 +74,7 @@ learning_rate = 0.001
 num_epochs = 10
 
 
-
 class LSTMModel(nn.Module):
-    
     def __init__(self, input_size, hidden_size, num_layers, output_size):
         super(LSTMModel, self).__init__()
         self.hidden_size = hidden_size
@@ -94,34 +92,33 @@ class LSTMModel(nn.Module):
 
         return out
 
-def initialize_model():
 
+def initialize_model():
     for r, d, f in os.walk(weights_path):
         model_path = os.path.join(r, f[0])
 
-    print(f'WTS PATH IS: {weights_path}')
-    print(f'MODEL PATH IS: {model_path}')
-    
+    print(f"WTS PATH IS: {weights_path}")
+    print(f"MODEL PATH IS: {model_path}")
+
     model = LSTMModel(input_size, hidden_size, num_layers, output_size)
     model.load_state_dict(torch.load(model_path))
     model.eval()
 
     return model
 
+
 model = initialize_model()
 
+
 def Ordinal_FeatEngg(lead_history_df_merged_subsetcols, scaler):
-    
     lead_history_df_merged_subsetcols = lead_history_df_merged_subsetcols.astype(float)
     for f in ordinal_feat_standardize + ordinal_feat_normalize:
         encoder = scaler[f]
-        print(f'FIELD IS: {f}')
-        print(f'ENCODER IS: {encoder}')
-        inv = encoder.inverse_transform(
-            [lead_history_df_merged_subsetcols[f]]
-        )
-        print(f'LEN IS: {len(inv[0])}')
-        print(f'INVERSE IS : {inv}')
+        print(f"FIELD IS: {f}")
+        print(f"ENCODER IS: {encoder}")
+        inv = encoder.inverse_transform([lead_history_df_merged_subsetcols[f]])
+        print(f"LEN IS: {len(inv[0])}")
+        print(f"INVERSE IS : {inv}")
         lead_history_df_merged_subsetcols[f] = inv[0]
 
     return lead_history_df_merged_subsetcols
@@ -144,8 +141,15 @@ def generate_time_based_feat(lead_history_df):
     lead_history_df.loc[NEXTCALL, "TIMETONEXTCALL"] = (
         lead_history_df[NEXTCALL]["new_value"] - lead_history_df[NEXTCALL]["old_value"]
     )
-    
-    lead_history_df.loc[NEXTCALL, "TIMETONEXTCALL"] = lead_history_df.loc[NEXTCALL].apply(lambda x: 0 if x['TIMETONEXTCALL'] == 0 else x['TIMETONEXTCALL'].total_seconds(), axis=1)
+
+    lead_history_df.loc[NEXTCALL, "TIMETONEXTCALL"] = lead_history_df.loc[
+        NEXTCALL
+    ].apply(
+        lambda x: 0
+        if x["TIMETONEXTCALL"] == 0
+        else x["TIMETONEXTCALL"].total_seconds(),
+        axis=1,
+    )
 
     ### TIME BETWEEN CALLS
     OUTBOUNDCALLS = lead_history_df["field_changed"] == "Outbound_Calls__c"
@@ -247,8 +251,10 @@ def generate_df(lead_history, node_dict):
         lead_history_df_merged_[cols] = None
 
     lead_history_df_merged_subsetcols = lead_history_df_merged_[reqd_cols].fillna(0)
-    
-    print(f'LEAD HISTORY DATA: {lead_history_df_merged_subsetcols.to_dict(orient="records")}')
+
+    print(
+        f'LEAD HISTORY DATA: {lead_history_df_merged_subsetcols.to_dict(orient="records")}'
+    )
 
     X = Ordinal_FeatEngg(
         lead_history_df_merged_subsetcols, node_dict["scalers"]["scalers_dict"]
@@ -260,7 +266,6 @@ def generate_df(lead_history, node_dict):
 
 
 def model_inference(Xp_):
-
     outputs = model(Xp_)
     softmax = torch.nn.Softmax(dim=1)
     probabilities = softmax(outputs)
