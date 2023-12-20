@@ -3,6 +3,7 @@ Common utils
 """
 
 # General imports
+import sys
 import os
 import boto3
 import copy
