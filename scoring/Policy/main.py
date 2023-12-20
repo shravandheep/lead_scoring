@@ -130,33 +130,32 @@ def process(data, node_dict):
     try:
         
         if score_request == 'request_policy_score_for_lead':
-            result_dict = inference(node_dict, combined_data, score_request)
+            result_dict = dict(result=inference(node_dict, combined_data, score_request), policy_reason='')
+            ma_score = result_dict['result'][0]['score']
+            ms_score = result_dict['result'][1]['score']
+            
+            result_dict['result'][0]['score'] = round(float(ma_score, 2))
+            result_dict['result'][1]['score'] = round(float(ms_score, 2))
+            
         else: 
             result_dict = {}          
         
                                       
     except Exception as e:
         
-        result_dict = [
-
-        {
-        "type": "update_score_for_policy_ms",
-        "score": 1-0.409575,
-        "likelihood": 3
-        },
-        {
-        "type": "update_score_for_policy_ma",
-        "score": 0.409575,
-        "likelihood": 1
-        }
-    ]
-        
-#         result_dict = {
-#             'policy_score' : -1,
-#             'policy_likelihood' : -1,
-#             'policy_reason' : traceback.format_exc()
-#         }
-
+        res = [
+            {
+            "type": "update_score_for_policy_ma",
+            "score": 0.40,
+            "likelihood": 3, 
+            },
+            {
+            "type": "update_score_for_policy_ms",
+            "score": 1 - 0.40,
+            "likelihood": 1
+            }
+        ]
+        result_dict = dict(result=res, policy_reason=traceback.format_exc())
             
         
         
