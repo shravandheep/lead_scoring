@@ -16,6 +16,7 @@ from auxiliary.util.global_constants import (
     ENC_PATH,
     WTS_PATH,
     SCL_ENC_PATH,
+    _ENC_EXT_L2,
 )
 from auxiliary.util.common_utils import (
     setup_logger,
@@ -58,7 +59,7 @@ def initialize_node(node_config, **kwargs):
     for r, d, f in os.walk(parent_path_to_scalers):
         for scl in f:
             print(scl)
-            key = scl.replace(_ENC_EXT_L1, "")
+            key = scl.replace(_ENC_EXT_L2, "")
             key = key.split("-")[0]
             # with open(os.path.join(r, scl), "rb") as f:
             # scalers_dict[key] = pickle.load(f)
