@@ -1671,6 +1671,53 @@
             "apply":"regex",
             "kwargs":{
                 "from":[
+                    ".*medigap.+"
+                ],
+                "to":"medigap"
+            },
+            "alias":"campaign_product"
+        },
+        {
+            "apply":"regex",
+            "kwargs":{
+                "from":[
+                    ".*medicare.+"
+                ],
+                "to":"medicare"
+            },
+            "alias":"campaign_product"
+        },
+        {
+            "apply":"regex",
+            "kwargs":{
+                "from":[
+                    ".*advantage.+"
+                ],
+                "to":"medicare advantage"
+            },
+            "alias":"campaign_product"
+        },
+        {
+            "apply":"regex",
+            "kwargs":{
+                "from":[
+                    ".*eip.+"
+                ],
+                "to":"brand eip"
+            },
+            "alias":"campaign_product"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":"unknown"
+            },
+            "alias":"campaign_product"
+        },
+        {
+            "apply":"regex",
+            "kwargs":{
+                "from":[
                     ".*18to65+:uk.+"
                 ],
                 "to":"18to65+:uk"

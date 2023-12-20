@@ -80,8 +80,6 @@ def inference(node_dict, data, score_request):
     model_config = node_dict["inference_cfg"]
     config_dict = node_dict["config_dict"]
 
-    # Disabled temporarily
-    # data = handle_lead_type(data)
 
     filters_t = transform_features(
         data, config_dict["feature_config"]

@@ -253,7 +253,6 @@ class Translator(object):
         new_data['b'] = 'medigap'
         new_data["campaign_product"] = "unknown"
         new_data["p"] = "unknown"
-        new_data["verified_phone"] = new_data["Phone1__verified_phone"]
         
         new_data['Birthdate__c'] = pd.to_datetime(new_data['Birthdate__c'])
         new_data['CreatedDate'] = pd.to_datetime(new_data['CreatedDate'])

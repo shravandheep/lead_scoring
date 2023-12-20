@@ -308,7 +308,7 @@
         "model_params": {
             "preprocessing_steps": ["partner_encoder_obj", "partner_scaler_obj"]
         }, 
-        "model_wts": "partner_model_xgb.sav"
+        "model_wts": "partner_model_xgb"
     }, 
 
     "not_paid_leads_object_data": {

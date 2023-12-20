@@ -45,6 +45,7 @@ def initialize_node(node_config, **kwargs):
     parent_path_to_encoders = os.path.join(encoders_path, LBL_ENC_PATH)
     parent_path_to_scalers = os.path.join(encoders_path, SCL_ENC_PATH)
     
+    
     # init model
     model_dict = initialize_model(weights_path)
 
