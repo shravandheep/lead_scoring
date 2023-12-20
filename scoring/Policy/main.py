@@ -58,6 +58,7 @@ def initialize_node(node_config, **kwargs):
         for enc in f:
             print(enc)
             key = enc.replace(_ENC_EXT_POLICY, '')
+            key = key.split("-")[0]
             
             with open(os.path.join(r, enc), 'rb') as f:
                 label_encoders_dict[key] = joblib.load(f)
@@ -66,6 +67,7 @@ def initialize_node(node_config, **kwargs):
         for scl in f:
             
             key = scl.replace(_ENC_EXT_POLICY, '')
+            key = key.split("-")[0]
             
             with open(os.path.join(r, scl), 'rb') as f:
                 scalers_dict[key] = joblib.load(f)
@@ -74,6 +76,7 @@ def initialize_node(node_config, **kwargs):
     for r,d,f in os.walk(config_path):
         for files in f:
             key = files.replace(_CFG_EXT_POLICY, '')
+            key = key.split("-")[0]
             config_dict[key] = os.path.join(r, files)
             
     with open(path_to_inference) as inf:

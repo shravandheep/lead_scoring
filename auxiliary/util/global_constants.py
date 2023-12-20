@@ -86,9 +86,9 @@ POLICY_WTS = [
 ]
 
 POLICY_LBL_ENC = [
-    'model_experiments/weights/Policy/encoders/paid_encoder_obj.joblib',
-    'model_experiments/weights/Policy/encoders/not_paid_encoder_obj.joblib',
-    'model_experiments/weights/Policy/encoders/partner_encoder_obj.joblib'
+    'model_experiments/weights/Policy/encoders/paid_encoder_obj-2.joblib',
+    'model_experiments/weights/Policy/encoders/not_paid_encoder_obj-2.joblib',
+    'model_experiments/weights/Policy/encoders/partner_encoder_obj-2.joblib'
 ]
 
 POLICY_SCL_ENC = [
