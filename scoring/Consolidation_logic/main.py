@@ -70,17 +70,16 @@ def process(data):
     score_request = args_dict['data'][LEAD_DATA]['type']
     
     if score_request == 'update_score_for_lead' or score_request == 'request_score_for_lead': 
-    
-    
-        l1_score = arrgs_dict['l1_score']
+
+        l1_score = args_dict['l1_score']
 
         if args_dict['l2_score']:
             l2_score = args_dict['l2_score']
         else:
             l2_score = 0
-
-        final_score = compute_hybrid(l1_score. l2_score, arrgs_dict['time_since_lead_creation'])   ##check if we have time here
-        final_likelihood = get_likelihood(score)
+        
+        final_score, _, _ = compute_hybrid(l1_score, l2_score, args_dict['time_since_lead_creation'])
+        final_likelihood = get_likelihood(final_score)
 
         final_args = dict((k,v) for (k,v) in args_dict.items() if k in required_keys)
 
