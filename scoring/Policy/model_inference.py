@@ -68,11 +68,10 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
                 raise Exception(
                     "Error in Label encoding. For the field : {}, {}".format(col, e)
                 )
+    
     for col in numeric_cols:
-        X[col] = X[col].apply(process_value)
-    for col in numeric_cols:
-        if isinstance(X[col].to_dict()[0], str):
-            print(f'{col}: {X[col].to_dict()[0]}, {type(X[col].to_dict()[0])}')
+        X[col] = X[col].apply(lambda x: process_value(x))
+        
     print(X[numeric_cols])
 
     X[numeric_cols] = scaler.transform(X[numeric_cols])
