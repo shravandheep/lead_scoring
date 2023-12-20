@@ -1,15 +1,32 @@
 import os
 import re
+import numpy as np
 import json
 from abc import ABC, abstractmethod
 from datetime import datetime
 import phonenumbers
 import joblib
 from email_validator import validate_email, EmailNotValidError
-from auxiliary.util.global_constants import WTS_PATH, CFG_PATH, ENC_PATH, SCL_ENC_PATH, LBL_ENC_PATH
-
+from auxiliary.util.global_constants import (
+    _ENC_EXT_L1,
+    WTS_PATH,
+    CFG_PATH,
+    ENC_PATH,
+    SCL_ENC_PATH,
+    LBL_ENC_PATH,
+    KW_VEC_PATH,
+)
 
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
+
+encoders_path = os.path.join(_FILE_PATH, ENC_PATH)
+parent_path_to_vectorizers = os.path.join(encoders_path, KW_VEC_PATH)
+
+vectorizers_dict = dict()
+for r, d, f in os.walk(parent_path_to_vectorizers):
+    for vec in f:
+        key = vec.replace(_ENC_EXT_L1, "")
+        vectorizers_dict[key] = joblib.load(os.path.join(r, vec))
 
 
 class Plugin(ABC):
@@ -329,31 +346,30 @@ class Check_Valid_Phone(Plugin):
             return False
         
         
-class get_keyword_vector(Plugin):
-    
-    encoders_path = os.path.join(_FILE_PATH, ENC_PATH)
-    parent_path_to_vectoriser = os.path.join(encoders_path, KW_VEC_PATH)
-    
-    
-    def __init__(self,kwargs):
-        self._vector = kwargs['vector']
+class Get_Keyword_Vector(Plugin):
+
+    def __init__(self, kwargs):
+        self._vector = kwargs["vector"]
         self._status = True
-        self._error =None
-    
+        self._error = None
+
     def get_status(self):
         return self._status
-    
+
     def get_error(self):
         return self._error
 
-    def apply(self,x):
-        vec_obj =  joblib.load(f'{os.path(join(parent_path_to_vectoriser))}/{self._vector}')
+    def apply(self, x):
+        
+        vec_obj = vectorizers_dict[self._vector]
         tr_kw = vec_obj.transform([x]).toarray().tolist()
         wts = np.arange(15, 0, -1)
-        np.average(tr_kw, weights=wts)
+        kw_ = np.average(tr_kw[0], weights=wts)
+        
+        return kw_
         
         
-class chech_email_validity(Plugin):
+class Chech_Email_Validity(Plugin):
     def __init__(self,kwargs):
         self._status = True
         self._error =None
@@ -373,7 +389,7 @@ class chech_email_validity(Plugin):
             return False
         
         
-class extract_string(Plugin):
+class Extract_String(Plugin):
     def __init__(self,kwargs):
         try:
             self._regex = kwargs["regex"]
@@ -395,7 +411,7 @@ class extract_string(Plugin):
     
     
     
-class groups_regex(Plugin):
+class Groups_Regex(Plugin):
     def __init__(self,kwargs):
         try:
             self._type = kwargs["type"]
@@ -412,7 +428,7 @@ class groups_regex(Plugin):
         return self._error
     
 
-    def cleanup_url(url):
+    def cleanup_url(self, url):
 
         url = url\
         .replace('https://', ' ')\
@@ -426,7 +442,7 @@ class groups_regex(Plugin):
 
         return wordlist
 
-    def is_word_in_list(word, word_list, mapping_type):
+    def is_word_in_list(self, word, word_list, mapping_type):
         if mapping_type == 'match':
             pattern = r'\b' + re.escape(word) + r'\b'
         elif mapping_type == 'freeflow':
@@ -434,7 +450,7 @@ class groups_regex(Plugin):
         matches = [re.search(pattern, w) for w in word_list]
         return any(matches)
     
-    def get_url_group(url):
+    def get_url_group(self, url):
 
         patterns = {
             'Medigap Plans by State': {
@@ -503,7 +519,7 @@ class groups_regex(Plugin):
             return 'Others'
 
 
-    def get_keyword_group(keyword):
+    def Get_Keyword_Group(self, keyword):
 
         patterns = {
             'Health Insurance Medicare Supplement': {

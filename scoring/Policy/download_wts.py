@@ -3,13 +3,13 @@ import os
 
 # Internal imports
 from auxiliary.util.global_constants import _CLOUDFRONT_URL
-from auxiliary.util.global_constants import L1_WTS, L1_LBL_ENC, L1_SCL_ENC
+from auxiliary.util.global_constants import POLICY_WTS, POLICY_LBL_ENC, POLICY_SCL_ENC
 from auxiliary.util.global_constants import WTS_PATH, CFG_PATH, ENC_PATH, SCL_ENC_PATH, LBL_ENC_PATH
 
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 
 
-for wts in L1_WTS:
+for wts in POLICY_WTS:
 
     endpoint = _CLOUDFRONT_URL + wts
     file_name = wts.split('/')[-1]
@@ -36,7 +36,7 @@ for wts in L1_WTS:
     except Exception as e:
         print("Model wts {} download failed: ".format(wts), e)
 
-for enc in L1_LBL_ENC:
+for enc in POLICY_LBL_ENC:
 
     endpoint = _CLOUDFRONT_URL + enc
     file_name = enc.split('/')[-1]
@@ -65,7 +65,7 @@ for enc in L1_LBL_ENC:
     except Exception as e:
         print("Label encoder {} download failed: ".format(wts), e)
 
-for enc in L1_SCL_ENC:
+for enc in POLICY_SCL_ENC:
 
     endpoint = _CLOUDFRONT_URL + enc
     file_name = enc.split('/')[-1]

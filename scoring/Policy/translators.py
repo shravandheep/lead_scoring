@@ -176,6 +176,8 @@ class Translator(object):
         new_data.loc[new_data['p'].isin(['medicare', 'medicarefaq', 'brand eip','medicare advantage']), 'campaign_product'] = 'not_medigap'
         new_data.loc[new_data['p'].isin(['medigap']), 'campaign_product'] = 'medigap'
         
+        new_data['b'] = 'medigap'
+        
         new_data = new_data.to_dict(orient='records')
         
         return new_data

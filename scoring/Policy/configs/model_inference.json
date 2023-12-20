@@ -7,82 +7,73 @@
         "data_source": "partner_data_config",
         
         "numeric_features": [
-            "Inbound_Calls__c",
-            "IsWeekday",
-            "Appended Addresses1 DPC",
-            "Appended_Phone3__phone_usage_12",
-            "Property/Realty: Median Home  Value",
-            "Supplemental_Form_Received__c",
-            "Boberdoo_Purchase_Price__c",
-            "CreatedMonth",
-            "Appended_Phone1__phone_type",
-            "Property/Realty: Home Land Value",
-            "Appended_Phone1__phone_usage_2",
-            "Appended_Phone2__verified_phone",
-            "Appended_Phone2__phone_type",
-            "LeadAppStage__c",
-            "WeekOfMonth",
-            "Longitude",
-            "Appended_Phone1__phone_usage_12",
-            "Phone1__phone_type",
-            "Appended Phones3 Verification Result Code",
-            "Age",
-            "Estimated Household Income (Narrow)",
-            "PriorityCallback__c",
-            "Phone1__verified_phone",
-            "LeadAppSubStage__c",
-            "Appended_Phone2__phone_usage_2",
-            "Email_Match_Score",
-            "Inquired_Again__c",
-            "Appended Phones2 Phone Usage: Past 12 months",
-            "Median Family Household Income",
-            "Phone1__phone_usage_12",
-            "Appended_Phone3__phone_usage_2",
-            "Appended_Phone2__phone_usage_12",
-            "is_MSOEP",
-            "Days_Since_Created__c",
-            "Property/Realty: Home Total Value",
-            "contact_counts",
-            "Appended_Phone3__verified_phone",
-            "Spouse_info_exists",
-            "FirstName_Match",
-            "LastName_Match",
-            "Length of Residence",
-            "is_MAOEP",
-            "Appended Phones2 DNC",
-            "Input Phone1 Verification Result Code",
-            "StateCode_Match",
-            "Census: Rural-Urban County Size Code",
-            "Missed_Call_In__c",
-            "is_IEP",
-            "Appended Phones Error Code",
-            "Appended Phones1 Verification Result Code",
-            "is_AEP",
-            "Phone1__phone_usage_2",
-            "Community %",
-            "Appended Addresses1 Zip5",
-            "Phone_Match_Score",
-            "Appended Phones3 DNC",
-            "Individual Education",
-            "City_Match",
-            "Appended_Phone1__verified_phone",
-            "Property/Realty: Property indicator",
-            "Latitude",
-            "Appended Phones1 Phone Usage: Past 12 months",
-            "Appended_Phone3__phone_type",
-            "Birthdate_Flag",
-            "HasPhone",
-            "HasOptedOutOfEmail",
-            "Numerical_score",
-            "verified_phone",
-            "Individual Occupation",
-            "Estimated Current Home Value",
-            "Appended Phones2 Verification Result Code",
-            "quarter",
-            "Input Phone1 Phone Usage: Past 12 months",
-            "Appended Phones1 DNC",
-            "Input Phone1 DNC",
-            "Appended Phones3 Phone Usage: Past 12 months"
+            "Income_group",
+            "Input Phone1 Phone Confidence",
+            "Appended Addresses1 City",
+            "Lead_Device__c",
+            "Gender__c",
+            "Input Phone1 Contactability Score",
+            "is_valid_Appended Emails 2 Email Address",
+            "Lead_Match_Type__c",
+            "Appended Addresses1 RBDI",
+            "Dwelling Type",
+            "Current_Plan_Type__c",
+            "Match Type",
+            "Individual First Name Match",
+            "Appended Addresses1 Type",
+            "Appended Phones3 Phone Confidence",
+            "Lead_Browser__c",
+            "Individual Marital Status New",
+            "Individual Person Type",
+            "Boberdoo_Rejection_Reason__c",
+            "Appended Addresses1 State",
+            "is_valid_Appended Emails 3 Email Address",
+            "CurrentProvider__c",
+            "Letter_score",
+            "Household Net Asset Value",
+            "d",
+            "Appended Phones2 Phone Confidence",
+            "l",
+            "Coverage_Multi__c",
+            "p",
+            "is_valid_Appended Emails 1 Email Address",
+            "Twilio_CI_Mobile_Type__c",
+            "search",
+            "time_of_day",
+            "bs",
+            "Lead_Ad_Group__c",
+            "Input Phone1 Active",
+            "Appended Phones1 Active",
+            "Homeowner: Combined Homeowner/Renter",
+            "State",
+            "Appended Phones2 Line Type",
+            "campaign_product",
+            "Appended Phones3 Line Type",
+            "t",
+            "b",
+            "Appended Phones3 Active",
+            "Keyword_Group",
+            "h",
+            "Lead_Network__c",
+            "Individual Last Name Match",
+            "CreatedDate__time_of_day",
+            "Appended Phones2 Active",
+            "Twilio_CI_Phone_Type__c",
+            "County__c",
+            "Individual Address Matches",
+            "is_valid_phone",
+            "Lead_Referring_URL__c",
+            "Individual Ethnicity Group",
+            "Input Phone1 Line Type",
+            "Appended Phones1 Line Type",
+            "Household Composition",
+            "Appended Phones1 Phone Confidence",
+            "Occupation_group",
+            "Lead_Brand__c",
+            "Current_Coverage__c",
+            "region",
+            "Original_Operating_System__c",
+            "Individual Phone1 Matches"
             
         ], 
         
@@ -474,7 +465,7 @@
             "Original_Operating_System__c",
             "Individual Phone1 Matches"
             
-        ]
+        ],
         
         "considered_features": [
         "Household Net Asset Value",
@@ -739,72 +730,72 @@
             "LeadCreationStage__c"], 
         
         "categorical_features": [
-            "Income_group"
-            "Input Phone1 Phone Confidence"
-            "Appended Addresses1 City"
-            "Lead_Device__c"
-            "Gender__c"
-            "Input Phone1 Contactability Score"
-            "is_valid_Appended Emails 2 Email Address"
-            "Lead_Match_Type__c"
-            "Appended Addresses1 RBDI"
-            "Dwelling Type"
-            "Current_Plan_Type__c"
-            "Match Type"
-            "Individual First Name Match"
-            "Appended Addresses1 Type"
-            "Appended Phones3 Phone Confidence"
-            "Lead_Browser__c"
-            "Individual Marital Status New"
-            "Individual Person Type"
-            "Boberdoo_Rejection_Reason__c"
-            "Appended Addresses1 State"
-            "is_valid_Appended Emails 3 Email Address"
-            "CurrentProvider__c"
-            "Letter_score"
-            "Household Net Asset Value"
-            "d"
-            "Appended Phones2 Phone Confidence"
-            "l"
-            "Coverage_Multi__c"
-            "p"
-            "is_valid_Appended Emails 1 Email Address"
-            "Twilio_CI_Mobile_Type__c"
-            "search"
-            "time_of_day"
-            "bs"
-            "Lead_Ad_Group__c"
-            "Input Phone1 Active"
-            "Appended Phones1 Active"
-            "Homeowner: Combined Homeowner/Renter"
-            "State"
-            "Appended Phones2 Line Type"
-            "campaign_product"
-            "Appended Phones3 Line Type"
-            "t"
-            "b"
-            "Appended Phones3 Active"
-            "Keyword_Group"
-            "h"
-            "Lead_Network__c"
-            "Individual Last Name Match"
-            "CreatedDate__time_of_day"
-            "Appended Phones2 Active"
-            "Twilio_CI_Phone_Type__c"
-            "County__c"
-            "Individual Address Matches"
-            "is_valid_phone"
-            "Lead_Referring_URL__c"
-            "Individual Ethnicity Group"
-            "Input Phone1 Line Type"
-            "Appended Phones1 Line Type"
-            "Household Composition"
-            "Appended Phones1 Phone Confidence"
-            "Occupation_group"
-            "Lead_Brand__c"
-            "Current_Coverage__c"
-            "region"
-            "Original_Operating_System__c"
+            "Income_group",
+            "Input Phone1 Phone Confidence",
+            "Appended Addresses1 City",
+            "Lead_Device__c",
+            "Gender__c",
+            "Input Phone1 Contactability Score",
+            "is_valid_Appended Emails 2 Email Address",
+            "Lead_Match_Type__c",
+            "Appended Addresses1 RBDI",
+            "Dwelling Type",
+            "Current_Plan_Type__c",
+            "Match Type",
+            "Individual First Name Match",
+            "Appended Addresses1 Type",
+            "Appended Phones3 Phone Confidence",
+            "Lead_Browser__c",
+            "Individual Marital Status New",
+            "Individual Person Type",
+            "Boberdoo_Rejection_Reason__c",
+            "Appended Addresses1 State",
+            "is_valid_Appended Emails 3 Email Address",
+            "CurrentProvider__c",
+            "Letter_score",
+            "Household Net Asset Value",
+            "d",
+            "Appended Phones2 Phone Confidence",
+            "l",
+            "Coverage_Multi__c",
+            "p",
+            "is_valid_Appended Emails 1 Email Address",
+            "Twilio_CI_Mobile_Type__c",
+            "search",
+            "time_of_day",
+            "bs",
+            "Lead_Ad_Group__c",
+            "Input Phone1 Active",
+            "Appended Phones1 Active",
+            "Homeowner: Combined Homeowner/Renter",
+            "State",
+            "Appended Phones2 Line Type",
+            "campaign_product",
+            "Appended Phones3 Line Type",
+            "t",
+            "b",
+            "Appended Phones3 Active",
+            "Keyword_Group",
+            "h",
+            "Lead_Network__c",
+            "Individual Last Name Match",
+            "CreatedDate__time_of_day",
+            "Appended Phones2 Active",
+            "Twilio_CI_Phone_Type__c",
+            "County__c",
+            "Individual Address Matches",
+            "is_valid_phone",
+            "Lead_Referring_URL__c",
+            "Individual Ethnicity Group",
+            "Input Phone1 Line Type",
+            "Appended Phones1 Line Type",
+            "Household Composition",
+            "Appended Phones1 Phone Confidence",
+            "Occupation_group",
+            "Lead_Brand__c",
+            "Current_Coverage__c",
+            "region",
+            "Original_Operating_System__c",
             "Individual Phone1 Matches"
         ],
         

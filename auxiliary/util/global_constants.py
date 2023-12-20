@@ -80,22 +80,19 @@ L2_ENCODER_OBJ = 'model_experiments/encoders/L2/L2_model.pth'
 
 # POLICY
 POLICY_WTS = [
-    'model_experiments/weights/L1/not_paid_leads_with_neustar_not_matched.sav',
-    'model_experiments/weights/L1/not_paid_leads_with_neustar_matched.sav',
-    'model_experiments/weights/L1/paid_leads_with_neustar_not_matched.sav',
-    'model_experiments/weights/L1/paid_leads_with_neustar_matched.sav',
-    'model_experiments/weights/L1/partner_leads_with_neustar_not_matched.sav',
-    'model_experiments/weights/L1/partner_leads_with_neustar_matched.sav'
+    'model_experiments/weights/Policy/paid_model_xgb.sav', 
+    'model_experiments/weights/Policy/not_paid_model_xgb.sav', 
+    'model_experiments/weights/Policy/partner_model_xgb.sav'
 ]
 
 POLICY_LBL_ENC = [
-    'model_experiments/weights/L1/encoders/label_encoders_not_paid.pkl',
-    'model_experiments/weights/L1/encoders/label_encoders_paid.pkl',
-    'model_experiments/weights/L1/encoders/label_encoders_partner.pkl'
+    'model_experiments/weights/Policy/encoders/paid_encoder_obj.joblib',
+    'model_experiments/weights/Policy/encoders/seo_encoder_obj.joblib',
+    'model_experiments/weights/Policy/encoders/partner_encoder_obj.joblib'
 ]
 
 POLICY_SCL_ENC = [
-    'model_experiments/weights/L1/encoders/scaler_not_paid.pkl',
-    'model_experiments/weights/L1/encoders/scaler_paid.pkl',
-    'model_experiments/weights/L1/encoders/scaler_partner.pkl'
+    'model_experiments/weights/Policy/encoders/paid_scaler_obj.joblib',
+    'model_experiments/weights/Policy/encoders/seo_scaler_obj.joblib',
+    'model_experiments/weights/Policy/encoders/partner_scaler_obj.joblib'
 ]
