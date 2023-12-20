@@ -2,15 +2,13 @@ import pandas as pd
 import joblib
 import os
 
-from auxiliary.util.common_utils import DynamoUtils
 from auxiliary.util import global_constants as GConst
 
 
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 model_wts_path = os.path.join(_FILE_PATH, GConst.L2_MODEL_WTS)
-# parent_path_to_model_wts = os.path.join(model_wts_path, KW_VEC_PATH)
 
-history_table = DynamoUtils(GConst.HISTORY_TABLE)
+# parent_path_to_model_wts = os.path.join(model_wts_path, KW_VEC_PATH)
 
 
 reverse_field_mapping = {
@@ -59,20 +57,6 @@ ordinal_feat_normalize = [
     "Cumulative_Phone_changes",
     "Cumulative_Detail_changes",
 ]
-
-
-def get_history_from_dynamodb(lead_id):
-    items = history_table.get_history_from_dynamodb(
-        GConst.HISTORY_TABLE_PARTITION_KEY, lead_id
-    )
-
-    # Only one entry, list of dicts
-    items = items[0]
-    items.pop(GConst.HISTORY_TABLE_PARTITION_KEY)
-
-    # How many records to consider?
-
-    return items
 
 
 def Ordinal_FeatEngg(lead_history_df_merged_subsetcols):

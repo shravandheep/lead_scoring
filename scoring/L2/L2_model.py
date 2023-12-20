@@ -11,25 +11,26 @@ import torch
 from torch.nn.utils.rnn import pad_sequence
 from scipy.special import softmax
 
-from scoring.L2.model_inference import generate_df, model_inference
+from auxiliary.util.common_utils import DynamoUtils
 from auxiliary.util import global_constants as GConst
+from scoring.L2.model_inference import generate_df, model_inference
 
 history_table = DynamoUtils(GConst.HISTORY_TABLE)
-
-
 weights_path = os.path.dirname(os.path.realpath(__file__))
 
 
 # Helpers
 def get_history_from_dynamodb(lead_id):
+    
     items = history_table.query_by_partition_key(
-        GConst.HISTORY_TABLE_PARTITION_KEY, lead_id
+        GConst.HISTORY_TABLE_PARTITION_KEY, 
+        lead_id
     )
-
+    
     # Only one entry, list of dicts
     items = items[0]
     items.pop(GConst.HISTORY_TABLE_PARTITION_KEY)
-
+    
     return items
 
 
@@ -71,22 +72,24 @@ def transform_features(features):
 
 
 def do_inference(data):
+    
     lead_id = data["lead_id"]
     lead_history_from_dynamodb = get_history_from_dynamodb(lead_id)
-
+    
     descending = sorted(list(lead_history_from_dynamodb.keys()))[::-1]
-
+    
     # Taking the last 30 entries
     keys_to_consider = descending[:30]
-
+    
     all_changes = list()
-    _ = [all_changes.extend(json.loads(res[k])["changes"]) for k in keys]
-
-    print(f"LEN OF ALL CHANGES: {len(all_changes)}")
+    _ = [all_changes.extend(json.loads(res[k])['changes']) for k in keys]
+    
+    print(f'LEN OF ALL CHANGES: {len(all_changes)}')
     f = pd.DataFrame(all_changes)
-
-    print(f"Data: {f}")
-
+    
+    print(f'Data: {f}')
+        
+    
     Xp, time_since_lead_creation = transform_features(features)
     score = model_inference(Xp)
 
