@@ -111,7 +111,8 @@ def initialize_model():
 model = initialize_model()
 
 def Ordinal_FeatEngg(lead_history_df_merged_subsetcols, scaler):
-
+    
+    lead_history_df_merged_subsetcols = lead_history_df_merged_subsetcols.astype(float)
     for f in ordinal_feat_standardize + ordinal_feat_normalize:
         encoder = scaler[f]
         print(f'FIELD IS: {f}')
