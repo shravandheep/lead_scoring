@@ -116,7 +116,7 @@ def Ordinal_FeatEngg(lead_history_df_merged_subsetcols, scaler):
     for f in ordinal_feat_standardize + ordinal_feat_normalize:
         encoder = scaler[f]
         print(f'FIELD IS: {f}')
-        print(f'INPUT IS: {lead_history_df_merged_subsetcols[f].tolist()}, ENCODER IS: {encoder}')
+        print(f'ENCODER IS: {encoder}')
         inv = encoder.inverse_transform(
             [lead_history_df_merged_subsetcols[f]]
         )
