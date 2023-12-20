@@ -67,7 +67,7 @@ def process(data, model):
             reason = ''
             result_dict = {
                 'l2_score' : score,
-                'time_since_lead_creation': time_since_lead_creation
+                'time_since_lead_creation': time_since_lead_creation,
                 'l2_reason' : reason
             }
         else: 
