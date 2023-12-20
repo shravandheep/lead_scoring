@@ -7,10 +7,10 @@ import pandas as pd
 import scoring.L1.plugins as plugins
 from scoring.L1.plugins import Plugin 
 
-from auxiliary.util.common_utils import setup_logger
+from auxiliary.util.common_utils import setup_logger, log as logger
 from auxiliary.util.global_constants import NODE_POLICY
 
-logger = setup_logger(__name__, logging.INFO)
+# logger = setup_logger(__name__, logging.INFO)
 
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 age_rating = os.path.join(_FILE_PATH, "age_rating.csv")
@@ -65,7 +65,7 @@ class Translator(object):
         return func(value)
     
     
-    def is_IEP(row):
+    def is_IEP(self, row):
 
         created_date = row['CreatedDate']
         birthdate = row['Birthdate__c']
@@ -81,7 +81,7 @@ class Translator(object):
             return 0
 
 
-    def is_MSOEP(row):
+    def is_MSOEP(self, row):
 
         created_date = row['CreatedDate']
         birthdate = row['Birthdate__c']
@@ -99,7 +99,7 @@ class Translator(object):
             return 0
 
 
-    def is_AEP(row):
+    def is_AEP(self, row):
         created_date = row['CreatedDate']
         if pd.isnull(created_date):
             return None
@@ -108,7 +108,7 @@ class Translator(object):
         else:
             return 0
 
-    def is_MAOEP(row):
+    def is_MAOEP(self, srow):
         created_date = row['CreatedDate']
         if pd.isnull(created_date):
             return None
@@ -155,10 +155,10 @@ class Translator(object):
         new_data['Birthdate__c'] = pd.to_datetime(new_data['Birthdate__c'])
         new_data['CreatedDate'] = pd.to_datetime(new_data['CreatedDate'])
         
-        new_data['is_IEP'] = new_data.apply(is_IEP, axis=1)
-        new_data['is_AEP'] = new_data.apply(is_AEP, axis=1)
-        new_data['is_MAOEP'] = new_data.apply(is_MAOEP, axis=1)
-        new_data['is_MSOEP'] = new_data.apply(is_MSOEP, axis=1)
+        new_data['is_IEP'] = new_data.apply(self.is_IEP, axis=1)
+        new_data['is_AEP'] = new_data.apply(self.is_AEP, axis=1)
+        new_data['is_MAOEP'] = new_data.apply(self.is_MAOEP, axis=1)
+        new_data['is_MSOEP'] = new_data.apply(self.is_MSOEP, axis=1)
         
         age_rating = pd.read_csv(age_rating)
         new_data = new_data.merge(age_rating, how='left')
@@ -186,45 +186,45 @@ class Translator(object):
             lower, upper = score_ranges.get(category, (0, 0))
             return round(np.random.uniform(lower, upper), 2)
         
-#         phone_neu = [
-#             "Input Phone1 Number",
-#             "Appended Phones1 Number",
-#             "Appended Phones2 Number",
-#             "Appended Phones3 Number",
-#         ]
+        phone_neu = [
+            "Input Phone1 Number",
+            "Appended Phones1 Number",
+            "Appended Phones2 Number",
+            "Appended Phones3 Number",
+        ]
         
-#         phone_lead = ["MobilePhone"]
-#         email_neu = [
-#             "Appended Emails 1 Email Address",
-#             "Appended Emails 2 Email Address",
-#             "Appended Emails 3 Email Address",
-#         ]
-#         email_lead = ["Email"]
+        phone_lead = ["MobilePhone"]
+        email_neu = [
+            "Appended Emails 1 Email Address",
+            "Appended Emails 2 Email Address",
+            "Appended Emails 3 Email Address",
+        ]
+        email_lead = ["Email"]
 
-#         new_data["Phones_Neustar"] = new_data.apply(
-#             lambda row: [row[column] for column in phone_neu], axis=1
-#         )
-#         new_data["Email_Neustar"] = new_data.apply(
-#             lambda row: [row[column] for column in email_neu], axis=1
-#         )
+        new_data["Phones_Neustar"] = new_data.apply(
+            lambda row: [row[column] for column in phone_neu], axis=1
+        )
+        new_data["Email_Neustar"] = new_data.apply(
+            lambda row: [row[column] for column in email_neu], axis=1
+        )
 
-#         new_data["Email_matching"] = new_data.apply(
-#             lambda row: self.find_index_in_list(row["Email"], row["Email_Neustar"]),
-#             axis=1,
-#         )
-#         new_data["Phone_matching"] = new_data.apply(
-#             lambda row: self.find_index_in_list(
-#                 row["MobilePhone"], row["Phones_Neustar"]
-#             ),
-#             axis=1,
-#         )
+        new_data["Email_matching"] = new_data.apply(
+            lambda row: self.find_index_in_list(row["Email"], row["Email_Neustar"]),
+            axis=1,
+        )
+        new_data["Phone_matching"] = new_data.apply(
+            lambda row: self.find_index_in_list(
+                row["MobilePhone"], row["Phones_Neustar"]
+            ),
+            axis=1,
+        )
 
-#         new_data["Email_Match_Score"] = new_data["Email_matching"].apply(
-#             self.assign_random_score
-#         )
-#         new_data["Phone_Match_Score"] = new_data["Phone_matching"].apply(
-#             self.assign_random_score
-#         )
+        new_data["Email_Match_Score"] = new_data["Email_matching"].apply(
+            self.assign_random_score
+        )
+        new_data["Phone_Match_Score"] = new_data["Phone_matching"].apply(
+            self.assign_random_score
+        )
 
         new_data["StateCode_Match"] = int(
             new_data["StateCode"] == new_data["StateCode"]
