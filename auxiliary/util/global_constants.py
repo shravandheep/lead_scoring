@@ -82,7 +82,7 @@ L1_VEC = [
 
 # L2
 L2_MODEL_WTS = ["model_experiments/weights/L2/lstm_wts_v3.1_champ_1.pt"]
-L2_SCL_ENC = ["model_experiments/encoders/L2/encoders/scalers_dict.joblib"]
+L2_SCL_ENC = ["model_experiments/weights/L2/encoders/scalers_dict.joblib"]
 
 # POLICY
 POLICY_WTS = [
