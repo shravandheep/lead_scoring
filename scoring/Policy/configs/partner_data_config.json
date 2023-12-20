@@ -2323,6 +2323,26 @@
             "kwargs":{
                 "value":"Age_as_of_createddate__c"
             }
+        },
+         {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":65
+            },
+            "alias":"Age"
+        },
+        {
+            "apply":"timediff",
+            "kwargs":{
+                
+            },
+            "alias":"Age"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":"Age"
+            }
         }
     ],
     "Spouse_Birthdate__c":[
@@ -3420,6 +3440,49 @@
                 "to": -1
             },
             "alias": "Phone1__verified_phone"
+        },
+        {
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "F",
+                    "J",
+                    "I",
+                    "G",
+                    "E",
+                    "K"
+                ],
+                "to": 0
+            },
+            "alias": "verified_phone"
+        },
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": 0
+            },
+            "alias": "verified_phone"
+        },
+        {
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "A",
+                    "C"
+                ],
+                "to": 1
+            },
+            "alias": "verified_phone"
+        },
+        {
+            "apply": "substitute",
+            "kwargs": {
+                "from": [
+                    "B"
+                ],
+                "to": -1
+            },
+            "alias": "verified_phone"
         },
         {
             "apply": "substitute",
