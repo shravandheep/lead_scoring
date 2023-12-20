@@ -58,7 +58,7 @@ def initialize_node(node_config, **kwargs):
             key = enc.replace(_ENC_EXT_POLICY, '')
             
             with open(os.path.join(r, enc), 'rb') as f:
-                label_encoders_dict[key] = pickle.load(f)
+                label_encoders_dict[key] = joblib.load(f)
                 
     for r,d,f in os.walk(parent_path_to_scalers):
         for scl in f:
@@ -66,7 +66,7 @@ def initialize_node(node_config, **kwargs):
             key = scl.replace(_ENC_EXT_POLICY, '')
             
             with open(os.path.join(r, scl), 'rb') as f:
-                scalers_dict[key] = pickle.load(f)
+                scalers_dict[key] = joblib.load(f)
     
     # init model configs
     for r,d,f in os.walk(config_path):
