@@ -73,10 +73,10 @@ def do_inference(data, node_dict):
     lead_id = data["lead_id"]
     lead_history_from_dynamodb = get_history_from_dynamodb(lead_id)
 
-    descending = sorted(list(lead_history_from_dynamodb.keys()))[::-1]
+    descending = sorted(list(lead_history_from_dynamodb.keys()))
 
     # Taking the last 30 entries
-    keys_to_consider = descending[:30]
+    keys_to_consider = descending
 
     all_changes = list()
     _ = [
@@ -87,7 +87,7 @@ def do_inference(data, node_dict):
     print(f"LEN OF ALL CHANGES: {len(all_changes)}")
     print(all_changes)
 
-    Xp, time_since_lead_creation = transform_features(all_changes, node_dict)
+    Xp, time_since_lead_creation = transform_features(all_changes[:30], node_dict)
     score = model_inference(Xp)
 
     return score, time_since_lead_creation
