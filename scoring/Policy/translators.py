@@ -14,6 +14,8 @@ from copy import deepcopy
 import scoring.Policy.plugins as plugins
 from scoring.Policy.plugins import Plugin
 
+_FILE_PATH = os.path.realpath(os.path.dirname(__file__))
+
 # from scoring.L1.main import logger
 
 from auxiliary.util.common_utils import check_and_unpack_data, create_arguments_dict, setup_logger
@@ -257,6 +259,8 @@ class Translator(object):
         new_data['is_AEP'] = new_data.apply(self.is_AEP, axis=1)
         new_data['is_MAOEP'] = new_data.apply(self.is_MAOEP, axis=1)
         new_data['is_MSOEP'] = new_data.apply(self.is_MSOEP, axis=1)
+        
+        age_rating = os.path.join(_FILE_PATH, "age_rating.csv")
         
         age_rating = pd.read_csv(age_rating)
         new_data = new_data.merge(age_rating, how='left')
