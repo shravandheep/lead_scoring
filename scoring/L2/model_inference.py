@@ -158,7 +158,7 @@ def generate_df(lead_history):
     lead_history_df_merged_ = pd.concat(
         [
             lead_history_df,
-            lead_history_df[set(reverse_field_mapping.values())]
+            lead_history_df[list(set(reverse_field_mapping.values()))]
             .cumsum(axis=0)
             .add_prefix("Cumulative_"),
         ],
