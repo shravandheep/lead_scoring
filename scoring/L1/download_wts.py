@@ -11,7 +11,7 @@ from auxiliary.util.global_constants import (
     ENC_PATH,
     SCL_ENC_PATH,
     LBL_ENC_PATH,
-    KW_VEC_PATH
+    KW_VEC_PATH,
 )
 
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))

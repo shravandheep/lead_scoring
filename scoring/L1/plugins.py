@@ -82,26 +82,26 @@ class Isweekday(Plugin):
 
 
 class Timediff(Plugin):
-    def __init__(self,kwargs):
+    def __init__(self, kwargs):
         self._status = True
-        self._error =None
-    
+        self._error = None
+
     def get_status(self):
         return self._status
-    
+
     def get_error(self):
         return self._error
 
-    def apply(self,x):
-        if x == '': 
+    def apply(self, x):
+        if x == "":
             return 0
         else:
-#             x = x.split(' ')[0]
+            #             x = x.split(' ')[0]
             x = datetime.strptime(x, "%Y-%m-%d %H:%M:%S")
             current_time = datetime.today()
 
-            return (current_time.year - x.year)
-        
+            return current_time.year - x.year
+
 
 class Weekofmonth(Plugin):
     def __init__(self, kwargs):
@@ -357,7 +357,6 @@ class Check_Valid_Phone(Plugin):
 
 
 class Get_Keyword_Vector(Plugin):
-
     def __init__(self, kwargs):
         self._vector = kwargs["vector"]
         self._status = True
@@ -370,12 +369,12 @@ class Get_Keyword_Vector(Plugin):
         return self._error
 
     def apply(self, x):
-        
+
         vec_obj = vectorizers_dict[self._vector]
         tr_kw = vec_obj.transform([x]).toarray().tolist()
         wts = np.arange(15, 0, -1)
         kw_ = np.average(tr_kw[0], weights=wts)
-        
+
         return kw_
 
 

@@ -8,7 +8,17 @@ from auxiliary.util.global_constants import _WTS_EXT_L1
 from scoring.L1.translators import Translator
 
 from boosting_score import score_boost
+
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
+
+
+def process_value(value):
+    try:
+        return float(value)
+    except ValueError:
+        print(f"FLOAT CONVERSION FAILED FOR {value}")
+        return 0
+
 
 # Helpers
 def initialize_model(wts_path):
@@ -46,7 +56,6 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
         X = pd.DataFrame.from_dict(features, orient="index").T
     else:
         X = features
-        
 
     for col in categorical_cols:
         if label_encoder.get(col):
@@ -63,11 +72,16 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
                 raise Exception(
                     "Error in Label encoding. For the field : {}, {}".format(col, e)
                 )
-                
-    print(X[numeric_cols])
+
+    for i, col in enumerate(numeric_cols):
+        if isinstance(X[col].to_dict()[0], str):
+            print(f"{i}, {col}, {X[col].to_dict()[0]}")
+        X[col] = X[col].apply(lambda x: process_value(x))
+
+    print(X[numeric_cols].to_dict(orient="records"))
 
     X[numeric_cols] = scaler.transform(X[numeric_cols])
-    
+
     return X
 
 
@@ -75,7 +89,6 @@ def inference(node_dict, data, score_request):
 
     model_config = node_dict["inference_cfg"]
     config_dict = node_dict["config_dict"]
-
 
     filters_t = transform_features(
         data, config_dict["feature_config"]
@@ -103,16 +116,16 @@ def inference(node_dict, data, score_request):
         if all(filter_condition):
 
             data_config = lead_type["data_source"]
-#             considered_features = lead_type["considered_features"]
+            #             considered_features = lead_type["considered_features"]
             numeric_cols = lead_type["numeric_features"]
             categorical_cols = lead_type["categorical_features"]
             selected_model = lead_type["model_wts"]
-            considered_features = numeric_cols+categorical_cols
+            considered_features = numeric_cols + categorical_cols
 
             selected_label_encoder = lead_type["model_params"]["preprocessing_steps"][0]
             selected_scaler = lead_type["model_params"]["preprocessing_steps"][1]
 
-            lead_type_f = lead_type['select_model']
+            lead_type_f = lead_type["select_model"]
 
             break
     else:
@@ -131,14 +144,14 @@ def inference(node_dict, data, score_request):
             )
         )
     data = pd.DataFrame.from_dict(data[0], orient="index").T
-    
+
     data_subset_features = data[considered_features]
 
     # Encoding
     label_encoder_dict = node_dict["label_encoders"]
     scaler_dict = node_dict["scalers"]
-    
-    print('*'*100)
+
+    print("*" * 100)
     print(selected_label_encoder, selected_scaler)
 
     if label_encoder_dict.get(selected_label_encoder):
@@ -156,7 +169,9 @@ def inference(node_dict, data, score_request):
     ## Hack
     enc_mapping = {"Original_Lead_Medium__c": "Lead_Medium__c"}
 
-    data_subset_features = encoding(data_subset_features, encoders_dict, numeric_cols, categorical_cols)
+    data_subset_features = encoding(
+        data_subset_features, encoders_dict, numeric_cols, categorical_cols
+    )
 
     for k, v in enc_mapping.items():
         if k in data.columns:

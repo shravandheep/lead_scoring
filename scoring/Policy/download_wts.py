@@ -4,14 +4,19 @@ import time
 
 # Internal imports
 from auxiliary.util.global_constants import _CLOUDFRONT_URL
-from auxiliary.util.global_constants import POLICY_WTS, POLICY_LBL_ENC, POLICY_SCL_ENC, L1_VEC
+from auxiliary.util.global_constants import (
+    POLICY_WTS,
+    POLICY_LBL_ENC,
+    POLICY_SCL_ENC,
+    L1_VEC,
+)
 from auxiliary.util.global_constants import (
     WTS_PATH,
     CFG_PATH,
     ENC_PATH,
     SCL_ENC_PATH,
     LBL_ENC_PATH,
-    KW_VEC_PATH
+    KW_VEC_PATH,
 )
 
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))

@@ -1,7 +1,7 @@
-'''
+"""
 
-'''
-    
+"""
+
 import os
 import json
 import traceback
@@ -18,7 +18,11 @@ _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 
 # from scoring.L1.main import logger
 
-from auxiliary.util.common_utils import check_and_unpack_data, create_arguments_dict, setup_logger
+from auxiliary.util.common_utils import (
+    check_and_unpack_data,
+    create_arguments_dict,
+    setup_logger,
+)
 from auxiliary.util.global_constants import (
     WTS_PATH,
     CFG_PATH,
@@ -111,13 +115,11 @@ class Translator(object):
         }
         lower, upper = score_ranges.get(category, (0, 0))
         return round(np.random.uniform(lower, upper), 2)
-    
-    
-    
+
     def is_IEP(self, row):
 
-        created_date = row['CreatedDate']
-        birthdate = row['Birthdate__c']
+        created_date = row["CreatedDate"]
+        birthdate = row["Birthdate__c"]
         if pd.isnull(created_date) or pd.isnull(birthdate):
             return None
         sixty_fifth_birthday = birthdate + pd.DateOffset(years=65)
@@ -128,10 +130,10 @@ class Translator(object):
             return 1
         else:
             return 0
-    
+
     def is_MSOEP(self, row):
-        created_date = row['CreatedDate']
-        birthdate = row['Birthdate__c']
+        created_date = row["CreatedDate"]
+        birthdate = row["Birthdate__c"]
         if pd.isnull(created_date) or pd.isnull(birthdate):
             return None
         sixty_fifth_birthday = birthdate + pd.DateOffset(years=65)
@@ -144,21 +146,28 @@ class Translator(object):
         else:
             return 0
 
-
     def is_AEP(self, row):
-        created_date = row['CreatedDate']
+        created_date = row["CreatedDate"]
         if pd.isnull(created_date):
             return None
-        if pd.Timestamp(created_date.year, 10, 1) <= created_date <= pd.Timestamp(created_date.year, 12, 7):
+        if (
+            pd.Timestamp(created_date.year, 10, 1)
+            <= created_date
+            <= pd.Timestamp(created_date.year, 12, 7)
+        ):
             return 1
         else:
             return 0
 
     def is_MAOEP(self, row):
-        created_date = row['CreatedDate']
+        created_date = row["CreatedDate"]
         if pd.isnull(created_date):
             return None
-        if pd.Timestamp(created_date.year, 1, 1) <= created_date <= pd.Timestamp(created_date.year, 3, 1):
+        if (
+            pd.Timestamp(created_date.year, 1, 1)
+            <= created_date
+            <= pd.Timestamp(created_date.year, 3, 1)
+        ):
             return 1
         else:
             return 0
@@ -192,8 +201,8 @@ class Translator(object):
             else:
                 pass
 
-        logger.info('LOGGING HERE')
-        logger.info('*'*100)
+        logger.info("LOGGING HERE")
+        logger.info("*" * 100)
         new_data = pd.DataFrame([new_data])
         print(list(new_data.columns))
 
@@ -248,36 +257,33 @@ class Translator(object):
         new_data["LastName_Match"] = int(
             new_data["LastName"] == new_data["Individual Name Last"]
         )
-        
+
         ## add translator
-        new_data['b'] = 'medigap'
+        new_data["b"] = "medigap"
         new_data["campaign_product"] = "unknown"
         new_data["p"] = "unknown"
-        
-        new_data['Birthdate__c'] = pd.to_datetime(new_data['Birthdate__c'])
-        new_data['CreatedDate'] = pd.to_datetime(new_data['CreatedDate'])
-        
-        new_data['is_IEP'] = new_data.apply(self.is_IEP, axis=1)
-        new_data['is_AEP'] = new_data.apply(self.is_AEP, axis=1)
-        new_data['is_MAOEP'] = new_data.apply(self.is_MAOEP, axis=1)
-        new_data['is_MSOEP'] = new_data.apply(self.is_MSOEP, axis=1)
-        
+
+        new_data["Birthdate__c"] = pd.to_datetime(new_data["Birthdate__c"])
+        new_data["CreatedDate"] = pd.to_datetime(new_data["CreatedDate"])
+
+        new_data["is_IEP"] = new_data.apply(self.is_IEP, axis=1)
+        new_data["is_AEP"] = new_data.apply(self.is_AEP, axis=1)
+        new_data["is_MAOEP"] = new_data.apply(self.is_MAOEP, axis=1)
+        new_data["is_MSOEP"] = new_data.apply(self.is_MSOEP, axis=1)
+
         age_rating = os.path.join(_FILE_PATH, "age_rating.csv")
-        
+
         age_rating = pd.read_csv(age_rating)
-        new_data = new_data.merge(age_rating, how='left')
-        new_data['Community %'] = new_data['Community %'].str.rstrip('%').astype(float)
-        new_data['region'] = 'unknown'
-        new_data['LeadAppSubStage__c'] = 0
-        new_data['LeadAppStage__c'] = 0
-        
-#         new_data = new_data.loc[:,~new_data.T.duplicated(keep='last')]
-        
+        new_data = new_data.merge(age_rating, how="left")
+        new_data["Community %"] = new_data["Community %"].str.rstrip("%").astype(float)
+        new_data["region"] = "unknown"
+        new_data["LeadAppSubStage__c"] = 0
+        new_data["LeadAppStage__c"] = 0
+
+        #         new_data = new_data.loc[:,~new_data.T.duplicated(keep='last')]
+
         new_data = new_data.to_dict(orient="records")
-        print("$"*100)
+        print("$" * 100)
         print(new_data)
-        
-        
-        
 
         return new_data

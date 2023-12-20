@@ -6,7 +6,7 @@ from datetime import datetime
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 
 
-def calc_diff(actual, expected): 
+def calc_diff(actual, expected):
     if expected == 0:
         return 0
     elif expected == actual:
@@ -17,11 +17,12 @@ def calc_diff(actual, expected):
             (abs(abs(actual - expected) - 12)),
         )
         return abs(diff)
-    
+
+
 def get_call_window_score(input_call_window, created_time):
-    
-    created_time = datetime.strptime(created_time, '%Y-%m-%d %H:%M:%S')
-    values= input_call_window.split('|')[:8]
+
+    created_time = datetime.strptime(created_time, "%Y-%m-%d %H:%M:%S")
+    values = input_call_window.split("|")[:8]
     keys = [
         "overall",
         "Monday",
@@ -33,10 +34,10 @@ def get_call_window_score(input_call_window, created_time):
         "Sunday",
     ]
     dictionary = {keys[i]: int(value) for i, value in enumerate(values)}
-    actual_call_day = created_time.strftime('%A')
+    actual_call_day = created_time.strftime("%A")
     expected_call_window_on_day = dictionary.get(actual_call_day)
-    expected_overall_call_window = dictionary.get('overall')
-    actual_call_window = int(1+int(created_time.strftime('%H'))/2)
+    expected_overall_call_window = dictionary.get("overall")
+    actual_call_window = int(1 + int(created_time.strftime("%H")) / 2)
 
     overall_diff = calc_diff(actual_call_window, expected_overall_call_window)
     daywise_diff = calc_diff(actual_call_window, expected_call_window_on_day)
@@ -49,7 +50,6 @@ def get_call_window_score(input_call_window, created_time):
 
     combined_score = (weight_daywise * daywise_score) + (weight_overall * overall_score)
     return combined_score
-
 
 
 def score_boost(score, data, selected_model):
@@ -81,11 +81,10 @@ def score_boost(score, data, selected_model):
     lead_type = data["Type"]
     if lead_type == "Online":
         score = score * 0.9
-    
+
     created_time = data["CreatedDate"]
     input_call_window = data["Input Phone1 Call Window"]
-    
-    
+
     if input_call_window != "":
 
         call_score = get_call_window_score(input_call_window, created_time)

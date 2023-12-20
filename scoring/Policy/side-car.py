@@ -7,11 +7,11 @@ from main import process as main_process
 from auxiliary.util.global_constants import NODE_POLICY
 from auxiliary.util.common_utils import setup_logger
 
-_ENV_TYPE = os.environ.get('ENV_TYPE')
+_ENV_TYPE = os.environ.get("ENV_TYPE")
 log = setup_logger(NODE_POLICY, logging.INFO)
 
 # App initialize
-node = App('Policy scoring')
+node = App("Policy scoring")
 
 # get config
 # config = get_config()
@@ -43,4 +43,3 @@ def process(payload):
 
 if __name__ == "__main__":
     node.start()
-

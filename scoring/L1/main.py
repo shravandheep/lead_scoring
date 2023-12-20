@@ -15,7 +15,7 @@ from auxiliary.util.global_constants import (
     ENC_PATH,
     SCL_ENC_PATH,
     LBL_ENC_PATH,
-    KW_VEC_PATH
+    KW_VEC_PATH,
 )
 from auxiliary.util.global_constants import (
     LEAD_DATA,
@@ -165,7 +165,7 @@ def process(data, node_dict):
 
     print("*" * 100)
     print(result_dict)
-    
+
     return result_dict
 
 

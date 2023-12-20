@@ -187,9 +187,9 @@ class Translator(object):
         new_data["LastName_Match"] = int(
             new_data["LastName"] == new_data["Individual Name Last"]
         )
-        
+
         ## add translator
-        new_data['b'] = 'medigap'
+        new_data["b"] = "medigap"
         new_data = new_data.to_dict(orient="records")
 
         return new_data
