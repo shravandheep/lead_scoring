@@ -4,7 +4,7 @@ import os
 # Internal imports
 from auxiliary.util.global_constants import _CLOUDFRONT_URL
 from auxiliary.util.global_constants import L2_MODEL_WTS, L2_SCL_ENC
-from auxiliary.util.global_constants import WTS_PATH, ENC_PATH
+from auxiliary.util.global_constants import WTS_PATH, ENC_PATH, SCL_ENC_PATH
 
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 
