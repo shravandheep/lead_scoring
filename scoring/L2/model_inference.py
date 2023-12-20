@@ -1,6 +1,7 @@
 import pandas as pd
 from auxiliary.util.global_constants import L2_MODEL_WTS
 import joblib
+import os
 
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 model_wts_path = os.path.join(_FILE_PATH, L2_MODEL_WTS)
