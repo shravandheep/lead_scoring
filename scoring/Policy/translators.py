@@ -152,6 +152,7 @@ class Translator(object):
         logger.info('LOGGING HERE')
         logger.info('*'*100)
         new_data = pd.DataFrame([new_data])
+        print(new_data)
 
         phone_neu = [
             "Input Phone1 Number",
