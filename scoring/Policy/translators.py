@@ -266,7 +266,7 @@ class Translator(object):
         new_data = new_data.merge(age_rating, how='left')
         new_data['Community %'] = new_data['Community %'].str.rstrip('%').astype(float)
         new_data['region'] = 'unknown'
-        new_data["p"] = new_data["p"]
+        new_data["campaign_product"] = new_data["p"]
         new_data = new_data.to_dict(orient="records")
 
         return new_data
