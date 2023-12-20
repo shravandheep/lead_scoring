@@ -5,7 +5,7 @@ RUN apt-get update && apt-get install -y libgomp1 libglib2.0-0 libsm6 libxrender
 
 # Installs mlaaslib which is required for NW3.
 ARG PIP_INDEX_URL
-RUN pip install --index-url ${PIP_INDEX_URL} mlaaslib
+RUN pip install --index-url ${PIP_INDEX_URL} mlaaslib==2.0.0
 
 RUN mkdir -p /home/ubuntu/mad/
 
