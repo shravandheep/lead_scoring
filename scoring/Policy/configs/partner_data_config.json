@@ -4351,7 +4351,7 @@
             "kwargs":{
                 "regex":"r'([A-Za-z]+)'"
             }, 
-            "alias":"Individual Marital Status"
+            "alias":"Individual Marital Status New"
         }, 
         {
             "apply":"fill_na",
@@ -4364,7 +4364,7 @@
             "kwargs":{
                 "value":"unknown"
             }, 
-            "alias":"Individual Marital Status"
+            "alias":"Individual Marital Status New"
         }
     ],
     "Individual Person Type":[

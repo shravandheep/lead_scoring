@@ -4149,7 +4149,14 @@
             }
         }
     ],
-    "Individual Marital Status":[
+     "Individual Marital Status":[
+        {
+            "apply":"extract_string",
+            "kwargs":{
+                "regex":"r'([A-Za-z]+)'"
+            }, 
+            "alias":"Individual Marital Status New"
+        }, 
         {
             "apply":"fill_na",
             "kwargs":{
@@ -4157,10 +4164,11 @@
             }
         },
         {
-            "apply":"extract_string",
+            "apply":"fill_na",
             "kwargs":{
-                "regex":"r'([A-Za-z]+)'"
-            }
+                "value":"unknown"
+            }, 
+            "alias":"Individual Marital Status New"
         }
     ],
     "Individual Person Type":[
