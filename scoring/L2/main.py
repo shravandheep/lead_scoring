@@ -59,8 +59,7 @@ def process(data, model):
     parsed_data, packet_id, _ = check_and_unpack_data(data)
     args_dict = create_arguments_dict(parsed_data, ['data'])
     score_request = args_dict['data'][LEAD_DATA]['type']
-    
-    
+     
     try: 
         raise
         if score_request == 'update_score_for_lead':
