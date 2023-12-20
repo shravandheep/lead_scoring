@@ -78,7 +78,7 @@ def process(data):
             l2_score = 0
 
         final_score = compute_hybrid(l1_score, l2_score, args_dict['time_since_lead_creation'])   ##check if we have time here
-        final_likelihood = get_likelihood(score)
+        final_likelihood = get_likelihood(final_score)
 
         final_args = dict((k,v) for (k,v) in args_dict.items() if k in required_keys)
 
