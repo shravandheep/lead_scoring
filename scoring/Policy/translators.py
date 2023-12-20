@@ -251,6 +251,8 @@ class Translator(object):
         
         ## add translator
         new_data['b'] = 'medigap'
+        new_data["campaign_product"] = "unknown"
+        new_data["p"] = "unknown"
         
         new_data['Birthdate__c'] = pd.to_datetime(new_data['Birthdate__c'])
         new_data['CreatedDate'] = pd.to_datetime(new_data['CreatedDate'])
@@ -267,8 +269,7 @@ class Translator(object):
         new_data['Community %'] = new_data['Community %'].str.rstrip('%').astype(float)
         new_data['region'] = 'unknown'
         
-        new_data["campaign_product"] = "unknown"
-        new_data["p"] = "unknown"
+        new_data = new_data.loc[:,~new_data.T.duplicated(keep='last')]
         
         new_data = new_data.to_dict(orient="records")
         print("$"*100)
