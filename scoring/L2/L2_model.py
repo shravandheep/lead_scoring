@@ -88,6 +88,3 @@ def do_inference(data, node_dict):
     print(all_changes)
 
     Xp, time_since_lead_creation = transform_features(all_changes[:30], node_dict)
-    score = model_inference(Xp)
-
-    return score, time_since_lead_creation

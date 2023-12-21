@@ -1537,6 +1537,33 @@
     ],
     "Lead_Ad_Campaign__c": [
         {
+            "apply":"regex",
+            "kwargs":{
+                "from":[
+                    ".*mfaq.+"
+                ],
+                "to":"mfaq"
+            },
+            "alias":"b"
+        },
+        {
+            "apply":"regex",
+            "kwargs":{
+                "from":[
+                    ".*mc.+"
+                ],
+                "to":"mc"
+            },
+            "alias":"b"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":"unknown"
+            },
+            "alias":"b"
+        },
+        {
             "apply": "regex",
             "kwargs": {
                 "from": [
