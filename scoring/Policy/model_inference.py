@@ -1,11 +1,13 @@
 import os
 import json
 import joblib
-
 import pandas as pd
+import warnings
 
 from auxiliary.util.global_constants import _WTS_EXT_L1
 from scoring.Policy.translators import Translator
+
+warnings.filterwarnings("ignore")
 
 
 def process_value(value):
@@ -71,8 +73,6 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
         if isinstance(X[col].to_dict()[0], str):
             print(f"{i}, {col}, {X[col].to_dict()[0]}")
         X[col] = X[col].apply(lambda x: process_value(x))
-
-    print(X[numeric_cols].to_dict(orient="records"))
 
     X[numeric_cols] = scaler.transform(X[numeric_cols])
 

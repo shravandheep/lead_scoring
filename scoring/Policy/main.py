@@ -74,7 +74,6 @@ def initialize_node(node_config, **kwargs):
                 label_encoders_dict[key] = joblib.load(f)
 
     for r, d, f in os.walk(parent_path_to_scalers):
-        print(r, d, f)
         for scl in f:
             print(scl)
             key = scl.replace(_ENC_EXT_POLICY, "")
@@ -85,7 +84,6 @@ def initialize_node(node_config, **kwargs):
 
     # init model configs
     for r, d, f in os.walk(config_path):
-        print(r, d, f)
         for files in f:
             print(f)
             key = files.replace(_CFG_EXT_POLICY, "")
@@ -104,8 +102,6 @@ def initialize_node(node_config, **kwargs):
         "label_encoders": label_encoders_dict,
         "scalers": scalers_dict,
     }
-
-    print(initialized_objects["config_dict"])
 
     return initialized_objects
 

@@ -49,10 +49,8 @@ def initialize_node(node_config, **kwargs):
     weights_path = os.path.join(_FILE_PATH, WTS_PATH)
 
     encoders_path = os.path.join(_FILE_PATH, ENC_PATH)
-    print(encoders_path)
 
     parent_path_to_scalers = os.path.join(encoders_path, SCL_ENC_PATH)
-    print(parent_path_to_scalers)
 
     scalers_dict = {}
 
@@ -74,8 +72,6 @@ def initialize_node(node_config, **kwargs):
         # "model_dict": model_dict,
         "scalers": scalers_dict,
     }
-
-    print(f"{initialized_objects}")
 
     return initialized_objects
 

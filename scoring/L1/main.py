@@ -54,17 +54,11 @@ def initialize_node(node_config, **kwargs):
 
     # Paths
     config_path = os.path.join(_FILE_PATH, CFG_PATH)
-    print(config_path)
     encoders_path = os.path.join(_FILE_PATH, ENC_PATH)
-    print(encoders_path)
     weights_path = os.path.join(_FILE_PATH, WTS_PATH)
-    print(weights_path)
     path_to_inference = os.path.join(config_path, model_inf_config)
-    print(path_to_inference)
     parent_path_to_encoders = os.path.join(encoders_path, LBL_ENC_PATH)
-    print(parent_path_to_encoders)
     parent_path_to_scalers = os.path.join(encoders_path, SCL_ENC_PATH)
-    print(parent_path_to_scalers)
 
     # init model
     model_dict = initialize_model(weights_path)

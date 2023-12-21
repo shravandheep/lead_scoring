@@ -196,7 +196,6 @@ class Translator(object):
         logger.info("LOGGING HERE")
         logger.info("*" * 100)
         new_data = pd.DataFrame([new_data])
-        print(list(new_data.columns))
 
         phone_neu = [
             "Input Phone1 Number",
@@ -275,7 +274,5 @@ class Translator(object):
         #         new_data = new_data.loc[:,~new_data.T.duplicated(keep='last')]
 
         new_data = new_data.to_dict(orient="records")
-        print("$" * 100)
-        print(new_data)
 
         return new_data
