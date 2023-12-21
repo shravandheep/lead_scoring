@@ -249,11 +249,6 @@ class Translator(object):
             new_data["LastName"] == new_data["Individual Name Last"]
         )
 
-        ## add translator
-        new_data["b"] = "medigap"
-        new_data["campaign_product"] = "unknown"
-        new_data["p"] = "unknown"
-
         new_data["Birthdate__c"] = pd.to_datetime(new_data["Birthdate__c"])
         new_data["CreatedDate"] = pd.to_datetime(new_data["CreatedDate"])
 
@@ -267,9 +262,9 @@ class Translator(object):
         age_rating = pd.read_csv(age_rating)
         new_data = new_data.merge(age_rating, how="left")
         new_data["Community %"] = new_data["Community %"].str.rstrip("%").astype(float)
-        new_data["region"] = "unknown"
-        new_data["LeadAppSubStage__c"] = 0
-        new_data["LeadAppStage__c"] = 0
+        
+#         new_data["LeadAppSubStage__c"] = 0
+#         new_data["LeadAppStage__c"] = 0
 
         #         new_data = new_data.loc[:,~new_data.T.duplicated(keep='last')]
 
