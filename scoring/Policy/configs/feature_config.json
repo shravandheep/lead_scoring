@@ -270,7 +270,7 @@
             "apply": "regex",
             "kwargs": {
                 "from": [
-                    ".*Partner\b"
+                    ".*Partner.*"
                 ],
                 "to": "Partner"
             },
@@ -290,7 +290,7 @@
             "apply": "regex",
             "kwargs": {
                 "from": [
-                    ".*Facebook\b"
+                    ".*Facebook.*"
                 ],
                 "to": "Facebook"
             },
@@ -300,7 +300,7 @@
             "apply": "regex",
             "kwargs": {
                 "from": [
-                    ".*Email\b"
+                    ".*Email.*"
                 ],
                 "to": "Email"
             },
