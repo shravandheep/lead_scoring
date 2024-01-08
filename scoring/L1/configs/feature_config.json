@@ -368,19 +368,9 @@
             "apply": "regex",
             "kwargs": {
                 "from": [
-                    "(?<!ApplyFor)Medicare(?!FAQ)"
+                    ".*MedicareFAQ.*"
                 ],
                 "to": "MedicareFAQ"
-            },
-            "alias": "Source"
-        },
-        {
-            "apply": "regex",
-            "kwargs": {
-                "from": [
-                    ".*ApplyForMedicare.*"
-                ],
-                "to": "ApplyForMedicare"
             },
             "alias": "Source"
         },
@@ -391,6 +381,16 @@
                     ".*Partner\b"
                 ],
                 "to": "Partner"
+            },
+            "alias": "Source"
+        },
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    "(?<!ApplyFor)Medicare(?!FAQ)"
+                ],
+                "to": "Medicare"
             },
             "alias": "Source"
         },
@@ -411,6 +411,16 @@
                     ".*Email\b"
                 ],
                 "to": "Email"
+            },
+            "alias": "Source"
+        },
+        {
+            "apply": "regex",
+            "kwargs": {
+                "from": [
+                    ".*ApplyForMedicare"
+                ],
+                "to": "ApplyForMedicare"
             },
             "alias": "Source"
         }
