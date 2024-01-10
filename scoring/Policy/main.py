@@ -75,7 +75,7 @@ def initialize_node(node_config, **kwargs):
 
     for r, d, f in os.walk(parent_path_to_scalers):
         for scl in f:
-            print(scl)
+            
             key = scl.replace(_ENC_EXT_POLICY, "")
             key = key.split("-")[0]
 
@@ -85,7 +85,7 @@ def initialize_node(node_config, **kwargs):
     # init model configs
     for r, d, f in os.walk(config_path):
         for files in f:
-            print(f)
+            
             key = files.replace(_CFG_EXT_POLICY, "")
             key = key.split("-")[0]
             config_dict[key] = os.path.join(r, files)
@@ -166,7 +166,7 @@ def process(data, node_dict):
             {
                 "type": "update_score_for_policy_ms",
                 "score": round(1 - x, 2),
-                "likelihood": 3,
+                "likelihood": 4,
             },
         ]
         result_dict = dict(

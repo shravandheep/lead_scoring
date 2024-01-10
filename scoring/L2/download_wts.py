@@ -22,22 +22,18 @@ for wts in L2_MODEL_WTS:
             raise Exception("Unsuccessful Download")
 
         if response.status_code == 200:
-            print(
-                "Weights downloaded successfully. Proceeding to saving the {} weights locally".format(
-                    wts
-                )
-            )
-
+            
             os.makedirs(os.path.join(_FILE_PATH, WTS_PATH), exist_ok=True)
             local_path = os.path.realpath(os.path.join(_FILE_PATH, WTS_PATH, file_name))
 
-            print("Local path :", local_path)
+            
 
             with open(local_path, "wb") as f:
                 f.write(response.content)
 
     except Exception as e:
-        print("Model wts {} download failed: ".format(wts), e)
+        pass
+        
 
 
 for enc in L2_SCL_ENC:
@@ -53,11 +49,7 @@ for enc in L2_SCL_ENC:
             raise Exception("Unsuccessful Download")
 
         if response.status_code == 200:
-            print(
-                "Encoder downloaded successfully. Proceeding to saving the {} locally".format(
-                    enc
-                )
-            )
+            
 
             os.makedirs(os.path.join(_FILE_PATH, ENC_PATH), exist_ok=True)
             os.makedirs(os.path.join(_FILE_PATH, ENC_PATH, SCL_ENC_PATH), exist_ok=True)
@@ -66,10 +58,10 @@ for enc in L2_SCL_ENC:
                 os.path.join(_FILE_PATH, ENC_PATH, SCL_ENC_PATH, file_name)
             )
 
-            print("Local path :", local_path)
+            
 
             with open(local_path, "wb") as f:
                 f.write(response.content)
 
     except Exception as e:
-        print("Scaler {} download failed: ".format(wts), e)
+        pass

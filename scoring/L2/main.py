@@ -56,7 +56,7 @@ def initialize_node(node_config, **kwargs):
 
     for r, d, f in os.walk(parent_path_to_scalers):
         for scl in f:
-            print(scl)
+            
             key = scl.replace(_ENC_EXT_L2, "")
             key = key.split("-")[0]
             # with open(os.path.join(r, scl), "rb") as f:
@@ -100,7 +100,7 @@ def process(data, node_dict):
                 args_dict, node_dict
             )  ### check
             reason = ""
-            print(f"SCORE IS: {score}")
+            
             result_dict = {
                 "l2_score": round(float(score[1]), 2),
                 "time_since_lead_creation": time_since_lead_creation,

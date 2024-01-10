@@ -18,7 +18,6 @@ def process_value(value):
     try:
         return float(value)
     except ValueError:
-        print(f"FLOAT CONVERSION FAILED FOR {value}")
         return 0
 
 
@@ -73,7 +72,6 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
 
     for i, col in enumerate(numeric_cols):
         if isinstance(X[col].to_dict()[0], str):
-            print(f"{i}, {col}, {X[col].to_dict()[0]}")
         X[col] = X[col].apply(lambda x: process_value(x))
 
     X[numeric_cols] = scaler.transform(X[numeric_cols])
@@ -141,9 +139,6 @@ def inference(node_dict, data, score_request):
     # Encoding
     label_encoder_dict = node_dict["label_encoders"]
     scaler_dict = node_dict["scalers"]
-
-    print("*" * 100)
-    print(selected_label_encoder, selected_scaler)
 
     if label_encoder_dict.get(selected_label_encoder):
         label_encoder = label_encoder_dict[selected_label_encoder]

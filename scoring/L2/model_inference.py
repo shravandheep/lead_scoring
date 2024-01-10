@@ -97,9 +97,6 @@ def initialize_model():
     for r, d, f in os.walk(weights_path):
         model_path = os.path.join(r, f[0])
 
-    print(f"WTS PATH IS: {weights_path}")
-    print(f"MODEL PATH IS: {model_path}")
-
     model = LSTMModel(input_size, hidden_size, num_layers, output_size)
     model.load_state_dict(torch.load(model_path))
     model.eval()

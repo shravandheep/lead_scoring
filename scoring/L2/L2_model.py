@@ -84,7 +84,5 @@ def do_inference(data, node_dict):
         for k in keys_to_consider
     ]
 
-    print(f"LEN OF ALL CHANGES: {len(all_changes)}")
-    print(all_changes)
 
     Xp, time_since_lead_creation = transform_features(all_changes[:30], node_dict)

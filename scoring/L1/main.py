@@ -70,7 +70,6 @@ def initialize_node(node_config, **kwargs):
 
     for r, d, f in os.walk(parent_path_to_encoders):
         for enc in f:
-            print(enc)
             key = enc.replace(_ENC_EXT_L1, "")
             key = key.split("-")[0]
             # with open(os.path.join(r, enc), "rb") as f:
@@ -79,7 +78,6 @@ def initialize_node(node_config, **kwargs):
 
     for r, d, f in os.walk(parent_path_to_scalers):
         for scl in f:
-            print(scl)
             key = scl.replace(_ENC_EXT_L1, "")
             key = key.split("-")[0]
             # with open(os.path.join(r, scl), "rb") as f:
@@ -89,7 +87,6 @@ def initialize_node(node_config, **kwargs):
     # init model configs
     for r, d, f in os.walk(config_path):
         for files in f:
-            print(files)
             key = files.replace(_CFG_EXT_L1, "")
             config_dict[key] = os.path.join(r, files)
 
@@ -143,7 +140,6 @@ def process(data, node_dict):
             score_request == "request_score_for_lead"
             or score_request == "update_score_for_lead"
         ):
-            print("MODEL INFERENCE")
             result_dict = inference(node_dict, combined_data, score_request)
             result_dict["l1_score"] = round(float(result_dict["l1_score"]), 2)
         else:
@@ -155,9 +151,6 @@ def process(data, node_dict):
             "l1_likelihood": 1,
             "l1_reason": traceback.format_exc(),
         }
-
-    print("*" * 100)
-    print(result_dict)
 
     return result_dict
 
