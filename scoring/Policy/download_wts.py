@@ -71,12 +71,11 @@ for enc in POLICY_LBL_ENC:
                 os.path.join(_FILE_PATH, ENC_PATH, LBL_ENC_PATH, file_name)
             )
 
-            
-
             with open(local_path, "wb") as f:
                 f.write(response.content)
 
     except Exception as e:
+        pass
         
 
 for enc in POLICY_SCL_ENC:
@@ -107,6 +106,7 @@ for enc in POLICY_SCL_ENC:
                 f.write(response.content)
 
     except Exception as e:
+        pass
         
 
 
