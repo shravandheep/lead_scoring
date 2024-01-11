@@ -72,7 +72,7 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
     for i, col in enumerate(numeric_cols):
         if isinstance(X[col].to_dict()[0], str):
             
-        X[col] = X[col].apply(lambda x: process_value(x))
+            X[col] = X[col].apply(lambda x: process_value(x))
 
     X[numeric_cols] = scaler.transform(X[numeric_cols])
 
@@ -116,8 +116,38 @@ def inference(node_dict, data, score_request):
             selected_scaler = lead_type["model_params"]["preprocessing_steps"][1]
 
             lead_type_f = lead_type["select_model"]
+            
+        elif data['Lead_Medium__c'] == 'search' and data['Lead_Ad_Source__c'] == 'direct': 
+            if data['Lead_URL__c'].startswith('https://rates'): 
+                ### paid
+                lead_type = model_config['paid_leads_object_data']
+                data_config = lead_type["data_source"]
+                numeric_cols = lead_type["numeric_features"]
+                categorical_cols = lead_type["categorical_features"]
+                selected_model = lead_type["model_wts"]
+                considered_features = numeric_cols + categorical_cols
+
+                selected_label_encoder = lead_type["model_params"]["preprocessing_steps"][0]
+                selected_scaler = lead_type["model_params"]["preprocessing_steps"][1]
+
+                lead_type_f = lead_type["select_model"]
+                
+            else: 
+                #### seo
+                lead_type = model_config['not_paid_leads_object_data']
+                data_config = lead_type["data_source"]
+                numeric_cols = lead_type["numeric_features"]
+                categorical_cols = lead_type["categorical_features"]
+                selected_model = lead_type["model_wts"]
+                considered_features = numeric_cols + categorical_cols
+
+                selected_label_encoder = lead_type["model_params"]["preprocessing_steps"][0]
+                selected_scaler = lead_type["model_params"]["preprocessing_steps"][1]
+
+                lead_type_f = lead_type["select_model"]
 
             break
+            
     else:
         reason = "Lead Source, Medium and Ad Source in combination did not match any of the lead model types"
 
