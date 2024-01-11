@@ -118,7 +118,8 @@ def inference(node_dict, data, score_request):
             lead_type_f = lead_type["select_model"]
             
         elif data['Lead_Medium__c'] == 'search' and data['Lead_Ad_Source__c'] == 'direct': 
-            if data['Lead_URL__c'].startswith('https://rates'): 
+            if 'rates' in data['Lead_URL__c']: 
+#             if data['Lead_URL__c'].startswith('https://rates'): 
                 ### paid
                 lead_type = model_config['paid_leads_object_data']
                 data_config = lead_type["data_source"]
