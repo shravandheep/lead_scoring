@@ -106,7 +106,6 @@ def inference(node_dict, data, score_request):
 
         if all(filter_condition):
             data_config = lead_type["data_source"]
-            #             considered_features = lead_type["considered_features"]
             numeric_cols = lead_type["numeric_features"]
             categorical_cols = lead_type["categorical_features"]
             selected_model = lead_type["model_wts"]
@@ -116,6 +115,35 @@ def inference(node_dict, data, score_request):
             selected_scaler = lead_type["model_params"]["preprocessing_steps"][1]
 
             lead_type_f = lead_type["select_model"]
+            
+        elif filters_t['Lead_Medium__c'] == 'search' and filters_t['Lead_Ad_Source__c'] == 'direct': 
+            if filters_t['Lead_URL__c'].startswith('https://rates'): 
+                ### paid
+                lead_type = model_config['paid_leads_object_data']
+                data_config = lead_type["data_source"]
+                numeric_cols = lead_type["numeric_features"]
+                categorical_cols = lead_type["categorical_features"]
+                selected_model = lead_type["model_wts"]
+                considered_features = numeric_cols + categorical_cols
+
+                selected_label_encoder = lead_type["model_params"]["preprocessing_steps"][0]
+                selected_scaler = lead_type["model_params"]["preprocessing_steps"][1]
+
+                lead_type_f = lead_type["select_model"]
+                
+            else: 
+                #### seo
+                lead_type = model_config['not_paid_leads_object_data']
+                data_config = lead_type["data_source"]
+                numeric_cols = lead_type["numeric_features"]
+                categorical_cols = lead_type["categorical_features"]
+                selected_model = lead_type["model_wts"]
+                considered_features = numeric_cols + categorical_cols
+
+                selected_label_encoder = lead_type["model_params"]["preprocessing_steps"][0]
+                selected_scaler = lead_type["model_params"]["preprocessing_steps"][1]
+
+                lead_type_f = lead_type["select_model"]
 
             break
     else:
