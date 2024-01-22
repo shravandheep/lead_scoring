@@ -150,6 +150,7 @@ def process(data, node_dict):
             "l1_score": x,
             "l1_likelihood": 1,
             "l1_reason": traceback.format_exc(), 
+            "lead_type": 'invalid combination',
             
         }
 

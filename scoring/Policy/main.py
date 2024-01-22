@@ -162,11 +162,13 @@ def process(data, node_dict):
                 "type": "update_score_for_policy_ma",
                 "score": x,
                 "likelihood": 1,
+                "lead_type": 'invalid combination'
             },
             {
                 "type": "update_score_for_policy_ms",
                 "score": round(1 - x, 2),
                 "likelihood": 4,
+                "lead_type": 'invalid combination',
             },
         ]
         result_dict = dict(
