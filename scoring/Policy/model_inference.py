@@ -215,11 +215,13 @@ def inference(node_dict, data, score_request):
             "type": "update_score_for_policy_ma",
             "score": score_ma,
             "likelihood": likelihood_ma,
+            "lead_type": lead_type_f
         },
         {
             "type": "update_score_for_policy_ms",
             "score": score_ms,
             "likelihood": likelihood_ms,
+            "lead_type": lead_type_f
         },
     ]
 
