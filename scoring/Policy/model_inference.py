@@ -227,12 +227,12 @@ def inference(node_dict, data, score_request):
         {
             "type": "confidence_scores",
             "score": {
-                "FirstName_Match": filters_t[0]['FirstName_Match']
-                "LastName_Match": filters_t[0]['LastName_Match']
-                "City_Match": filters_t[0]['City_Match']
-                "StateCode_Match": filters_t[0]['StateCode_Match']
-                "Phone_Match_Score": filters_t[0]['Phone_Match_Score']
-                "Email_Match_Score": filters_t[0]['Email_Match_Score']
+                "FirstName_Match": filters_t[0]['FirstName_Match'],
+                "LastName_Match": filters_t[0]['LastName_Match'],
+                "City_Match": filters_t[0]['City_Match'],
+                "StateCode_Match": filters_t[0]['StateCode_Match'],
+                "Phone_Match_Score": filters_t[0]['Phone_Match_Score'],
+                "Email_Match_Score": filters_t[0]['Email_Match_Score'],
                 
             }
         }
