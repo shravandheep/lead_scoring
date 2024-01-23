@@ -101,6 +101,12 @@
                 ],
                 "to": "others"
             }
+        }, 
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
+            }
         }
     ],
     "Original_Lead_Ad_Source__c": [
@@ -253,6 +259,12 @@
                 ],
                 "to": "google"
             }
+        }, 
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
+            }
         }
     ],
     "LeadSource": [
@@ -314,6 +326,13 @@
                 ],
                 "to": "ApplyForMedicare"
             },
+            "alias": "Source"
+        }, 
+        {
+            "apply": "fill_na",
+            "kwargs": {
+                "value": "unknown"
+            }, 
             "alias": "Source"
         }
     ]
