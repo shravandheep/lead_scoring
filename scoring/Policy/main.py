@@ -170,6 +170,17 @@ def process(data, node_dict):
                 "likelihood": 4,
                 "lead_type": 'invalid combination',
             },
+            {
+            "type": "confidence_scores",
+            "score": {
+                "FirstName_Match": -1,
+                "LastName_Match": -1,
+                "City_Match": -1,
+                "StateCode_Match": -1,
+                "Phone_Match_Score": -1,
+                "Email_Match_Score": -1,
+                }
+            }
         ]
         result_dict = dict(
             result=res, lead_id=lead_id, policy_reason=traceback.format_exc()

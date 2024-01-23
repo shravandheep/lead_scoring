@@ -215,7 +215,15 @@ def inference(node_dict, data, score_request):
         "l1_score": score,
         "l1_likelihood": likelihood,
         "l1_reason": "",
-        "lead_type": lead_type_f
+        "lead_type": lead_type_f, 
+        "confidence_scores": {
+                "FirstName_Match": filters_t[0]['FirstName_Match'], 
+                "LastName_Match": filters_t[0]['LastName_Match'], 
+                "City_Match": filters_t[0]['City_Match'], 
+                "StateCode_Match": filters_t[0]['StateCode_Match'], 
+                "Phone_Match_Score": filters_t[0]['Phone_Match_Score'], 
+                "Email_Match_Score": filters_t[0]['Email_Match_Score']
+        }
     }
 
     return result_dict

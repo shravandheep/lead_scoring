@@ -151,6 +151,14 @@ def process(data, node_dict):
             "l1_likelihood": 1,
             "l1_reason": traceback.format_exc(), 
             "lead_type": 'invalid combination',
+            "confidence_scores": {
+                "FirstName_Match": -1, 
+                "LastName_Match": -1, 
+                "City_Match": -1, 
+                "StateCode_Match": -1, 
+                "Phone_Match_Score": -1, 
+                "Email_Match_Score": -1
+        }
             
         }
 
