@@ -103,9 +103,6 @@ def inference(node_dict, data, score_request):
             condition_2 = filters_t[0][fk] in fv
             condition_final = condition_1 and condition_2
             filter_condition.append(condition_final)
-        
-        print('*'*100)
-        print(filter_condition)
 
         if all(filter_condition):
             data_config = lead_type["data_source"]
@@ -219,6 +216,14 @@ def inference(node_dict, data, score_request):
         "l1_likelihood": likelihood,
         "l1_reason": "",
         "lead_type": lead_type_f,
+        "confidence_scores": {
+                "FirstName_Match": filters_t[0]['FirstName_Match']
+                "LastName_Match": filters_t[0]['LastName_Match']
+                "City_Match": filters_t[0]['City_Match']
+                "StateCode_Match": filters_t[0]['StateCode_Match']
+                "Phone_Match_Score": filters_t[0]['Phone_Match_Score']
+                "Email_Match_Score": filters_t[0]['Email_Match_Score']
+        }
     }
 
     return result_dict
