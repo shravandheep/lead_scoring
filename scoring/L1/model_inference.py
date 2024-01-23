@@ -103,6 +103,8 @@ def inference(node_dict, data, score_request):
             condition_2 = filters_t[0][fk] in fv
             condition_final = condition_1 and condition_2
             filter_condition.append(condition_final)
+        
+        print(filter_condition)
 
         if all(filter_condition):
             data_config = lead_type["data_source"]
