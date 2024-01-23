@@ -104,6 +104,7 @@ def inference(node_dict, data, score_request):
             condition_final = condition_1 and condition_2
             filter_condition.append(condition_final)
         
+        print('*'*100)
         print(filter_condition)
 
         if all(filter_condition):
