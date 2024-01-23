@@ -73,6 +73,7 @@ def process(data):
         "l1_likelihood",
         "l2_score",
         "l2_reason",
+        "lead_type"
     ]
 
     input_keys = [
@@ -83,6 +84,7 @@ def process(data):
         "l2_score",
         "l2_reason",
         "time_since_lead_creation",
+        "lead_type",
         "data",
     ]
 
