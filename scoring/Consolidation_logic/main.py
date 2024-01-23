@@ -73,7 +73,8 @@ def process(data):
         "l1_likelihood",
         "l2_score",
         "l2_reason",
-        "lead_type"
+        "lead_type", 
+        "confidence_scores"
     ]
 
     input_keys = [
@@ -86,6 +87,7 @@ def process(data):
         "time_since_lead_creation",
         "lead_type",
         "data",
+        "confidence_scores"
     ]
 
     parsed_data, packet_id, _ = check_and_unpack_data(data)
