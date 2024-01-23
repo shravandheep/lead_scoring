@@ -115,6 +115,7 @@ def inference(node_dict, data, score_request):
             selected_scaler = lead_type["model_params"]["preprocessing_steps"][1]
 
             lead_type_f = lead_type["select_model"]
+            break
             
         elif data['Lead_Medium__c'] == 'search' and data['Lead_Ad_Source__c'] == 'direct': 
             if 'rates.medicare' in data['Lead_URL__c']: 
