@@ -1,7 +1,3 @@
-"""
-
-"""
-
 import os
 import json
 import traceback
@@ -9,6 +5,7 @@ import pandas as pd
 import numpy as np
 import logging
 from copy import deepcopy
+from fuzzywuzzy import fuzz
 
 
 import scoring.Policy.plugins as plugins
@@ -242,12 +239,15 @@ class Translator(object):
         new_data["City_Match"] = int(
             new_data["City"] == new_data["Appended Addresses1 City"]
         )
-        new_data["FirstName_Match"] = int(
-            new_data["FirstName"] == new_data["Individual Name First"]
-        )
-        new_data["LastName_Match"] = int(
-            new_data["LastName"] == new_data["Individual Name Last"]
-        )
+        if new_data['FirstName'][0]=='' or new_data['Individual Name First'][0]=='':
+            new_data["FirstName_Match"] = 0
+        else: 
+            new_data["FirstName_Match"] = fuzz.token_sort_ratio(new_data['FirstName'][0], new_data['Individual Name First'][0])/100
+            
+        if new_data['LastName'][0]=='' or new_data['Individual Name Last'][0]=='':
+            new_data["LastName_Match"] = 0
+        else: 
+            new_data["LastName_Match"] = fuzz.token_sort_ratio(new_data['LastName'][0], new_data['Individual Name Last'][0])/100
 
         new_data["Birthdate__c"] = pd.to_datetime(new_data["Birthdate__c"])
         new_data["CreatedDate"] = pd.to_datetime(new_data["CreatedDate"])

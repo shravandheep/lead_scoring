@@ -13,3 +13,4 @@ itsdangerous
 phonenumbers
 email_validator
 xgboost
+fuzzywuzzy
