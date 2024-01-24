@@ -162,18 +162,26 @@ class Translator(object):
             axis=1,
         )
         
-        if new_data['MobilePhone'][0]=='': 
-            new_data["Phone_Match_Score"] = 0
-        else: 
-            new_data["Phone_Match_Score"] = new_data["Phone_matching"].apply(
+#         if new_data['MobilePhone'][0]=='': 
+#             new_data["Phone_Match_Score"] = 0
+#         else: 
+#             new_data["Phone_Match_Score"] = new_data["Phone_matching"].apply(
+#             self.assign_random_score
+#         )
+        
+        new_data["Phone_Match_Score"] = new_data["Phone_matching"].apply(
             self.assign_random_score
         )
             
             
-        if new_data['Email'][0]=='': 
-            new_data["Email_Match_Score"] = 0
-        else: 
-            new_data["Email_Match_Score"] = new_data["Email_matching"].apply(
+#         if new_data['Email'][0]=='': 
+#             new_data["Email_Match_Score"] = 0
+#         else: 
+#             new_data["Email_Match_Score"] = new_data["Email_matching"].apply(
+#             self.assign_random_score
+#         )
+        
+         new_data["Email_Match_Score"] = new_data["Email_matching"].apply(
             self.assign_random_score
         )
             
