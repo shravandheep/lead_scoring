@@ -140,26 +140,29 @@ def process(data, node_dict):
             score_request == "request_score_for_lead"
             or score_request == "update_score_for_lead"
         ):
+            logger.info("Lead scoring invoked")
             result_dict = inference(node_dict, combined_data, score_request)
             result_dict["l1_score"] = round(float(result_dict["l1_score"]), 2)
         else:
+            logger.info("Lead scoring not invoked")
             result_dict = {}
     except Exception as e:
+
+        logger.info(f"Error in lead scoring")
         x = round(random.uniform(0.2, 0.4), 2)
         result_dict = {
             "l1_score": x,
             "l1_likelihood": 1,
-            "l1_reason": traceback.format_exc(), 
-            "lead_type": 'invalid combination',
+            "l1_reason": traceback.format_exc(),
+            "lead_type": "invalid combination",
             "confidence_scores": {
-                "FirstName_Match": -1, 
-                "LastName_Match": -1, 
-                "City_Match": -1, 
-                "StateCode_Match": -1, 
-                "Phone_Match_Score": -1, 
-                "Email_Match_Score": -1
-        }
-            
+                "FirstName_Match": 0,
+                "LastName_Match": 0,
+                "City_Match": 0,
+                "StateCode_Match": 0,
+                "Phone_Match_Score": 0,
+                "Email_Match_Score": 0,
+            },
         }
 
     return result_dict

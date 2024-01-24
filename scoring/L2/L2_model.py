@@ -6,21 +6,23 @@ import joblib
 import json
 import numpy as np
 import pandas as pd
-
+import logging
 import torch
 from torch.nn.utils.rnn import pad_sequence
 from scipy.special import softmax
 
-from auxiliary.util.common_utils import DynamoUtils
+from auxiliary.util.common_utils import setup_logger, DynamoUtils
 from auxiliary.util import global_constants as GConst
 from scoring.L2.model_inference import generate_df, model_inference
 
+logger = setup_logger(GConst.NODE_L2, logging.INFO)
 history_table = DynamoUtils(GConst.HISTORY_TABLE)
 weights_path = os.path.dirname(os.path.realpath(__file__))
 
 
 # Helpers
 def get_history_from_dynamodb(lead_id):
+    logger.info(f"Reading lead history from dynamo for lead: {lead_id}")
     items = history_table.query_by_partition_key(
         GConst.HISTORY_TABLE_PARTITION_KEY, lead_id
     )
@@ -84,5 +86,7 @@ def do_inference(data, node_dict):
         for k in keys_to_consider
     ]
 
-
     Xp, time_since_lead_creation = transform_features(all_changes[:30], node_dict)
+    score = model_inference(Xp)
+
+    return score, time_since_lead_creation

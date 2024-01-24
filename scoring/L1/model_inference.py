@@ -3,14 +3,16 @@ import json
 import joblib
 import pandas as pd
 import warnings
+import logging
 
-from auxiliary.util.global_constants import _WTS_EXT_L1
+from auxiliary.util.global_constants import NODE_L1, _WTS_EXT_L1
 from scoring.L1.translators import Translator
 
 from boosting_score import score_boost
+from auxiliary.util.common_utils import setup_logger
 
+logger = setup_logger(NODE_L1, logging.INFO)
 warnings.filterwarnings("ignore")
-
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 
 
@@ -115,49 +117,74 @@ def inference(node_dict, data, score_request):
             selected_scaler = lead_type["model_params"]["preprocessing_steps"][1]
 
             lead_type_f = lead_type["select_model"]
-            
+            logger.info(
+                f"Source: {data['LeadSource']}, Medium: {data['Lead_Medium__c']}, Ad source: {data['Lead_Ad_Source__c']}"
+            )
+            logger.info(f"Model invoked: {lead_type_f}")
+
             break
-            
-        elif data['Lead_Medium__c'] == 'search' and data['Lead_Ad_Source__c'] == 'direct': 
-            if 'rates.medicare' in data['Lead_URL__c']: 
+
+        elif (
+            data["Lead_Medium__c"] == "search" and data["Lead_Ad_Source__c"] == "direct"
+        ):
+            if "rates.medicare" in data["Lead_URL__c"]:
                 ### paid
-                lead_type = model_config['paid_leads_object_data']
+                lead_type = model_config["paid_leads_object_data"]
                 data_config = lead_type["data_source"]
                 numeric_cols = lead_type["numeric_features"]
                 categorical_cols = lead_type["categorical_features"]
                 selected_model = lead_type["model_wts"]
                 considered_features = numeric_cols + categorical_cols
 
-                selected_label_encoder = lead_type["model_params"]["preprocessing_steps"][0]
+                selected_label_encoder = lead_type["model_params"][
+                    "preprocessing_steps"
+                ][0]
                 selected_scaler = lead_type["model_params"]["preprocessing_steps"][1]
 
                 lead_type_f = lead_type["select_model"]
-                
-            else: 
+                logger.info(
+                    f"Source: {data['LeadSource']}, Medium: {data['Lead_Medium__c']}, Ad source: {data['Lead_Ad_Source__c']}"
+                )
+                logger.info(f"Model invoked: {lead_type_f}")
+            else:
                 #### seo
-                lead_type = model_config['not_paid_leads_object_data']
+                lead_type = model_config["not_paid_leads_object_data"]
                 data_config = lead_type["data_source"]
                 numeric_cols = lead_type["numeric_features"]
                 categorical_cols = lead_type["categorical_features"]
                 selected_model = lead_type["model_wts"]
                 considered_features = numeric_cols + categorical_cols
 
-                selected_label_encoder = lead_type["model_params"]["preprocessing_steps"][0]
+                selected_label_encoder = lead_type["model_params"][
+                    "preprocessing_steps"
+                ][0]
                 selected_scaler = lead_type["model_params"]["preprocessing_steps"][1]
 
                 lead_type_f = lead_type["select_model"]
+                logger.info(
+                    f"Source: {data['LeadSource']}, Medium: {data['Lead_Medium__c']}, Ad source: {data['Lead_Ad_Source__c']}"
+                )
+                logger.info(f"Model invoked: {lead_type_f}")
 
             break
-            
+
     else:
         reason = "Lead Source, Medium and Ad Source in combination did not match any of the lead model types"
-
+        logger.info(reason)
+        logger.info(
+            f"Source: {data['LeadSource']}, Medium: {data['Lead_Medium__c']}, Ad source: {data['Lead_Ad_Source__c']}"
+        )
         raise Exception(reason)
 
     # Feature selection
     if config_dict.get(data_config):
         data = transform_features(data, config_dict[data_config])
     else:
+        logger.info(
+            "No data transform config was found for key {}. Please check".format(
+                data_config
+            )
+        )
         raise Exception(
             "No data transform config was found for key {}. Please check".format(
                 data_config
@@ -189,6 +216,7 @@ def inference(node_dict, data, score_request):
     data_subset_features = encoding(
         data_subset_features, encoders_dict, numeric_cols, categorical_cols
     )
+    logger.info("Encoding done")
 
     for k, v in enc_mapping.items():
         if k in data.columns:
@@ -198,32 +226,36 @@ def inference(node_dict, data, score_request):
     if node_dict["model_dict"].get(selected_model):
         model = node_dict["model_dict"][selected_model]
     else:
+        logger.info("No model key was found")
         raise Exception("No model key was found. Please check")
 
     ordered_cols = model.get_booster().feature_names
     data_subset_features = data_subset_features[ordered_cols]
     prediction = model.predict_proba(data_subset_features)
     score = prediction[0][1]
+    logger.info("Model prediction done")
 
     #### include boosting logic here
     score = score_boost(score, data, selected_model)
+    logger.info("Boosting done")
 
     quartiles = json.load(open(config_dict["quartiles"]))
     likelihood = get_likelihood(score, quartiles)
+    logger.info("Obtained likelihood for output score")
 
     result_dict = {
         "l1_score": score,
         "l1_likelihood": likelihood,
         "l1_reason": "",
-        "lead_type": lead_type_f, 
+        "lead_type": lead_type_f,
         "confidence_scores": {
-                "FirstName_Match": filters_t[0]['FirstName_Match'], 
-                "LastName_Match": filters_t[0]['LastName_Match'], 
-                "City_Match": filters_t[0]['City_Match'], 
-                "StateCode_Match": filters_t[0]['StateCode_Match'], 
-                "Phone_Match_Score": filters_t[0]['Phone_Match_Score'], 
-                "Email_Match_Score": filters_t[0]['Email_Match_Score']
-        }
+            "FirstName_Match": filters_t[0]["FirstName_Match"],
+            "LastName_Match": filters_t[0]["LastName_Match"],
+            "City_Match": filters_t[0]["City_Match"],
+            "StateCode_Match": filters_t[0]["StateCode_Match"],
+            "Phone_Match_Score": filters_t[0]["Phone_Match_Score"],
+            "Email_Match_Score": filters_t[0]["Email_Match_Score"],
+        },
     }
 
     return result_dict

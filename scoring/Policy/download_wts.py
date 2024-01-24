@@ -35,19 +35,16 @@ for wts in POLICY_WTS:
             raise Exception("Unsuccessful Download")
 
         if response.status_code == 200:
-            
 
             os.makedirs(os.path.join(_FILE_PATH, WTS_PATH), exist_ok=True)
             local_path = os.path.realpath(os.path.join(_FILE_PATH, WTS_PATH, file_name))
-
-            
 
             with open(local_path, "wb") as f:
                 f.write(response.content)
 
     except Exception as e:
         pass
-        
+
 
 for enc in POLICY_LBL_ENC:
     endpoint = _CLOUDFRONT_URL + enc
@@ -62,7 +59,6 @@ for enc in POLICY_LBL_ENC:
             raise Exception("Unsuccessful Download")
 
         if response.status_code == 200:
-            
 
             os.makedirs(os.path.join(_FILE_PATH, ENC_PATH), exist_ok=True)
             os.makedirs(os.path.join(_FILE_PATH, ENC_PATH, LBL_ENC_PATH), exist_ok=True)
@@ -76,7 +72,7 @@ for enc in POLICY_LBL_ENC:
 
     except Exception as e:
         pass
-        
+
 
 for enc in POLICY_SCL_ENC:
     endpoint = _CLOUDFRONT_URL + enc
@@ -91,7 +87,6 @@ for enc in POLICY_SCL_ENC:
             raise Exception("Unsuccessful Download")
 
         if response.status_code == 200:
-            
 
             os.makedirs(os.path.join(_FILE_PATH, ENC_PATH), exist_ok=True)
             os.makedirs(os.path.join(_FILE_PATH, ENC_PATH, SCL_ENC_PATH), exist_ok=True)
@@ -100,14 +95,11 @@ for enc in POLICY_SCL_ENC:
                 os.path.join(_FILE_PATH, ENC_PATH, SCL_ENC_PATH, file_name)
             )
 
-            
-
             with open(local_path, "wb") as f:
                 f.write(response.content)
 
     except Exception as e:
         pass
-        
 
 
 for enc in L1_VEC:
@@ -123,7 +115,6 @@ for enc in L1_VEC:
             raise Exception("Unsuccessful Download")
 
         if response.status_code == 200:
-            
 
             os.makedirs(os.path.join(_FILE_PATH, ENC_PATH), exist_ok=True)
             os.makedirs(os.path.join(_FILE_PATH, ENC_PATH, KW_VEC_PATH), exist_ok=True)
@@ -131,8 +122,6 @@ for enc in L1_VEC:
             local_path = os.path.realpath(
                 os.path.join(_FILE_PATH, ENC_PATH, KW_VEC_PATH, file_name)
             )
-
-            
 
             with open(local_path, "wb") as f:
                 f.write(response.content)

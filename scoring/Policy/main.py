@@ -75,7 +75,7 @@ def initialize_node(node_config, **kwargs):
 
     for r, d, f in os.walk(parent_path_to_scalers):
         for scl in f:
-            
+
             key = scl.replace(_ENC_EXT_POLICY, "")
             key = key.split("-")[0]
 
@@ -85,7 +85,7 @@ def initialize_node(node_config, **kwargs):
     # init model configs
     for r, d, f in os.walk(config_path):
         for files in f:
-            
+
             key = files.replace(_CFG_EXT_POLICY, "")
             key = key.split("-")[0]
             config_dict[key] = os.path.join(r, files)
@@ -140,6 +140,7 @@ def process(data, node_dict):
     # Run model inference
     try:
         if score_request == "request_policy_score_for_lead":
+            logger.info("Policy scoring invoked")
             result_dict = dict(
                 result=inference(node_dict, combined_data, score_request),
                 lead_id=lead_id,
@@ -152,9 +153,11 @@ def process(data, node_dict):
             result_dict["result"][1]["score"] = round(float(ms_score), 2)
 
         else:
+            logger.info("Policy scoring not invoked")
             result_dict = {}
 
     except Exception as e:
+        logger.info("Error in policy scoring")
         x = round(random.uniform(0.2, 0.4), 2)
 
         res = [
@@ -162,25 +165,25 @@ def process(data, node_dict):
                 "type": "update_score_for_policy_ma",
                 "score": x,
                 "likelihood": 1,
-                "lead_type": 'invalid combination'
+                "lead_type": "invalid combination",
             },
             {
                 "type": "update_score_for_policy_ms",
                 "score": round(1 - x, 2),
                 "likelihood": 4,
-                "lead_type": 'invalid combination',
+                "lead_type": "invalid combination",
             },
             {
-            "type": "confidence_scores",
-            "score": {
-                "FirstName_Match": -1,
-                "LastName_Match": -1,
-                "City_Match": -1,
-                "StateCode_Match": -1,
-                "Phone_Match_Score": -1,
-                "Email_Match_Score": -1,
-                }
-            }
+                "type": "confidence_scores",
+                "score": {
+                    "FirstName_Match": 0,
+                    "LastName_Match": 0,
+                    "City_Match": 0,
+                    "StateCode_Match": 0,
+                    "Phone_Match_Score": 0,
+                    "Email_Match_Score": 0,
+                },
+            },
         ]
         result_dict = dict(
             result=res, lead_id=lead_id, policy_reason=traceback.format_exc()
