@@ -177,7 +177,8 @@ class Translator(object):
         )
         
         print('*'*100)
-        print(new_data['FirstName'])
+        print(new_data['FirstName'][0])
+        print(new_data['Individual Name First'][0])
         print('*'*100)
         
         if new_data['FirstName'][0]=='' or new_data['Individual Name First'][0]=='':
