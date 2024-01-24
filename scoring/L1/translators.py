@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 import logging
 from copy import deepcopy
+from fuzzywuzzy import fuzz
 
 import scoring.L1.plugins as plugins
 from scoring.L1.plugins import Plugin
@@ -174,9 +175,17 @@ class Translator(object):
         new_data["City_Match"] = int(
             new_data["City"] == new_data["Appended Addresses1 City"]
         )
-        new_data["FirstName_Match"] = int(
-            new_data["FirstName"] == new_data["Individual Name First"]
-        )
+        
+        
+        if new_data['FirstName']=='' or new_data['Individual Name First']=='':
+            new_data["FirstName_Match"] = 0
+        else: 
+            new_data["FirstName_Match"] = fuzz.token_sort_ratio(new_data['FirstName'], new_data['FirstName'])/100
+            
+            
+#         new_data["FirstName_Match"] = int(
+#             new_data["FirstName"] == new_data["Individual Name First"]
+#         )
         new_data["LastName_Match"] = int(
             new_data["LastName"] == new_data["Individual Name Last"]
         )
