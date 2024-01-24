@@ -161,10 +161,8 @@ class Translator(object):
             ),
             axis=1,
         )
-        print(new_data['MobilePhone'].empty)
-        print(new_data['MobilePhone'][0].type)
         
-        if new_data['MobilePhone'].empty: 
+        if new_data['MobilePhone'][0]=='': 
             new_data["Phone_Match_Score"] = 0
         else: 
             new_data["Phone_Match_Score"] = new_data["Phone_matching"].apply(
@@ -172,7 +170,7 @@ class Translator(object):
         )
             
             
-        if new_data['Email'].empty: 
+        if new_data['Email'][0]=='': 
             new_data["Email_Match_Score"] = 0
         else: 
             new_data["Email_Match_Score"] = new_data["Email_matching"].apply(
