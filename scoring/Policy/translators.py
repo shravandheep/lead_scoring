@@ -225,13 +225,25 @@ class Translator(object):
             ),
             axis=1,
         )
-
-        new_data["Email_Match_Score"] = new_data["Email_matching"].apply(
+        
+        
+        if new_data['MobilePhone'][0]=='': 
+            new_data["Phone_Match_Score"] = 0
+        else: 
+            new_data["Phone_Match_Score"] = new_data["Phone_matching"].apply(
             self.assign_random_score
         )
-        new_data["Phone_Match_Score"] = new_data["Phone_matching"].apply(
+            
+            
+        if new_data['Email'][0]=='': 
+            new_data["Email_Match_Score"] = 0
+        else: 
+            new_data["Email_Match_Score"] = new_data["Email_matching"].apply(
             self.assign_random_score
         )
+            
+            
+            
 
         if new_data['StateCode'][0]=='' or new_data['Appended Addresses1 State'][0]=='':
             new_data["StateCode_Match"] = 0
