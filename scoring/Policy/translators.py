@@ -246,7 +246,7 @@ class Translator(object):
 #             self.assign_random_score
 #         )
         
-         new_data["Email_Match_Score"] = new_data["Email_matching"].apply(
+        new_data["Email_Match_Score"] = new_data["Email_matching"].apply(
             self.assign_random_score
         )
             
