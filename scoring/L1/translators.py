@@ -180,18 +180,25 @@ class Translator(object):
         print(new_data['FirstName'])
         print('*'*100)
         
-#         if new_data['FirstName']=='' or new_data['Individual Name First']=='':
-#             new_data["FirstName_Match"] = 0
-#         else: 
-#             new_data["FirstName_Match"] = fuzz.token_sort_ratio(new_data['FirstName'], new_data['Individual Name First'])/100
+        if new_data['FirstName'][0]=='' or new_data['Individual Name First'][0]=='':
+            new_data["FirstName_Match"] = 0
+        else: 
+            new_data["FirstName_Match"] = fuzz.token_sort_ratio(new_data['FirstName'][0], new_data['Individual Name First'][0])/100
+            
+            
+            
+        if new_data['LastName'][0]=='' or new_data['Individual Name Last'][0]=='':
+            new_data["LastName_Match"] = 0
+        else: 
+            new_data["LastName_Match"] = fuzz.token_sort_ratio(new_data['LastName'][0], new_data['Individual Name Last'][0])/100
             
             
 #         new_data["FirstName_Match"] = int(
 #             new_data["FirstName"] == new_data["Individual Name First"]
 #         )
-        new_data["LastName_Match"] = int(
-            new_data["LastName"] == new_data["Individual Name Last"]
-        )
+#         new_data["LastName_Match"] = int(
+#             new_data["LastName"] == new_data["Individual Name Last"]
+#         )
         
         new_data = new_data.to_dict(orient="records")
 
