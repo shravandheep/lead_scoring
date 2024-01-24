@@ -149,6 +149,7 @@ class Translator(object):
         )
         print(new_data["Phones_Neustar"])
         print(new_data['MobilePhone'])
+        print(new_data['Appended Phones1 Number'])
         print('*'*100)
         new_data["Email_Neustar"] = new_data.apply(
             lambda row: [row[column] for column in email_neu], axis=1
