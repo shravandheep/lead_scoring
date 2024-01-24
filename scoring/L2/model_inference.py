@@ -5,11 +5,13 @@ import torch
 import torch
 import torch.nn as nn
 import torch.optim as optim
+import logging
 
 from torch.nn.utils.rnn import pad_sequence
-
 from auxiliary.util import global_constants as GConst
+from auxiliary.util.common_utils import setup_logger
 
+logger = setup_logger(GConst.NODE_L2, logging.INFO)
 _FILE_PATH = os.path.realpath(os.path.dirname(__file__))
 
 reverse_field_mapping = {
@@ -183,11 +185,13 @@ def generate_df(lead_history, node_dict):
     )
     lead_history_df["update_time"] = pd.to_datetime(lead_history_df["update_time"])
 
+    logger.info("Generating time-based features")
     lead_history_df, time_since_lead_creation = generate_time_based_feat(
         lead_history_df
     )  ### time based
 
     ### one hot encoding fields
+    logger.info("Generating one hot encoded features")
     lead_history_df_not_status = lead_history_df[
         lead_history_df["field_changed"] != "Status"
     ]
@@ -249,12 +253,14 @@ def generate_df(lead_history, node_dict):
         lead_history_df_merged_subsetcols, node_dict["scalers"]["scalers_dict"]
     )
 
+    logger.info("Generating sequences for the model")
     Xp_ = generate_sequences(X)  ### model input
 
     return Xp_, time_since_lead_creation
 
 
 def model_inference(Xp_):
+    logger.info("Model inference")
     outputs = model(Xp_)
     softmax = torch.nn.Softmax(dim=1)
     probabilities = softmax(outputs)

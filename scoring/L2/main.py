@@ -56,7 +56,7 @@ def initialize_node(node_config, **kwargs):
 
     for r, d, f in os.walk(parent_path_to_scalers):
         for scl in f:
-            
+
             key = scl.replace(_ENC_EXT_L2, "")
             key = key.split("-")[0]
             # with open(os.path.join(r, scl), "rb") as f:
@@ -96,25 +96,31 @@ def process(data, node_dict):
 
     try:
         if score_request == "update_score_for_lead":
+            logger.info("Lead scoring (MOFU) invoked")
             score, time_since_lead_creation = do_inference(
                 args_dict, node_dict
             )  ### check
             reason = ""
-            
+
             result_dict = {
                 "l2_score": round(float(score[1]), 2),
                 "time_since_lead_creation": time_since_lead_creation,
                 "l2_reason": reason,
             }
         elif score_request == "request_score_for_lead":
+            logger.info(
+                "Lead scoring (MOFU) not invoked - lead being processed for the first time"
+            )
             result_dict = {
                 "l2_score": 0,
                 "time_since_lead_creation": 300,
                 "l2_reason": "No L2 invocation for new lead.",
             }
         else:
+            logger.info("Lead scoring not invoked")
             result_dict = {}
     except:
+        logger.info(f"Error in lead scoring")
         result_dict = {
             "l2_score": 0,
             "time_since_lead_creation": 300,

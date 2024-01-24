@@ -36,7 +36,8 @@ def initialize_node(node_config, **kwargs):
         None
     """
 
-    logger.info("Node initialized")
+
+logger.info("Node initialized")
 
 
 def get_likelihood(score):
@@ -73,8 +74,8 @@ def process(data):
         "l1_likelihood",
         "l2_score",
         "l2_reason",
-        "lead_type", 
-        "confidence_scores"
+        "lead_type",
+        "confidence_scores",
     ]
 
     input_keys = [
@@ -87,7 +88,7 @@ def process(data):
         "time_since_lead_creation",
         "lead_type",
         "data",
-        "confidence_scores"
+        "confidence_scores",
     ]
 
     parsed_data, packet_id, _ = check_and_unpack_data(data)
@@ -99,6 +100,7 @@ def process(data):
         score_request == "update_score_for_lead"
         or score_request == "request_score_for_lead"
     ):
+        logger.info("Lead scoring consolidation invoked")
         args_dict = create_arguments_dict(parsed_data, input_keys)
         l1_score = args_dict["l1_score"]
 
@@ -113,18 +115,16 @@ def process(data):
         final_likelihood = get_likelihood(final_score)
 
         final_args = dict((k, v) for (k, v) in args_dict.items() if k in required_keys)
-
+        final_score = round(float(final_score), 2)
+        logger.info(f"Final score computed: {final_score}")
         result_dict = {
             **final_args,
-            "score": round(float(final_score), 2),
+            "score": final_score,
             "type": score_request,
             "likelihood": final_likelihood,
         }
     else:
+        logger.info("Lead scoring consolidation not invoked")
         result_dict = {}
 
     return result_dict
-
-
-if __name__ == "__main__":
-    pass

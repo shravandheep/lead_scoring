@@ -81,9 +81,9 @@ class Translator(object):
         return func(value)
 
     def find_index_in_list(self, value, int_list):
-        if value == '':  ##lead
+        if value == "":  ##lead
             return -2
-        elif int_list == ['', '', '']:
+        elif int_list == ["", "", ""]:
             return -2
         elif value in int_list:
             return int_list.index(value)
@@ -150,7 +150,7 @@ class Translator(object):
         new_data["Email_Neustar"] = new_data.apply(
             lambda row: [row[column] for column in email_neu], axis=1
         )
-        
+
         new_data["Email_matching"] = new_data.apply(
             lambda row: self.find_index_in_list(row["Email"], row["Email_Neustar"]),
             axis=1,
@@ -161,43 +161,52 @@ class Translator(object):
             ),
             axis=1,
         )
-        
+
         new_data["Phone_Match_Score"] = new_data["Phone_matching"].apply(
             self.assign_random_score
         )
-        
+
         new_data["Email_Match_Score"] = new_data["Email_matching"].apply(
             self.assign_random_score
         )
-            
-        
-        if new_data['StateCode'][0]=='' or new_data['Appended Addresses1 State'][0]=='':
+
+        if (
+            new_data["StateCode"][0] == ""
+            or new_data["Appended Addresses1 State"][0] == ""
+        ):
             new_data["StateCode_Match"] = 0
-        else: 
+        else:
             new_data["StateCode_Match"] = int(
                 new_data["StateCode"][0] == new_data["Appended Addresses1 State"][0]
             )
-            
-        if new_data['City'][0]=='' or new_data['Appended Addresses1 City'][0]=='':
+
+        if new_data["City"][0] == "" or new_data["Appended Addresses1 City"][0] == "":
             new_data["City_Match"] = 0
-        else: 
+        else:
             new_data["City_Match"] = int(
                 new_data["City"][0] == new_data["Appended Addresses1 City"][0]
-            )        
-        
-        if new_data['FirstName'][0]=='' or new_data['Individual Name First'][0]=='':
+            )
+
+        if new_data["FirstName"][0] == "" or new_data["Individual Name First"][0] == "":
             new_data["FirstName_Match"] = 0
-        else: 
-            new_data["FirstName_Match"] = fuzz.token_sort_ratio(new_data['FirstName'][0], new_data['Individual Name First'][0])/100
-            
-            
-            
-        if new_data['LastName'][0]=='' or new_data['Individual Name Last'][0]=='':
+        else:
+            new_data["FirstName_Match"] = (
+                fuzz.token_sort_ratio(
+                    new_data["FirstName"][0], new_data["Individual Name First"][0]
+                )
+                / 100
+            )
+
+        if new_data["LastName"][0] == "" or new_data["Individual Name Last"][0] == "":
             new_data["LastName_Match"] = 0
-        else: 
-            new_data["LastName_Match"] = fuzz.token_sort_ratio(new_data['LastName'][0], new_data['Individual Name Last'][0])/100
-            
-        
+        else:
+            new_data["LastName_Match"] = (
+                fuzz.token_sort_ratio(
+                    new_data["LastName"][0], new_data["Individual Name Last"][0]
+                )
+                / 100
+            )
+
         new_data = new_data.to_dict(orient="records")
 
         return new_data

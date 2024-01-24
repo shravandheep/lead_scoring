@@ -1,11 +1,11 @@
 import os
 import logging
-from mlaaslib import App, get_config
 from main import initialize_node
 from main import process as main_process
 
 from auxiliary.util.global_constants import NODE_POLICY
 from auxiliary.util.common_utils import setup_logger
+from mlaaslib import App, get_config
 
 _ENV_TYPE = os.environ.get("ENV_TYPE")
 log = setup_logger(NODE_POLICY, logging.INFO)

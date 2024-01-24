@@ -90,9 +90,9 @@ class Translator(object):
         return func(value)
 
     def find_index_in_list(self, value, int_list):
-        if value == '':  ##lead
+        if value == "":  ##lead
             return -2
-        elif int_list == ['', '', '']:
+        elif int_list == ["", "", ""]:
             return -2
         elif value in int_list:
             return int_list.index(value)
@@ -225,43 +225,51 @@ class Translator(object):
             ),
             axis=1,
         )
-        
-        
+
         new_data["Phone_Match_Score"] = new_data["Phone_matching"].apply(
             self.assign_random_score
         )
-        
+
         new_data["Email_Match_Score"] = new_data["Email_matching"].apply(
             self.assign_random_score
         )
-            
-            
-            
 
-        if new_data['StateCode'][0]=='' or new_data['Appended Addresses1 State'][0]=='':
+        if (
+            new_data["StateCode"][0] == ""
+            or new_data["Appended Addresses1 State"][0] == ""
+        ):
             new_data["StateCode_Match"] = 0
-        else: 
+        else:
             new_data["StateCode_Match"] = int(
                 new_data["StateCode"][0] == new_data["Appended Addresses1 State"][0]
             )
-            
-        if new_data['City'][0]=='' or new_data['Appended Addresses1 City'][0]=='':
+
+        if new_data["City"][0] == "" or new_data["Appended Addresses1 City"][0] == "":
             new_data["City_Match"] = 0
-        else: 
+        else:
             new_data["City_Match"] = int(
                 new_data["City"][0] == new_data["Appended Addresses1 City"][0]
-            ) 
-            
-            
-        if new_data['FirstName'][0]=='' or new_data['Individual Name First'][0]=='':
+            )
+
+        if new_data["FirstName"][0] == "" or new_data["Individual Name First"][0] == "":
             new_data["FirstName_Match"] = 0
-        else: 
-            new_data["FirstName_Match"] = fuzz.token_sort_ratio(new_data['FirstName'][0], new_data['Individual Name First'][0])/100
-            
-        if new_data['LastName'][0]=='' or new_data['Individual Name Last'][0]=='':
+        else:
+            new_data["FirstName_Match"] = (
+                fuzz.token_sort_ratio(
+                    new_data["FirstName"][0], new_data["Individual Name First"][0]
+                )
+                / 100
+            )
+
+        if new_data["LastName"][0] == "" or new_data["Individual Name Last"][0] == "":
             new_data["LastName_Match"] = 0
-        else: 
-            new_data["LastName_Match"] = fuzz.token_sort_ratio(new_data['LastName'][0], new_data['Individual Name Last'][0])/100
+        else:
+            new_data["LastName_Match"] = (
+                fuzz.token_sort_ratio(
+                    new_data["LastName"][0], new_data["Individual Name Last"][0]
+                )
+                / 100
+            )
 
         new_data["Birthdate__c"] = pd.to_datetime(new_data["Birthdate__c"])
         new_data["CreatedDate"] = pd.to_datetime(new_data["CreatedDate"])
@@ -276,9 +284,9 @@ class Translator(object):
         age_rating = pd.read_csv(age_rating)
         new_data = new_data.merge(age_rating, how="left")
         new_data["Community %"] = new_data["Community %"].str.rstrip("%").astype(float)
-        
-#         new_data["LeadAppSubStage__c"] = 0
-#         new_data["LeadAppStage__c"] = 0
+
+        #         new_data["LeadAppSubStage__c"] = 0
+        #         new_data["LeadAppStage__c"] = 0
 
         #         new_data = new_data.loc[:,~new_data.T.duplicated(keep='last')]
 
