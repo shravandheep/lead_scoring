@@ -147,9 +147,13 @@ class Translator(object):
         new_data["Phones_Neustar"] = new_data.apply(
             lambda row: [row[column] for column in phone_neu], axis=1
         )
+        print(new_data["Phones_Neustar"])
+        print('*'*100)
         new_data["Email_Neustar"] = new_data.apply(
             lambda row: [row[column] for column in email_neu], axis=1
         )
+        print(new_data["Email_Neustar"])
+        print('*'*100)
 
         new_data["Email_matching"] = new_data.apply(
             lambda row: self.find_index_in_list(row["Email"], row["Email_Neustar"]),
@@ -168,24 +172,20 @@ class Translator(object):
         new_data["Phone_Match_Score"] = new_data["Phone_matching"].apply(
             self.assign_random_score
         )
-
-        new_data["StateCode_Match"] = int(
-            new_data["StateCode"] == new_data["StateCode"]
-        )
-        new_data["City_Match"] = int(
-            new_data["City"] == new_data["Appended Addresses1 City"]
-        )
         
-        print('*'*100)
-        print(new_data['FirstName'][0])
-        print(new_data['Individual Name First'][0])
-        print('*'*100)
-        
-        
-        print('*'*100)
-        print(new_data['LastName'][0])
-        print(new_data['Individual Name Last'][0])
-        print('*'*100)
+        if new_data['StateCode'][0]=='' or new_data['Appended Addresses1 State'][0]=='':
+            new_data["StateCode_Match"] = 0
+        else: 
+            new_data["StateCode_Match"] = int(
+                new_data["StateCode"][0] == new_data["Appended Addresses1 State"][0]
+            )
+            
+        if new_data['City'][0]=='' or new_data['Appended Addresses1 City'][0]=='':
+            new_data["City_Match"] = 0
+        else: 
+            new_data["City_Match"] = int(
+                new_data["City"][0] == new_data["Appended Addresses1 City"][0]
+            )        
         
         if new_data['FirstName'][0]=='' or new_data['Individual Name First'][0]=='':
             new_data["FirstName_Match"] = 0

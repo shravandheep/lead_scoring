@@ -233,12 +233,21 @@ class Translator(object):
             self.assign_random_score
         )
 
-        new_data["StateCode_Match"] = int(
-            new_data["StateCode"] == new_data["StateCode"]
-        )
-        new_data["City_Match"] = int(
-            new_data["City"] == new_data["Appended Addresses1 City"]
-        )
+        if new_data['StateCode'][0]=='' or new_data['Appended Addresses1 State'][0]=='':
+            new_data["StateCode_Match"] = 0
+        else: 
+            new_data["StateCode_Match"] = int(
+                new_data["StateCode"][0] == new_data["Appended Addresses1 State"][0]
+            )
+            
+        if new_data['City'][0]=='' or new_data['Appended Addresses1 City'][0]=='':
+            new_data["City_Match"] = 0
+        else: 
+            new_data["City_Match"] = int(
+                new_data["City"][0] == new_data["Appended Addresses1 City"][0]
+            ) 
+            
+            
         if new_data['FirstName'][0]=='' or new_data['Individual Name First'][0]=='':
             new_data["FirstName_Match"] = 0
         else: 
