@@ -161,7 +161,7 @@ class Translator(object):
             ),
             axis=1,
         )
-
+        print(new_data['MobilePhone'].empty)
         
         if new_data['MobilePhone'].empty: 
             new_data["Phone_Match_Score"] = 0
