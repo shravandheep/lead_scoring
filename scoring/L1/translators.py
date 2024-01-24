@@ -176,11 +176,14 @@ class Translator(object):
             new_data["City"] == new_data["Appended Addresses1 City"]
         )
         
+        print('*'*100)
+        print(new_data['FirstName'])
+        print('*'*100)
         
-        if new_data['FirstName']=='' or new_data['Individual Name First']=='':
-            new_data["FirstName_Match"] = 0
-        else: 
-            new_data["FirstName_Match"] = fuzz.token_sort_ratio(new_data['FirstName'], new_data['FirstName'])/100
+#         if new_data['FirstName']=='' or new_data['Individual Name First']=='':
+#             new_data["FirstName_Match"] = 0
+#         else: 
+#             new_data["FirstName_Match"] = fuzz.token_sort_ratio(new_data['FirstName'], new_data['Individual Name First'])/100
             
             
 #         new_data["FirstName_Match"] = int(
