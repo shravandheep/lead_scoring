@@ -90,9 +90,9 @@ class Translator(object):
         return func(value)
 
     def find_index_in_list(self, value, int_list):
-        if value == "null":  ##lead
+        if value == '':  ##lead
             return -2
-        elif int_list == ["null", "null", "null"]:
+        elif int_list == ['', '', '']:
             return -2
         elif value in int_list:
             return int_list.index(value)
