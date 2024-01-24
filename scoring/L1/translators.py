@@ -181,6 +181,12 @@ class Translator(object):
         print(new_data['Individual Name First'][0])
         print('*'*100)
         
+        
+        print('*'*100)
+        print(new_data['LastName'][0])
+        print(new_data['Individual Name Last'][0])
+        print('*'*100)
+        
         if new_data['FirstName'][0]=='' or new_data['Individual Name First'][0]=='':
             new_data["FirstName_Match"] = 0
         else: 
