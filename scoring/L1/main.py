@@ -131,6 +131,7 @@ def process(data, node_dict):
     neustar_data = args_dict["data"].get(NEUSTAR_DATA, {})
 
     combined_data.update(lead_data)
+    ### handle here if there's no neustar data
     combined_data.update(neustar_data["Results"])
 
     #     node_dict['neustar_match'] = "not_matched" if not bool(neustar_data) else "matched"
