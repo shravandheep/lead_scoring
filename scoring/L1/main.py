@@ -136,8 +136,10 @@ def process(data, node_dict):
         combined_data.update(neustar_data["Results"])
     except KeyError: 
         dummy_neustar = os.path.join(_FILE_PATH, "dummy_neustar.json")
-        print(dummy_neustar)
-        neustar_data["Results"] = dummy_neustar
+
+        with open(dummy_neustar, "r") as json_file:
+            dummy_neustar_cols = json.load(json_file)
+        neustar_data["Results"] = dummy_neustar_cols
         combined_data.update(neustar_data["Results"])
 
     try:
