@@ -170,6 +170,11 @@ def process(data, node_dict):
                 "Phone_Match_Score": 0,
                 "Email_Match_Score": 0,
             },
+            "flag_values": {
+                "Lead Source": lead_data['LeadSource'], 
+                "Lead Medium": lead_data['Lead_Medium__c'],
+                "Lead Ad Source": lead_data['Lead_Ad_Source__c']
+            }
         }
 
     return result_dict

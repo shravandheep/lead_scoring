@@ -176,12 +176,22 @@ def process(data, node_dict):
                 "score": x,
                 "likelihood": 1,
                 "lead_type": "invalid combination",
+                "flag_values": {
+                    "Lead Source": lead_data['LeadSource'], 
+                    "Lead Medium": lead_data['Lead_Medium__c'],
+                    "Lead Ad Source": lead_data['Lead_Ad_Source__c']
+                }
             },
             {
                 "type": "update_score_for_policy_ms",
                 "score": round(1 - x, 2),
                 "likelihood": 4,
                 "lead_type": "invalid combination",
+                "flag_values": {
+                    "Lead Source": lead_data['LeadSource'], 
+                    "Lead Medium": lead_data['Lead_Medium__c'],
+                    "Lead Ad Source": lead_data['Lead_Ad_Source__c']
+                }
             },
             {
                 "type": "confidence_scores",

@@ -250,12 +250,22 @@ def inference(node_dict, data, score_request):
             "score": score_ma,
             "likelihood": likelihood_ma,
             "lead_type": lead_type_f,
+            "flag_values": {
+                    "Lead Source": filters_t[0]['LeadSource'], 
+                    "Lead Medium": filters_t[0]['Lead_Medium__c'],
+                    "Lead Ad Source": filters_t[0]['Lead_Ad_Source__c']
+                }
         },
         {
             "type": "update_score_for_policy_ms",
             "score": score_ms,
             "likelihood": likelihood_ms,
             "lead_type": lead_type_f,
+            "flag_values": {
+                    "Lead Source": filters_t[0]['LeadSource'], 
+                    "Lead Medium": filters_t[0]['Lead_Medium__c'],
+                    "Lead Ad Source": filters_t[0]['Lead_Ad_Source__c']
+                }
         },
         {
             "type": "confidence_scores",
