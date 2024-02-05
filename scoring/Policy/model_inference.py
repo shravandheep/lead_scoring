@@ -121,6 +121,7 @@ def inference(node_dict, data, score_request):
             logger.info(
                 f"Source: {data['LeadSource']}, Medium: {data['Lead_Medium__c']}, Ad source: {data['Lead_Ad_Source__c']}"
             )
+            lead_source, lead_medium, lead_ad_source = data['LeadSource'], data['Lead_Medium__c'], data['Lead_Ad_Source__c']
             logger.info(f"Model invoked: {lead_type_f}")
 
             break
@@ -146,6 +147,7 @@ def inference(node_dict, data, score_request):
                 logger.info(
                     f"Source: {data['LeadSource']}, Medium: {data['Lead_Medium__c']}, Ad source: {data['Lead_Ad_Source__c']}"
                 )
+                lead_source, lead_medium, lead_ad_source = data['LeadSource'], data['Lead_Medium__c'], data['Lead_Ad_Source__c']
                 logger.info(f"Model invoked: {lead_type_f}")
 
             else:
@@ -166,6 +168,7 @@ def inference(node_dict, data, score_request):
                 logger.info(
                     f"Source: {data['LeadSource']}, Medium: {data['Lead_Medium__c']}, Ad source: {data['Lead_Ad_Source__c']}"
                 )
+                lead_source, lead_medium, lead_ad_source = data['LeadSource'], data['Lead_Medium__c'], data['Lead_Ad_Source__c']
                 logger.info(f"Model invoked: {lead_type_f}")
 
             break
@@ -176,6 +179,7 @@ def inference(node_dict, data, score_request):
         logger.info(
             f"Source: {data['LeadSource']}, Medium: {data['Lead_Medium__c']}, Ad source: {data['Lead_Ad_Source__c']}"
         )
+        lead_source, lead_medium, lead_ad_source = data['LeadSource'], data['Lead_Medium__c'], data['Lead_Ad_Source__c']
         raise Exception(reason)
 
     # Feature selection
@@ -251,9 +255,9 @@ def inference(node_dict, data, score_request):
             "likelihood": likelihood_ma,
             "lead_type": lead_type_f,
             "flag_values": {
-                    "Lead Source": data['LeadSource'], 
-                    "Lead Medium": data['Lead_Medium__c'],
-                    "Lead Ad Source": data['Lead_Ad_Source__c']
+                    "Lead Source": lead_source, 
+                    "Lead Medium": lead_medium,
+                    "Lead Ad Source": lead_ad_source
                 }
         },
         {
@@ -262,9 +266,9 @@ def inference(node_dict, data, score_request):
             "likelihood": likelihood_ms,
             "lead_type": lead_type_f,
             "flag_values": {
-                    "Lead Source": data['LeadSource'], 
-                    "Lead Medium": data['Lead_Medium__c'],
-                    "Lead Ad Source": data['Lead_Ad_Source__c']
+                    "Lead Source": lead_source, 
+                    "Lead Medium": lead_medium,
+                    "Lead Ad Source": lead_ad_source
                 }
         },
         {
