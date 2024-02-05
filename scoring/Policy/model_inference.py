@@ -251,9 +251,9 @@ def inference(node_dict, data, score_request):
             "likelihood": likelihood_ma,
             "lead_type": lead_type_f,
             "flag_values": {
-                    "Lead Source": filters_t[0]['LeadSource'], 
-                    "Lead Medium": filters_t[0]['Lead_Medium__c'],
-                    "Lead Ad Source": filters_t[0]['Lead_Ad_Source__c']
+                    "Lead Source": data['LeadSource'], 
+                    "Lead Medium": data['Lead_Medium__c'],
+                    "Lead Ad Source": data['Lead_Ad_Source__c']
                 }
         },
         {
@@ -262,9 +262,9 @@ def inference(node_dict, data, score_request):
             "likelihood": likelihood_ms,
             "lead_type": lead_type_f,
             "flag_values": {
-                    "Lead Source": filters_t[0]['LeadSource'], 
-                    "Lead Medium": filters_t[0]['Lead_Medium__c'],
-                    "Lead Ad Source": filters_t[0]['Lead_Ad_Source__c']
+                    "Lead Source": data['LeadSource'], 
+                    "Lead Medium": data['Lead_Medium__c'],
+                    "Lead Ad Source": data['Lead_Ad_Source__c']
                 }
         },
         {

@@ -257,9 +257,9 @@ def inference(node_dict, data, score_request):
             "Email_Match_Score": filters_t[0]["Email_Match_Score"],
         },
         "flag_values": {
-                "Lead Source": filters_t[0]['LeadSource'], 
-                "Lead Medium": filters_t[0]['Lead_Medium__c'],
-                "Lead Ad Source": filters_t[0]['Lead_Ad_Source__c']
+                "Lead Source": data['LeadSource'], 
+                "Lead Medium": data['Lead_Medium__c'],
+                "Lead Ad Source": data['Lead_Ad_Source__c']
 
             }
     }
