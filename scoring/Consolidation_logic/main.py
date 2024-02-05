@@ -76,6 +76,7 @@ def process(data):
         "l2_reason",
         "lead_type",
         "confidence_scores",
+        "flag_values"
     ]
 
     input_keys = [
@@ -89,6 +90,7 @@ def process(data):
         "lead_type",
         "data",
         "confidence_scores",
+        "flag_values"
     ]
 
     parsed_data, packet_id, _ = check_and_unpack_data(data)

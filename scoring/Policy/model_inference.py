@@ -83,6 +83,8 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
 
 
 def inference(node_dict, data, score_request):
+    raw_data = data.copy()
+    lead_source, lead_medium, lead_ad_source = raw_data['LeadSource'], raw_data['Lead_Medium__c'], raw_data['Lead_Ad_Source__c']
     model_config = node_dict["inference_cfg"]
     config_dict = node_dict["config_dict"]
 
@@ -250,12 +252,22 @@ def inference(node_dict, data, score_request):
             "score": score_ma,
             "likelihood": likelihood_ma,
             "lead_type": lead_type_f,
+            "flag_values": {
+                    "Lead Source": lead_source, 
+                    "Lead Medium": lead_medium,
+                    "Lead Ad Source": lead_ad_source
+                }
         },
         {
             "type": "update_score_for_policy_ms",
             "score": score_ms,
             "likelihood": likelihood_ms,
             "lead_type": lead_type_f,
+            "flag_values": {
+                    "Lead Source": lead_source, 
+                    "Lead Medium": lead_medium,
+                    "Lead Ad Source": lead_ad_source
+                }
         },
         {
             "type": "confidence_scores",

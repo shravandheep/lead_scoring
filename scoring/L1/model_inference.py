@@ -82,6 +82,8 @@ def encoding(features, encoders_dict, numeric_cols, categorical_cols):
 
 
 def inference(node_dict, data, score_request):
+    raw_data = data.copy()
+    lead_source, lead_medium, lead_ad_source = raw_data['LeadSource'], raw_data['Lead_Medium__c'], raw_data['Lead_Ad_Source__c']
     model_config = node_dict["inference_cfg"]
     config_dict = node_dict["config_dict"]
 
@@ -164,6 +166,7 @@ def inference(node_dict, data, score_request):
                 logger.info(
                     f"Source: {data['LeadSource']}, Medium: {data['Lead_Medium__c']}, Ad source: {data['Lead_Ad_Source__c']}"
                 )
+                
                 logger.info(f"Model invoked: {lead_type_f}")
 
             break
@@ -174,6 +177,7 @@ def inference(node_dict, data, score_request):
         logger.info(
             f"Source: {data['LeadSource']}, Medium: {data['Lead_Medium__c']}, Ad source: {data['Lead_Ad_Source__c']}"
         )
+        
         raise Exception(reason)
 
     # Feature selection
@@ -256,6 +260,12 @@ def inference(node_dict, data, score_request):
             "Phone_Match_Score": filters_t[0]["Phone_Match_Score"],
             "Email_Match_Score": filters_t[0]["Email_Match_Score"],
         },
+        "flag_values": {
+                "Lead Source": lead_source, 
+                "Lead Medium": lead_medium,
+                "Lead Ad Source": lead_ad_source
+
+            }
     }
 
     return result_dict
