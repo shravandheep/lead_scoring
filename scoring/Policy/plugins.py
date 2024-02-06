@@ -320,7 +320,7 @@ class Split_String(Plugin):
 
     def apply(self, x):
         x = str(x)
-        words = x.split(_split)
+        words = x.split(self._split)
 
         if len(words) > 1:
             first_f = " ".join(words[:1]).strip()
@@ -488,14 +488,14 @@ class Groups_Regex(Plugin):
         }
 
         for class_name, pattern in patterns.items():
-            wordlist = cleanup_url(url)
+            wordlist = self.cleanup_url(url)
 
             mapped_1 = any(
-                [is_word_in_list(word, wordlist, "match") for word in pattern["match"]]
+                [self.is_word_in_list(word, wordlist, "match") for word in pattern["match"]]
             )
             mapped_2 = any(
                 [
-                    is_word_in_list(word, wordlist, "freeflow")
+                    self.is_word_in_list(word, wordlist, "freeflow")
                     for word in pattern["freeflow"]
                 ]
             )
@@ -546,11 +546,11 @@ class Groups_Regex(Plugin):
             wordlist = keyword.split()
 
             mapped_1 = any(
-                [is_word_in_list(word, wordlist, "match") for word in pattern["match"]]
+                [self.is_word_in_list(word, wordlist, "match") for word in pattern["match"]]
             )
             mapped_2 = any(
                 [
-                    is_word_in_list(word, wordlist, "freeflow")
+                    self.is_word_in_list(word, wordlist, "freeflow")
                     for word in pattern["freeflow"]
                 ]
             )

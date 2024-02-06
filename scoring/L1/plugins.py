@@ -320,7 +320,7 @@ class Split_String(Plugin):
 
     def apply(self, x):
         x = str(x)
-        words = x.split(_split)
+        words = x.split(self._split)
 
         if len(words) > 1:
             first_f = " ".join(words[:1]).strip()
@@ -431,7 +431,7 @@ class Groups_Regex(Plugin):
     def get_error(self):
         return self._error
 
-    def cleanup_url(url):
+    def cleanup_url(self, url):
         url = (
             url.replace("https://", " ")
             .replace("www.", " ")
@@ -445,7 +445,7 @@ class Groups_Regex(Plugin):
 
         return wordlist
 
-    def is_word_in_list(word, word_list, mapping_type):
+    def is_word_in_list(self, word, word_list, mapping_type):
         if mapping_type == "match":
             pattern = r"\b" + re.escape(word) + r"\b"
         elif mapping_type == "freeflow":
@@ -453,7 +453,7 @@ class Groups_Regex(Plugin):
         matches = [re.search(pattern, w) for w in word_list]
         return any(matches)
 
-    def get_url_group(url):
+    def get_url_group(self, url):
         patterns = {
             "Medigap Plans by State": {
                 "match": ["state", "states"],
@@ -488,14 +488,14 @@ class Groups_Regex(Plugin):
         }
 
         for class_name, pattern in patterns.items():
-            wordlist = cleanup_url(url)
+            wordlist = self.cleanup_url(url)
 
             mapped_1 = any(
-                [is_word_in_list(word, wordlist, "match") for word in pattern["match"]]
+                [self.is_word_in_list(word, wordlist, "match") for word in pattern["match"]]
             )
             mapped_2 = any(
                 [
-                    is_word_in_list(word, wordlist, "freeflow")
+                    self.is_word_in_list(word, wordlist, "freeflow")
                     for word in pattern["freeflow"]
                 ]
             )
@@ -505,7 +505,7 @@ class Groups_Regex(Plugin):
         else:
             return "Others"
 
-    def get_keyword_group(keyword):
+    def get_keyword_group(self, keyword):
         patterns = {
             "Health Insurance Medicare Supplement": {
                 "match": ["health insurance medicare supplement"],
@@ -546,11 +546,11 @@ class Groups_Regex(Plugin):
             wordlist = keyword.split()
 
             mapped_1 = any(
-                [is_word_in_list(word, wordlist, "match") for word in pattern["match"]]
+                [self.is_word_in_list(word, wordlist, "match") for word in pattern["match"]]
             )
             mapped_2 = any(
                 [
-                    is_word_in_list(word, wordlist, "freeflow")
+                    self.is_word_in_list(word, wordlist, "freeflow")
                     for word in pattern["freeflow"]
                 ]
             )
