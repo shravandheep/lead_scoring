@@ -240,8 +240,8 @@ def inference(node_dict, data, score_request):
     logger.info("Model prediction done")
 
 
-    print(data_subset_features)
-    
+    print(data_subset_features.to_dict(orient='records'))
+
     #### include boosting logic here
     score = score_boost(score, data, selected_model)
     logger.info("Boosting done")
