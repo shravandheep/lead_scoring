@@ -1380,7 +1380,7 @@
             "apply":"regex",
             "kwargs":{
                 "from":[
-                    ".*bh.+"
+                    ".*bh+"
                 ],
                 "to":"bh"
             },
@@ -1390,7 +1390,7 @@
             "apply":"regex",
             "kwargs":{
                 "from":[
-                    ".*ah.+"
+                    ".*ah+"
                 ],
                 "to":"ah"
             },
@@ -1400,7 +1400,7 @@
             "apply":"regex",
             "kwargs":{
                 "from":[
-                    ".*wh.+"
+                    ".*wh+"
                 ],
                 "to":"wh"
             },
