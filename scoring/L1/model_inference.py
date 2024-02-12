@@ -198,7 +198,7 @@ def inference(node_dict, data, score_request):
 
     data_subset_features = data[considered_features]
 
-    print(data_subset_features.to_dict(orient='records'))
+    print(data_subset_features.to_dict(orient='records')[0])
 
     # Encoding
     label_encoder_dict = node_dict["label_encoders"]
