@@ -1380,7 +1380,7 @@
             "apply":"regex",
             "kwargs":{
                 "from":[
-                    ".*bh"
+                    ".*bh.*"
                 ],
                 "to":"bh"
             },
@@ -1390,7 +1390,7 @@
             "apply":"regex",
             "kwargs":{
                 "from":[
-                    ".*ah"
+                    ".*ah.*"
                 ],
                 "to":"ah"
             },
@@ -1400,7 +1400,7 @@
             "apply":"regex",
             "kwargs":{
                 "from":[
-                    ".*wh"
+                    ".*wh.*"
                 ],
                 "to":"wh"
             },
@@ -2640,14 +2640,6 @@
             }
         }
     ],
-    "Current_Plan_Type__c":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        }
-    ],
     "CurrentProvider__c":[
         {
             "apply":"fill_na",
@@ -2657,14 +2649,6 @@
         }
     ],
     "Current_Plan_Type__c":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        }
-    ],
-    "Gender__c":[
         {
             "apply":"fill_na",
             "kwargs":{
@@ -3522,14 +3506,6 @@
                 "value":"False"
             },
             "alias":"is_valid_Appended Emails 3 Email Address"
-        }
-    ],
-    "Input Phone1 Active":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
         }
     ],
     "Input Phone1 DNC":[
