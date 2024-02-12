@@ -3647,45 +3647,62 @@
             "alias":"contact_counts"
         }
     ],
-    "Input Phone1 Contactability Score": [
+    "Input Phone1 Contactability Score":[
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
             },
-            "alias": "contact_counts"
+            "alias":"contact_counts"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "A",
                     "C",
                     "B",
                     "F"
                 ],
-                "to": 1
+                "to":1
             },
-            "alias": "Phone1__phone_type"
+            "alias":"Phone1__phone_type"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "J",
                     "I",
                     "G",
                     "K",
                     "E"
                 ],
-                "to": 0
+                "to":0
             },
-            "alias": "Phone1__phone_type"
+            "alias":"Phone1__phone_type"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "E"
+                ],
+                "to":0.5
+            },
+            "alias":"Phone1__phone_type"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
+            },
+            "alias":"Phone1__phone_type"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "F",
                     "J",
                     "I",
@@ -3693,214 +3710,199 @@
                     "E",
                     "K"
                 ],
-                "to": 0
+                "to":0
             },
-            "alias": "Phone1__verified_phone"
+            "alias":"Phone1__verified_phone"
         },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
             },
-            "alias": "Phone1__verified_phone"
+            "alias":"Phone1__verified_phone"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "A",
                     "C"
                 ],
-                "to": 1
+                "to":1
             },
-            "alias": "Phone1__verified_phone"
+            "alias":"Phone1__verified_phone"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "B"
                 ],
-                "to": -1
+                "to":-1
             },
-            "alias": "Phone1__verified_phone"
+            "alias":"Phone1__verified_phone"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "F",
-                    "J",
-                    "I",
-                    "G",
-                    "E",
-                    "K"
-                ],
-                "to": 0
-            },
-            "alias": "verified_phone"
-        },
-        {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
-            },
-            "alias": "verified_phone"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "A",
-                    "C"
-                ],
-                "to": 1
-            },
-            "alias": "verified_phone"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "B"
-                ],
-                "to": -1
-            },
-            "alias": "verified_phone"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "F",
-                    "K"
-                ],
-                "to": 0
-            },
-            "alias": "Phone1__phone_usage_12"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "A",
-                    "C",
-                    "B",
-                    "G",
-                    "E"
-                ],
-                "to": 1
-            },
-            "alias": "Phone1__phone_usage_12"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "J",
-                    "I",
-                    "G",
-                    "K",
-                    "C",
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "F"
                 ],
-                "to": 0
+                "to":0
             },
-            "alias": "Phone1__phone_usage_2"
+            "alias":"Phone1__phone_usage_12"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "A",
+                    "C",
                     "B",
+                    "G",
                     "E"
                 ],
-                "to": 1
+                "to":1
             },
-            "alias": "Phone1__phone_usage_2"
-        }, 
-        {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
-            },
-            "alias": "Phone1__phone_type"
+            "alias":"Phone1__phone_usage_12"
         },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "I", 
+                    "J"
+                ],
+                "to":0.5
             },
-            "alias": "Phone1__verified_phone"
+            "alias":"Phone1__phone_usage_12"
         },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "K"
+                ],
+                "to":-1
             },
-            "alias": "Phone1__phone_usage_2"
+            "alias":"Phone1__phone_usage_12"
         },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
             },
-            "alias": "Phone1__phone_usage_12"
-        }, 
+            "alias":"Phone1__phone_usage_12"
+        },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": "unknown"
-            }
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "G",
+                    "I",
+                    "J",
+                    "K"
+                ],
+                "to":-1
+            },
+            "alias":"Phone1__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "C", 
+                    "F"
+                ],
+                "to":0.2
+            },
+            "alias":"Phone1__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "B", 
+                    "E"
+                ],
+                "to":0.5
+            },
+            "alias":"Phone1__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "A"
+                ],
+                "to":1
+            },
+            "alias":"Phone1__phone_usage_2"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
+            },
+            "alias":"Phone1__phone_usage_2"
         }
     ],
-    "Appended Phones1 Contactability Score": [
+    "Appended Phones1 Contactability Score":[
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 1
+            "apply":"fill_na",
+            "kwargs":{
+                "value":1
             },
-            "alias": "contact_counts"
+            "alias":"contact_counts"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "A",
                     "C",
                     "B",
                     "F"
                 ],
-                "to": 1
+                "to":1
             },
-            "alias": "Appended_Phone1__phone_type"
+            "alias":"Appended_Phone1__phone_type"
         },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
-            },
-            "alias": "Appended_Phone1__phone_type"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "J",
                     "I",
                     "G",
                     "K",
                     "E"
                 ],
-                "to": 0
+                "to":0
             },
-            "alias": "Appended_Phone1__phone_type"
+            "alias":"Appended_Phone1__phone_type"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "E"
+                ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone1__phone_type"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
+            },
+            "alias":"Appended_Phone1__phone_type"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "F",
                     "J",
                     "I",
@@ -3908,164 +3910,199 @@
                     "E",
                     "K"
                 ],
-                "to": 0
+                "to":0
             },
-            "alias": "Appended_Phone1__verified_phone"
+            "alias":"Appended_Phone1__verified_phone"
         },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
             },
-            "alias": "Appended_Phone1__verified_phone"
+            "alias":"Appended_Phone1__verified_phone"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "A",
                     "C"
                 ],
-                "to": 1
+                "to":1
             },
-            "alias": "Appended_Phone1__verified_phone"
+            "alias":"Appended_Phone1__verified_phone"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "B"
                 ],
-                "to": -1
+                "to":-1
             },
-            "alias": "Appended_Phone1__verified_phone"
+            "alias":"Appended_Phone1__verified_phone"
         },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
-            },
-            "alias": "Appended_Phone1__verified_phone"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "F",
-                    "K"
-                ],
-                "to": 0
-            },
-            "alias": "Appended_Phone1__phone_usage_12"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "A",
-                    "C",
-                    "B",
-                    "G",
-                    "E"
-                ],
-                "to": 1
-            },
-            "alias": "Appended_Phone1__phone_usage_12"
-        },
-        {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
-            },
-            "alias": "Appended_Phone1__phone_usage_12"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "J",
-                    "I",
-                    "G",
-                    "K",
-                    "C",
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "F"
                 ],
-                "to": 0
+                "to":0
             },
-            "alias": "Appended_Phone1__phone_usage_2"
+            "alias":"Appended_Phone1__phone_usage_12"
         },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
-            },
-            "alias": "Appended_Phone1__phone_usage_2"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "A",
+                    "C",
                     "B",
+                    "G",
                     "E"
                 ],
-                "to": 1
+                "to":1
             },
-            "alias": "Appended_Phone1__phone_usage_2"
-        }, 
+            "alias":"Appended_Phone1__phone_usage_12"
+        },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": "unknown"
-            }
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "I", 
+                    "J"
+                ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone1__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "K"
+                ],
+                "to":-1
+            },
+            "alias":"Appended_Phone1__phone_usage_12"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
+            },
+            "alias":"Appended_Phone1__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "G",
+                    "I",
+                    "J",
+                    "K"
+                ],
+                "to":-1
+            },
+            "alias":"Appended_Phone1__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "C", 
+                    "F"
+                ],
+                "to":0.2
+            },
+            "alias":"Appended_Phone1__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "B", 
+                    "E"
+                ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone1__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "A"
+                ],
+                "to":1
+            },
+            "alias":"Appended_Phone1__phone_usage_2"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
+            },
+            "alias":"Appended_Phone1__phone_usage_2"
         }
     ],
-    "Appended Phones2 Contactability Score": [
+    "Appended Phones2 Contactability Score":[
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 2
+            "apply":"fill_na",
+            "kwargs":{
+                "value":2
             },
-            "alias": "contact_counts"
+            "alias":"contact_counts"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "A",
                     "C",
                     "B",
                     "F"
                 ],
-                "to": 1
+                "to":1
             },
-            "alias": "Appended_Phone2__phone_type"
+            "alias":"Appended_Phone2__phone_type"
         },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
-            },
-            "alias": "Appended_Phone2__phone_type"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "J",
                     "I",
                     "G",
                     "K",
                     "E"
                 ],
-                "to": 0
+                "to":0
             },
-            "alias": "Appended_Phone2__phone_type"
+            "alias":"Appended_Phone2__phone_type"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "E"
+                ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone2__phone_type"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
+            },
+            "alias":"Appended_Phone2__phone_type"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "F",
                     "J",
                     "I",
@@ -4073,164 +4110,199 @@
                     "E",
                     "K"
                 ],
-                "to": 0
+                "to":0
             },
-            "alias": "Appended_Phone2__verified_phone"
+            "alias":"Appended_Phone2__verified_phone"
         },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
             },
-            "alias": "Appended_Phone2__verified_phone"
+            "alias":"Appended_Phone2__verified_phone"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "A",
                     "C"
                 ],
-                "to": 1
+                "to":1
             },
-            "alias": "Appended_Phone2__verified_phone"
+            "alias":"Appended_Phone2__verified_phone"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "B"
                 ],
-                "to": -1
+                "to":-1
             },
-            "alias": "Appended_Phone2__verified_phone"
+            "alias":"Appended_Phone2__verified_phone"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "F",
-                    "K"
-                ],
-                "to": 0
-            },
-            "alias": "Appended_Phone2__phone_usage_12"
-        },
-        {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
-            },
-            "alias": "Appended_Phone2__verified_phone"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "A",
-                    "C",
-                    "B",
-                    "G",
-                    "E"
-                ],
-                "to": 1
-            },
-            "alias": "Appended_Phone2__phone_usage_12"
-        },
-        {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
-            },
-            "alias": "Appended_Phone2__phone_usage_12"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "J",
-                    "I",
-                    "G",
-                    "K",
-                    "C",
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "F"
                 ],
-                "to": 0
+                "to":0
             },
-            "alias": "Appended_Phone2__phone_usage_2"
+            "alias":"Appended_Phone2__phone_usage_12"
         },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
-            },
-            "alias": "Appended_Phone2__phone_usage_2"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "A",
+                    "C",
                     "B",
+                    "G",
                     "E"
                 ],
-                "to": 1
+                "to":1
             },
-            "alias": "Appended_Phone2__phone_usage_2"
-        }, 
+            "alias":"Appended_Phone2__phone_usage_12"
+        },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": "unknown"
-            }
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "I", 
+                    "J"
+                ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone2__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "K"
+                ],
+                "to":-1
+            },
+            "alias":"Appended_Phone2__phone_usage_12"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
+            },
+            "alias":"Appended_Phone2__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "G",
+                    "I",
+                    "J",
+                    "K"
+                ],
+                "to":-1
+            },
+            "alias":"Appended_Phone2__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "C", 
+                    "F"
+                ],
+                "to":0.2
+            },
+            "alias":"Appended_Phone2__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "B", 
+                    "E"
+                ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone2__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "A"
+                ],
+                "to":1
+            },
+            "alias":"Appended_Phone2__phone_usage_2"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
+            },
+            "alias":"Appended_Phone2__phone_usage_2"
         }
     ],
-    "Appended Phones3 Contactability Score": [
+    "Appended Phones3 Contactability Score":[
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 3
+            "apply":"fill_na",
+            "kwargs":{
+                "value":3
             },
-            "alias": "contact_counts"
+            "alias":"contact_counts"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "A",
                     "C",
                     "B",
                     "F"
                 ],
-                "to": 1
+                "to":1
             },
-            "alias": "Appended_Phone3__phone_type"
+            "alias":"Appended_Phone3__phone_type"
         },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
-            },
-            "alias": "Appended_Phone3__phone_type"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "J",
                     "I",
                     "G",
                     "K",
                     "E"
                 ],
-                "to": 0
+                "to":0
             },
-            "alias": "Appended_Phone3__phone_type"
+            "alias":"Appended_Phone3__phone_type"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "E"
+                ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone3__phone_type"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
+            },
+            "alias":"Appended_Phone3__phone_type"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "F",
                     "J",
                     "I",
@@ -4238,109 +4310,141 @@
                     "E",
                     "K"
                 ],
-                "to": 0
+                "to":0
             },
-            "alias": "Appended_Phone3__verified_phone"
+            "alias":"Appended_Phone3__verified_phone"
         },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
             },
-            "alias": "Appended_Phone3__verified_phone"
+            "alias":"Appended_Phone3__verified_phone"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "A",
                     "C"
                 ],
-                "to": 1
+                "to":1
             },
-            "alias": "Appended_Phone3__verified_phone"
+            "alias":"Appended_Phone3__verified_phone"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "B"
                 ],
-                "to": -1
+                "to":-1
             },
-            "alias": "Appended_Phone3__verified_phone"
+            "alias":"Appended_Phone3__verified_phone"
         },
         {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "F",
-                    "K"
-                ],
-                "to": 0
-            },
-            "alias": "Appended_Phone3__phone_usage_12"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "A",
-                    "C",
-                    "B",
-                    "G",
-                    "E"
-                ],
-                "to": 1
-            },
-            "alias": "Appended_Phone3__phone_usage_12"
-        },
-        {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
-            },
-            "alias": "Appended_Phone3__phone_usage_12"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
-                    "J",
-                    "I",
-                    "G",
-                    "K",
-                    "C",
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "F"
                 ],
-                "to": 0
+                "to":0
             },
-            "alias": "Appended_Phone3__phone_usage_2"
+            "alias":"Appended_Phone3__phone_usage_12"
         },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": 0
-            },
-            "alias": "Appended_Phone3__phone_usage_2"
-        },
-        {
-            "apply": "substitute",
-            "kwargs": {
-                "from": [
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
                     "A",
+                    "C",
                     "B",
+                    "G",
                     "E"
                 ],
-                "to": 1
+                "to":1
             },
-            "alias": "Appended_Phone3__phone_usage_2"
-        }, 
+            "alias":"Appended_Phone3__phone_usage_12"
+        },
         {
-            "apply": "fill_na",
-            "kwargs": {
-                "value": "unknown"
-            }
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "I", 
+                    "J"
+                ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone3__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "K"
+                ],
+                "to":-1
+            },
+            "alias":"Appended_Phone3__phone_usage_12"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
+            },
+            "alias":"Appended_Phone3__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "G",
+                    "I",
+                    "J",
+                    "K"
+                ],
+                "to":-1
+            },
+            "alias":"Appended_Phone3__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "C", 
+                    "F"
+                ],
+                "to":0.2
+            },
+            "alias":"Appended_Phone3__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "B", 
+                    "E"
+                ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone3__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "A"
+                ],
+                "to":1
+            },
+            "alias":"Appended_Phone3__phone_usage_2"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
+            },
+            "alias":"Appended_Phone3__phone_usage_2"
         }
     ],
     "Appended Emails 1 Email Address":[

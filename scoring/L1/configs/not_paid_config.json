@@ -3057,13 +3057,6 @@
             "alias":"Phone1__phone_type"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
-            },
-            "alias":"Phone1__phone_type"
-        },
-        {
             "apply":"substitute",
             "kwargs":{
                 "from":[
@@ -3074,6 +3067,23 @@
                     "E"
                 ],
                 "to":0
+            },
+            "alias":"Phone1__phone_type"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "E"
+                ],
+                "to":0.5
+            },
+            "alias":"Phone1__phone_type"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
             },
             "alias":"Phone1__phone_type"
         },
@@ -3124,53 +3134,64 @@
             "apply":"substitute",
             "kwargs":{
                 "from":[
-                    "F",
-                    "K"
-                ],
-                "to":0
-            },
-            "alias":"Phone1__phone_usage_12"
-        },
-        {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
-                    "A",
-                    "C",
-                    "B",
-                    "G",
-                    "E"
-                ],
-                "to":1
-            },
-            "alias":"Phone1__phone_usage_12"
-        },
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
-            },
-            "alias":"Phone1__phone_usage_12"
-        },
-        {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
-                    "J",
-                    "I",
-                    "G",
-                    "K",
-                    "C",
                     "F"
                 ],
                 "to":0
             },
-            "alias":"Phone1__phone_usage_2"
+            "alias":"Phone1__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "A",
+                    "C",
+                    "B",
+                    "G",
+                    "E"
+                ],
+                "to":1
+            },
+            "alias":"Phone1__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "I", 
+                    "J"
+                ],
+                "to":0.5
+            },
+            "alias":"Phone1__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "K"
+                ],
+                "to":-1
+            },
+            "alias":"Phone1__phone_usage_12"
         },
         {
             "apply":"fill_na",
             "kwargs":{
                 "value":0
+            },
+            "alias":"Phone1__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "G",
+                    "I",
+                    "J",
+                    "K"
+                ],
+                "to":-1
             },
             "alias":"Phone1__phone_usage_2"
         },
@@ -3178,11 +3199,38 @@
             "apply":"substitute",
             "kwargs":{
                 "from":[
-                    "A",
-                    "B",
+                    "C", 
+                    "F"
+                ],
+                "to":0.2
+            },
+            "alias":"Phone1__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "B", 
                     "E"
                 ],
+                "to":0.5
+            },
+            "alias":"Phone1__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "A"
+                ],
                 "to":1
+            },
+            "alias":"Phone1__phone_usage_2"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
             },
             "alias":"Phone1__phone_usage_2"
         }
@@ -3195,7 +3243,6 @@
             },
             "alias":"contact_counts"
         },
-        
         {
             "apply":"substitute",
             "kwargs":{
@@ -3210,13 +3257,6 @@
             "alias":"Appended_Phone1__phone_type"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
-            },
-            "alias":"Appended_Phone1__phone_type"
-        },
-        {
             "apply":"substitute",
             "kwargs":{
                 "from":[
@@ -3227,6 +3267,23 @@
                     "E"
                 ],
                 "to":0
+            },
+            "alias":"Appended_Phone1__phone_type"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "E"
+                ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone1__phone_type"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
             },
             "alias":"Appended_Phone1__phone_type"
         },
@@ -3277,53 +3334,64 @@
             "apply":"substitute",
             "kwargs":{
                 "from":[
-                    "F",
-                    "K"
-                ],
-                "to":0
-            },
-            "alias":"Appended_Phone1__phone_usage_12"
-        },
-        {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
-                    "A",
-                    "C",
-                    "B",
-                    "G",
-                    "E"
-                ],
-                "to":1
-            },
-            "alias":"Appended_Phone1__phone_usage_12"
-        },
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
-            },
-            "alias":"Appended_Phone1__phone_usage_12"
-        },
-        {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
-                    "J",
-                    "I",
-                    "G",
-                    "K",
-                    "C",
                     "F"
                 ],
                 "to":0
             },
-            "alias":"Appended_Phone1__phone_usage_2"
+            "alias":"Appended_Phone1__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "A",
+                    "C",
+                    "B",
+                    "G",
+                    "E"
+                ],
+                "to":1
+            },
+            "alias":"Appended_Phone1__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "I", 
+                    "J"
+                ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone1__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "K"
+                ],
+                "to":-1
+            },
+            "alias":"Appended_Phone1__phone_usage_12"
         },
         {
             "apply":"fill_na",
             "kwargs":{
                 "value":0
+            },
+            "alias":"Appended_Phone1__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "G",
+                    "I",
+                    "J",
+                    "K"
+                ],
+                "to":-1
             },
             "alias":"Appended_Phone1__phone_usage_2"
         },
@@ -3331,11 +3399,38 @@
             "apply":"substitute",
             "kwargs":{
                 "from":[
-                    "A",
-                    "B",
+                    "C", 
+                    "F"
+                ],
+                "to":0.2
+            },
+            "alias":"Appended_Phone1__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "B", 
                     "E"
                 ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone1__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "A"
+                ],
                 "to":1
+            },
+            "alias":"Appended_Phone1__phone_usage_2"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
             },
             "alias":"Appended_Phone1__phone_usage_2"
         }
@@ -3362,13 +3457,6 @@
             "alias":"Appended_Phone2__phone_type"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
-            },
-            "alias":"Appended_Phone2__phone_type"
-        },
-        {
             "apply":"substitute",
             "kwargs":{
                 "from":[
@@ -3379,6 +3467,23 @@
                     "E"
                 ],
                 "to":0
+            },
+            "alias":"Appended_Phone2__phone_type"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "E"
+                ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone2__phone_type"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
             },
             "alias":"Appended_Phone2__phone_type"
         },
@@ -3429,53 +3534,64 @@
             "apply":"substitute",
             "kwargs":{
                 "from":[
-                    "F",
-                    "K"
-                ],
-                "to":0
-            },
-            "alias":"Appended_Phone2__phone_usage_12"
-        },
-        {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
-                    "A",
-                    "C",
-                    "B",
-                    "G",
-                    "E"
-                ],
-                "to":1
-            },
-            "alias":"Appended_Phone2__phone_usage_12"
-        },
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
-            },
-            "alias":"Appended_Phone2__phone_usage_12"
-        },
-        {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
-                    "J",
-                    "I",
-                    "G",
-                    "K",
-                    "C",
                     "F"
                 ],
                 "to":0
             },
-            "alias":"Appended_Phone2__phone_usage_2"
+            "alias":"Appended_Phone2__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "A",
+                    "C",
+                    "B",
+                    "G",
+                    "E"
+                ],
+                "to":1
+            },
+            "alias":"Appended_Phone2__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "I", 
+                    "J"
+                ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone2__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "K"
+                ],
+                "to":-1
+            },
+            "alias":"Appended_Phone2__phone_usage_12"
         },
         {
             "apply":"fill_na",
             "kwargs":{
                 "value":0
+            },
+            "alias":"Appended_Phone2__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "G",
+                    "I",
+                    "J",
+                    "K"
+                ],
+                "to":-1
             },
             "alias":"Appended_Phone2__phone_usage_2"
         },
@@ -3483,11 +3599,38 @@
             "apply":"substitute",
             "kwargs":{
                 "from":[
-                    "A",
-                    "B",
+                    "C", 
+                    "F"
+                ],
+                "to":0.2
+            },
+            "alias":"Appended_Phone2__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "B", 
                     "E"
                 ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone2__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "A"
+                ],
                 "to":1
+            },
+            "alias":"Appended_Phone2__phone_usage_2"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
             },
             "alias":"Appended_Phone2__phone_usage_2"
         }
@@ -3514,13 +3657,6 @@
             "alias":"Appended_Phone3__phone_type"
         },
         {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
-            },
-            "alias":"Appended_Phone3__phone_type"
-        },
-        {
             "apply":"substitute",
             "kwargs":{
                 "from":[
@@ -3531,6 +3667,23 @@
                     "E"
                 ],
                 "to":0
+            },
+            "alias":"Appended_Phone3__phone_type"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "E"
+                ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone3__phone_type"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
             },
             "alias":"Appended_Phone3__phone_type"
         },
@@ -3581,53 +3734,64 @@
             "apply":"substitute",
             "kwargs":{
                 "from":[
-                    "F",
-                    "K"
-                ],
-                "to":0
-            },
-            "alias":"Appended_Phone3__phone_usage_12"
-        },
-        {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
-                    "A",
-                    "C",
-                    "B",
-                    "G",
-                    "E"
-                ],
-                "to":1
-            },
-            "alias":"Appended_Phone3__phone_usage_12"
-        },
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":0
-            },
-            "alias":"Appended_Phone3__phone_usage_12"
-        },
-        {
-            "apply":"substitute",
-            "kwargs":{
-                "from":[
-                    "J",
-                    "I",
-                    "G",
-                    "K",
-                    "C",
                     "F"
                 ],
                 "to":0
             },
-            "alias":"Appended_Phone3__phone_usage_2"
+            "alias":"Appended_Phone3__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "A",
+                    "C",
+                    "B",
+                    "G",
+                    "E"
+                ],
+                "to":1
+            },
+            "alias":"Appended_Phone3__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "I", 
+                    "J"
+                ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone3__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "K"
+                ],
+                "to":-1
+            },
+            "alias":"Appended_Phone3__phone_usage_12"
         },
         {
             "apply":"fill_na",
             "kwargs":{
                 "value":0
+            },
+            "alias":"Appended_Phone3__phone_usage_12"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "G",
+                    "I",
+                    "J",
+                    "K"
+                ],
+                "to":-1
             },
             "alias":"Appended_Phone3__phone_usage_2"
         },
@@ -3635,11 +3799,38 @@
             "apply":"substitute",
             "kwargs":{
                 "from":[
-                    "A",
-                    "B",
+                    "C", 
+                    "F"
+                ],
+                "to":0.2
+            },
+            "alias":"Appended_Phone3__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "B", 
                     "E"
                 ],
+                "to":0.5
+            },
+            "alias":"Appended_Phone3__phone_usage_2"
+        },
+        {
+            "apply":"substitute",
+            "kwargs":{
+                "from":[
+                    "A"
+                ],
                 "to":1
+            },
+            "alias":"Appended_Phone3__phone_usage_2"
+        },
+        {
+            "apply":"fill_na",
+            "kwargs":{
+                "value":0
             },
             "alias":"Appended_Phone3__phone_usage_2"
         }
