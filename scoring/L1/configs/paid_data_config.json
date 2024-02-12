@@ -3740,14 +3740,6 @@
             }
         }
     ],
-    "Appended Phones1 Active":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        }
-    ],
     "Appended Phones1 DNC":[
         {
             "apply":"fill_na",
@@ -3788,14 +3780,6 @@
             }
         }
     ],
-    "Appended Phones2 Active":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        }
-    ],
     "Appended Phones2 DNC":[
         {
             "apply":"fill_na",
@@ -3833,14 +3817,6 @@
             "apply":"fill_na",
             "kwargs":{
                 "value":0
-            }
-        }
-    ],
-    "Appended Phones3 Active":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
             }
         }
     ],

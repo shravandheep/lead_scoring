@@ -2849,14 +2849,6 @@
             }
         }
     ],
-    "Gender__c":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        }
-    ],
     "Abandoned_Call_In__c":[
         {
             "apply":"substitute",
@@ -2912,14 +2904,6 @@
         }
     ],
     "Current_Coverage__c":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        }
-    ],
-    "Current_Plan_Type__c":[
         {
             "apply":"fill_na",
             "kwargs":{
@@ -3995,14 +3979,6 @@
             "alias":"is_valid_Appended Emails 3 Email Address"
         }
     ],
-    "Input Phone1 Active":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        }
-    ],
     "Input Phone1 DNC":[
         {
             "apply":"fill_na",
@@ -4040,14 +4016,6 @@
             "apply":"fill_na",
             "kwargs":{
                 "value":0
-            }
-        }
-    ],
-    "Appended Phones1 Active":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
             }
         }
     ],
@@ -4091,14 +4059,6 @@
             }
         }
     ],
-    "Appended Phones2 Active":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
-            }
-        }
-    ],
     "Appended Phones2 DNC":[
         {
             "apply":"fill_na",
@@ -4136,14 +4096,6 @@
             "apply":"fill_na",
             "kwargs":{
                 "value":0
-            }
-        }
-    ],
-    "Appended Phones3 Active":[
-        {
-            "apply":"fill_na",
-            "kwargs":{
-                "value":"unknown"
             }
         }
     ],
